@@ -228,10 +228,10 @@
   height: 100%;
   padding: 0 12px 0 12px;
 
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   &:hover {
-    color: var(--colorWhite);
+    color: var(--colorBlack);
     border-bottom: 4px solid var(--marketplaceColor);
     border-radius: 0;
     text-decoration: none;
@@ -246,10 +246,10 @@
   height: 100%;
   padding: 0 12px 0 12px;
 
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   &:hover {
-    color: var(--colorWhite);
+    color: var(--colorBlack);
     border-bottom: 4px solid var(--marketplaceColor);
     border-radius: 0;
     text-decoration: none;

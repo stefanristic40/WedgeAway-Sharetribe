@@ -138,7 +138,10 @@ const TopbarDesktop = props => {
   );
 
   return (
-    <nav className={classes} style={{ background: 'transparent', marginBottom: '-72px' }}>
+    <nav
+      className={classes}
+      style={{ background: 'transparent', marginBottom: '-72px', backdropFilter: 'blur(8px)' }}
+    >
       <LinkedLogo
         className={css.logoLink}
         layout="desktop"
