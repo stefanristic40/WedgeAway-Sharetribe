@@ -1,8 +1,20 @@
 import React from 'react';
-import './Section8.css';
+import './Section10.css';
 
-function Section8(props) {
-  return <div></div>;
+function Section10(props) {
+  return (
+    <div className="section10 n-container">
+      <div>
+        <h3>
+          Looking For Clubs By Courses You’re Playing At? Search thousands of courses to find what
+          you’re looking for
+        </h3>
+      </div>
+      <div className="search">
+        <input type="text" placeholder="" />
+      </div>
+    </div>
+  );
 }
 
-export default Section8;
+export default Section10;

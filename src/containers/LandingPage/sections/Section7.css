@@ -1,4 +1,4 @@
-.section9 {
+.section7 {
   padding: 50px 0;
   color: black;
 
@@ -8,15 +8,23 @@
     margin: 0px;
   }
 
-  .brands {
-    margin-top: 50px;
+  .items {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
 
-    img {
-      width: 20%;
+    .item {
+      width: 30%;
+      text-align: center;
+
+      img {
+        width: 100%;
+      }
+
+      h3 {
+        margin: 20px 0;
+      }
     }
   }
 }
