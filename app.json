@@ -1,0 +1,6 @@
+{
+  "name": "Your App Name",
+  "description": "Description of your app",
+  "image": "",
+  "addons": ["addon_name1", "addon_name2"]
+}
