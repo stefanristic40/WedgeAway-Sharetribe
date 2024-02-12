@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 
 import TopbarSearchForm from '../../TopbarContainer/Topbar/TopbarSearchForm/TopbarSearchForm';
 import { useConfiguration } from '../../../context/configurationContext';
@@ -117,3 +118,11 @@ function Section1(props) {
 }
 
 export default Section1;
+
+Section1.defaultProps = {
+  currentSearchParams: null,
+};
+
+Section1.propTypes = {
+  currentSearchParams: object,
+};
