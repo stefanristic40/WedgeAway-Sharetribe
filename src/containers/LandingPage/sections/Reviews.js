@@ -1,7 +1,7 @@
-import React from 'react';
-import './Section4.css';
+import React, { useState } from 'react';
+import './Reviews.css';
 
-function Section4(props) {
+function Reviews(props) {
   const reviews = [
     {
       description:
@@ -27,19 +27,43 @@ function Section4(props) {
       star: 5,
       image: '/static/images/reviews/3.png',
     },
+    {
+      description:
+        'As a weekend golfer, I wanted quality clubs without the commitment of buying. WedgeAway was a game-changer! The clubs I rented were top-notch and in fantastic condition. The ease of booking and customer service was like a breath of fresh air. Delivered right to my local course, too! Will definitely be using WedgeAway for all my golf outings.',
+      name: 'Smart W',
+      locaiton: 'Holmberg Farms in Bristow, NE',
+      star: 5,
+      image: '/static/images/reviews/3.png',
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex(prevIndex => (prevIndex === 0 ? reviews.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex(prevIndex => (prevIndex === reviews.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  const displayedReviews = [
+    reviews[currentIndex],
+    reviews[(currentIndex + 1) % reviews.length],
+    reviews[(currentIndex + 2) % reviews.length],
   ];
 
   return (
-    <div className="section4 n-container">
+    <div className="reviews n-container">
       <div className="title-bar">
         <h1>Join thousands of Golfers enjoying WedgeAway.</h1>
         <div className="slide-controller">
-          <button> {`<`} </button>
-          <button> {`>`} </button>
+          <button onClick={handlePrev}> {'<'} </button>
+          <button onClick={handleNext}> {'>'} </button>
         </div>
       </div>
       <div className="items">
-        {reviews.map((review, index) => (
+        {displayedReviews.map((review, index) => (
           <div key={index} className="review-card">
             <img src="/static/images/quote.svg" alt="quote" />
             <div className="detail">
@@ -48,8 +72,15 @@ function Section4(props) {
             <div className="user-sec">
               <img src={review.image} alt="review" />
               <div className="user-info">
-                <p>{review.name}</p>
+                <p className="name">{review.name}</p>
                 <p>{review.locaiton}</p>
+                <div className="stars">
+                  <img src="/static/images/star.png" alt="star" />
+                  <img src="/static/images/star.png" alt="star" />
+                  <img src="/static/images/star.png" alt="star" />
+                  <img src="/static/images/star.png" alt="star" />
+                  <img src="/static/images/star.png" alt="star" />
+                </div>
               </div>
             </div>
           </div>
@@ -59,4 +90,4 @@ function Section4(props) {
   );
 }
 
-export default Section4;
+export default Reviews;

@@ -1,9 +1,9 @@
 import React from 'react';
-import './Section10.css';
+import './SearchCourse.css';
 
-function Section10(props) {
+function SearchCourse(props) {
   return (
-    <div className="section10 n-container">
+    <div className="searchCourse n-container">
       <div>
         <h3>
           Looking For Clubs By Courses You’re Playing At? Search thousands of courses to find what
@@ -11,10 +11,10 @@ function Section10(props) {
         </h3>
       </div>
       <div className="search">
-        <input type="text" placeholder="" />
+        <input type="text" placeholder="Search by Course" />
       </div>
     </div>
   );
 }
 
-export default Section10;
+export default SearchCourse;

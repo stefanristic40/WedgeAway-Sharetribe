@@ -14,13 +14,13 @@ import { ASSET_NAME } from './LandingPage.duck';
 import Section1 from './sections/Section1';
 import Section2 from './sections/Section2';
 import Section3 from './sections/Section3';
-import Section4 from './sections/Section4';
+import Reviews from './sections/Reviews';
 import Section5 from './sections/Section5';
 import Section6 from './sections/Section6';
 import Section7 from './sections/Section7';
 import Section8 from './sections/Section8';
 import Section9 from './sections/Section9';
-import Section10 from './sections/Section10';
+import SearchCourse from './sections/SearchCourse';
 import Section11 from './sections/Section11';
 
 const PageBuilder = loadable(() =>
@@ -49,9 +49,9 @@ export const LandingPageComponent = props => {
       title: 'Section 3',
     },
     {
-      sectionType: 'section4',
-      sectionId: 'section4',
-      title: 'Section 4',
+      sectionType: 'Reviews',
+      sectionId: 'Reviews',
+      title: 'Reviews',
     },
     {
       sectionType: 'section5',
@@ -79,9 +79,9 @@ export const LandingPageComponent = props => {
       title: 'Section 9',
     },
     {
-      sectionType: 'section10',
-      sectionId: 'section10',
-      title: 'Section 10',
+      sectionType: 'SearchCourse',
+      sectionId: 'SearchCourse',
+      title: 'SearchCourse',
     },
     {
       sectionType: 'section11',
@@ -101,13 +101,13 @@ export const LandingPageComponent = props => {
           section1: { component: Section1 },
           section2: { component: Section2 },
           section3: { component: Section3 },
-          section4: { component: Section4 },
+          Reviews: { component: Reviews },
           section5: { component: Section5 },
           section6: { component: Section6 },
           section7: { component: Section7 },
           section8: { component: Section8 },
           section9: { component: Section9 },
-          section10: { component: Section10 },
+          SearchCourse: { component: SearchCourse },
           section11: { component: Section11 },
         },
       }}
