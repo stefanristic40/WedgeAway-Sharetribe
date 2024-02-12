@@ -518,13 +518,6 @@ class LocationAutocompleteInputImplementation extends Component {
 
     return (
       <div className={rootClass}>
-        <div className={iconClass}>
-          {this.state.fetchingPlaceDetails ? (
-            <IconSpinner className={css.iconSpinner} />
-          ) : (
-            <IconHourGlass />
-          )}
-        </div>
         <input
           className={inputClass}
           type="search"
@@ -544,6 +537,7 @@ class LocationAutocompleteInputImplementation extends Component {
               inputRef(node);
             }
           }}
+          style={{ borderTopLeftRadius: '50px', borderBottomLeftRadius: '50px' }}
           data-testid="location-search"
         />
         {renderPredictions ? (
@@ -561,6 +555,17 @@ class LocationAutocompleteInputImplementation extends Component {
             <GeocoderAttribution className={predictionsAttributionClassName} />
           </LocationPredictionsList>
         ) : null}
+
+        <div
+          className={iconClass}
+          style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px' }}
+        >
+          {this.state.fetchingPlaceDetails ? (
+            <IconSpinner className={css.iconSpinner} />
+          ) : (
+            <IconHourGlass />
+          )}
+        </div>
       </div>
     );
   }
