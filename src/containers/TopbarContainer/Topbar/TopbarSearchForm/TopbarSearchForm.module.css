@@ -79,7 +79,7 @@
   composes: p from global;
   flex-grow: 1;
   /* Font */
-  height: var(--topbarHeightDesktop);
+  height: 50px;
   line-height: unset;
   border: none;
   padding-top: 0;

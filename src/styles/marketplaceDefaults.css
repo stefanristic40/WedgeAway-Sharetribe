@@ -556,7 +556,7 @@ textarea {
 /* ================ Plain global CSS glasses ================ */
 
 /**
- * Note: even though these reflect element styles, 
+ * Note: even though these reflect element styles,
  * these are below element styles to allow overwrites using classes.
  */
 
@@ -925,7 +925,7 @@ textarea {
  * For actual buttons, use components: <Button>, <PrimaryButton>, <SecondaryButton>
  *
  * To create button look-and-feel for links, etc. combine button classes in CSS Modules:
- * 
+ *
  * <Button>:
  *   composes: buttonDefault from global;
  * <PrimaryButton>:
@@ -1473,4 +1473,11 @@ textarea {
   @media (--viewportMedium) {
     margin-top: 32px;
   }
+}
+
+.n-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }

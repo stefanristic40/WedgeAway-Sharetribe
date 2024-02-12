@@ -10,7 +10,18 @@ import { propTypes } from '../../util/types';
 
 import FallbackPage from './FallbackPage';
 import { ASSET_NAME } from './LandingPage.duck';
-import CustomLandingPage from './CustomLandingPage';
+
+import Section1 from './sections/Section1';
+import Section2 from './sections/Section2';
+import Section3 from './sections/Section3';
+import Section4 from './sections/Section4';
+import Section5 from './sections/Section5';
+import Section6 from './sections/Section6';
+import Section7 from './sections/Section7';
+import Section8 from './sections/Section8';
+import Section9 from './sections/Section9';
+import Section10 from './sections/Section10';
+import Section11 from './sections/Section11';
 
 const PageBuilder = loadable(() =>
   import(/* webpackChunkName: "PageBuilder" */ '../PageBuilder/PageBuilder')
@@ -19,12 +30,87 @@ const PageBuilder = loadable(() =>
 export const LandingPageComponent = props => {
   const { pageAssetsData, inProgress, error } = props;
 
+  // const pageData = pageAssetsData?.[camelize(ASSET_NAME)]?.data;
+
+  const customSections = [
+    {
+      sectionType: 'section1',
+      sectionId: 'section1',
+      title: 'Section 1',
+    },
+    {
+      sectionType: 'section2',
+      sectionId: 'section2',
+      title: 'Section 2',
+    },
+    {
+      sectionType: 'section3',
+      sectionId: 'section3',
+      title: 'Section 3',
+    },
+    {
+      sectionType: 'section4',
+      sectionId: 'section4',
+      title: 'Section 4',
+    },
+    {
+      sectionType: 'section5',
+      sectionId: 'section5',
+      title: 'Section 5',
+    },
+    {
+      sectionType: 'section6',
+      sectionId: 'section6',
+      title: 'Section 6',
+    },
+    {
+      sectionType: 'section7',
+      sectionId: 'section7',
+      title: 'Section 7',
+    },
+    {
+      sectionType: 'section8',
+      sectionId: 'section8',
+      title: 'Section 8',
+    },
+    {
+      sectionType: 'section9',
+      sectionId: 'section9',
+      title: 'Section 9',
+    },
+    {
+      sectionType: 'section10',
+      sectionId: 'section10',
+      title: 'Section 10',
+    },
+    {
+      sectionType: 'section11',
+      sectionId: 'section11',
+      title: 'Section 11',
+    },
+  ];
+
   return (
     <PageBuilder
-      pageAssetsData={pageAssetsData?.[camelize(ASSET_NAME)]?.data}
+      pageAssetsData={{
+        sections: customSections,
+      }}
       inProgress={inProgress}
-      isCustom={true}
-      CustomElement={CustomLandingPage}
+      options={{
+        sectionComponents: {
+          section1: { component: Section1 },
+          section2: { component: Section2 },
+          section3: { component: Section3 },
+          section4: { component: Section4 },
+          section5: { component: Section5 },
+          section6: { component: Section6 },
+          section7: { component: Section7 },
+          section8: { component: Section8 },
+          section9: { component: Section9 },
+          section10: { component: Section10 },
+          section11: { component: Section11 },
+        },
+      }}
       error={error}
       fallbackPage={<FallbackPage error={error} />}
     />

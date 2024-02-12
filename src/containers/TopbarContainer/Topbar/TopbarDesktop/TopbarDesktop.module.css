@@ -115,25 +115,19 @@
 
 /* Inbox */
 .inboxLink {
-  border-bottom: 0px solid;
   transition: var(--transitionStyleButton);
 
   font-weight: var(--fontWeightMedium);
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0;
-  color: var(--colorGrey700);
+  color: var(--colorWhite);
 
   height: 100%;
   padding: 0 12px 0 12px;
   margin: 0;
 
-  &:hover {
-    color: var(--colorBlack);
-    border-bottom: 4px solid var(--marketplaceColor);
-    border-radius: 0;
-    text-decoration: none;
-  }
+  text-decoration: none;
 
   @media (--viewportMedium) {
     line-height: 16px;
@@ -194,7 +188,6 @@
   padding: 0 12px 0 12px;
 
   &:hover {
-    border-bottom: 4px solid var(--marketplaceColor);
     border-radius: 0;
     text-decoration: none;
   }
@@ -302,6 +295,66 @@
   }
 
   @media (--viewportMedium) {
+    margin: 0;
+  }
+}
+
+.menus {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+}
+
+.whyLentlocalButton {
+  transition: var(--transitionStyleButton);
+
+  font-weight: var(--fontWeightMedium);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--colorWhite);
+
+  height: 100%;
+  padding: 0 12px 0 12px;
+  margin: 0;
+
+  text-decoration: none;
+}
+
+.helpButton {
+  transition: var(--transitionStyleButton);
+
+  font-weight: var(--fontWeightMedium);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--colorWhite);
+
+  height: 100%;
+  padding: 0 12px 0 12px;
+  margin: 0;
+
+  text-decoration: none;
+}
+
+.listMyClubsButton {
+  background-color: var(--colorBlack);
+  color: var(--colorWhite);
+
+  font-weight: var(--fontWeightMedium);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+
+  padding: 7px 30px;
+  margin: 0;
+
+  border-radius: 10px;
+  text-decoration: none;
+
+  @media (--viewportMedium) {
+    line-height: 16px;
     margin: 0;
   }
 }

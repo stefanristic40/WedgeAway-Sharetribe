@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { bool, func, object, number, string } from 'prop-types';
 import classNames from 'classnames';
+import { IoIosNotifications } from 'react-icons/io';
 
 import { FormattedMessage, intlShape } from '../../../../util/reactIntl';
 import { ACCOUNT_SETTINGS_PAGES } from '../../../../routing/routeConfiguration';
@@ -137,6 +138,18 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
+  const listMyClubsButton = (
+    <NamedLink className={css.listMyClubsButton} name="NewListingPage">
+      <span className={css.listMyClubs}>
+        <FormattedMessage id="TopbarDesktop.listMyClubs" />
+      </span>
+    </NamedLink>
+  );
+
+  const whyRentlocalButton = <p className={css.whyLentlocalButton}>Why #Rentlocal</p>;
+
+  const notificationButton = <IoIosNotifications size={24} color="white" />;
+  const helpButton = <p className={css.helpButton}>Help</p>;
   return (
     <nav
       className={classes}
@@ -148,16 +161,22 @@ const TopbarDesktop = props => {
         alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
       />
       {/* {search} */}
-      <div style={{ width: '100%' }}></div>
+      {/* <div style={{ width: '100%' }}></div>
       <NamedLink className={css.createListingLink} name="NewListingPage">
         <span className={css.createListing}>
           <FormattedMessage id="TopbarDesktop.createListing" />
         </span>
-      </NamedLink>
-      {inboxLink}
-      {profileMenu}
-      {signupLink}
-      {loginLink}
+      </NamedLink> */}
+      <div className={css.menus}>
+        {listMyClubsButton}
+        {whyRentlocalButton}
+        {helpButton}
+        {inboxLink}
+        {notificationButton}
+        {profileMenu}
+        {signupLink}
+        {loginLink}
+      </div>
     </nav>
   );
 };

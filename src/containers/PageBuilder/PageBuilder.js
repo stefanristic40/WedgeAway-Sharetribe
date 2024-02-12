@@ -108,6 +108,7 @@ const PageBuilder = props => {
     main
     footer
   `;
+
   return (
     <StaticPage {...pageMetaProps} {...pageProps}>
       <LayoutComposer areas={layoutAreas} className={css.layout}>
