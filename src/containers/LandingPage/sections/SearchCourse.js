@@ -6,8 +6,8 @@ function SearchCourse(props) {
     <div className="searchCourse n-container">
       <div>
         <h3>
-          Looking For Clubs By Courses You’re Playing At? Search thousands of courses to find what
-          you’re looking for
+          Looking To Rent Clubs By Courses You’re Playing? Search Thousands of Courses to Find Club
+          Rentals Nearby
         </h3>
       </div>
       <div className="search">

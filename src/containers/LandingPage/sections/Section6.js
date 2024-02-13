@@ -5,14 +5,12 @@ function Section6(props) {
   return (
     <div className="section6 n-container">
       <div className="detail">
-        <h2>Book your clubs for your next Golf Trip for the group with WedgeAway.</h2>
+        <h2>Book your clubs for everyone on your next golf trip with WedgeAway.</h2>
         <p>
-          Booking for the entire group is easy with WedgeAway! Just select our group rental option,
-          and add all of the club rentals you’d like to your cart at once. For group rentals of 10
-          set or more, we offer free delivery to your hotel, AirBnb or course of your choice in the
-          area.
+          Have a group going on a trip? There’s options for everyone. Fit the needs of your entire
+          group no matter what brand, models or set you’re looking for.
         </p>
-        <button>Book Your Group Trip Now</button>
+        <button>Browse Thousands of Rentals</button>
       </div>
       <div className="gallery">
         <img src="/static/images/1.png" alt="line" style={{ width: '100%' }} />

@@ -18,8 +18,8 @@ import Reviews from './sections/Reviews';
 import Section5 from './sections/Section5';
 import Section6 from './sections/Section6';
 import Section7 from './sections/Section7';
-import Section8 from './sections/Section8';
-import Section9 from './sections/Section9';
+import LearnMore from './sections/LearnMore';
+import PopularBrands from './sections/PopularBrands';
 import SearchCourse from './sections/SearchCourse';
 import Section11 from './sections/Section11';
 
@@ -59,9 +59,14 @@ export const LandingPageComponent = props => {
       title: 'Section 5',
     },
     {
-      sectionType: 'section6',
-      sectionId: 'section6',
-      title: 'Section 6',
+      sectionType: 'SearchCourse',
+      sectionId: 'SearchCourse',
+      title: 'SearchCourse',
+    },
+    {
+      sectionType: 'LearnMore',
+      sectionId: 'LearnMore',
+      title: 'LearnMore',
     },
     {
       sectionType: 'section7',
@@ -69,19 +74,14 @@ export const LandingPageComponent = props => {
       title: 'Section 7',
     },
     {
-      sectionType: 'section8',
-      sectionId: 'section8',
-      title: 'Section 8',
+      sectionType: 'section6',
+      sectionId: 'section6',
+      title: 'Section 6',
     },
     {
-      sectionType: 'section9',
-      sectionId: 'section9',
-      title: 'Section 9',
-    },
-    {
-      sectionType: 'SearchCourse',
-      sectionId: 'SearchCourse',
-      title: 'SearchCourse',
+      sectionType: 'PopularBrands',
+      sectionId: 'PopularBrands',
+      title: 'PopularBrands',
     },
     {
       sectionType: 'section11',
@@ -103,11 +103,11 @@ export const LandingPageComponent = props => {
           section3: { component: Section3 },
           Reviews: { component: Reviews },
           section5: { component: Section5 },
+          SearchCourse: { component: SearchCourse },
+          LearnMore: { component: LearnMore },
           section6: { component: Section6 },
           section7: { component: Section7 },
-          section8: { component: Section8 },
-          section9: { component: Section9 },
-          SearchCourse: { component: SearchCourse },
+          PopularBrands: { component: PopularBrands },
           section11: { component: Section11 },
         },
       }}

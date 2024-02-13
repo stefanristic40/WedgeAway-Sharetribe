@@ -1,7 +1,8 @@
 import React from 'react';
-import './Section8.css';
+import './LearnMore.css';
+import { Link } from 'react-router-dom';
 
-function Section8(props) {
+function LearnMore(props) {
   return (
     <div className="section8 n-container">
       <div className="detail">
@@ -12,7 +13,9 @@ function Section8(props) {
           <li>List for free and earn up to $20,000 per year.</li>
           <li>Stay 100% in control of your schedule.</li>
         </ul>
-        <button>Learn More</button>
+        <Link to="/l/new" className="button">
+          <button>Start Your Listing</button>
+        </Link>
       </div>
       <div className="gallery">
         <img src="/static/images/gal8.png" alt="line" style={{ width: '100%' }} />
@@ -24,4 +27,4 @@ function Section8(props) {
   );
 }
 
-export default Section8;
+export default LearnMore;
