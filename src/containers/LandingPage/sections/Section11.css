@@ -6,6 +6,10 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
 
+    @media (max-width: 768px) {
+      grid-template-columns: auto auto auto;
+    }
+
     .item {
       margin-bottom: 20px;
 

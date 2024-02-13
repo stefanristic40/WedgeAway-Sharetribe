@@ -111,7 +111,14 @@ export const LandingComponent = props => {
 
       <div className="landing-bg-footer">
         <p>As seen on:</p>
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}
+        >
           <p>Golf Digest</p>
           <p>LINKS Magazine</p>
           <p>LIV Golf</p>

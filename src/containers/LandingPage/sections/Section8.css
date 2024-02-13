@@ -6,6 +6,10 @@
   color: black;
   gap: 50px;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   .detail {
     h2 {
       font-size: 2rem;

@@ -6,17 +6,23 @@
     font-size: 2.5rem;
     font-weight: 600;
     margin: 0px;
+    line-height: 1.2;
   }
 
   .brands {
     margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: auto auto;
+    }
+
     gap: 50px;
 
     img {
-      width: 20%;
+      width: 100%;
     }
   }
 }

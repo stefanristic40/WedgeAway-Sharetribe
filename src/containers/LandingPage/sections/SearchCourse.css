@@ -7,10 +7,16 @@
   gap: 50px;
   color: black;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0px;
+  }
+
   h3 {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.2;
   }
 
   .search {

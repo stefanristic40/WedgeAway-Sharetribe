@@ -53,6 +53,31 @@ function Reviews(props) {
     reviews[(currentIndex + 2) % reviews.length],
   ];
 
+  const ReviewItem = ({ review }) => {
+    return (
+      <div className="review-card">
+        <img src="/static/images/quote.svg" alt="quote" />
+        <div className="detail">
+          <p>"{review.description}"</p>
+        </div>
+        <div className="user-sec">
+          <img src={review.image} alt="review" />
+          <div className="user-info">
+            <p className="name">{review.name}</p>
+            <p>{review.locaiton}</p>
+            <div className="stars">
+              <img src="/static/images/star.png" alt="star" />
+              <img src="/static/images/star.png" alt="star" />
+              <img src="/static/images/star.png" alt="star" />
+              <img src="/static/images/star.png" alt="star" />
+              <img src="/static/images/star.png" alt="star" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="reviews n-container">
       <div className="title-bar">
@@ -64,26 +89,7 @@ function Reviews(props) {
       </div>
       <div className="items">
         {displayedReviews.map((review, index) => (
-          <div key={index} className="review-card">
-            <img src="/static/images/quote.svg" alt="quote" />
-            <div className="detail">
-              <p>"{review.description}"</p>
-            </div>
-            <div className="user-sec">
-              <img src={review.image} alt="review" />
-              <div className="user-info">
-                <p className="name">{review.name}</p>
-                <p>{review.locaiton}</p>
-                <div className="stars">
-                  <img src="/static/images/star.png" alt="star" />
-                  <img src="/static/images/star.png" alt="star" />
-                  <img src="/static/images/star.png" alt="star" />
-                  <img src="/static/images/star.png" alt="star" />
-                  <img src="/static/images/star.png" alt="star" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <ReviewItem key={index} review={review} />
         ))}
       </div>
     </div>
