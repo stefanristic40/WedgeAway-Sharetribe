@@ -66,11 +66,11 @@ function Reviews(props) {
             <p className={css.name}>{review.name}</p>
             <p>{review.locaiton}</p>
             <div className={css.stars}>
-              <img src="/static/images/star.png" alt="star" />
-              <img src="/static/images/star.png" alt="star" />
-              <img src="/static/images/star.png" alt="star" />
-              <img src="/static/images/star.png" alt="star" />
-              <img src="/static/images/star.png" alt="star" />
+              <img src="/static/images/star.png" alt="star" className={css.star} />
+              <img src="/static/images/star.png" alt="star" className={css.star} />
+              <img src="/static/images/star.png" alt="star" className={css.star} />
+              <img src="/static/images/star.png" alt="star" className={css.star} />
+              <img src="/static/images/star.png" alt="star" className={css.star} />
             </div>
           </div>
         </div>
