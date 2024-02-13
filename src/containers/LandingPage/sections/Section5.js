@@ -1,15 +1,19 @@
 import React from 'react';
 import './Section5.css';
 
+import { FaHeart } from 'react-icons/fa';
+
 function Section5(props) {
   const Item = () => {
     return (
-      <div className="item">
+      <div className="item-card">
         <div className="thumbnail">
+          <FaHeart className="heart" />
           <img src="/static/images/bag.png" alt="club1" />
         </div>
         <div className="detail">
-          <h4>Callaway XR 16</h4>
+          <h4>Full Set: TaylorMade + 4 Brands</h4>
+          <p>Scottsdale, AZ</p>
           <p>TaylorMade, Full Set in Scottsdale, AZ</p>
           <p>Price $55 / Day</p>
           <p>5 Days</p>

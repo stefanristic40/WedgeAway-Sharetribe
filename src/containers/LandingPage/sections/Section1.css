@@ -83,8 +83,29 @@
   width: 100%;
 
   p {
+    font-wrap: wrap;
+    text-wrap: wrap;
+
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
+  }
+
+  .asseen {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+
+    p {
+      font-size: 1.1rem;
+      padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: relative;
+    margin-top: 40px;
   }
 }

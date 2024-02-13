@@ -1,15 +1,18 @@
 import React from 'react';
-import './Section3.css';
+import './RecentlyViewed.css';
+import { FaHeart } from 'react-icons/fa';
 
-function Section3(props) {
+function RecentlyViewed(props) {
   const Section3Item = () => {
     return (
       <div className="item-card">
         <div className="thumbnail">
+          <FaHeart className="heart" />
           <img src="/static/images/bag.png" alt="club1" />
         </div>
         <div className="detail">
-          <h4>Callaway XR 16</h4>
+          <h4>Full Set: TaylorMade + 4 Brands</h4>
+          <p>Scottsdale, AZ</p>
           <p>TaylorMade, Full Set in Scottsdale, AZ</p>
           <p>Price $55 / Day</p>
           <p>5 Days</p>
@@ -30,4 +33,4 @@ function Section3(props) {
   );
 }
 
-export default Section3;
+export default RecentlyViewed;

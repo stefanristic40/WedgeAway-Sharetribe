@@ -15,8 +15,12 @@
   h3 {
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.5;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      font-size: 20px;
+    }
   }
 
   .search {

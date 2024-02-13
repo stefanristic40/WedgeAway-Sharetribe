@@ -13,7 +13,7 @@ import { ASSET_NAME } from './LandingPage.duck';
 
 import Section1 from './sections/Section1';
 import Section2 from './sections/Section2';
-import Section3 from './sections/Section3';
+import RecentlyViewed from './sections/RecentlyViewed';
 import Reviews from './sections/Reviews';
 import Section5 from './sections/Section5';
 import Section6 from './sections/Section6';
@@ -44,9 +44,9 @@ export const LandingPageComponent = props => {
       title: 'Section 2',
     },
     {
-      sectionType: 'section3',
-      sectionId: 'section3',
-      title: 'Section 3',
+      sectionType: 'RecentlyViewed',
+      sectionId: 'RecentlyViewed',
+      title: 'RecentlyViewed',
     },
     {
       sectionType: 'Reviews',
@@ -100,7 +100,7 @@ export const LandingPageComponent = props => {
         sectionComponents: {
           section1: { component: Section1 },
           section2: { component: Section2 },
-          section3: { component: Section3 },
+          RecentlyViewed: { component: RecentlyViewed },
           Reviews: { component: Reviews },
           section5: { component: Section5 },
           SearchCourse: { component: SearchCourse },

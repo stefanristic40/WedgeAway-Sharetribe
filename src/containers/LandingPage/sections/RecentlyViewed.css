@@ -2,12 +2,6 @@
   padding: 30px 0;
   color: black;
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-
   .items {
     width: 100%;
     display: grid;
@@ -28,11 +22,29 @@
         background: #e4e9e6;
         display: flex;
         justify-content: center;
+        position: relative;
+        border-radius: 20px;
 
-        @media (max-width: 768px) {
-          img {
+        img {
+          height: 250px;
+
+          @media (max-width: 768px) {
             height: 200px;
           }
+        }
+
+        .heart {
+          border: 2px solid black;
+          padding: 5px;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          color: black;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 20px;
+          cursor: pointer;
         }
       }
 

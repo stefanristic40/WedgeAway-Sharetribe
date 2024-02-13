@@ -201,17 +201,19 @@ function Section11(props) {
   ];
 
   return (
-    <div className="section11 n-container">
-      <h2>Explore Clubs By State</h2>
-      <div className="items">
-        {clubs.map((club, index) => {
-          return (
-            <div key={index} className="item">
-              <h5>{club.location}</h5>
-              {/* <p>{club.avaialblePackages} Available Packages</p> */}
-            </div>
-          );
-        })}
+    <div className="section11">
+      <div className="n-container">
+        <h2>Explore Clubs By State</h2>
+        <div className="items">
+          {clubs.map((club, index) => {
+            return (
+              <div key={index} className="item">
+                <h5>{club.location}</h5>
+                {/* <p>{club.avaialblePackages} Available Packages</p> */}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@
 .container {
   /* Size */
   width: 100%;
+  padding: 0 24px;
   height: var(--topbarHeight);
 
   /* Layout for child components */
@@ -20,7 +21,9 @@
   align-items: center;
 
   /* fill */
-  background-color: var(--colorWhite);
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  margin-bottom: -70px;
 
   /* shadows */
   box-shadow: var(--boxShadow);
@@ -47,7 +50,8 @@
 
   /* Layout */
   display: flex;
-  width: 66px;
+  /* width: 66px; */
+
   margin: 0;
   border-width: 0px;
   background-color: transparent;
@@ -68,12 +72,13 @@
 }
 
 .menu {
-  padding: 15px 24px;
+  /* padding: 15px 24px; */
   position: relative;
+  color: white;
 
-  @media (--viewportMedium) {
+  /* @media (--viewportMedium) {
     padding: 21px 24px;
-  }
+  } */
 }
 .searchMenu {
   padding: 12px 24px;
@@ -138,7 +143,7 @@
 
 /* Icon component styles */
 .rootMenuIcon {
-  fill: var(--colorGrey700);
+  fill: var(--colorWhite);
 }
 .rootSearchIcon {
   stroke: var(--colorGrey700);

@@ -5,12 +5,14 @@ function Section6(props) {
   return (
     <div className="section6 n-container">
       <div className="detail">
-        <h2>Book your clubs for everyone on your next golf trip with WedgeAway.</h2>
-        <p>
-          Have a group going on a trip? There’s options for everyone. Fit the needs of your entire
-          group no matter what brand, models or set you’re looking for.
-        </p>
-        <button>Browse Thousands of Rentals</button>
+        <div>
+          <h2>Book your clubs for everyone on your next golf trip with WedgeAway.</h2>
+          <p>
+            Have a group going on a trip? There’s options for everyone. Fit the needs of your entire
+            group no matter what brand, models or set you’re looking for.
+          </p>
+          <button>Browse Thousands of Rentals</button>
+        </div>
       </div>
       <div className="gallery">
         <img src="/static/images/1.png" alt="line" style={{ width: '100%' }} />

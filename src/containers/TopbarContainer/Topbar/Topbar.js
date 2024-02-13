@@ -220,6 +220,7 @@ class TopbarComponent extends Component {
           currentPage={currentPage}
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
+          <LinkedLogo layout={'mobile'} alt={intl.formatMessage({ id: 'Topbar.logoIcon' })} />
           <Button
             rootClassName={css.menu}
             onClick={this.handleMobileMenuOpen}
@@ -228,14 +229,13 @@ class TopbarComponent extends Component {
             <MenuIcon className={css.menuIcon} />
             {notificationDot}
           </Button>
-          <LinkedLogo layout={'mobile'} alt={intl.formatMessage({ id: 'Topbar.logoIcon' })} />
-          <Button
+          {/* <Button
             rootClassName={css.searchMenu}
             onClick={this.handleMobileSearchOpen}
             title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
           >
             <SearchIcon className={css.searchMenuIcon} />
-          </Button>
+          </Button> */}
         </div>
         <div className={css.desktop}>
           <TopbarDesktop

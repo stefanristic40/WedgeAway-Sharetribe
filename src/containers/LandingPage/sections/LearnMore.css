@@ -11,6 +11,13 @@
   }
 
   .detail {
+    background-color: #f6f2ee;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
     h2 {
       font-size: 2rem;
       margin: 0;
@@ -22,6 +29,17 @@
 
     ul {
       padding-left: 20px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+
+        svg {
+          color: green;
+          font-weight: bold;
+        }
+      }
     }
     button {
       padding: 15px 30px;
