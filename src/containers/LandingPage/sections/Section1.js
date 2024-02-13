@@ -1,5 +1,11 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { array, bool, func, number, object, shape, string } from 'prop-types';
+
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import { propTypes } from '../../../util/types';
 
 import TopbarSearchForm from '../../TopbarContainer/Topbar/TopbarSearchForm/TopbarSearchForm';
 import { useConfiguration } from '../../../context/configurationContext';
@@ -8,18 +14,12 @@ import { parse } from '../../../util/urlHelpers';
 
 import css from './Section1.css';
 
-function Section1(props) {
+export const LandingComponent = props => {
+  const { currentSearchParams, currentUser, history, location, ...rest } = props;
+
   const config = useConfiguration();
 
-  const { mobilemenu, mobilesearch, keywords, address, origin, bounds } = parse(location.search, {
-    latlng: ['origin'],
-    latlngBounds: ['bounds'],
-  });
-
   function handleSubmit(values) {
-    const { currentSearchParams } = this.props;
-    const { history, config, routeConfiguration } = this.props;
-
     const topbarSearchParams = () => {
       if (isMainSearchTypeKeywords(config)) {
         return { keywords: values?.keywords };
@@ -41,6 +41,11 @@ function Section1(props) {
     };
     history.push(createResourceLocatorString('SearchPage', routeConfiguration, {}, searchParams));
   }
+
+  const { mobilemenu, mobilesearch, keywords, address, origin, bounds } = parse(location.search, {
+    latlng: ['origin'],
+    latlngBounds: ['bounds'],
+  });
 
   const topbarSearcInitialValues = () => {
     if (isMainSearchTypeKeywords(config)) {
@@ -76,6 +81,7 @@ function Section1(props) {
     <div className="landing-bg">
       <div className="landing-bg-container">
         <h1>
+          {currentUser?.attributes?.profile?.displayName}
           Rent The Perfect Set <br /> From Local Golfers on Demand
         </h1>
         <img src="/static/images/line.png" alt="line" style={{ width: '100%' }} />
@@ -115,14 +121,41 @@ function Section1(props) {
       </div>
     </div>
   );
-}
+};
+
+LandingComponent.propTypes = {
+  currentPage: string,
+  currentSearchParams: object,
+  currentUser: propTypes.currentUser,
+
+  // from withRouter
+  history: shape({
+    push: func.isRequired,
+  }).isRequired,
+  location: shape({ state: object }).isRequired,
+};
+
+const mapStateToProps = state => {
+  // Topbar needs isAuthenticated
+  const { isAuthenticated, logoutError, authScopes } = state.auth;
+  // Topbar needs user info.
+  const { currentUser } = state.user;
+  return {
+    currentUser,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({});
+
+// Note: it is important that the withRouter HOC is **outside** the
+// connect HOC, otherwise React Router won't rerender any Route
+// components since connect implements a shouldComponentUpdate
+// lifecycle hook.
+//
+// See: https://github.com/ReactTraining/react-router/issues/4671
+const Section1 = compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(LandingComponent);
 
 export default Section1;
-
-Section1.defaultProps = {
-  currentSearchParams: null,
-};
-
-Section1.propTypes = {
-  currentSearchParams: object,
-};
