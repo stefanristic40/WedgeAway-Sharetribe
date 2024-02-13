@@ -8,6 +8,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 20px;
   }
 
   .detail {
@@ -17,6 +18,10 @@
     justify-content: center;
     align-items: center;
     padding: 50px;
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
 
     h2 {
       font-size: 2rem;
@@ -29,6 +34,10 @@
 
     ul {
       padding-left: 20px;
+
+      @media (max-width: 768px) {
+        padding-left: 0;
+      }
 
       li {
         display: flex;
