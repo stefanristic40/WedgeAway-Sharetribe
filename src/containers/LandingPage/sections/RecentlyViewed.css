@@ -26,10 +26,10 @@
         border-radius: 20px;
 
         img {
-          height: 250px;
+          max-height: 250px;
 
           @media (max-width: 768px) {
-            height: 150px;
+            max-height: 150px;
           }
         }
 

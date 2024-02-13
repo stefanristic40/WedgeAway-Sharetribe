@@ -209,7 +209,6 @@ function Section11(props) {
             return (
               <div key={index} className="item">
                 <h5>{club.location}</h5>
-                {/* <p>{club.avaialblePackages} Available Packages</p> */}
               </div>
             );
           })}
