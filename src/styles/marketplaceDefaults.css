@@ -1477,9 +1477,9 @@ textarea {
 
 .n-container {
   max-width: 1200px;
-  margin: 0 auto;
   padding: 0 20px;
   width: 95%;
+  margin: 0 auto;
 }
 
 h1 {
