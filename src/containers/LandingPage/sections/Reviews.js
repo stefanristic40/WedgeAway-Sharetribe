@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Reviews.css';
+import css from './Reviews.module.css';
 
 function Reviews(props) {
   const reviews = [
@@ -55,17 +55,17 @@ function Reviews(props) {
 
   const ReviewItem = ({ review }) => {
     return (
-      <div className="review-card">
+      <div className={css.item}>
         <img src="/static/images/quote.svg" alt="quote" />
         <div className="detail">
           <p>"{review.description}"</p>
         </div>
-        <div className="user-sec">
-          <img src={review.image} alt="review" />
-          <div className="user-info">
-            <p className="name">{review.name}</p>
+        <div className={css.user_sec}>
+          <img src={review.image} alt="review" className={css.avatar} />
+          <div className={css.user_info}>
+            <p className={css.name}>{review.name}</p>
             <p>{review.locaiton}</p>
-            <div className="stars">
+            <div className={css.stars}>
               <img src="/static/images/star.png" alt="star" />
               <img src="/static/images/star.png" alt="star" />
               <img src="/static/images/star.png" alt="star" />
@@ -79,18 +79,20 @@ function Reviews(props) {
   };
 
   return (
-    <div className="reviews n-container">
-      <div className="title-bar">
-        <h1>Join thousands of Golfers enjoying WedgeAway.</h1>
-        <div className="slide-controller">
-          <button onClick={handlePrev}> {'<'} </button>
-          <button onClick={handleNext}> {'>'} </button>
+    <div className={css.reviews}>
+      <div className="n-container">
+        <div className={css.title_bar}>
+          <h1>Join thousands of Golfers enjoying WedgeAway.</h1>
+          <div className={css.slide_controller}>
+            <button onClick={handlePrev}> {'<'} </button>
+            <button onClick={handleNext}> {'>'} </button>
+          </div>
         </div>
-      </div>
-      <div className="items">
-        {displayedReviews.map((review, index) => (
-          <ReviewItem key={index} review={review} />
-        ))}
+        <div className={css.items}>
+          {displayedReviews.map((review, index) => (
+            <ReviewItem key={index} review={review} />
+          ))}
+        </div>
       </div>
     </div>
   );
