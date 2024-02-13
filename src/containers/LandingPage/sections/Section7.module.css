@@ -1,0 +1,24 @@
+.section7 {
+  padding: 50px 0;
+  color: black;
+}
+
+.items {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  width: 30%;
+  text-align: center;
+}
+
+.season_img {
+  width: 100%;
+}
+
+h3 {
+  margin: 20px 0;
+}
