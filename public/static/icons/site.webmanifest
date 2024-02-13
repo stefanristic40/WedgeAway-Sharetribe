@@ -1,6 +1,6 @@
 {
-    "name": "Biketribe",
-    "short_name": "Biketribe",
+    "name": "WedgeAway",
+    "short_name": "WedgeAway",
     "start_url": "/",
     "display": "standalone",
     "theme_color": "#ffffff",
@@ -18,4 +18,3 @@
       }
     ]
   }
-  
