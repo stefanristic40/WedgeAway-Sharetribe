@@ -1,5 +1,5 @@
 import React from 'react';
-import './Section11.css';
+import css from './Section11.module.css';
 
 function Section11(props) {
   const clubs = [
@@ -201,13 +201,13 @@ function Section11(props) {
   ];
 
   return (
-    <div className="section11">
+    <div className={css.section11}>
       <div className="n-container">
         <h1>Explore Clubs By State</h1>
-        <div className="items">
+        <div className={css.items}>
           {clubs.map((club, index) => {
             return (
-              <div key={index} className="item">
+              <div key={index} className={css.item}>
                 <h5>{club.location}</h5>
               </div>
             );

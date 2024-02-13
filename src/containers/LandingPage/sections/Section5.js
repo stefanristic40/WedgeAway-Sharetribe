@@ -1,17 +1,17 @@
 import React from 'react';
-import './Section5.css';
+import css from './Section5.module.css';
 
 import { FaHeart } from 'react-icons/fa';
 
 function Section5(props) {
   const Item = () => {
     return (
-      <div className="item-card">
-        <div className="thumbnail">
-          <FaHeart className="heart" />
-          <img src="/static/images/bag.png" alt="club1" />
+      <div className={css.item}>
+        <div className={css.thumbnail}>
+          <FaHeart className={css.heart} />
+          <img src="/static/images/bag.png" className={css.thumbnail_img} alt="club1" />
         </div>
-        <div className="detail">
+        <div className={css.detail}>
           <h4>Full Set: TaylorMade + 4 Brands</h4>
           <p>Scottsdale, AZ</p>
           <p>TaylorMade, Full Set in Scottsdale, AZ</p>
@@ -23,20 +23,22 @@ function Section5(props) {
   };
 
   return (
-    <div className="section5 n-container">
-      <h1>Clubs for Rent near Los Angeles, CA</h1>
-      <p>Not your location? See spots near you.</p>
+    <div className="n-container">
+      <div className={css.section5}>
+        <h1>Clubs for Rent near Los Angeles, CA</h1>
+        <p>Not your location? See spots near you.</p>
 
-      <div className="items">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-      </div>
-      <div>
-        <button className="view-more-btn">View More</button>
+        <div className={css.items}>
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+        </div>
+        <div>
+          <button className={css.view_more_btn}>View More</button>
+        </div>
       </div>
     </div>
   );
