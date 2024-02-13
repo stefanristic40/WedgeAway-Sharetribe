@@ -57,7 +57,7 @@ function Reviews(props) {
     return (
       <div className={css.item}>
         <img src="/static/images/quote.svg" alt="quote" />
-        <div className="detail">
+        <div>
           <p>"{review.description}"</p>
         </div>
         <div className={css.user_sec}>
@@ -84,8 +84,12 @@ function Reviews(props) {
         <div className={css.title_bar}>
           <h1>Join thousands of Golfers enjoying WedgeAway.</h1>
           <div className={css.slide_controller}>
-            <button onClick={handlePrev}> {'<'} </button>
-            <button onClick={handleNext}> {'>'} </button>
+            <button className={css.slide_button} onClick={handlePrev}>
+              {'<'}
+            </button>
+            <button className={css.slide_button} onClick={handleNext}>
+              {'>'}
+            </button>
           </div>
         </div>
         <div className={css.items}>
