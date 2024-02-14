@@ -12,15 +12,39 @@
     gap: 0px;
   }
 }
-
-.search {
+.search_box {
+  border-radius: 50px;
+  border-radius: 50px;
   max-width: 400px;
   width: 100%;
+  position: relative;
+}
 
+.search {
   border-radius: 50px;
-  background-color: #3e714b;
+  padding: 10px 50px 10px 20px;
+  width: 100%;
   color: white;
-  border-radius: 50px;
-  padding: 10px 20px;
-  margin-right: 10px;
+  text-decoration: none;
+  border: 0;
+  outline: none;
+  background-color: #3e714b;
+}
+
+.search:focus {
+  border: 0;
+  outline: none;
+  background-color: #3e714b;
+}
+
+.search::placeholder {
+  color: white;
+  text-align: center;
+}
+
+.search_icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }

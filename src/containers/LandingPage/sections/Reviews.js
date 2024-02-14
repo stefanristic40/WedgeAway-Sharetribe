@@ -58,13 +58,13 @@ function Reviews(props) {
       <div className={css.item}>
         <img src="/static/images/quote.svg" alt="quote" />
         <div>
-          <p>"{review.description}"</p>
+          <p className={css.description}>"{review.description}"</p>
         </div>
         <div className={css.user_sec}>
           <img src={review.image} alt="review" className={css.avatar} />
           <div className={css.user_info}>
             <p className={css.name}>{review.name}</p>
-            <p>{review.locaiton}</p>
+            <p className={css.locaiton}>{review.locaiton}</p>
             <div className={css.stars}>
               <img src="/static/images/star.png" alt="star" className={css.star} />
               <img src="/static/images/star.png" alt="star" className={css.star} />

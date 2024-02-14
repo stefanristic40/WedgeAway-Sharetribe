@@ -23,6 +23,11 @@
     max-width: 570px;
   }
 }
+.title {
+  margin-bottom: 0px;
+  font-size: 2.2rem;
+  line-height: 1.5;
+}
 
 .description {
   font-size: 1.3rem;
@@ -68,17 +73,4 @@
     position: relative;
     margin-top: 40px;
   }
-}
-
-.asseen {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.asseen p {
-  font-size: 1.1rem;
-  padding: 0 10px;
 }

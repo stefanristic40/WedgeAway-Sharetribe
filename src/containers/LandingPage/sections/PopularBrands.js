@@ -5,7 +5,7 @@ function PopularBrands(props) {
   return (
     <div className="n-container">
       <div className={css.section9}>
-        <h1>View Clubs Based on Popular Brands</h1>
+        <h1>You Choose The Brand. Anytime, Anywhere</h1>
         <div className={css.brands}>
           <img src="/static/images/brands/logo1.png" alt="line" />
           <img src="/static/images/brands/logo2.png" alt="line" />

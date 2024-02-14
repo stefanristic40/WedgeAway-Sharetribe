@@ -80,27 +80,18 @@ export const LandingComponent = props => {
   return (
     <div className={css.landing_bg}>
       <div className={css.landing_container}>
-        <h1>
-          {currentUser?.attributes?.profile?.displayName}
-          Rent The Perfect Set <br /> From Local Golfers on Demand
+        <h1 className={css.title}>
+          <b>
+            Rent The Perfect Clubs <br />
+            From Local Golfers on Demand
+          </b>
         </h1>
         <img src="/static/images/line.png" alt="line" style={{ width: '100%' }} />
         <p className={css.description}>
-          Discover and book golf sets and clubs from local golfers <br />
+          Discover and book golf clubs from local golfers <br />
           who share your passion for the game
         </p>
         <div>{search}</div>
-      </div>
-
-      <div className={css.landing_footer}>
-        <p>As seen on:</p>
-        <div className={css.asseen}>
-          <p>Golf Digest</p>
-          <p>LINKS Magazine</p>
-          <p>LIV Golf</p>
-          <p>Golf Monthly</p>
-          <p>TaylorMade</p>
-        </div>
       </div>
     </div>
   );

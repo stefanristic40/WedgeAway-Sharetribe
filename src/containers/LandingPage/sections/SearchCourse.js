@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './SearchCourse.module.css';
+import { CiSearch } from 'react-icons/ci';
 
 function SearchCourse(props) {
   return (
@@ -11,7 +12,10 @@ function SearchCourse(props) {
             Club Rentals Nearby
           </h3>
         </div>
-        <input className={css.search} type="text" placeholder="Search by Course" />
+        <div className={css.search_box}>
+          <input className={css.search} type="text" placeholder="Search by Course" />
+          <CiSearch size={30} color="white" className={css.search_icon} />
+        </div>
       </div>
     </div>
   );

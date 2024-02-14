@@ -50,13 +50,27 @@
 }
 
 .detail {
-  padding-top: 10px;
+  padding: 10px;
 }
+
 .detail h4 {
   margin: 0;
   padding: 0;
+  color: #232933;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 }
 .detail p {
   margin: 0;
   padding: 0;
+  color: #373c45;
+  padding-top: 3px;
+  font-size: 0.9rem;
+}
+.review_score {
+  display: flex;
+  align-items: center;
+  color: #373c45;
+  font-size: 0.9rem;
 }

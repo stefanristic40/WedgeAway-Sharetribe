@@ -22,6 +22,7 @@ import LearnMore from './sections/LearnMore';
 import PopularBrands from './sections/PopularBrands';
 import SearchCourse from './sections/SearchCourse';
 import Section11 from './sections/Section11';
+import TrendingCourses from './sections/TrendingCourses';
 
 const PageBuilder = loadable(() =>
   import(/* webpackChunkName: "PageBuilder" */ '../PageBuilder/PageBuilder')
@@ -64,6 +65,11 @@ export const LandingPageComponent = props => {
       title: 'SearchCourse',
     },
     {
+      sectionType: 'TrendingCourses',
+      sectionId: 'TrendingCourses',
+      title: 'TrendingCourses',
+    },
+    {
       sectionType: 'LearnMore',
       sectionId: 'LearnMore',
       title: 'LearnMore',
@@ -83,11 +89,6 @@ export const LandingPageComponent = props => {
       sectionId: 'PopularBrands',
       title: 'PopularBrands',
     },
-    {
-      sectionType: 'section11',
-      sectionId: 'section11',
-      title: 'Section 11',
-    },
   ];
 
   return (
@@ -104,6 +105,7 @@ export const LandingPageComponent = props => {
           Reviews: { component: Reviews },
           section5: { component: Section5 },
           SearchCourse: { component: SearchCourse },
+          TrendingCourses: { component: TrendingCourses },
           LearnMore: { component: LearnMore },
           section6: { component: Section6 },
           section7: { component: Section7 },
