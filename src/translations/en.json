@@ -1085,5 +1085,14 @@
   "UserDisplayName.deleted": "Deleted user",
   "UserNav.accountSettings": "Account settings",
   "UserNav.profileSettings": "Profile settings",
-  "UserNav.yourListings": "Your listings"
+  "UserNav.yourListings": "Your listings",
+  "EditListingWizard.tabLabelExtraFeatures": "Extra features",
+  "EditListingExtraFeaturesPanel.createListingTitle": "Extra features",
+  "EditListingExtraFeaturesPanel.title": "Edit the extra features of {listingTitle}",
+  "EditListingExtraFeaturesForm.extraFeaturesInputPlaceholder": "Explain your bike extra features...",
+  "EditListingExtraFeaturesForm.updateFailed": "Updating listing failed",
+  "EditListingExtraFeaturesForm.showListingFailed": "Fetching listing failed",
+  "EditListingWizard.default-booking.new.saveExtraFeatures": "Next: Availability",
+  "EditListingWizard.edit.saveExtraFeatures": "Save changes",
+  "ListingPage.extraFeaturesTitle": "Extra features"
 }
