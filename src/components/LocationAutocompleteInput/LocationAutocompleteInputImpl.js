@@ -20,7 +20,8 @@ import { propTypes } from '../../util/types';
 
 import { IconSpinner } from '../../components';
 
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
 
 import { FaRegCalendarAlt } from 'react-icons/fa';
 
