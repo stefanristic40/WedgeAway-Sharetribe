@@ -4,14 +4,14 @@
 .root {
   /* Size */
   width: 100%;
-  height: var(--topbarHeightDesktop);
+  /* height: var(--topbarHeightDesktop); */
 
   /* Layout for child components */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 12px 0 0;
+  padding: 4px 12px 0 0;
 
   /* fill */
   background-color: var(--colorWhite);
@@ -20,10 +20,14 @@
   box-shadow: var(--boxShadowLight);
 
   @media (--viewportLarge) {
-    padding: 0 24px 0 0;
+    padding: 6px 24px;
   }
 }
-
+.left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 /* logo */
 .logoLink {
   border-bottom: 0px solid;
@@ -121,7 +125,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0;
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   height: 100%;
   padding: 0 12px 0 12px;
@@ -221,10 +225,10 @@
   height: 100%;
   padding: 0 12px 0 12px;
 
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   &:hover {
-    color: var(--colorWhite);
+    color: var(--colorBlack);
     /* border-bottom: 4px solid var(--marketplaceColor); */
     border-radius: 0;
     text-decoration: none;
@@ -239,10 +243,10 @@
   height: 100%;
   padding: 0 12px 0 12px;
 
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   &:hover {
-    color: var(--colorWhite);
+    color: var(--colorBlack);
     /* border-bottom: 4px solid var(--marketplaceColor); */
     border-radius: 0;
     text-decoration: none;
@@ -313,7 +317,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0;
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   height: 100%;
   padding: 0 12px 0 12px;
@@ -329,7 +333,7 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0;
-  color: var(--colorWhite);
+  color: var(--colorBlack);
 
   height: 100%;
   padding: 0 12px 0 12px;
