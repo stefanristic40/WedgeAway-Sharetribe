@@ -7,12 +7,20 @@ export const LandingComponent = props => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
 
-      if (scrollPosition < 400) {
-        document.getElementById('header_search').style.display = 'none';
-      } else {
-        document.getElementById('header_search').style.display = 'block';
+      const headerSearchElement = document.getElementById('header_search');
+
+      if (headerSearchElement) {
+        if (scrollPosition < 400) {
+          headerSearchElement.style.display = 'none';
+        } else {
+          headerSearchElement.style.display = 'block';
+        }
       }
     };
+
+    setTimeout(() => {
+      handleScroll();
+    }, 100);
 
     window.addEventListener('scroll', handleScroll);
 
