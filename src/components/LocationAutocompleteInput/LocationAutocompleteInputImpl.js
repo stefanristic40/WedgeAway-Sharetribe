@@ -567,7 +567,7 @@ class LocationAutocompleteInputImplementation extends Component {
           onClick={() => this.setState({ showDatePicker: !this.state.showDatePicker })}
         >
           <FaRegCalendarAlt />
-          {/* <p>
+          <p>
             {this.state?.selectedDate
               ? this.state.selectedDate
                   .toLocaleDateString('en-GB', {
@@ -577,7 +577,7 @@ class LocationAutocompleteInputImplementation extends Component {
                   })
                   .replace(/\//g, '.')
               : 'Dates'}
-          </p> */}
+          </p>
           {/* {this.state.showDatePicker && (
             <DatePicker
               selected={this.state.selectedDate}
