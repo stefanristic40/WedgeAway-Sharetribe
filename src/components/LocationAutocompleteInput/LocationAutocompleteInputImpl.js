@@ -581,13 +581,13 @@ class LocationAutocompleteInputImplementation extends Component {
                   .replace(/\//g, '.')
               : 'Dates'}
           </p>
-          {this.state.showDatePicker && (
+          {/* {this.state.showDatePicker && (
             <DatePicker
               // selected={this.state.selectedDate}
               onChange={date => this.setState({ selectedDate: date })}
               inline
             />
-          )}
+          )} */}
         </div>
         <button className={css.goBtn}>GO</button>
       </div>
