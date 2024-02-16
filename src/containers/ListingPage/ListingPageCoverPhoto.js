@@ -65,7 +65,12 @@ import {
   handleContactUser,
   handleSubmitInquiry,
   handleSubmit,
+  handleToggleFavorites,
 } from './ListingPage.shared';
+
+// Add this whole import statement
+import { updateProfile } from '../ProfileSettingsPage/ProfileSettingsPage.duck';
+
 import SectionHero from './SectionHero';
 import SectionTextMaybe from './SectionTextMaybe';
 import SectionDetailsMaybe from './SectionDetailsMaybe';
@@ -113,6 +118,7 @@ export const ListingPageComponent = props => {
     onInitializeCardPaymentData,
     config,
     routeConfiguration,
+    onUpdateFavorites,
   } = props;
 
   const listingConfig = config.listing;
@@ -283,6 +289,13 @@ export const ListingPageComponent = props => {
     setImageCarouselOpen(true);
   };
 
+  const onToggleFavorites = handleToggleFavorites({
+    ...commonParams,
+    currentUser,
+    onUpdateFavorites,
+    location,
+  });
+
   return (
     <Page
       title={schemaTitle}
@@ -363,6 +376,11 @@ export const ListingPageComponent = props => {
                 : pickedElements;
             }, [])}
 
+            <SectionTextMaybe
+              text={publicData.extraFeatures}
+              heading={intl.formatMessage({ id: 'ListingPage.extraFeaturesTitle' })}
+            />
+
             <SectionMapMaybe
               geolocation={geolocation}
               publicData={publicData}
@@ -420,6 +438,8 @@ export const ListingPageComponent = props => {
               marketplaceCurrency={config.currency}
               dayCountAvailableForBooking={config.stripe.dayCountAvailableForBooking}
               marketplaceName={config.marketplaceName}
+              onToggleFavorites={onToggleFavorites}
+              currentUser={currentUser}
             />
           </div>
         </div>
@@ -570,6 +590,7 @@ const mapDispatchToProps = dispatch => ({
   onInitializeCardPaymentData: () => dispatch(initializeCardPaymentData()),
   onFetchTimeSlots: (listingId, start, end, timeZone) =>
     dispatch(fetchTimeSlots(listingId, start, end, timeZone)),
+  onUpdateFavorites: (payload) => dispatch(updateProfile(payload)),
 });
 
 // Note: it is important that the withRouter HOC is **outside** the
