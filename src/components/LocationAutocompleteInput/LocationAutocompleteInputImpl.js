@@ -13,12 +13,16 @@ import {
 } from 'prop-types';
 import classNames from 'classnames';
 import debounce from 'lodash/debounce';
+import { FaRegCalendarAlt } from 'react-icons/fa';
 
 import { useConfiguration } from '../../context/configurationContext';
 import { FormattedMessage } from '../../util/reactIntl';
 import { propTypes } from '../../util/types';
 
 import { IconSpinner } from '../../components';
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'; // Import the styles for react-datepicker
 
 import IconHourGlass from './IconHourGlass';
 import IconCurrentLocation from './IconCurrentLocation';
@@ -182,6 +186,8 @@ class LocationAutocompleteInputImplementation extends Component {
       highlightedIndex: -1, // -1 means no highlight
       fetchingPlaceDetails: false,
       fetchingPredictions: false,
+      showDatePicker: false,
+      selectedDate: null,
     };
 
     // Ref to the input element.
@@ -518,34 +524,30 @@ class LocationAutocompleteInputImplementation extends Component {
 
     return (
       <div className={rootClass}>
-        <div className={iconClass}>
-          {this.state.fetchingPlaceDetails ? (
-            <IconSpinner className={css.iconSpinner} />
-          ) : (
-            <IconHourGlass />
-          )}
+        <div className={css.searchInputBox}>
+          <p className={css.searchLabel}>Location</p>
+          <input
+            className={inputClass}
+            type="search"
+            autoComplete="off"
+            autoFocus={autoFocus}
+            placeholder="City, Course, or Address"
+            name={name}
+            value={search}
+            disabled={disabled || this.state.fetchingPlaceDetails}
+            onFocus={handleOnFocus}
+            onBlur={this.handleOnBlur}
+            onChange={this.onChange}
+            onKeyDown={this.onKeyDown}
+            ref={node => {
+              this.input = node;
+              if (inputRef) {
+                inputRef(node);
+              }
+            }}
+            data-testid="location-search"
+          />
         </div>
-        <input
-          className={inputClass}
-          type="search"
-          autoComplete="off"
-          autoFocus={autoFocus}
-          placeholder={placeholder}
-          name={name}
-          value={search}
-          disabled={disabled || this.state.fetchingPlaceDetails}
-          onFocus={handleOnFocus}
-          onBlur={this.handleOnBlur}
-          onChange={this.onChange}
-          onKeyDown={this.onKeyDown}
-          ref={node => {
-            this.input = node;
-            if (inputRef) {
-              inputRef(node);
-            }
-          }}
-          data-testid="location-search"
-        />
         {renderPredictions ? (
           <LocationPredictionsList
             rootClassName={predictionsClass}
@@ -561,6 +563,31 @@ class LocationAutocompleteInputImplementation extends Component {
             <GeocoderAttribution className={predictionsAttributionClassName} />
           </LocationPredictionsList>
         ) : null}
+        <div
+          className={css.dateSelector}
+          onClick={() => this.setState({ showDatePicker: !this.state.showDatePicker })}
+        >
+          <FaRegCalendarAlt />
+          <p>
+            {this.state.selectedDate
+              ? this.state.selectedDate
+                  .toLocaleDateString('en-GB', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  })
+                  .replace(/\//g, '.')
+              : 'Dates'}
+          </p>
+          {this.state.showDatePicker && (
+            <DatePicker
+              selected={this.state.selectedDate}
+              onChange={date => this.setState({ selectedDate: date })}
+              inline
+            />
+          )}
+        </div>
+        <button className={css.goBtn}>GO</button>
       </div>
     );
   }
