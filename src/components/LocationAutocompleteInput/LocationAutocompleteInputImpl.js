@@ -150,29 +150,28 @@ LocationPredictionsList.propTypes = {
   onSelectEnd: func.isRequired,
 };
 
-const DateSelector = props => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [showDatePicker, setShowDatePicker] = useState(false);
+// const DateSelector = () => {
+//   const [selectedDate, setSelectedDate] = useState(null);
+//   const [showDatePicker, setShowDatePicker] = useState(false);
 
-  const handleDateChange = date => {
-    setSelectedDate(date);
-    // setShowDatePicker(false); // Hide the date picker after selection
-  };
+//   const handleDateChange = date => {
+//     setSelectedDate(date);
+//   };
 
-  return (
-    <div className={css.dateSelector} onClick={() => setShowDatePicker(!showDatePicker)}>
-      <FaRegCalendarAlt />
-      <p>
-        {selectedDate
-          ? selectedDate
-              .toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' })
-              .replace(/\//g, '.')
-          : 'Dates'}
-      </p>
-      {showDatePicker && <DatePicker selected={selectedDate} onChange={handleDateChange} inline />}
-    </div>
-  );
-};
+//   return (
+//     <div className={css.dateSelector} onClick={() => setShowDatePicker(!showDatePicker)}>
+//       <FaRegCalendarAlt />
+//       <p>
+//         {selectedDate
+//           ? selectedDate
+//               .toLocaleDateString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit' })
+//               .replace(/\//g, '.')
+//           : 'Dates'}
+//       </p>
+//       {showDatePicker && <DatePicker selected={selectedDate} onChange={handleDateChange} inline />}
+//     </div>
+//   );
+// };
 
 // Get the current value with defaults from the given
 // LocationAutocompleteInput props.
@@ -596,8 +595,8 @@ class LocationAutocompleteInputImplementation extends Component {
             <IconHourGlass />
           )}
         </div> */}
-        <DateSelector />
-        <button className={css.goBtn}>GO</button>
+        {/* <DateSelector />
+        <button className={css.goBtn}>GO</button> */}
       </div>
     );
   }
