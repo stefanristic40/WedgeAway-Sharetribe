@@ -21,7 +21,6 @@ import { propTypes } from '../../util/types';
 import { IconSpinner } from '../../components';
 
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
 import { FaRegCalendarAlt } from 'react-icons/fa';
 
@@ -581,13 +580,13 @@ class LocationAutocompleteInputImplementation extends Component {
                   .replace(/\//g, '.')
               : 'Dates'}
           </p>
-          {this.state.showDatePicker && (
+          {/* {this.state.showDatePicker && (
             <DatePicker
               selected={this.state.selectedDate}
               onChange={date => this.setState({ selectedDate: date })}
               inline
             />
-          )}
+          )} */}
         </div>
         <button className={css.goBtn}>GO</button>
       </div>
