@@ -17,9 +17,8 @@ import {
   NamedLink,
 } from '../../../../components';
 
-import TopbarSearchForm from '../TopbarSearchForm/TopbarSearchForm';
-
 import css from './TopbarDesktop.module.css';
+import Search from '../../../../components/SearchForm/Search';
 
 const TopbarDesktop = props => {
   const {
@@ -33,8 +32,6 @@ const TopbarDesktop = props => {
     intl,
     isAuthenticated,
     onLogout,
-    onSearchSubmit,
-    initialSearchFormValues,
   } = props;
   const [mounted, setMounted] = useState(false);
 
@@ -47,16 +44,6 @@ const TopbarDesktop = props => {
   const isAuthenticatedOrJustHydrated = isAuthenticated || !mounted;
 
   const classes = classNames(rootClassName || css.root, className);
-
-  const search = (
-    <TopbarSearchForm
-      className={css.searchLink}
-      desktopInputRoot={css.topbarSearchWithLeftPadding}
-      onSubmit={onSearchSubmit}
-      initialValues={initialSearchFormValues}
-      appConfig={appConfig}
-    />
-  );
 
   const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
 
@@ -157,20 +144,21 @@ const TopbarDesktop = props => {
 
   const whyRentlocalButton = <p className={css.whyLentlocalButton}>Why #Rentlocal</p>;
 
-  const notificationButton = <IoIosNotifications size={24} color="white" />;
+  const notificationButton = <IoIosNotifications size={24} color="black" />;
   const helpButton = <p className={css.helpButton}>Help</p>;
   return (
-    <nav
-      className={classes}
-      style={{ background: 'transparent', marginBottom: '-72px', backdropFilter: 'blur(8px)' }}
-    >
-      <LinkedLogo
-        className={css.logoLink}
-        layout="desktop"
-        alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
-      />
-      {/* {search} */}
-      {/* <div style={{ width: '100%' }}></div>
+    <nav className={classes}>
+      <div className={css.left}>
+        <LinkedLogo
+          className={css.logoLink}
+          layout="desktop"
+          alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
+        />
+        <div id="header_search">
+          <Search />
+        </div>
+      </div>
+      {/*
       <NamedLink className={css.createListingLink} name="NewListingPage">
         <span className={css.createListing}>
           <FormattedMessage id="TopbarDesktop.createListing" />

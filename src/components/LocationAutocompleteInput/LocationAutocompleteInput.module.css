@@ -3,6 +3,7 @@
 .root {
   position: relative;
   display: flex;
+  gap: 10px;
 }
 
 .icon {
@@ -138,4 +139,44 @@ bottom of the container.
 .currentLocationIcon {
   margin-right: 10px;
   margin-bottom: 1px;
+}
+
+.goBtn {
+  background-color: var(--colorBlack);
+  border-radius: 14px;
+  color: var(--colorWhite);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.dateSelector {
+  background-color: var(--colorWhite);
+  border-radius: 14px;
+  border: 1px solid var(--colorBlack);
+  padding: 10px 20px;
+  color: #5b6974;
+  cursor: pointer;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-weight: 700;
+  }
+}
+
+.searchInputBox {
+  border: 1px solid #5b6974;
+  background-color: var(--colorWhite);
+  padding: 6px 20px;
+  text-align: left;
+  border-radius: 14px;
+  width: 100%;
+}
+
+.searchLabel {
+  color: #5b6974;
+  font-size: 14px;
+  spadding: 0px;
+  margin: 0px;
 }
