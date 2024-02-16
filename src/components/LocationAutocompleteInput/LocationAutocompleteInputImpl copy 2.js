@@ -13,12 +13,16 @@ import {
 } from 'prop-types';
 import classNames from 'classnames';
 import debounce from 'lodash/debounce';
+import { FaRegCalendarAlt } from 'react-icons/fa';
 
 import { useConfiguration } from '../../context/configurationContext';
 import { FormattedMessage } from '../../util/reactIntl';
 import { propTypes } from '../../util/types';
 
 import { IconSpinner } from '../../components';
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'; // Import the styles for react-datepicker
 
 import IconHourGlass from './IconHourGlass';
 import IconCurrentLocation from './IconCurrentLocation';
@@ -182,6 +186,8 @@ class LocationAutocompleteInputImplementation extends Component {
       highlightedIndex: -1, // -1 means no highlight
       fetchingPlaceDetails: false,
       fetchingPredictions: false,
+      showDatePicker: false,
+      selectedDate: null,
     };
 
     // Ref to the input element.
@@ -557,6 +563,31 @@ class LocationAutocompleteInputImplementation extends Component {
             <GeocoderAttribution className={predictionsAttributionClassName} />
           </LocationPredictionsList>
         ) : null}
+        {/* <div
+          className={css.dateSelector}
+          onClick={() => this.setState({ showDatePicker: !this.state.showDatePicker })}
+        >
+          <FaRegCalendarAlt />
+          <p>
+            {this.state.selectedDate
+              ? this.state.selectedDate
+                  .toLocaleDateString('en-GB', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  })
+                  .replace(/\//g, '.')
+              : 'Dates'}
+          </p>
+          {this.state.showDatePicker && (
+            <DatePicker
+              selected={this.state.selectedDate}
+              onChange={date => this.setState({ selectedDate: date })}
+              inline
+            />
+          )}
+        </div> */}
+        <button className={css.goBtn}>GO</button>
       </div>
     );
   }
