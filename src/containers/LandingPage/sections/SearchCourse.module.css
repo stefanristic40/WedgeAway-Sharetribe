@@ -1,17 +1,27 @@
+.searchCourseContainer {
+  /* border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb; */
+  background-color: #e4e9e6;
+}
+
 .searchCourse {
-  background-color: #f5f5f5;
-  padding: 20px 0;
+  /* background-color: #e4e9e6; */
+  padding: 50px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
   color: black;
 
+  /* border: 1px solid #bbbbbb;
+  border-radius: 20px; */
+
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 0px;
   }
 }
+
 .search_box {
   border-radius: 50px;
   border-radius: 50px;
