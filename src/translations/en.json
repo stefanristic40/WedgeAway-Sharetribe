@@ -1094,5 +1094,14 @@
   "EditListingExtraFeaturesForm.showListingFailed": "Fetching listing failed",
   "EditListingWizard.default-booking.new.saveExtraFeatures": "Next: Availability",
   "EditListingWizard.edit.saveExtraFeatures": "Save changes",
-  "ListingPage.extraFeaturesTitle": "Extra features"
+  "ListingPage.extraFeaturesTitle": "Extra features",
+  "FavoriteListingsPage.loadingFavoriteListings": "Loading listings…",
+  "FavoriteListingsPage.noResults": "You haven't listed any bikes.",
+  "FavoriteListingsPage.queryError": "Query failed. Please try again.",
+  "FavoriteListingsPage.title": "View your favorite bikes",
+  "FavoriteListingsPage.youHaveListings": "You have {count} favorite {count, plural, one {listing} other {listings}}",
+  "OrderPanel.addFavoriteButton":"Add to favorites",
+  "OrderPanel.unfavoriteButton":"Unfavorite",
+  "TopbarDesktop.favoriteListingsLink": "Favorite bikes",
+  "UserNav.favoriteListings": "Favorite bikes"
 }
