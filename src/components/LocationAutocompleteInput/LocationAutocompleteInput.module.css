@@ -158,11 +158,11 @@ bottom of the container.
   color: #5b6974;
   cursor: pointer;
   text-align: center;
+}
 
-  p {
-    margin: 0;
-    font-weight: 700;
-  }
+.dateText {
+  margin: 0;
+  font-weight: 700;
 }
 
 .searchInputBox {
