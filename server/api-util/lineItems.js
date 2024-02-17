@@ -1,3 +1,4 @@
+const { default: helmet } = require('helmet');
 const {
   calculateQuantityFromDates,
   calculateQuantityFromHours,
@@ -85,6 +86,20 @@ const getDateRangeQuantityAndLineItems = (orderData, code) => {
     bookingStart && bookingEnd ? calculateQuantityFromDates(bookingStart, bookingEnd, code) : null;
 
   return { quantity, extraLineItems: [] };
+};
+
+const resolveHelmetFeePrice = listing => {
+  const publicData = listing.attributes.publicData;
+  const helmetFee = publicData && publicData.helmetFee;
+  console.log("dfadsfasfasdfasdf");
+  console.log("helmetFee: ", helmetFee);
+  const { amount, currency } = helmetFee;
+
+  if (amount && currency) {
+    return new Money(amount, currency);
+  }
+
+  return null;
 };
 
 /**
@@ -175,6 +190,20 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
     includeFor: ['customer', 'provider'],
   };
 
+  const helmetFeePrice = orderData.hasHelmetFee ? resolveHelmetFeePrice(listing) : null;
+
+  const helmetFee = helmetFeePrice
+    ? [
+        {
+          code: 'line-item/helmet-rental-fee',
+          unitPrice: helmetFeePrice,
+          quantity: 1,
+          includeFor: ['customer', 'provider'],
+        },
+     ]
+    : [];
+  
+
   // Provider commission reduces the amount of money that is paid out to provider.
   // Therefore, the provider commission line-item should have negative effect to the payout total.
   const getNegation = percentage => {
@@ -191,7 +220,7 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
     ? [
         {
           code: 'line-item/provider-commission',
-          unitPrice: calculateTotalFromLineItems([order]),
+          unitPrice: calculateTotalFromLineItems([order, ...helmetFee]),
           percentage: getNegation(providerCommission.percentage),
           includeFor: ['provider'],
         },
@@ -217,6 +246,7 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
   const lineItems = [
     order,
     ...extraLineItems,
+    ...helmetFee,
     ...providerCommissionMaybe,
     ...customerCommissionMaybe,
   ];

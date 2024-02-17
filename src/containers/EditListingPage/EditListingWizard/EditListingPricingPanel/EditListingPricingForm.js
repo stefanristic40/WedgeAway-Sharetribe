@@ -99,6 +99,18 @@ export const EditListingPricingFormComponent = props => (
             currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
             validate={priceValidators}
           />
+          <FieldCurrencyInput 
+            id={`${formId}helmetFee`}
+            name="helmetFee"
+            className={css.input}
+            autoFocus={autoFocus}
+            label={intl.formatMessage(
+              { id: 'EditListingPricingForm.helmetFee' },
+              { unitType }
+            )}
+            placeholder={intl.formatMessage({ id: 'EditListingPricingForm.helmetFeePlaceholder' })}
+            currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
+          />
 
           <Button
             className={css.submitButton}

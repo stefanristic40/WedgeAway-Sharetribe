@@ -278,6 +278,8 @@ const OrderPanel = props => {
     </Button>
   );
 
+  const helmetFee = listing?.attributes?.publicData.helmetFee;
+
   return (
     <div className={classes}>
       <ModalInMobile
@@ -365,6 +367,7 @@ const OrderPanel = props => {
             fetchLineItemsInProgress={fetchLineItemsInProgress}
             fetchLineItemsError={fetchLineItemsError}
             payoutDetailsWarning={payoutDetailsWarning}
+            helmetFee={helmetFee}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm

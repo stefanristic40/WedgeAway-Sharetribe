@@ -109,7 +109,7 @@ export const OrderBreakdownComponent = props => {
       <LineItemShippingFeeMaybe lineItems={lineItems} intl={intl} />
       <LineItemPickupFeeMaybe lineItems={lineItems} intl={intl} />
       <LineItemUnknownItemsMaybe lineItems={lineItems} isProvider={isProvider} intl={intl} />
-
+      
       <LineItemSubTotalMaybe
         lineItems={lineItems}
         code={lineItemUnitType}
@@ -152,6 +152,7 @@ export const OrderBreakdownComponent = props => {
           <FormattedMessage id="OrderBreakdown.commissionFeeNote" />
         </span>
       ) : null}
+      
     </div>
   );
 };

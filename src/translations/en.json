@@ -1103,5 +1103,8 @@
   "OrderPanel.addFavoriteButton":"Add to favorites",
   "OrderPanel.unfavoriteButton":"Unfavorite",
   "TopbarDesktop.favoriteListingsLink": "Favorite clubs",
-  "UserNav.favoriteListings": "Favorite clubs"
+  "UserNav.favoriteListings": "Favorite clubs",
+  "EditListingPricingForm.helmetFee":"Helmet rental fee (optional)",
+  "EditListingPricingForm.helmetFeePlaceholder": "Add a helmet rental fee...",
+  "BookingDatesForm.helmetFeeLabel": "Helmet rental fee: {fee}"
 }
