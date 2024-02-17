@@ -18,9 +18,17 @@ const { Money } = sdkTypes;
 
 const getInitialValues = params => {
   const { listing } = params;
-  const { price } = listing?.attributes || {};
+  const { price, publicData } = listing?.attributes || {};
 
-  return { price };
+  const helmetFee = publicData?.helmetFee || null;
+  const deliverFee = publicData?.deliverFee || null;
+
+  const helmetFeeAsMoney = helmetFee
+    ? new Money(helmetFee.amount, helmetFee.currency) : null;
+  const deliverFeeAsMoney = deliverFee
+    ? new Money(deliverFee.amount, deliverFee.currency) : null;
+
+  return { price, helmetFee: helmetFeeAsMoney, deliverFee: deliverFeeAsMoney };
 };
 
 const EditListingPricingPanel = props => {
@@ -68,11 +76,15 @@ const EditListingPricingPanel = props => {
           className={css.form}
           initialValues={initialValues}
           onSubmit={values => {
-            const { price } = values;
+            const { price, helmetFee = null, deliverFee = null } = values;
 
             // New values for listing attributes
             const updateValues = {
               price,
+              publicData: {
+                helmetFee: helmetFee ? { amount: helmetFee.amount, currency: helmetFee.currency } : null,
+                deliverFee: deliverFee ? { amount: deliverFee.amount, currency: deliverFee.currency } : null,
+              },              
             };
             onSubmit(updateValues);
           }}
