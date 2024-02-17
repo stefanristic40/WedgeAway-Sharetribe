@@ -262,15 +262,14 @@
   color: var(--colorWhite);
 
   font-weight: var(--fontWeightMedium);
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0;
+  font-size: 13px;
 
-  padding: 7px 30px;
+  padding: 3px 20px;
   margin: 0;
 
   border-radius: 10px;
   text-decoration: none;
+  margin-top: 1px;
 
   @media (--viewportMedium) {
     line-height: 16px;
