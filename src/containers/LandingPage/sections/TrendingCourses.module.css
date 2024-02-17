@@ -9,11 +9,20 @@
   justify-content: space-between;
   /* align-items: center; */
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .item {
   width: 30%;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .season_img {
