@@ -34,7 +34,7 @@
   transition: var(--transitionStyleButton);
 }
 .logoLink:hover {
-  border-bottom: 4px solid var(--marketplaceColor);
+  /* border-bottom: 4px solid var(--marketplaceColor); */
   border-radius: 0;
 }
 
