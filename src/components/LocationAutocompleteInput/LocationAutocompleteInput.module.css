@@ -179,4 +179,8 @@ bottom of the container.
   font-size: 14px;
   spadding: 0px;
   margin: 0px;
+
+  @media (max-width: 768px) {
+    margin-top: 3px;
+  }
 }
