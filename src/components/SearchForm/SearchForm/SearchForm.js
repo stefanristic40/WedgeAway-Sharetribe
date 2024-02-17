@@ -11,6 +11,11 @@ import { Form, LocationAutocompleteInput } from '../../../components';
 import IconSearchDesktop from './IconSearchDesktop';
 import css from './SearchForm.module.css';
 
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
+
+import { FaRegCalendarAlt } from 'react-icons/fa';
+
 const identity = v => v;
 
 const KeywordSearchField = props => {
@@ -95,6 +100,11 @@ class SearchFormComponent extends Component {
     this.setSearchInputRef = element => {
       this.setSearchInput = element;
     };
+
+    this.state = {
+      showDatePicker: false,
+      selectedDate: null,
+    };
   }
 
   onChange(location) {
@@ -149,7 +159,11 @@ class SearchFormComponent extends Component {
           );
 
           return (
-            <Form className={classes} onSubmit={submitFormFn} enforcePagePreloadFor="SearchPage">
+            <Form
+              className={css.searchFormContainer}
+              onSubmit={submitFormFn}
+              enforcePagePreloadFor="SearchPage"
+            >
               {isKeywordsSearch ? (
                 <KeywordSearchField
                   keywordSearchWrapperClasses={keywordSearchWrapperClasses}
@@ -167,6 +181,33 @@ class SearchFormComponent extends Component {
                   onLocationChange={this.onChange}
                 />
               )}
+              <div
+                className={css.dateSelector}
+                onClick={() => this.setState({ showDatePicker: !this.state.showDatePicker })}
+              >
+                <div className={css.dateTextBox}>
+                  <FaRegCalendarAlt />
+                  <p className={css.dateText}>
+                    {this.state?.selectedDate
+                      ? this.state.selectedDate
+                          .toLocaleDateString('en-GB', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                          })
+                          .replace(/\//g, '.')
+                      : 'Dates'}
+                  </p>
+                </div>
+                {/* {this.state.showDatePicker && (
+                  <DatePicker
+                    // selected={this.state.selectedDate}
+                    onChange={date => this.setState({ selectedDate: date })}
+                    inline
+                  />
+                )} */}
+              </div>
+              <button className={css.goBtn}>GO</button>
             </Form>
           );
         }}

@@ -29,6 +29,7 @@ import TopbarMobileMenu from './TopbarMobileMenu/TopbarMobileMenu';
 import TopbarDesktop from './TopbarDesktop/TopbarDesktop';
 
 import css from './Topbar.module.css';
+import Search from '../../../components/SearchForm/Search';
 
 const MAX_MOBILE_SCREEN_WIDTH = 1024;
 
@@ -210,6 +211,14 @@ class TopbarComponent extends Component {
 
     const classes = classNames(rootClassName || css.root, className);
 
+    const listMyClubsButton = (
+      <NamedLink className={css.listMyClubsButton} name="NewListingPage">
+        <span className={css.listMyClubs}>
+          <FormattedMessage id="TopbarDesktop.listMyClubs" />
+        </span>
+      </NamedLink>
+    );
+
     return (
       <div className={classes}>
         <LimitedAccessBanner
@@ -221,6 +230,7 @@ class TopbarComponent extends Component {
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
           <LinkedLogo layout={'mobile'} alt={intl.formatMessage({ id: 'Topbar.logoIcon' })} />
+          {listMyClubsButton}
           <Button
             rootClassName={css.menu}
             onClick={this.handleMobileMenuOpen}

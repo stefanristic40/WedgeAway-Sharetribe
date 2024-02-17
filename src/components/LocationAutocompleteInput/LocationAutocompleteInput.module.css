@@ -2,8 +2,6 @@
 
 .root {
   position: relative;
-  display: flex;
-  gap: 10px;
 }
 
 .icon {
@@ -141,30 +139,6 @@ bottom of the container.
   margin-bottom: 1px;
 }
 
-.goBtn {
-  background-color: var(--colorBlack);
-  border-radius: 14px;
-  color: var(--colorWhite);
-  padding: 10px 20px;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.dateSelector {
-  background-color: var(--colorWhite);
-  border-radius: 14px;
-  border: 1px solid var(--colorBlack);
-  padding: 10px 20px;
-  color: #5b6974;
-  cursor: pointer;
-  text-align: center;
-}
-
-.dateText {
-  margin: 0;
-  font-weight: 700;
-}
-
 .searchInputBox {
   border: 1px solid #5b6974;
   background-color: var(--colorWhite);
@@ -172,15 +146,15 @@ bottom of the container.
   text-align: left;
   border-radius: 14px;
   width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchLabel {
   color: #5b6974;
   font-size: 14px;
-  spadding: 0px;
   margin: 0px;
-
-  @media (max-width: 768px) {
-    margin-top: 3px;
-  }
+  padding: 0px;
 }

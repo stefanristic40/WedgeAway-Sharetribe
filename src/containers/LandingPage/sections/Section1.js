@@ -8,11 +8,14 @@ export const LandingComponent = props => {
       const scrollPosition = window.scrollY;
 
       const headerSearchElement = document.getElementById('header_search');
+      // const headerMobileSearchElement = document.getElementById('mobile_search_form');
 
       if (headerSearchElement) {
         if (scrollPosition < 400) {
+          // headerMobileSearchElement.style.display = 'none';
           headerSearchElement.style.display = 'none';
         } else {
+          // headerMobileSearchElement.style.display = 'block';
           headerSearchElement.style.display = 'block';
         }
       }

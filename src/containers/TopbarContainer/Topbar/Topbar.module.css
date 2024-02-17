@@ -20,11 +20,7 @@
   justify-content: space-between;
   align-items: center;
 
-  /* fill */
-  background-color: transparent;
-  backdrop-filter: blur(20px);
-  margin-bottom: -70px;
-
+  background-color: var(--colorWhite);
   /* shadows */
   box-shadow: var(--boxShadow);
 
@@ -46,7 +42,7 @@
 .searchMenu {
   /* Font */
   composes: h5 from global;
-  color: var(--colorGrey700);
+  color: var(--colorBlack);
 
   /* Layout */
   display: flex;
@@ -74,7 +70,7 @@
 .menu {
   /* padding: 15px 24px; */
   position: relative;
-  color: white;
+  color: var(--colorBlack);
 
   /* @media (--viewportMedium) {
     padding: 21px 24px;
@@ -143,7 +139,7 @@
 
 /* Icon component styles */
 .rootMenuIcon {
-  fill: var(--colorWhite);
+  fill: var(--colorBlack);
 }
 .rootSearchIcon {
   stroke: var(--colorGrey700);
@@ -261,6 +257,26 @@
   }
 }
 
+.listMyClubsButton {
+  background-color: var(--colorBlack);
+  color: var(--colorWhite);
+
+  font-weight: var(--fontWeightMedium);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+
+  padding: 7px 30px;
+  margin: 0;
+
+  border-radius: 10px;
+  text-decoration: none;
+
+  @media (--viewportMedium) {
+    line-height: 16px;
+    margin: 0;
+  }
+}
 .genericErrorVisible {
   right: 0;
   opacity: 1;
