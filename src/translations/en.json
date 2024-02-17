@@ -1106,5 +1106,8 @@
   "UserNav.favoriteListings": "Favorite clubs",
   "EditListingPricingForm.helmetFee":"Helmet rental fee (optional)",
   "EditListingPricingForm.helmetFeePlaceholder": "Add a helmet rental fee...",
-  "BookingDatesForm.helmetFeeLabel": "Helmet rental fee: {fee}"
+  "BookingDatesForm.helmetFeeLabel": "Helmet rental fee: {fee}",
+  "EditListingPricingForm.deliverFee":"deliverFee fee (optional)",
+  "EditListingPricingForm.hdeliverFeePlaceholder": "Add a deliverFee fee...",
+  "BookingDatesForm.deliverFeeLabel": "Delivery fee: {fee}"
 }

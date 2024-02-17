@@ -91,9 +91,19 @@ const getDateRangeQuantityAndLineItems = (orderData, code) => {
 const resolveHelmetFeePrice = listing => {
   const publicData = listing.attributes.publicData;
   const helmetFee = publicData && publicData.helmetFee;
-  console.log("dfadsfasfasdfasdf");
-  console.log("helmetFee: ", helmetFee);
   const { amount, currency } = helmetFee;
+
+  if (amount && currency) {
+    return new Money(amount, currency);
+  }
+
+  return null;
+};
+
+const resolveDeliverFeePrice = listing => {
+  const publicData = listing.attributes.publicData;
+  const deliverFee = publicData && publicData.deliverFee;
+  const { amount, currency } = deliverFee;
 
   if (amount && currency) {
     return new Money(amount, currency);
@@ -191,7 +201,6 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
   };
 
   const helmetFeePrice = orderData.hasHelmetFee ? resolveHelmetFeePrice(listing) : null;
-
   const helmetFee = helmetFeePrice
     ? [
         {
@@ -202,7 +211,18 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
         },
      ]
     : [];
-  
+    
+  const deliverFeePrice = orderData.hasDeliverFee ? resolveDeliverFeePrice(listing) : null;
+  const deliverFee = deliverFeePrice
+    ? [
+        {
+          code: 'line-item/deliver-fee',
+          unitPrice: deliverFeePrice,
+          quantity: 1,
+          includeFor: ['customer', 'provider'],
+        },
+     ]
+    : [];
 
   // Provider commission reduces the amount of money that is paid out to provider.
   // Therefore, the provider commission line-item should have negative effect to the payout total.
@@ -220,7 +240,7 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
     ? [
         {
           code: 'line-item/provider-commission',
-          unitPrice: calculateTotalFromLineItems([order, ...helmetFee]),
+          unitPrice: calculateTotalFromLineItems([order, ...helmetFee, ...deliverFee]),
           percentage: getNegation(providerCommission.percentage),
           includeFor: ['provider'],
         },
@@ -247,6 +267,7 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
     order,
     ...extraLineItems,
     ...helmetFee,
+    ...deliverFee,
     ...providerCommissionMaybe,
     ...customerCommissionMaybe,
   ];

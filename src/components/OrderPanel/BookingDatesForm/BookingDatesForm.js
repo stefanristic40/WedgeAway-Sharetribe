@@ -379,6 +379,7 @@ const handleFormSpyChange = (
     formValues.values && formValues.values.bookingDates ? formValues.values.bookingDates : {};
 
   const hasHelmetFee = formValues.values?.helmetFee?.length > 0;
+  const hasDeliverFee = formValues.values?.deliverFee?.length > 0;
 
   if (startDate && endDate && !fetchLineItemsInProgress) {
     onFetchTransactionLineItems({
@@ -386,6 +387,7 @@ const handleFormSpyChange = (
         bookingStart: startDate,
         bookingEnd: endDate,
         hasHelmetFee,
+        hasDeliverFee,
       },
       listingId,
       isOwnListing,
@@ -476,6 +478,7 @@ export const BookingDatesFormComponent = props => {
           fetchLineItemsError,
           onFetchTimeSlots,
           helmetFee,
+          deliverFee,
         } = fieldRenderProps;
         const { startDate, endDate } = values && values.bookingDates ? values.bookingDates : {};
 
@@ -554,6 +557,19 @@ export const BookingDatesFormComponent = props => {
           }
         );
 
+        const formattedDeliverFee = deliverFee
+          ? formatMoney( intl, new Money(deliverFee.amount, deliverFee.currency)) 
+          : null;
+
+        const deliverFeeLabel = intl.formatMessage(
+          {
+            id: 'BookingDatesForm.deliverFeeLabel',
+          },
+          {
+            fee: formattedDeliverFee,
+          }
+        );
+
         const helmetFeeMaybe = helmetFee? (
           <FieldCheckbox
             className={css.helmetFeeContainer}
@@ -561,6 +577,16 @@ export const BookingDatesFormComponent = props => {
             name="helmetFee"
             label={helmetFeeLabel}
             value="helmetFee"
+          />
+        ) : null;
+
+        const deliverFeeMaybe = deliverFee ? (
+          <FieldCheckbox
+            className={css.deliverFeeContainer}
+            id={`${formId}.deliverFee`}
+            name="deliverFee"
+            label={deliverFeeLabel}
+            value="deliverFee"
           />
         ) : null;
 
@@ -643,6 +669,7 @@ export const BookingDatesFormComponent = props => {
             />
 
             {helmetFeeMaybe}
+            {deliverFeeMaybe}
 
             {showEstimatedBreakdown ? (
               <div className={css.priceBreakdownContainer}>

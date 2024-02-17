@@ -279,6 +279,7 @@ const OrderPanel = props => {
   );
 
   const helmetFee = listing?.attributes?.publicData.helmetFee;
+  const deliverFee = listing?.attributes?.publicData.deliverFee;
 
   return (
     <div className={classes}>
@@ -368,6 +369,7 @@ const OrderPanel = props => {
             fetchLineItemsError={fetchLineItemsError}
             payoutDetailsWarning={payoutDetailsWarning}
             helmetFee={helmetFee}
+            deliverFee={deliverFee}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm
