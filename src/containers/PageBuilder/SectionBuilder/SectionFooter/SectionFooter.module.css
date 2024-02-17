@@ -176,7 +176,7 @@
     /* 3/6 of space is for grid, and grid splits it to 3 columns */
     grid-template-columns: 2fr 1fr 1fr 2fr;
     grid-template-areas:
-      'logo . . .'
+      'logo . grid grid'
       'details . grid grid'
       'details . grid grid'
       'details . grid grid';

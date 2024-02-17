@@ -38,12 +38,12 @@ export const LandingComponent = props => {
             From Local Golfers on Demand
           </b>
         </h1>
-        <img src="/static/images/line.png" alt="line" style={{ width: '100%' }} />
+        <img src="/static/images/line.png" alt="line" className={css.line} />
         <p className={css.description}>
           Discover and book golf clubs from local golfers <br />
           who share your passion for the game
         </p>
-        <div>
+        <div className={css.search_section}>
           <Search />
         </div>
       </div>
