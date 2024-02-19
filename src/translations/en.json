@@ -1114,5 +1114,16 @@
   "BookingDatesForm.helmetFeeLabel": "Helmet rental fee: {fee}",
   "EditListingPricingForm.deliverFee":"deliverFee fee (optional)",
   "EditListingPricingForm.hdeliverFeePlaceholder": "Add a deliverFee fee...",
-  "BookingDatesForm.deliverFeeLabel": "Delivery fee: {fee}"
+  "BookingDatesForm.deliverFeeLabel": "Delivery fee: {fee}",
+  "EditListingServiceHistoryForm.lastServiced": "Date when last serviced",
+  "EditListingServiceHistoryForm.serviceDetails": "Details of service history",
+  "EditListingServiceHistoryPanel.createListingTitle": "Service History",
+  "EditListingServiceHistoryPanel.title": "Edit the Service History of {listingTitle}",
+  "EditListingWizard.default-buying-products.new.savePricingAndStock": "Next: Service History",
+  "EditListingWizard.default-buying-products.new.saveServiceHistory": "Next: Delivery",
+  "EditListingWizard.edit.saveServiceHistory": "Save",
+  "EditListingWizard.tabLabelServiceHistory": "Service History",
+  "FieldDateInput.placeholder": "Select date...",
+  "SectionServiceHistoryMaybe.lastServicedHeading": "Last serviced",
+  "SectionServiceHistoryMaybe.serviceDetailsHeading": "Service details"
 }
