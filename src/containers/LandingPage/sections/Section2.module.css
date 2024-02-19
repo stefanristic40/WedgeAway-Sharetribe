@@ -9,4 +9,8 @@
   color: white;
   font-size: 1.3rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }

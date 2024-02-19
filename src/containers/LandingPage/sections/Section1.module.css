@@ -16,7 +16,7 @@
 
   min-height: 300px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1024px) {
     height: calc(100vh - 60px);
     /* min-height: 460px; */
   }
