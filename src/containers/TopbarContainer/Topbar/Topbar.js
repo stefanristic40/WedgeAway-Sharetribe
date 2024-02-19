@@ -212,7 +212,7 @@ class TopbarComponent extends Component {
     const classes = classNames(rootClassName || css.root, className);
 
     const listMyClubsButton = (
-      <NamedLink className={css.listMyClubsButton} name="NewListingPage">
+      <NamedLink className={css.listMyClubsButton} name="ClubExplanationPage">
         <span className={css.listMyClubs}>
           <FormattedMessage id="TopbarDesktop.listMyClubs" />
         </span>
