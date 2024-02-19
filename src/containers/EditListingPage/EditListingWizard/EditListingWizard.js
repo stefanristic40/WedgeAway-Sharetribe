@@ -55,6 +55,7 @@ import EditListingWizardTab, {
   LOCATION,
   AVAILABILITY,
   PHOTOS,
+  SERVICE_HISTORY,
 } from './EditListingWizardTab';
 import css from './EditListingWizard.module.css';
 
@@ -66,7 +67,7 @@ import css from './EditListingWizard.module.css';
 //         Details tab asks for "title" and is therefore the first tab in the wizard flow.
 const TABS_DETAILS_ONLY = [DETAILS];
 const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
-const TABS_BOOKING = [DETAILS, LOCATION, PRICING, EXTRAFEATURES, AVAILABILITY, PHOTOS];
+const TABS_BOOKING = [DETAILS, LOCATION, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
 
@@ -124,6 +125,9 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
   } else if (tab === PRICING_AND_STOCK) {
     labelKey = 'EditListingWizard.tabLabelPricingAndStock';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePricingAndStock`;
+  } else if (tab === SERVICE_HISTORY) {
+    labelKey = 'EditListingWizard.tabLabelServiceHistory';
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveServiceHistory`;
   } else if (tab === DELIVERY) {
     labelKey = 'EditListingWizard.tabLabelDelivery';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveDelivery`;
@@ -219,7 +223,7 @@ const tabCompleted = (tab, listing, config) => {
     privateData,
   } = listing.attributes;
   const images = listing.images;
-  const { listingType, transactionProcessAlias, unitType, shippingEnabled, pickupEnabled } =
+  const { listingType, transactionProcessAlias, unitType, serviceHistory, shippingEnabled, pickupEnabled } =
     publicData || {};
   const deliveryOptionPicked = publicData && (shippingEnabled || pickupEnabled);
 
@@ -237,6 +241,8 @@ const tabCompleted = (tab, listing, config) => {
       return !!price;
     case PRICING_AND_STOCK:
       return !!price;
+    case SERVICE_HISTORY:
+      return !!serviceHistory;
     case DELIVERY:
       return !!deliveryOptionPicked;
     case LOCATION:
@@ -246,9 +252,9 @@ const tabCompleted = (tab, listing, config) => {
     case PHOTOS:
       return images && images.length > 0;
     case EXTRAFEATURES:
-        return true;
+        // return true;
         // /** For a required attribute: **/
-        // return !!publicData.extraFeatures;
+        return !!publicData.extraFeatures;
     default:
       return false;
   }

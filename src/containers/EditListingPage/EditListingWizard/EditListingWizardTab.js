@@ -20,6 +20,7 @@ import EditListingPhotosPanel from './EditListingPhotosPanel/EditListingPhotosPa
 import EditListingExtraFeaturesPanel from './EditListingExtraFeaturesPanel/EditListingExtraFeaturesPanel';
 import EditListingPricingPanel from './EditListingPricingPanel/EditListingPricingPanel';
 import EditListingPricingAndStockPanel from './EditListingPricingAndStockPanel/EditListingPricingAndStockPanel';
+import EditListingServiceHistoryPanel from './EditListingServiceHistoryPanel/EditListingServiceHistoryPanel';
 
 import css from './EditListingWizardTab.module.css';
 
@@ -27,6 +28,7 @@ export const DETAILS = 'details';
 export const PRICING = 'pricing';
 export const PRICING_AND_STOCK = 'pricing-and-stock';
 export const EXTRAFEATURES = 'extra-features';
+export const SERVICE_HISTORY = 'service-history';
 export const DELIVERY = 'delivery';
 export const LOCATION = 'location';
 export const AVAILABILITY = 'availability';
@@ -37,6 +39,7 @@ export const SUPPORTED_TABS = [
   DETAILS,
   PRICING,
   PRICING_AND_STOCK,
+  SERVICE_HISTORY,
   EXTRAFEATURES,
   DELIVERY,
   LOCATION,
@@ -258,6 +261,13 @@ const EditListingWizardTab = props => {
       return (
         <EditListingExtraFeaturesPanel
           {...panelProps(EXTRAFEATURES)}
+        />
+      );
+    }
+    case SERVICE_HISTORY: {
+      return (
+        <EditListingServiceHistoryPanel
+          {...panelProps(SERVICE_HISTORY)}
         />
       );
     }
