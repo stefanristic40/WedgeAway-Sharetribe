@@ -83,9 +83,9 @@ const TopbarDesktop = props => {
         </MenuItem>
         <MenuItem key="FavoriteListingsPage">
           <NamedLink
-              className={classNames(css.yourListingsLink, currentPageClass('FavoriteListingsPage'))}
-              name="FavoriteListingsPage"
-            >
+            className={classNames(css.yourListingsLink, currentPageClass('FavoriteListingsPage'))}
+            name="FavoriteListingsPage"
+          >
             <span className={css.menuItemBorder} />
             <FormattedMessage id="TopbarDesktop.favoriteListingsLink" />
           </NamedLink>
@@ -135,7 +135,7 @@ const TopbarDesktop = props => {
   );
 
   const listMyClubsButton = (
-    <NamedLink className={css.listMyClubsButton} name="NewListingPage">
+    <NamedLink className={css.listMyClubsButton} name="ClubExplanationPage">
       <span className={css.listMyClubs}>
         <FormattedMessage id="TopbarDesktop.listMyClubs" />
       </span>

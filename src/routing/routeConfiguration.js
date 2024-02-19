@@ -17,6 +17,7 @@ const CheckoutPage = loadable(() => import(/* webpackChunkName: "CheckoutPage" *
 const CMSPage = loadable(() => import(/* webpackChunkName: "CMSPage" */ '../containers/CMSPage/CMSPage'));
 const ContactDetailsPage = loadable(() => import(/* webpackChunkName: "ContactDetailsPage" */ '../containers/ContactDetailsPage/ContactDetailsPage'));
 const EditListingPage = loadable(() => import(/* webpackChunkName: "EditListingPage" */ '../containers/EditListingPage/EditListingPage'));
+const ClubExplanationPage = loadable(() => import(/* webpackChunkName: "ClubExplanationPage" */ '../containers/ClubExplanationPage/ClubExplanationPage'));
 const EmailVerificationPage = loadable(() => import(/* webpackChunkName: "EmailVerificationPage" */ '../containers/EmailVerificationPage/EmailVerificationPage'));
 const InboxPage = loadable(() => import(/* webpackChunkName: "InboxPage" */ '../containers/InboxPage/InboxPage'));
 const LandingPage = loadable(() => import(/* webpackChunkName: "LandingPage" */ '../containers/LandingPage/LandingPage'));
@@ -62,13 +63,13 @@ const RedirectToLandingPage = () => <NamedRedirect name="LandingPage" />;
 // Our routes are exact by default.
 // See behaviour from Routes.js where Route is created.
 const routeConfiguration = (layoutConfig) => {
-  const SearchPage = layoutConfig.searchPage?.variantType === 'map' 
-    ? SearchPageWithMap 
+  const SearchPage = layoutConfig.searchPage?.variantType === 'map'
+    ? SearchPageWithMap
     : SearchPageWithGrid;
-  const ListingPage = layoutConfig.listingPage?.variantType === 'carousel' 
+  const ListingPage = layoutConfig.listingPage?.variantType === 'carousel'
     ?  ListingPageCoverPhoto
     : ListingPageCarousel;
-  
+
   return [
     {
       path: '/',
@@ -81,6 +82,11 @@ const routeConfiguration = (layoutConfig) => {
       name: 'CMSPage',
       component: CMSPage,
       loadData: pageDataLoadingAPI.CMSPage.loadData,
+    },
+    {
+      path: '/clubs',
+      name: 'ClubExplanationPage',
+      component: ClubExplanationPage,
     },
     {
       path: '/s',
@@ -378,7 +384,7 @@ const routeConfiguration = (layoutConfig) => {
       component: FavoriteListingsPage,
       loadData: pageDataLoadingAPI.FavoriteListingsPage.loadData,
     },
-    
+
   ];
 };
 
