@@ -36,6 +36,12 @@
   font-weight: 700;
   font-size: 18px;
   height: 70px;
+
+  @media (max-width: 768px) {
+    height: 60px;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
 }
 
 .dateSelector {
@@ -46,13 +52,19 @@
   border-radius: 14px;
   border: 1px solid var(--colorBlack);
   background-color: var(--colorWhite);
+  padding: 0px 20px;
+
+  @media (max-width: 768px) {
+    height: 60px;
+    font-size: 16px;
+    padding: 0px 10px;
+  }
 }
 
 .dateTextBox {
   color: #5b6974;
   cursor: pointer;
   text-align: center;
-  padding: 0px 20px;
 }
 .dateText {
   margin: 0;

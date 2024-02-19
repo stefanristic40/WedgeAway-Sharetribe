@@ -150,6 +150,11 @@ bottom of the container.
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 6px 16px;
+    height: 60px;
+  }
 }
 
 .searchLabel {
