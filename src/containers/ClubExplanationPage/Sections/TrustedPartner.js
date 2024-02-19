@@ -1,5 +1,7 @@
 import React from 'react';
 import css from './TrustedPartner.module.css';
+import { NamedLink } from '../../../components';
+import { FormattedMessage } from '../../../util/reactIntl';
 
 function TrustedPartner(props) {
   return (
@@ -17,7 +19,10 @@ function TrustedPartner(props) {
               Join thousands of golfers earning income from renting their clubs to passionate
               renters that share the love for the game.
             </p>
-            <button className={css.listBtn}>Create Your Listing</button>
+
+            <NamedLink className={css.listBtn} name="NewListingPage">
+              <FormattedMessage id="ListingPage.CreateYourListing" />
+            </NamedLink>
           </div>
           <div className={css.rightSection}>
             <img src="/static/images/golfer-back.png" alt="golf club" className={css.heroImg} />
