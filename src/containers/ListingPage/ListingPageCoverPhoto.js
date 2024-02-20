@@ -78,6 +78,7 @@ import SectionMultiEnumMaybe from './SectionMultiEnumMaybe';
 import SectionReviews from './SectionReviews';
 import SectionAuthorMaybe from './SectionAuthorMaybe';
 import SectionMapMaybe from './SectionMapMaybe';
+import SectionServiceHistoryMaybe from './SectionServiceHistoryMaybe';
 
 import css from './ListingPage.module.css';
 
@@ -380,6 +381,8 @@ export const ListingPageComponent = props => {
               text={publicData.extraFeatures}
               heading={intl.formatMessage({ id: 'ListingPage.extraFeaturesTitle' })}
             />
+
+            <SectionServiceHistoryMaybe publicData={publicData} intl={intl} />
 
             <SectionMapMaybe
               geolocation={geolocation}
