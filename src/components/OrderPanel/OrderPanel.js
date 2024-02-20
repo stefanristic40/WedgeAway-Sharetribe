@@ -319,7 +319,7 @@ const OrderPanel = props => {
           </span>
         </div>
         
-        {favoriteButton} {/* Add this row */}
+        {/* {favoriteButton} */}
 
         {showPriceMissing ? (
           <PriceMissing />

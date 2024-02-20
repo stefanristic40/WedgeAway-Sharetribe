@@ -584,11 +584,11 @@ class EditListingWizard extends Component {
 
     return (
       <div className={classes}>
-        <Tabs
+        {/* <Tabs
           rootClassName={css.tabsContainer}
           navRootClassName={css.nav}
           tabRootClassName={css.tab}
-        >
+        > */}
           {tabs.map(tab => {
             const tabTranslations = tabLabelAndSubmit(
               intl,
@@ -622,7 +622,7 @@ class EditListingWizard extends Component {
               />
             );
           })}
-        </Tabs>
+        {/* </Tabs> */}
         <Modal
           id="EditListingWizard.payoutModal"
           isOpen={this.state.showPayoutDetails}
