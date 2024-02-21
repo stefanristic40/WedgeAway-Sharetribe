@@ -49,6 +49,7 @@ export const EditListingPricingFormComponent = props => (
         className,
         disabled,
         ready,
+        onPreviousTab,
         handleSubmit,
         marketplaceCurrency,
         unitType,
@@ -123,7 +124,12 @@ export const EditListingPricingFormComponent = props => (
             placeholder={intl.formatMessage({ id: 'EditListingPricingForm.deliverFeePlaceholder' })}
             currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
           />
-
+<Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+        >
+          Back
+        </Button>
           <Button
             className={css.submitButton}
             type="submit"

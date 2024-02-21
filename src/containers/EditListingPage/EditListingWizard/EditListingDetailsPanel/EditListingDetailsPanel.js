@@ -14,6 +14,7 @@ import { H3, ListingLink } from '../../../../components';
 import ErrorMessage from './ErrorMessage';
 import EditListingDetailsForm from './EditListingDetailsForm';
 import css from './EditListingDetailsPanel.module.css';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 /**
  * Get listing configuration. For existing listings, it is stored to publicData.
@@ -242,6 +243,7 @@ const EditListingDetailsPanel = props => {
 
   return (
     <div className={classes}>
+      <ProgressBar currentStep={1} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage

@@ -13,6 +13,7 @@ import { H3, ListingLink } from '../../../../components';
 // Import modules from this directory
 import EditListingExtraFeaturesForm from './EditListingExtraFeaturesForm';
 import css from './EditListingExtraFeaturesPanel.module.css';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 const getInitialValues = params => {
   const { listing } = params;
@@ -29,6 +30,7 @@ const EditListingExtraFeaturesPanel = props => {
     disabled,
     ready,
     onSubmit,
+    onPreviousTab,
     submitButtonText,
     panelUpdated,
     updateInProgress,
@@ -42,6 +44,7 @@ const EditListingExtraFeaturesPanel = props => {
 
   return (
     <div className={classes}>
+      <ProgressBar currentStep={3} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage
@@ -58,6 +61,7 @@ const EditListingExtraFeaturesPanel = props => {
       <EditListingExtraFeaturesForm
         className={css.form}
         initialValues={initialValues}
+        onPreviousTab={onPreviousTab}
         onSubmit={values => {
           const { extraFeatures = '' } = values;
 

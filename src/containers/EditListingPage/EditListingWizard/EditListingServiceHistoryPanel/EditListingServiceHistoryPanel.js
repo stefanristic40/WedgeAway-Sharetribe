@@ -15,6 +15,7 @@ import EditListingServiceHistoryForm from './EditListingServiceHistoryForm';
 // Create this file using EditListingLocationPanel.module.css
 // as a template.
 import css from './EditListingServiceHistoryPanel.module.css';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 const getInitialValues = props => {
   const { serviceHistory } =
@@ -34,6 +35,7 @@ const EditListingServiceHistoryPanel = props => {
     className,
     rootClassName,
     listing,
+    onPreviousTab,
     disabled,
     ready,
     onSubmit,
@@ -50,6 +52,7 @@ const EditListingServiceHistoryPanel = props => {
 
   return (
     <div className={classes}>
+      <ProgressBar currentStep={4} />
       <h1 className={css.title}>
         {isPublished ? (
           <FormattedMessage
@@ -77,6 +80,7 @@ const EditListingServiceHistoryPanel = props => {
 
           onSubmit(updateValues);
         }}
+        onPreviousTab={onPreviousTab}
         saveActionMsg={submitButtonText}
         disabled={disabled}
         ready={ready}

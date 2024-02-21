@@ -35,6 +35,7 @@ export const EditListingLocationFormComponent = props => (
         autoFocus,
         className,
         disabled,
+        onPreviousTab,
         ready,
         handleSubmit,
         intl,
@@ -110,7 +111,12 @@ export const EditListingLocationFormComponent = props => (
               id: 'EditListingLocationForm.buildingPlaceholder',
             })}
           />
-
+<Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+        >
+          Back
+        </Button>
           <Button
             className={css.submitButton}
             type="submit"

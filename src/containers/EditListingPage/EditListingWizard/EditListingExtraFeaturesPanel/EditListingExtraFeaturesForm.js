@@ -25,6 +25,7 @@ export const EditListingExtraFeaturesFormComponent = props => (
         className,
         disabled,
         ready,
+        onPreviousTab,
         handleSubmit,
         intl,
         invalid,
@@ -62,7 +63,12 @@ export const EditListingExtraFeaturesFormComponent = props => (
             label="Extra features"
             placeholder={intl.formatMessage({ id: 'EditListingExtraFeaturesForm.extraFeaturesInputPlaceholder' })}
           />
-
+<Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+        >
+          Back
+        </Button>
           <Button
             className={css.submitButton}
             type="submit"

@@ -84,6 +84,7 @@ const EditListingDeliveryPanel = props => {
     listingTypes,
     marketplaceCurrency,
     disabled,
+    onPreviousTab,
     ready,
     onSubmit,
     submitButtonText,
@@ -118,6 +119,7 @@ const EditListingDeliveryPanel = props => {
         <EditListingDeliveryForm
           className={css.form}
           initialValues={state.initialValues}
+          onPreviousTab={onPreviousTab}
           onSubmit={values => {
             const {
               building = '',

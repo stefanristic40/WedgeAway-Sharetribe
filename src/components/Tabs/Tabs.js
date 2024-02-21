@@ -59,11 +59,11 @@ const Tabs = props => {
 
   return (
     <div className={classes}>
-      <TabNav
+      {/* <TabNav
         rootClassName={navRootClassName}
         tabs={tabNavTabs}
         tabRootClassName={tabRootClassName}
-      />
+      /> */}
       {selectedTabPanel}
     </div>
   );

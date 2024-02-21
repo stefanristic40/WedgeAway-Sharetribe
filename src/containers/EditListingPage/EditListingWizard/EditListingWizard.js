@@ -584,12 +584,12 @@ class EditListingWizard extends Component {
 
     return (
       <div className={classes}>
-        {/* <Tabs
+        <Tabs
           rootClassName={css.tabsContainer}
           navRootClassName={css.nav}
           tabRootClassName={css.tab}
-        > */}
-          {tabs.map(tab => {
+        >
+          {tabs.map(tab => { 
             const tabTranslations = tabLabelAndSubmit(
               intl,
               tab,
@@ -619,10 +619,10 @@ class EditListingWizard extends Component {
                 onManageDisableScrolling={onManageDisableScrolling}
                 config={config}
                 routeConfiguration={routeConfiguration}
-              />
+                />
             );
           })}
-        {/* </Tabs> */}
+        </Tabs>
         <Modal
           id="EditListingWizard.payoutModal"
           isOpen={this.state.showPayoutDetails}

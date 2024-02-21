@@ -8,6 +8,7 @@ import { LISTING_STATE_DRAFT } from '../../../../util/types';
 
 // Import shared components
 import { H3, ListingLink } from '../../../../components';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 // Import modules from this directory
 import EditListingLocationForm from './EditListingLocationForm';
@@ -45,6 +46,7 @@ const EditListingLocationPanel = props => {
     disabled,
     ready,
     onSubmit,
+    onPreviousTab,
     submitButtonText,
     panelUpdated,
     updateInProgress,
@@ -57,6 +59,7 @@ const EditListingLocationPanel = props => {
   return (
     <div className={classes}>
       <H3 as="h1">
+      <ProgressBar currentStep={2} />
         {isPublished ? (
           <FormattedMessage
             id="EditListingLocationPanel.title"
@@ -72,6 +75,7 @@ const EditListingLocationPanel = props => {
       <EditListingLocationForm
         className={css.form}
         initialValues={state.initialValues}
+        onPreviousTab={onPreviousTab}
         onSubmit={values => {
           const { building = '', location } = values;
           const {

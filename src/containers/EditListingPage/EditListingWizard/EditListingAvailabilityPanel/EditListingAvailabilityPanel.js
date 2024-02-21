@@ -17,6 +17,7 @@ import EditListingAvailabilityExceptionForm from './EditListingAvailabilityExcep
 import WeeklyCalendar from './WeeklyCalendar/WeeklyCalendar';
 
 import css from './EditListingAvailabilityPanel.module.css';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 // This is the order of days as JavaScript understands them
 // The number returned by "new Date().getDay()" refers to day of week starting from sunday.
@@ -119,6 +120,7 @@ const EditListingAvailabilityPanel = props => {
     onSubmit,
     onManageDisableScrolling,
     onNextTab,
+    onPreviousTab,
     submitButtonText,
     updateInProgress,
     errors,
@@ -207,6 +209,7 @@ const EditListingAvailabilityPanel = props => {
 
   return (
     <main className={classes}>
+      <ProgressBar currentStep={6} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage
@@ -278,7 +281,13 @@ const EditListingAvailabilityPanel = props => {
           <FormattedMessage id="EditListingAvailabilityPanel.showListingFailed" />
         </p>
       ) : null}
-
+      <Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+          disabled={!hasAvailabilityPlan}
+        >
+          Back
+        </Button>
       {!isPublished ? (
         <Button
           className={css.goToNextTabButton}

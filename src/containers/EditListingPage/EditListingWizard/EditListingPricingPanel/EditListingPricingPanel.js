@@ -13,6 +13,7 @@ import { H3, ListingLink } from '../../../../components';
 // Import modules from this directory
 import EditListingPricingForm from './EditListingPricingForm';
 import css from './EditListingPricingPanel.module.css';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 const { Money } = sdkTypes;
 
@@ -40,6 +41,7 @@ const EditListingPricingPanel = props => {
     listingMinimumPriceSubUnits,
     disabled,
     ready,
+    onPreviousTab,
     onSubmit,
     submitButtonText,
     panelUpdated,
@@ -58,6 +60,7 @@ const EditListingPricingPanel = props => {
 
   return (
     <div className={classes}>
+      <ProgressBar currentStep={5} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage
@@ -75,6 +78,7 @@ const EditListingPricingPanel = props => {
         <EditListingPricingForm
           className={css.form}
           initialValues={initialValues}
+          onPreviousTab={onPreviousTab}
           onSubmit={values => {
             const { price, helmetFee = null, deliverFee = null } = values;
 

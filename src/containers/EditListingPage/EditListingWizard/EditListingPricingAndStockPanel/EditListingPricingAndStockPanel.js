@@ -60,6 +60,7 @@ const EditListingPricingAndStockPanel = props => {
     marketplaceCurrency,
     listingMinimumPriceSubUnits,
     listingTypes,
+    onPreviousTab,
     disabled,
     ready,
     onSubmit,
@@ -104,6 +105,7 @@ const EditListingPricingAndStockPanel = props => {
         <EditListingPricingAndStockForm
           className={css.form}
           initialValues={initialValues}
+          onPreviousTab={onPreviousTab}
           onSubmit={values => {
             const { price, stock, stockTypeInfinity } = values;
 

@@ -12,6 +12,7 @@ import { H3, ListingLink } from '../../../../components';
 // Import modules from this directory
 import EditListingPhotosForm from './EditListingPhotosForm';
 import css from './EditListingPhotosPanel.module.css';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 const getInitialValues = params => {
   const { images } = params;
@@ -25,6 +26,7 @@ const EditListingPhotosPanel = props => {
     errors,
     disabled,
     ready,
+    onPreviousTab,
     listing,
     onImageUpload,
     submitButtonText,
@@ -41,6 +43,7 @@ const EditListingPhotosPanel = props => {
 
   return (
     <div className={classes}>
+      <ProgressBar currentStep={7} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage
@@ -57,6 +60,7 @@ const EditListingPhotosPanel = props => {
       <EditListingPhotosForm
         className={css.form}
         disabled={disabled}
+        onPreviousTab={onPreviousTab}
         ready={ready}
         fetchErrors={errors}
         initialValues={getInitialValues(props)}

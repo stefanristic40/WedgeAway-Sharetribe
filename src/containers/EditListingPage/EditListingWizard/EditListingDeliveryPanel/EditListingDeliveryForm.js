@@ -255,7 +255,12 @@ export const EditListingDeliveryFormComponent = props => (
               />
             ) : null}
           </div>
-
+          <Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+        >
+          Back
+        </Button>
           <Button
             className={css.submitButton}
             type="submit"

@@ -198,7 +198,13 @@ export const EditListingPricingAndStockFormComponent = props => (
             </Field>
           )}
           {setStockError ? <p className={css.error}>{stockErrorMessage}</p> : null}
-
+<Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+          disabled={!hasAvailabilityPlan}
+        >
+          Back
+        </Button>
           <Button
             className={css.submitButton}
             type="submit"

@@ -149,6 +149,7 @@ export const EditListingPhotosFormComponent = props => {
           updated,
           updateInProgress,
           touched,
+          onPreviousTab,
           errors,
           values,
           listingImageConfig,
@@ -256,7 +257,12 @@ export const EditListingPhotosFormComponent = props => {
 
             <PublishListingError error={publishListingError} />
             <ShowListingsError error={showListingsError} />
-
+            <Button
+          className={css.goToNextTabButton}
+          onClick={onPreviousTab}
+        >
+          Back
+        </Button>
             <Button
               className={css.submitButton}
               type="submit"
