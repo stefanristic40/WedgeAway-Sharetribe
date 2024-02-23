@@ -245,13 +245,13 @@ const EditListingDetailsFormComponent = props => (
             />
           ) : null}
           {/* Putter */}
-          <EachClubDetail
+          {/* <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={0}
             type={0}
-          />
+          /> */}
           {/* Sand Wedge */}
           {/* <EachClubDetail
             listingType={listingType}
@@ -461,17 +461,17 @@ const EditListingDetailsFormComponent = props => (
             type={1}
           /> */}
           {/* Bag */}
-          <EachBagDetail
+          {/* <EachBagDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={329}
-          />
-          {/* <AddListingFields
+          /> */}
+          <AddListingFields
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
-          /> */}
+          />
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back
