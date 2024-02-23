@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 // Import config and utils
 import {
@@ -11,7 +12,13 @@ import {
 import { useIntl } from '../../../util/reactIntl';
 import { required, nonEmptyArray } from '../../../util/validators';
 // Import shared components
-import { FieldCheckboxGroup, FieldSelect, FieldTextInput, FieldBoolean } from '../../../components';
+import {
+  FieldCheckboxGroup,
+  FieldSelect,
+  FieldTextInput,
+  FieldBoolean,
+  FieldCheckbox,
+} from '../../../components';
 // Import modules from this directory
 import css from './EditListingWizard.module.css';
 
@@ -54,7 +61,7 @@ const CustomFieldMultiEnum = props => {
     ? { validate: nonEmptyArray(requiredMessage || defaultRequiredMessage) }
     : {};
 
-  return enumOptions ? (
+  return enumOptions && name != 'pub_Choose_Your_Set' ? (
     <FieldCheckboxGroup
       className={css.customField}
       id={name}
@@ -77,13 +84,14 @@ const CustomFieldText = props => {
 
   return (
     <FieldTextInput
-      className={css.customField}
+      className={classNames(css.customField)}
       id={name}
       name={name}
-      type="textarea"
+      type="input"
       label={label}
       placeholder={placeholder}
       {...validateMaybe}
+      // style={{ width: '25%' }}  // I add this field for input component of extended data
     />
   );
 };
@@ -123,14 +131,20 @@ const CustomFieldBoolean = props => {
     : {};
   const placeholder =
     placeholderMessage || intl.formatMessage({ id: 'CustomExtendedDataField.placeholder' });
-
   return (
-    <FieldBoolean
+    // <FieldBoolean
+    //   className={css.customField}
+    //   id={name}
+    //   name={name}
+    //   label={label}
+    //   placeholder={placeholder}
+    //   {...validateMaybe}
+    // />
+    <FieldCheckbox
       className={css.customField}
       id={name}
       name={name}
-      label={label}
-      placeholder={placeholder}
+      label={placeholder}
       {...validateMaybe}
     />
   );

@@ -257,12 +257,9 @@ export const EditListingPhotosFormComponent = props => {
 
             <PublishListingError error={publishListingError} />
             <ShowListingsError error={showListingsError} />
-            <Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-        >
-          Back
-        </Button>
+            {/* <Button className={css.goToNextTabButton} onClick={onPreviousTab}>
+              Back
+            </Button>
             <Button
               className={css.submitButton}
               type="submit"
@@ -271,7 +268,21 @@ export const EditListingPhotosFormComponent = props => {
               ready={submitReady}
             >
               {saveActionMsg}
-            </Button>
+            </Button> */}
+            <div className={css.buttonItems}>
+              <Button className={css.submitButton} onClick={onPreviousTab}>
+                Back
+              </Button>
+              <Button
+                className={css.submitButton}
+                type="submit"
+                inProgress={submitInProgress}
+                disabled={submitDisabled}
+                ready={submitReady}
+              >
+                {saveActionMsg}
+              </Button>
+            </div>
           </Form>
         );
       }}

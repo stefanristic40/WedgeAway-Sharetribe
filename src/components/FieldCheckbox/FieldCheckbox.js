@@ -90,7 +90,7 @@ const FieldCheckboxComponent = props => {
           );
         }}
       </Field>
-      <label htmlFor={id} className={css.label}>
+      <label htmlFor={id} className={css.label} >
         <span className={css.checkboxWrapper}>
           <IconCheckbox
             className={svgClassName}
@@ -126,7 +126,7 @@ FieldCheckboxComponent.propTypes = {
   name: string.isRequired,
 
   // Checkbox needs a value that is passed forward when user checks the checkbox
-  value: string.isRequired,
+  // value: string.isRequired,
 };
 
 export default FieldCheckboxComponent;

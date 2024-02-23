@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, object, string } from 'prop-types';
 import classNames from 'classnames';
 
@@ -8,7 +8,7 @@ import { EXTENDED_DATA_SCHEMA_TYPES, LISTING_STATE_DRAFT } from '../../../../uti
 import { isBookingProcessAlias } from '../../../../transactions/transaction';
 
 // Import shared components
-import { H3, ListingLink } from '../../../../components';
+import { H3, H4, ListingLink } from '../../../../components';
 
 // Import modules from this directory
 import ErrorMessage from './ErrorMessage';
@@ -212,6 +212,7 @@ const EditListingDetailsPanel = props => {
     updateInProgress,
     errors,
     config,
+    onPreviousTab,
   } = props;
 
   const classes = classNames(rootClassName || css.root, className);
@@ -243,20 +244,15 @@ const EditListingDetailsPanel = props => {
 
   return (
     <div className={classes}>
-      <ProgressBar currentStep={1} />
-      <H3 as="h1">
-        {isPublished ? (
-          <FormattedMessage
-            id="EditListingDetailsPanel.title"
-            values={{ listingTitle: <ListingLink listing={listing} />, lineBreak: <br /> }}
-          />
-        ) : (
-          <FormattedMessage
-            id="EditListingDetailsPanel.createListingTitle"
-            values={{ lineBreak: <br /> }}
-          />
-        )}
-      </H3>
+      <ProgressBar currentStep={2} />
+      <H3 as="h1"></H3>
+      <H4 as="h2">
+        Select Which Clubs Are Included In Your Bag
+        {/* <FormattedMessage
+          id="EditListingDetailsPanel.createListingTitle"
+          values={{ lineBreak: <br /> }}
+        /> */}
+      </H4>
 
       {canShowEditListingDetailsForm ? (
         <EditListingDetailsForm
@@ -289,6 +285,7 @@ const EditListingDetailsPanel = props => {
 
             onSubmit(updateValues);
           }}
+          onPreviousTab={onPreviousTab}
           selectableListingTypes={listingTypes.map(conf => getTransactionInfo([conf], {}, true))}
           hasExistingListingType={hasExistingListingType}
           onListingTypeChange={onListingTypeChange}

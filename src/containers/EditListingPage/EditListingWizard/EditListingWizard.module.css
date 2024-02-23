@@ -9,6 +9,7 @@
 
   /* Content of EditListingWizard should have smaller z-index than Topbar */
   z-index: 0;
+  background-color: white;
 }
 
 .tabsContainer {
@@ -96,11 +97,15 @@
 }
 
 .customField {
-  margin-bottom: 24px;
+  /* margin-bottom: 24px;
 
   @media (--viewportMedium) {
     margin-bottom: 32px;
-  }
+  } */
+}
+
+.inputDetail {
+  width: 15vw !important;
 }
 
 .customFieldMultiEnum {

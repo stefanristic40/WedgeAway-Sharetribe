@@ -124,7 +124,7 @@ export const EditListingPricingFormComponent = props => (
             placeholder={intl.formatMessage({ id: 'EditListingPricingForm.deliverFeePlaceholder' })}
             currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
           />
-<Button
+        <Button
           className={css.goToNextTabButton}
           onClick={onPreviousTab}
         >

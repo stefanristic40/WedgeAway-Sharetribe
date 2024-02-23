@@ -169,6 +169,7 @@ const EditListingAvailabilityPanel = props => {
       .catch(e => {
         // Don't close modal if there was an error
       });
+    // return onSubmit(createAvailabilityPlan(values));
   };
 
   const sortedAvailabilityExceptions = allExceptions;
@@ -282,12 +283,12 @@ const EditListingAvailabilityPanel = props => {
         </p>
       ) : null}
       <Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-          disabled={!hasAvailabilityPlan}
-        >
-          Back
-        </Button>
+        className={css.goToNextTabButton}
+        onClick={onPreviousTab}
+        disabled={!hasAvailabilityPlan}
+      >
+        Back
+      </Button>
       {!isPublished ? (
         <Button
           className={css.goToNextTabButton}

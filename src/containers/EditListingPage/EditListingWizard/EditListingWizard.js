@@ -67,7 +67,8 @@ import css from './EditListingWizard.module.css';
 //         Details tab asks for "title" and is therefore the first tab in the wizard flow.
 const TABS_DETAILS_ONLY = [DETAILS];
 const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
-const TABS_BOOKING = [DETAILS, LOCATION, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
+// const TABS_BOOKING = [DETAILS, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
+const TABS_BOOKING = [LOCATION, DETAILS, PHOTOS, AVAILABILITY, PRICING];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
 
@@ -223,38 +224,52 @@ const tabCompleted = (tab, listing, config) => {
     privateData,
   } = listing.attributes;
   const images = listing.images;
-  const { listingType, transactionProcessAlias, unitType, serviceHistory, shippingEnabled, pickupEnabled } =
-    publicData || {};
+  const {
+    listingType,
+    transactionProcessAlias,
+    unitType,
+    serviceHistory,
+    shippingEnabled,
+    pickupEnabled,
+  } = publicData || {};
   const deliveryOptionPicked = publicData && (shippingEnabled || pickupEnabled);
 
   switch (tab) {
+    case LOCATION:
+      return !!(
+        // listingType &&
+        // transactionProcessAlias &&
+        // unitType &&
+        (geolocation && publicData?.location?.address)
+      );
     case DETAILS:
       return !!(
-        description &&
-        title &&
         listingType &&
         transactionProcessAlias &&
         unitType &&
+        // description &&
+        // title &&
         hasValidListingFieldsInExtendedData(publicData, privateData, config)
       );
+    case PHOTOS:
+      return images && images.length > 0;
     case PRICING:
       return !!price;
+    // Add-On Step
+    case AVAILABILITY:
+      return !!availabilityPlan;
+    // Pickup & Delivery Instruction Step
+    // Publish your Listing Step
     case PRICING_AND_STOCK:
       return !!price;
     case SERVICE_HISTORY:
       return !!serviceHistory;
     case DELIVERY:
       return !!deliveryOptionPicked;
-    case LOCATION:
-      return !!(geolocation && publicData?.location?.address);
-    case AVAILABILITY:
-      return !!availabilityPlan;
-    case PHOTOS:
-      return images && images.length > 0;
-    case EXTRAFEATURES:
-        // return true;
-        // /** For a required attribute: **/
-        return !!publicData.extraFeatures;
+    // case EXTRAFEATURES:
+    //     // return true;
+    //     // /** For a required attribute: **/
+    //     return !!publicData.extraFeatures;
     default:
       return false;
   }
@@ -584,110 +599,114 @@ class EditListingWizard extends Component {
 
     return (
       <div className={classes}>
-        <Tabs
-          rootClassName={css.tabsContainer}
-          navRootClassName={css.nav}
-          tabRootClassName={css.tab}
-        >
-          {tabs.map(tab => { 
-            const tabTranslations = tabLabelAndSubmit(
-              intl,
-              tab,
-              isNewListingFlow,
-              isPriceDisabled,
-              processName
-            );
-            return (
-              <EditListingWizardTab
-                {...rest}
-                key={tab}
-                tabId={`${id}_${tab}`}
-                tabLabel={tabTranslations.label}
-                tabSubmitButtonText={tabTranslations.submitButton}
-                tabLinkProps={tabLink(tab)}
-                selected={selectedTab === tab}
-                disabled={isNewListingFlow && !tabsStatus[tab]}
-                tab={tab}
-                params={params}
-                listing={listing}
-                marketplaceTabs={tabs}
-                errors={errors}
-                handleCreateFlowTabScrolling={this.handleCreateFlowTabScrolling}
-                handlePublishListing={this.handlePublishListing}
-                fetchInProgress={fetchInProgress}
-                onListingTypeChange={selectedListingType => this.setState({ selectedListingType })}
-                onManageDisableScrolling={onManageDisableScrolling}
-                config={config}
-                routeConfiguration={routeConfiguration}
+        <div className="n-container">
+          <Tabs
+            rootClassName={css.tabsContainer}
+            navRootClassName={css.nav}
+            tabRootClassName={css.tab}
+          >
+            {tabs.map(tab => {
+              const tabTranslations = tabLabelAndSubmit(
+                intl,
+                tab,
+                isNewListingFlow,
+                isPriceDisabled,
+                processName
+              );
+              return (
+                <EditListingWizardTab
+                  {...rest}
+                  key={tab}
+                  tabId={`${id}_${tab}`}
+                  tabLabel={tabTranslations.label}
+                  tabSubmitButtonText={tabTranslations.submitButton}
+                  tabLinkProps={tabLink(tab)}
+                  selected={selectedTab === tab}
+                  disabled={isNewListingFlow && !tabsStatus[tab]}
+                  tab={tab}
+                  params={params}
+                  listing={listing}
+                  marketplaceTabs={tabs}
+                  errors={errors}
+                  handleCreateFlowTabScrolling={this.handleCreateFlowTabScrolling}
+                  handlePublishListing={this.handlePublishListing}
+                  fetchInProgress={fetchInProgress}
+                  onListingTypeChange={selectedListingType =>
+                    this.setState({ selectedListingType })
+                  }
+                  onManageDisableScrolling={onManageDisableScrolling}
+                  config={config}
+                  routeConfiguration={routeConfiguration}
                 />
-            );
-          })}
-        </Tabs>
-        <Modal
-          id="EditListingWizard.payoutModal"
-          isOpen={this.state.showPayoutDetails}
-          onClose={this.handlePayoutModalClose}
-          onManageDisableScrolling={onManageDisableScrolling}
-          usePortal
-        >
-          <div className={css.modalPayoutDetailsWrapper}>
-            <Heading as="h2" rootClassName={css.modalTitle}>
-              <FormattedMessage id="EditListingWizard.payoutModalTitleOneMoreThing" />
-              <br />
-              <FormattedMessage id="EditListingWizard.payoutModalTitlePayoutPreferences" />
-            </Heading>
-            {!currentUserLoaded ? (
-              <FormattedMessage id="StripePayoutPage.loadingData" />
-            ) : returnedAbnormallyFromStripe && !stripeAccountLinkError ? (
-              <p className={css.modalMessage}>
-                <RedirectToStripe redirectFn={handleGetStripeConnectAccountLink} />
-              </p>
-            ) : (
-              <>
+              );
+            })}
+          </Tabs>
+          <Modal
+            id="EditListingWizard.payoutModal"
+            isOpen={this.state.showPayoutDetails}
+            onClose={this.handlePayoutModalClose}
+            onManageDisableScrolling={onManageDisableScrolling}
+            usePortal
+          >
+            <div className={css.modalPayoutDetailsWrapper}>
+              <Heading as="h2" rootClassName={css.modalTitle}>
+                <FormattedMessage id="EditListingWizard.payoutModalTitleOneMoreThing" />
+                <br />
+                <FormattedMessage id="EditListingWizard.payoutModalTitlePayoutPreferences" />
+              </Heading>
+              {!currentUserLoaded ? (
+                <FormattedMessage id="StripePayoutPage.loadingData" />
+              ) : returnedAbnormallyFromStripe && !stripeAccountLinkError ? (
                 <p className={css.modalMessage}>
-                  <FormattedMessage id="EditListingWizard.payoutModalInfo" />
+                  <RedirectToStripe redirectFn={handleGetStripeConnectAccountLink} />
                 </p>
-                <StripeConnectAccountForm
-                  disabled={formDisabled}
-                  inProgress={payoutDetailsSaveInProgress}
-                  ready={payoutDetailsSaved}
-                  currentUser={ensuredCurrentUser}
-                  stripeBankAccountLastDigits={getBankAccountLast4Digits(stripeAccountData)}
-                  savedCountry={savedCountry}
-                  submitButtonText={intl.formatMessage({
-                    id: 'StripePayoutPage.submitButtonText',
-                  })}
-                  stripeAccountError={stripeAccountError}
-                  stripeAccountFetched={stripeAccountFetched}
-                  stripeAccountLinkError={stripeAccountLinkError}
-                  onChange={onPayoutDetailsChange}
-                  onSubmit={rest.onPayoutDetailsSubmit}
-                  onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink}
-                  stripeConnected={stripeConnected}
-                >
-                  {stripeConnected && !returnedAbnormallyFromStripe && showVerificationNeeded ? (
-                    <StripeConnectAccountStatusBox
-                      type="verificationNeeded"
-                      inProgress={getAccountLinkInProgress}
-                      onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
-                        'custom_account_verification'
-                      )}
-                    />
-                  ) : stripeConnected && savedCountry && !returnedAbnormallyFromStripe ? (
-                    <StripeConnectAccountStatusBox
-                      type="verificationSuccess"
-                      inProgress={getAccountLinkInProgress}
-                      disabled={payoutDetailsSaveInProgress}
-                      onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
-                        'custom_account_update'
-                      )}
-                    />
-                  ) : null}
-                </StripeConnectAccountForm>
-              </>
-            )}
-          </div>
-        </Modal>
+              ) : (
+                <>
+                  <p className={css.modalMessage}>
+                    <FormattedMessage id="EditListingWizard.payoutModalInfo" />
+                  </p>
+                  <StripeConnectAccountForm
+                    disabled={formDisabled}
+                    inProgress={payoutDetailsSaveInProgress}
+                    ready={payoutDetailsSaved}
+                    currentUser={ensuredCurrentUser}
+                    stripeBankAccountLastDigits={getBankAccountLast4Digits(stripeAccountData)}
+                    savedCountry={savedCountry}
+                    submitButtonText={intl.formatMessage({
+                      id: 'StripePayoutPage.submitButtonText',
+                    })}
+                    stripeAccountError={stripeAccountError}
+                    stripeAccountFetched={stripeAccountFetched}
+                    stripeAccountLinkError={stripeAccountLinkError}
+                    onChange={onPayoutDetailsChange}
+                    onSubmit={rest.onPayoutDetailsSubmit}
+                    onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink}
+                    stripeConnected={stripeConnected}
+                  >
+                    {stripeConnected && !returnedAbnormallyFromStripe && showVerificationNeeded ? (
+                      <StripeConnectAccountStatusBox
+                        type="verificationNeeded"
+                        inProgress={getAccountLinkInProgress}
+                        onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
+                          'custom_account_verification'
+                        )}
+                      />
+                    ) : stripeConnected && savedCountry && !returnedAbnormallyFromStripe ? (
+                      <StripeConnectAccountStatusBox
+                        type="verificationSuccess"
+                        inProgress={getAccountLinkInProgress}
+                        disabled={payoutDetailsSaveInProgress}
+                        onGetStripeConnectAccountLink={handleGetStripeConnectAccountLink(
+                          'custom_account_update'
+                        )}
+                      />
+                    ) : null}
+                  </StripeConnectAccountForm>
+                </>
+              )}
+            </div>
+          </Modal>
+        </div>
       </div>
     );
   }

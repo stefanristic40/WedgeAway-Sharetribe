@@ -408,7 +408,7 @@ label {
   line-height: 18px;
   display: block;
   margin-top: 0;
-  margin-bottom: 6px;
+  /* margin-bottom: 6px; */
 
   @media (--viewportMedium) {
     font-weight: var(--fontWeightSemiBold);

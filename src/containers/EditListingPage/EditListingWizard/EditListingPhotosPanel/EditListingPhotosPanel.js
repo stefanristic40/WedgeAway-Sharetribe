@@ -43,7 +43,8 @@ const EditListingPhotosPanel = props => {
 
   return (
     <div className={classes}>
-      <ProgressBar currentStep={7} />
+      <ProgressBar currentStep={3} />
+      asdf
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage
@@ -52,11 +53,12 @@ const EditListingPhotosPanel = props => {
           />
         ) : (
           <FormattedMessage
-            id="EditListingPhotosPanel.createListingTitle"
+            id="EditListingPhotosPanel.createListingTitle1"
             values={{ lineBreak: <br /> }}
           />
         )}
       </H3>
+      asdfasdf
       <EditListingPhotosForm
         className={css.form}
         disabled={disabled}

@@ -86,6 +86,7 @@ const redirectAfterDraftUpdate = (listingId, params, tab, marketplaceTabs, histo
   history.push(to);
 };
 
+// Redirect to previous tab
 const redirectPreviousDraftUpdate = (listingId, params, tab, marketplaceTabs, history, routes) => {
   const listingUUID = listingId.uuid;
   const currentPathParams = {
@@ -214,9 +215,37 @@ const EditListingWizardTab = props => {
 
   // TODO: add missing cases for supported tabs
   switch (tab) {
+    case LOCATION: {
+      return (
+        <EditListingLocationPanel
+          onPreviousTab={() => {
+            redirectPreviousDraftUpdate(
+              listing.id,
+              params,
+              tab,
+              marketplaceTabs,
+              history,
+              routeConfiguration
+            );
+          }}
+          config={config}
+          {...panelProps(LOCATION)}
+        />
+      );
+    }
     case DETAILS: {
       return (
         <EditListingDetailsPanel
+          onPreviousTab={() => {
+            redirectPreviousDraftUpdate(
+              listing.id,
+              params,
+              tab,
+              marketplaceTabs,
+              history,
+              routeConfiguration
+            );
+          }}
           {...panelProps(DETAILS)}
           onListingTypeChange={onListingTypeChange}
           config={config}
@@ -226,16 +255,16 @@ const EditListingWizardTab = props => {
     case PRICING_AND_STOCK: {
       return (
         <EditListingPricingAndStockPanel
-        onPreviousTab={() => {
-          redirectPreviousDraftUpdate(
-            listing.id,
-            params,
-            tab,
-            marketplaceTabs,
-            history,
-            routeConfiguration
-          )
-        }}
+          onPreviousTab={() => {
+            redirectPreviousDraftUpdate(
+              listing.id,
+              params,
+              tab,
+              marketplaceTabs,
+              history,
+              routeConfiguration
+            );
+          }}
           {...panelProps(PRICING_AND_STOCK)}
           marketplaceCurrency={config.currency}
           listingMinimumPriceSubUnits={config.listingMinimumPriceSubUnits}
@@ -253,7 +282,7 @@ const EditListingWizardTab = props => {
               marketplaceTabs,
               history,
               routeConfiguration
-            )
+            );
           }}
           {...panelProps(PRICING)}
           marketplaceCurrency={config.currency}
@@ -263,7 +292,7 @@ const EditListingWizardTab = props => {
     }
     case DELIVERY: {
       return (
-        <EditListingDeliveryPanel  
+        <EditListingDeliveryPanel
           onPreviousTab={() => {
             redirectPreviousDraftUpdate(
               listing.id,
@@ -272,25 +301,11 @@ const EditListingWizardTab = props => {
               marketplaceTabs,
               history,
               routeConfiguration
-            )
-          }} 
-          {...panelProps(DELIVERY)} marketplaceCurrency={config.currency} />
-      );
-    }
-    case LOCATION: {
-      return (
-        <EditListingLocationPanel  
-          onPreviousTab={() => {
-            redirectPreviousDraftUpdate(
-              listing.id,
-              params,
-              tab,
-              marketplaceTabs,
-              history,
-              routeConfiguration
-            )
-          }} 
-          {...panelProps(LOCATION)} />
+            );
+          }}
+          {...panelProps(DELIVERY)}
+          marketplaceCurrency={config.currency}
+        />
       );
     }
     case AVAILABILITY: {
@@ -320,7 +335,7 @@ const EditListingWizardTab = props => {
               marketplaceTabs,
               history,
               routeConfiguration
-            )
+            );
           }}
           config={config}
           history={history}
@@ -340,7 +355,7 @@ const EditListingWizardTab = props => {
               marketplaceTabs,
               history,
               routeConfiguration
-            )
+            );
           }}
           {...panelProps(PHOTOS)}
           listingImageConfig={config.layout.listingImage}
@@ -352,7 +367,7 @@ const EditListingWizardTab = props => {
     }
     case EXTRAFEATURES: {
       return (
-        <EditListingExtraFeaturesPanel       
+        <EditListingExtraFeaturesPanel
           onPreviousTab={() => {
             redirectPreviousDraftUpdate(
               listing.id,
@@ -361,7 +376,7 @@ const EditListingWizardTab = props => {
               marketplaceTabs,
               history,
               routeConfiguration
-            )
+            );
           }}
           {...panelProps(EXTRAFEATURES)}
         />
@@ -378,7 +393,7 @@ const EditListingWizardTab = props => {
               marketplaceTabs,
               history,
               routeConfiguration
-            )
+            );
           }}
           {...panelProps(SERVICE_HISTORY)}
         />

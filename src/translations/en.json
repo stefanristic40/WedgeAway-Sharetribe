@@ -213,7 +213,7 @@
   "EditListingDetailsForm.titlePlaceholder": "What kind of listing is it?",
   "EditListingDetailsForm.titleRequired": "You need to add a title.",
   "EditListingDetailsForm.updateFailed": "Failed to update listing. Please try again.",
-  "EditListingDetailsPanel.createListingTitle": "Listing details",
+  "EditListingDetailsPanel.createListingTitle": "Club Details",
   "EditListingDetailsPanel.invalidListingTypeSetDescription": "This listing has a configuration that is no longer supported by {marketplaceName}, so you can't make changes to it. If you'd like to keep it available, please contact the {marketplaceName} team.",
   "EditListingDetailsPanel.invalidListingTypeSetTitle": "Outdated listing!",
   "EditListingDetailsPanel.noListingTypeSetDescription": "Configurations for possible transactions are missing some info. Please, contact support.",
@@ -243,7 +243,8 @@
   "EditListingPhotosForm.savedImageAltText": "Saved listing photo",
   "EditListingPhotosForm.showListingFailed": "Fetching listing data failed.",
   "EditListingPhotosForm.updateFailed": "Failed to update listing. Please try again.",
-  "EditListingPhotosPanel.createListingTitle": "Photos",
+  "EditListingPhotosPanel.createListingTitle": "Photoss",
+  "EditListingPhotosPanel.createListingTitle1": "Photoss",
   "EditListingPhotosPanel.title": "Edit the photos of {listingTitle}",
   "EditListingPricingAndStockForm.oldStockTotalWasOutOfSync": "Oops, the stock of this listing is out of sync. Someone might just have bought this item. Please refresh the page and try again.",
   "EditListingPricingAndStockForm.priceInputPlaceholder": "Add a price…",
@@ -1126,5 +1127,7 @@
   "EditListingWizard.tabLabelServiceHistory": "Service History",
   "FieldDateInput.placeholder": "Select date...",
   "SectionServiceHistoryMaybe.lastServicedHeading": "Last serviced",
-  "SectionServiceHistoryMaybe.serviceDetailsHeading": "Service details"
+  "SectionServiceHistoryMaybe.serviceDetailsHeading": "Service details",
+  "EditListingWizard.default-booking.new.saveDelivery": "Next",
+  "EditListingPricingForm.deliverFeePlaceholder": "Add a deliverFee fee..."
 }

@@ -74,12 +74,12 @@ export const EditListingServiceHistoryFormComponent = props => (
               id: 'EditListingServiceHistoryForm.serviceDetails',
             })}
           />
-<Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-        >
-          Back
-        </Button>
+          <Button
+            className={css.goToNextTabButton}
+            onClick={onPreviousTab}
+          >
+            Back
+          </Button>
           <Button
             className={css.submitButton}
             type="submit"

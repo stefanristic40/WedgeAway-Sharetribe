@@ -30,11 +30,13 @@ const FieldBoolean = props => {
     },
   };
   return (
-    <FieldSelect {...selectProps}>
-      <option value="">{placeholder}</option>
-      <option value="true">{trueLabel}</option>
-      <option value="false">{falseLabel}</option>
-    </FieldSelect>
+    <>
+      <FieldSelect {...selectProps}>
+        <option value="">{placeholder}</option>
+        <option value="true">{trueLabel}</option>
+        <option value="false">{falseLabel}</option>
+      </FieldSelect>
+    </>
   );
 };
 

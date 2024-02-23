@@ -7,7 +7,7 @@ import { FormattedMessage } from '../../../../util/reactIntl';
 import { LISTING_STATE_DRAFT } from '../../../../util/types';
 
 // Import shared components
-import { H3, ListingLink } from '../../../../components';
+import { H2, H3, H4, ListingLink } from '../../../../components';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 // Import modules from this directory
@@ -59,7 +59,7 @@ const EditListingLocationPanel = props => {
   return (
     <div className={classes}>
       <H3 as="h1">
-      <ProgressBar currentStep={2} />
+        <ProgressBar currentStep={1} />
         {isPublished ? (
           <FormattedMessage
             id="EditListingLocationPanel.title"
@@ -70,6 +70,9 @@ const EditListingLocationPanel = props => {
             id="EditListingLocationPanel.createListingTitle"
             values={{ lineBreak: <br /> }}
           />
+          // <H3>Welcome, let's get started.</H3>
+
+          /* <H3>Property Address Where Clubs Are Picked Up & Dropped Off</H3> */
         )}
       </H3>
       <EditListingLocationForm
@@ -84,6 +87,7 @@ const EditListingLocationPanel = props => {
 
           // New values for listing attributes
           const updateValues = {
+            title: 'Partial Set',
             geolocation: origin,
             publicData: {
               location: { address, building },

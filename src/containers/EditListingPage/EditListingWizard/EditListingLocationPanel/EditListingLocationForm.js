@@ -101,7 +101,7 @@ export const EditListingLocationFormComponent = props => (
             )}
           />
 
-          <FieldTextInput
+          {/* <FieldTextInput
             className={css.building}
             type="text"
             name="building"
@@ -110,13 +110,13 @@ export const EditListingLocationFormComponent = props => (
             placeholder={intl.formatMessage({
               id: 'EditListingLocationForm.buildingPlaceholder',
             })}
-          />
-<Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-        >
-          Back
-        </Button>
+          /> */}
+          {/* <Button
+            className={css.goToNextTabButton}
+            onClick={onPreviousTab}
+          >
+            Back
+          </Button> */}
           <Button
             className={css.submitButton}
             type="submit"

@@ -15,6 +15,8 @@ import { Form, Button, FieldSelect, FieldTextInput, Heading } from '../../../../
 // Import modules from this directory
 import CustomExtendedDataField from '../CustomExtendedDataField';
 import css from './EditListingDetailsForm.module.css';
+import { EachClubDetail } from './EachClubDetail/EachClubDetail';
+import { EachBagDetail } from './EachClubDetail/EachBagDetail';
 
 const TITLE_MAX_LENGTH = 60;
 
@@ -118,6 +120,7 @@ const FieldSelectListingType = props => {
 // Add collect data for listing fields (both publicData and privateData) based on configuration
 const AddListingFields = props => {
   const { listingType, listingFieldsConfig, intl } = props;
+  console.log('listingFieldsConfig', listingFieldsConfig);
   const fields = listingFieldsConfig.reduce((pickedFields, fieldConfig) => {
     const { key, includeForListingTypes, schemaType, scope } = fieldConfig || {};
     const namespacedKey = scope === 'public' ? `pub_${key}` : `priv_${key}`;
@@ -160,6 +163,7 @@ const EditListingDetailsFormComponent = props => (
         formId,
         form: formApi,
         handleSubmit,
+        onPreviousTab,
         onListingTypeChange,
         intl,
         invalid,
@@ -209,7 +213,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
           />
 
-          {showTitle ? (
+          {0 && showTitle ? (
             <FieldTextInput
               id={`${formId}title`}
               name="title"
@@ -223,7 +227,7 @@ const EditListingDetailsFormComponent = props => (
             />
           ) : null}
 
-          {showDescription ? (
+          {0 && showDescription ? (
             <FieldTextInput
               id={`${formId}description`}
               name="description"
@@ -240,22 +244,248 @@ const EditListingDetailsFormComponent = props => (
               )}
             />
           ) : null}
-
-          <AddListingFields
+          {/* Putter */}
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
+            id={0}
+            type={0}
           />
-
-          <Button
-            className={css.submitButton}
-            type="submit"
-            inProgress={submitInProgress}
-            disabled={submitDisabled}
-            ready={submitReady}
-          >
-            {saveActionMsg}
-          </Button>
+          {/* Sand Wedge */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={14}
+            type={0}
+          />
+          {/* Gap/Approach Wedge */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={28}
+            type={0}
+          />
+          {/* Lob Wedge */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={42}
+            type={0}
+          />
+          {/* Pitching Wedge */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={56}
+            type={0}
+          />
+          {/* 1 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={70}
+            type={1}
+          />
+          {/* 2 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={82}
+            type={1}
+          />
+          {/* 3 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={94}
+            type={1}
+          />
+          {/* 4 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={106}
+            type={1}
+          />
+          {/* 5 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={118}
+            type={1}
+          />
+          {/* 6 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={130}
+            type={1}
+          />
+          {/* 7 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={142}
+            type={1}
+          />
+          {/* 8 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={154}
+            type={1}
+          />
+          {/* 9 Iron */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={166}
+            type={1}
+          />
+          {/* 3 Hybrid */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={178}
+            type={2}
+          />
+          {/* 4 Hybrid */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={189}
+            type={2}
+          />
+          {/* 5 Hybrid */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={200}
+            type={2}
+          />
+          {/* 6 Hybrid */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={211}
+            type={2}
+          />
+          {/* 7 Hybrid */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={222}
+            type={2}
+          />
+          {/* 3 Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={233}
+            type={1}
+          />
+          {/* 3HL Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={245}
+            type={1}
+          />
+          {/* 5 Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={257}
+            type={1}
+          />
+          {/* 7 Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={269}
+            type={1}
+          />
+          {/* Heaven Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={281}
+            type={1}
+          />
+          {/* 9 Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={293}
+            type={1}
+          />
+          {/* 11 Wood */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={305}
+            type={1}
+          />
+          {/* Driver */}
+          <EachClubDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={317}
+            type={1}
+          />
+          {/* Bag */}
+          <EachBagDetail
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+            id={329}
+          />
+          {/* <AddListingFields
+            listingType={listingType}
+            listingFieldsConfig={listingFieldsConfig}
+            intl={intl}
+          /> */}
+          <div className={css.buttonItems}>
+            <Button className={css.submitButton} onClick={onPreviousTab}>
+              Back
+            </Button>
+            <Button
+              className={css.submitButton}
+              type="submit"
+              inProgress={submitInProgress}
+              disabled={submitDisabled}
+              ready={submitReady}
+            >
+              {saveActionMsg}
+            </Button>
+          </div>
         </Form>
       );
     }}
