@@ -33,7 +33,7 @@
   @media (--viewportMedium) {
     height: calc(0.41 * 100vw);
     max-height: 50vh;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
   }
 }
 
@@ -43,6 +43,7 @@
 
   /* Image carousel can be opened from the image, therefore we should show a pointer */
   cursor: pointer;
+  overflow: hidden;
 }
 
 .actionBar {

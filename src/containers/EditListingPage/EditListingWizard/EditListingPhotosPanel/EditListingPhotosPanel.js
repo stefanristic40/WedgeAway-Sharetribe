@@ -44,7 +44,6 @@ const EditListingPhotosPanel = props => {
   return (
     <div className={classes}>
       <ProgressBar currentStep={3} />
-      asdf
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage
@@ -58,7 +57,6 @@ const EditListingPhotosPanel = props => {
           />
         )}
       </H3>
-      asdfasdf
       <EditListingPhotosForm
         className={css.form}
         disabled={disabled}

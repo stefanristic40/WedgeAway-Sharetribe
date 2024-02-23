@@ -282,22 +282,24 @@ const EditListingAvailabilityPanel = props => {
           <FormattedMessage id="EditListingAvailabilityPanel.showListingFailed" />
         </p>
       ) : null}
-      <Button
-        className={css.goToNextTabButton}
-        onClick={onPreviousTab}
-        disabled={!hasAvailabilityPlan}
-      >
-        Back
-      </Button>
-      {!isPublished ? (
+      <div className={css.buttonItems}>
         <Button
           className={css.goToNextTabButton}
-          onClick={onNextTab}
+          onClick={onPreviousTab}
           disabled={!hasAvailabilityPlan}
         >
-          {submitButtonText}
+          Back
         </Button>
-      ) : null}
+        {!isPublished ? (
+          <Button
+            className={css.goToNextTabButton}
+            onClick={onNextTab}
+            disabled={!hasAvailabilityPlan}
+          >
+            Club Pricing
+          </Button>
+        ) : null}
+      </div>
 
       {onManageDisableScrolling && isEditPlanModalOpen ? (
         <Modal

@@ -62,6 +62,13 @@
     display: inline-block;
     width: 241px;
   }
+
+  @media (max-width: 768px) {
+    display: inline-block;
+    /* width: 241px; */
+    margin-top: 5px;
+    min-height: 45px !important;
+  }
 }
 
 .modalContainer {
@@ -83,4 +90,16 @@
 
 .error {
   color: var(--colorFail);
+}
+
+.buttonItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+  }
 }

@@ -186,6 +186,15 @@ export const EditListingPhotosFormComponent = props => {
               handleSubmit(e);
             }}
           >
+            <p className={css.tip}>
+              <FormattedMessage id="EditListingPhotosForm.addImagesTip1" />
+            </p>
+
+            {/* <ImageUploadError
+              uploadOverLimit={uploadOverLimit}
+              uploadImageError={uploadImageError}
+            /> */}
+
             {updateListingError ? (
               <p className={css.error}>
                 <FormattedMessage id="EditListingPhotosForm.updateFailed" />
@@ -245,15 +254,6 @@ export const EditListingPhotosFormComponent = props => {
             </div>
 
             {imagesError ? <div className={css.arrayError}>{imagesError}</div> : null}
-
-            <ImageUploadError
-              uploadOverLimit={uploadOverLimit}
-              uploadImageError={uploadImageError}
-            />
-
-            <p className={css.tip}>
-              <FormattedMessage id="EditListingPhotosForm.addImagesTip" />
-            </p>
 
             <PublishListingError error={publishListingError} />
             <ShowListingsError error={showListingsError} />

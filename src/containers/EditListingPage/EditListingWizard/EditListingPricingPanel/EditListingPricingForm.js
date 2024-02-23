@@ -100,45 +100,38 @@ export const EditListingPricingFormComponent = props => (
             currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
             validate={priceValidators}
           />
-          <FieldCurrencyInput 
+          <FieldCurrencyInput
             id={`${formId}helmetFee`}
             name="helmetFee"
             className={css.input}
             autoFocus={autoFocus}
-            label={intl.formatMessage(
-              { id: 'EditListingPricingForm.helmetFee' },
-              { unitType }
-            )}
+            label={intl.formatMessage({ id: 'EditListingPricingForm.helmetFee' }, { unitType })}
             placeholder={intl.formatMessage({ id: 'EditListingPricingForm.helmetFeePlaceholder' })}
             currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
           />
-          <FieldCurrencyInput 
+          <FieldCurrencyInput
             id={`${formId}deliverFee`}
             name="deliverFee"
             className={css.input}
             autoFocus={autoFocus}
-            label={intl.formatMessage(
-              { id: 'EditListingPricingForm.deliverFee' },
-              { unitType }
-            )}
+            label={intl.formatMessage({ id: 'EditListingPricingForm.deliverFee' }, { unitType })}
             placeholder={intl.formatMessage({ id: 'EditListingPricingForm.deliverFeePlaceholder' })}
             currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
           />
-        <Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-        >
-          Back
-        </Button>
-          <Button
-            className={css.submitButton}
-            type="submit"
-            inProgress={submitInProgress}
-            disabled={submitDisabled}
-            ready={submitReady}
-          >
-            {saveActionMsg}
-          </Button>
+          <div className={css.buttonItems}>
+            <Button className={css.submitButton} onClick={onPreviousTab}>
+              Back
+            </Button>
+            <Button
+              className={css.submitButton}
+              type="submit"
+              inProgress={submitInProgress}
+              disabled={submitDisabled}
+              ready={submitReady}
+            >
+              {saveActionMsg}
+            </Button>
+          </div>
         </Form>
       );
     }}

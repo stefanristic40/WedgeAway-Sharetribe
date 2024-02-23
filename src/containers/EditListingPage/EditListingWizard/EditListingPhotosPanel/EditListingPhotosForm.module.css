@@ -112,10 +112,11 @@
 }
 
 .tip {
-  composes: h5 from global;
-
+  /* composes: h5 from global; */
+  font-size: medium;
   flex-shrink: 0;
   color: var(--colorGrey300);
+  /* color: rgb(0, 0, 0); */
   margin-top: 24px;
   margin-bottom: 60px;
 
@@ -157,6 +158,13 @@
     display: inline-block;
     width: 241px;
     margin-top: 100px;
+  }
+
+  @media (max-width: 768px) {
+    display: inline-block;
+    /* width: 241px; */
+    margin-top: 5px;
+    min-height: 45px !important;
   }
 }
 
