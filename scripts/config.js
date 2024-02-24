@@ -235,7 +235,7 @@ ${chalk.dim(
 )}
 `,
       default: function() {
-        return cspDefault ? cspDefault : 'report';
+        return cspDefault ? cspDefault : 'block';
       },
       when: function(answers) {
         return answers.showAdvancedSettings;

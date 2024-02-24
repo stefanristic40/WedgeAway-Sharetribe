@@ -180,6 +180,8 @@ const EditListingDetailsFormComponent = props => (
 
       const { listingType } = values;
 
+      console.log('listingfieldconfig', listingFieldsConfig);
+
       const titleRequiredMessage = intl.formatMessage({
         id: 'EditListingDetailsForm.titleRequired',
       });
@@ -467,11 +469,11 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={329}
           />
-          {/* <AddListingFields
+          <AddListingFields
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
-          /> */}
+          />
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back
