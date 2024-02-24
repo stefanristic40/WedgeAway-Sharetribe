@@ -268,10 +268,10 @@ const EditListingDetailsPanel = props => {
               unitType,
               ...rest
             } = values;
-
+            // title = !!title ? title : 'OKOK';
             // New values for listing attributes
             const updateValues = {
-              title: title.trim(),
+              title: !!title ? title.trim() : 'OKOK',
               description,
               publicData: {
                 listingType,
