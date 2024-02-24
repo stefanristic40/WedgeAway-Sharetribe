@@ -261,212 +261,212 @@ const EditListingDetailsFormComponent = props => (
             type={0}
           />
           {/* Gap/Approach Wedge */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={28}
             type={0}
-          /> */}
+          />
           {/* Lob Wedge */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={42}
             type={0}
-          /> */}
+          />
           {/* Pitching Wedge */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={56}
             type={0}
-          /> */}
+          />
           {/* 1 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={70}
             type={1}
-          /> */}
+          />
           {/* 2 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={82}
             type={1}
-          /> */}
+          />
           {/* 3 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={94}
             type={1}
-          /> */}
+          />
           {/* 4 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={106}
             type={1}
-          /> */}
+          />
           {/* 5 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={118}
             type={1}
-          /> */}
+          />
           {/* 6 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={130}
             type={1}
-          /> */}
+          />
           {/* 7 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={142}
             type={1}
-          /> */}
+          />
           {/* 8 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={154}
             type={1}
-          /> */}
+          />
           {/* 9 Iron */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={166}
             type={1}
-          /> */}
+          />
           {/* 3 Hybrid */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={178}
             type={2}
-          /> */}
+          />
           {/* 4 Hybrid */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={189}
             type={2}
-          /> */}
+          />
           {/* 5 Hybrid */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={200}
             type={2}
-          /> */}
+          />
           {/* 6 Hybrid */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={211}
             type={2}
-          /> */}
+          />
           {/* 7 Hybrid */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={222}
             type={2}
-          /> */}
+          />
           {/* 3 Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={233}
             type={1}
-          /> */}
+          />
           {/* 3HL Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={245}
             type={1}
-          /> */}
+          />
           {/* 5 Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={257}
             type={1}
-          /> */}
+          />
           {/* 7 Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={269}
             type={1}
-          /> */}
+          />
           {/* Heaven Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={281}
             type={1}
-          /> */}
+          />
           {/* 9 Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={293}
             type={1}
-          /> */}
+          />
           {/* 11 Wood */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={305}
             type={1}
-          /> */}
+          />
           {/* Driver */}
-          {/* <EachClubDetail
+          <EachClubDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={317}
             type={1}
-          /> */}
+          />
           {/* Bag */}
-          {/* <EachBagDetail
+          <EachBagDetail
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
             id={329}
-          /> */}
+          />
           {/* <AddListingFields
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
