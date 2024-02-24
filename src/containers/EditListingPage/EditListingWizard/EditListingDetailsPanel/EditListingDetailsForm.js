@@ -469,11 +469,11 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={329}
           />
-          <AddListingFields
+          {/* <AddListingFields
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
-          />
+          /> */}
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back
