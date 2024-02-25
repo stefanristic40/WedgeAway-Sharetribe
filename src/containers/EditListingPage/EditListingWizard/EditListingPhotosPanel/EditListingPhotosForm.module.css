@@ -115,7 +115,7 @@
   /* composes: h5 from global; */
   font-size: medium;
   flex-shrink: 0;
-  color: var(--colorGrey300);
+  color: var(--colorGrey600);
   /* color: rgb(0, 0, 0); */
   margin-top: 24px;
   margin-bottom: 60px;

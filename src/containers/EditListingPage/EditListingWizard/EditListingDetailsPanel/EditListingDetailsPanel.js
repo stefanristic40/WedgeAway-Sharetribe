@@ -245,14 +245,22 @@ const EditListingDetailsPanel = props => {
   return (
     <div className={classes}>
       <ProgressBar currentStep={2} />
-      <H3 as="h1"></H3>
-      <H4 as="h2">
-        Select Which Clubs Are Included In Your Bag
-        {/* <FormattedMessage
-          id="EditListingDetailsPanel.createListingTitle"
-          values={{ lineBreak: <br /> }}
-        /> */}
-      </H4>
+
+      <H3 as="h1">
+        {isPublished ? (
+          <FormattedMessage
+            id="EditListingDetailsPanel.title"
+            values={{ listingTitle: <ListingLink listing={listing} />, lineBreak: <br /> }}
+          />
+        ) : (
+          <FormattedMessage
+            id="EditListingDetailsPanel.createListingTitle1"
+            values={{ lineBreak: <br /> }}
+          />
+        )}
+      </H3>
+
+      <H4 as="h2">Select Which Clubs Are Included In Your Bag</H4>
 
       {canShowEditListingDetailsForm ? (
         <EditListingDetailsForm

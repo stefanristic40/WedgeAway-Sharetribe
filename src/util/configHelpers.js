@@ -689,7 +689,8 @@ const union = (arr1, arr2, key) => {
 //       If you customization relies on multiple listing types or custom listing fields, you need to change this.
 const mergeDefaultTypesAndFieldsForDebugging = isDebugging => {
   // const isDev = process.env.NODE_ENV === 'development';
-  const isDev = process.env.NODE_ENV === 'production';
+  // const isDev = process.env.NODE_ENV === 'production';
+  const isDev = true;
   return isDebugging && isDev;
 };
 

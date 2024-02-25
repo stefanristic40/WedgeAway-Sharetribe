@@ -54,6 +54,7 @@ export const EditListingDeliveryFormComponent = props => (
         updateInProgress,
         fetchErrors,
         values,
+        onPreviousTab,
       } = formRenderProps;
 
       // This is a bug fix for Final Form.
@@ -112,6 +113,7 @@ export const EditListingDeliveryFormComponent = props => (
 
       return (
         <Form className={classes} onSubmit={handleSubmit}>
+          adsfasdf
           <FieldCheckbox
             id="pickup"
             className={classNames(css.deliveryCheckbox, { [css.hidden]: !displayMultipleDelivery })}
@@ -119,6 +121,7 @@ export const EditListingDeliveryFormComponent = props => (
             label={pickupLabel}
             value="pickup"
           />
+          adsfasdf
           <div className={pickupClasses}>
             {updateListingError ? (
               <p className={css.error}>
@@ -181,7 +184,6 @@ export const EditListingDeliveryFormComponent = props => (
               disabled={!pickupEnabled}
             />
           </div>
-
           <FieldCheckbox
             id="shipping"
             className={classNames(css.deliveryCheckbox, { [css.hidden]: !displayMultipleDelivery })}
@@ -189,7 +191,6 @@ export const EditListingDeliveryFormComponent = props => (
             label={shippingLabel}
             value="shipping"
           />
-
           <div className={shippingClasses}>
             <FieldCurrencyInput
               id="shippingPriceInSubunitsOneItem"
@@ -255,12 +256,9 @@ export const EditListingDeliveryFormComponent = props => (
               />
             ) : null}
           </div>
-          <Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-        >
-          Back
-        </Button>
+          <Button className={css.goToNextTabButton} onClick={onPreviousTab}>
+            Back
+          </Button>
           <Button
             className={css.submitButton}
             type="submit"

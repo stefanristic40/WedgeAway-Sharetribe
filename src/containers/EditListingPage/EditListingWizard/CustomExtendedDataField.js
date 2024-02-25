@@ -91,7 +91,6 @@ const CustomFieldText = props => {
       label={label}
       placeholder={placeholder}
       {...validateMaybe}
-      // style={{ width: '25%' }}  // I add this field for input component of extended data
     />
   );
 };

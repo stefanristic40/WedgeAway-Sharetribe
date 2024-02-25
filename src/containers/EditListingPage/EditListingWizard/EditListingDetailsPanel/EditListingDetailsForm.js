@@ -117,37 +117,6 @@ const FieldSelectListingType = props => {
   );
 };
 
-// Add collect data for listing fields (both publicData and privateData) based on configuration
-const AddListingFields = props => {
-  const { listingType, listingFieldsConfig, intl } = props;
-  console.log('listingFieldsConfig', listingFieldsConfig);
-  const fields = listingFieldsConfig.reduce((pickedFields, fieldConfig) => {
-    const { key, includeForListingTypes, schemaType, scope } = fieldConfig || {};
-    const namespacedKey = scope === 'public' ? `pub_${key}` : `priv_${key}`;
-
-    const isKnownSchemaType = EXTENDED_DATA_SCHEMA_TYPES.includes(schemaType);
-    const isTargetListingType =
-      includeForListingTypes == null || includeForListingTypes.includes(listingType);
-    const isProviderScope = ['public', 'private'].includes(scope);
-
-    return isKnownSchemaType && isTargetListingType && isProviderScope
-      ? [
-          ...pickedFields,
-          <CustomExtendedDataField
-            key={namespacedKey}
-            name={namespacedKey}
-            fieldConfig={fieldConfig}
-            defaultRequiredMessage={intl.formatMessage({
-              id: 'EditListingDetailsForm.defaultRequiredMessage',
-            })}
-          />,
-        ]
-      : pickedFields;
-  }, []);
-
-  return <>{fields}</>;
-};
-
 // Form that asks title, description, transaction process and unit type for pricing
 // In addition, it asks about custom fields according to marketplace-custom-config.js
 const EditListingDetailsFormComponent = props => (
@@ -179,8 +148,6 @@ const EditListingDetailsFormComponent = props => (
       } = formRenderProps;
 
       const { listingType } = values;
-
-      console.log('listingfieldconfig', listingFieldsConfig);
 
       const titleRequiredMessage = intl.formatMessage({
         id: 'EditListingDetailsForm.titleRequired',

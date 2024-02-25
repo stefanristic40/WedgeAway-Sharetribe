@@ -8,7 +8,7 @@ import { LISTING_STATE_DRAFT } from '../../../../util/types';
 import { types as sdkTypes } from '../../../../util/sdkLoader';
 
 // Import shared components
-import { H3, ListingLink } from '../../../../components';
+import { H3, H4, ListingLink } from '../../../../components';
 
 // Import modules from this directory
 import EditListingPricingForm from './EditListingPricingForm';
@@ -20,16 +20,18 @@ const { Money } = sdkTypes;
 const getInitialValues = params => {
   const { listing } = params;
   const { price, publicData } = listing?.attributes || {};
+  const discountDetail = publicData?.discountDetail || {};
 
-  const helmetFee = publicData?.helmetFee || null;
-  const deliverFee = publicData?.deliverFee || null;
+  const { discoutsDay, discoutsPercentage } = discountDetail || {};
 
-  const helmetFeeAsMoney = helmetFee
-    ? new Money(helmetFee.amount, helmetFee.currency) : null;
-  const deliverFeeAsMoney = deliverFee
-    ? new Money(deliverFee.amount, deliverFee.currency) : null;
+  const parsed1 = Number.parseInt(discoutsDay, 10);
+  const parsed2 = Number.parseInt(discoutsPercentage, 10);
 
-  return { price, helmetFee: helmetFeeAsMoney, deliverFee: deliverFeeAsMoney };
+  return {
+    price,
+    discoutsDay: Number.isNaN(parsed1) ? null : parsed1,
+    discoutsPercentage: Number.isNaN(parsed2) ? null : parsed2,
+  };
 };
 
 const EditListingPricingPanel = props => {
@@ -69,26 +71,32 @@ const EditListingPricingPanel = props => {
           />
         ) : (
           <FormattedMessage
-            id="EditListingPricingPanel.createListingTitle"
+            id="EditListingPricingPanel.createListingTitle1"
             values={{ lineBreak: <br /> }}
           />
         )}
       </H3>
+      <H4 as="h2">
+        Set your pricing per day. You can offer discounts for longer rentals or run specials during
+        slow times of the year
+      </H4>
       {priceCurrencyValid ? (
         <EditListingPricingForm
           className={css.form}
           initialValues={initialValues}
           onPreviousTab={onPreviousTab}
           onSubmit={values => {
-            const { price, helmetFee = null, deliverFee = null } = values;
+            const { price, discoutsDay = null, discoutsPercentage = null } = values;
 
             // New values for listing attributes
             const updateValues = {
               price,
               publicData: {
-                helmetFee: helmetFee ? { amount: helmetFee.amount, currency: helmetFee.currency } : null,
-                deliverFee: deliverFee ? { amount: deliverFee.amount, currency: deliverFee.currency } : null,
-              },              
+                discountDetail: {
+                  discoutsDay: discoutsDay ? discoutsDay : null,
+                  discoutsPercentage: discoutsPercentage ? discoutsPercentage : null,
+                },
+              },
             };
             onSubmit(updateValues);
           }}

@@ -214,6 +214,7 @@
   "EditListingDetailsForm.titleRequired": "You need to add a title.",
   "EditListingDetailsForm.updateFailed": "Failed to update listing. Please try again.",
   "EditListingDetailsPanel.createListingTitle": "Club Details",
+  "EditListingDetailsPanel.createListingTitle1": "Club Details",
   "EditListingDetailsPanel.invalidListingTypeSetDescription": "This listing has a configuration that is no longer supported by {marketplaceName}, so you can't make changes to it. If you'd like to keep it available, please contact the {marketplaceName} team.",
   "EditListingDetailsPanel.invalidListingTypeSetTitle": "Outdated listing!",
   "EditListingDetailsPanel.noListingTypeSetDescription": "Configurations for possible transactions are missing some info. Please, contact support.",
@@ -265,6 +266,7 @@
   "EditListingPricingAndStockPanel.listingPriceCurrencyInvalid": "The listing currency is different from the marketplace currency ({marketplaceCurrency}). You cannot edit the price.",
   "EditListingPricingAndStockPanel.title": "Pricing & stock of {listingTitle}",
   "EditListingPricingForm.priceInputPlaceholder": "Add a price…",
+  "EditListingPricingForm.priceInputPlaceholder1": "Price ($)",
   "EditListingPricingForm.pricePerProduct": "Price {unitType, select, day {per day} night {per night} hour {per hour} other {}}",
   "EditListingPricingForm.priceRequired": "You need to add a valid price.",
   "EditListingPricingForm.priceTooLow": "Price should be at least {minPrice}.",
@@ -1130,5 +1132,7 @@
   "SectionServiceHistoryMaybe.lastServicedHeading": "Last serviced",
   "SectionServiceHistoryMaybe.serviceDetailsHeading": "Service details",
   "EditListingWizard.default-booking.new.saveDelivery": "Next",
-  "EditListingPricingForm.deliverFeePlaceholder": "Add a deliverFee fee..."
+  "EditListingPricingForm.deliverFeePlaceholder": "Add a deliverFee fee...",
+  "EditListingWizard.default-purchase.new.savePricing": "I don't know what is this",
+  "EditListingPricingPanel.createListingTitle1": "Club Pricing"
 }

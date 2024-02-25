@@ -66,9 +66,10 @@ import css from './EditListingWizard.module.css';
 // Note 3: The first tab creates a draft listing and title is mandatory attribute for it.
 //         Details tab asks for "title" and is therefore the first tab in the wizard flow.
 const TABS_DETAILS_ONLY = [DETAILS];
-const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
+// const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
+const TABS_PRODUCT = [DETAILS, PHOTOS, AVAILABILITY, PRICING, DELIVERY];
 // const TABS_BOOKING = [DETAILS, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
-const TABS_BOOKING = [DETAILS, PHOTOS, AVAILABILITY, PRICING];
+const TABS_BOOKING = [DETAILS, PHOTOS, AVAILABILITY, PRICING, EXTRAFEATURES];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
 

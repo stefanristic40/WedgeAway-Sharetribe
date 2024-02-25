@@ -18,8 +18,7 @@ import css from './EditListingServiceHistoryPanel.module.css';
 import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 const getInitialValues = props => {
-  const { serviceHistory } =
-    props.listing?.attributes?.publicData || {};
+  const { serviceHistory } = props.listing?.attributes?.publicData || {};
   const { lastServiced, serviceDetails } = serviceHistory || {};
 
   return {
@@ -46,8 +45,7 @@ const EditListingServiceHistoryPanel = props => {
   } = props;
 
   const classes = classNames(rootClassName || css.root, className);
-  const isPublished =
-    listing?.id && listing?.attributes.state !== LISTING_STATE_DRAFT;
+  const isPublished = listing?.id && listing?.attributes.state !== LISTING_STATE_DRAFT;
   const initialValues = getInitialValues(props);
 
   return (

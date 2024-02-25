@@ -87,37 +87,52 @@ export const EditListingPricingFormComponent = props => (
               <FormattedMessage id="EditListingPricingForm.showListingFailed" />
             </p>
           ) : null}
-          <FieldCurrencyInput
-            id={`${formId}price`}
-            name="price"
-            className={css.input}
-            autoFocus={autoFocus}
-            label={intl.formatMessage(
-              { id: 'EditListingPricingForm.pricePerProduct' },
-              { unitType }
-            )}
-            placeholder={intl.formatMessage({ id: 'EditListingPricingForm.priceInputPlaceholder' })}
-            currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
-            validate={priceValidators}
-          />
-          <FieldCurrencyInput
-            id={`${formId}helmetFee`}
-            name="helmetFee"
-            className={css.input}
-            autoFocus={autoFocus}
-            label={intl.formatMessage({ id: 'EditListingPricingForm.helmetFee' }, { unitType })}
-            placeholder={intl.formatMessage({ id: 'EditListingPricingForm.helmetFeePlaceholder' })}
-            currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
-          />
-          <FieldCurrencyInput
-            id={`${formId}deliverFee`}
-            name="deliverFee"
-            className={css.input}
-            autoFocus={autoFocus}
-            label={intl.formatMessage({ id: 'EditListingPricingForm.deliverFee' }, { unitType })}
-            placeholder={intl.formatMessage({ id: 'EditListingPricingForm.deliverFeePlaceholder' })}
-            currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
-          />
+          <div className={css.priceMainItems}>
+            <div className={css.mainPrice}>
+              <FieldCurrencyInput
+                id={`${formId}price`}
+                name="price"
+                className={css.input}
+                autoFocus={autoFocus}
+                placeholder={intl.formatMessage({
+                  id: 'EditListingPricingForm.priceInputPlaceholder1',
+                })}
+                currencyConfig={appSettings.getCurrencyFormatting(marketplaceCurrency)}
+                validate={priceValidators}
+              />
+            </div>
+            <div className={css.perDay}>Per Day</div>
+          </div>
+
+          <div className={css.discounts}>Discounts</div>
+
+          <div className={css.discountsItems}>
+            <FieldTextInput
+              className={classNames(css.dayDiscount)}
+              id={`${formId}days`}
+              name="discoutsDay"
+              type="number"
+              placeholder="Days"
+              parse={value => {
+                const parsed = Number.parseInt(value, 10);
+                return Number.isNaN(parsed) ? null : parsed;
+              }}
+              label="Days"
+            />
+            <FieldTextInput
+              className={classNames(css.dayDiscount)}
+              id={`${formId}percentage`}
+              name="discoutsPercentage"
+              type="number"
+              placeholder="% Off"
+              parse={value => {
+                const parsed = Number.parseInt(value, 10);
+                return Number.isNaN(parsed) ? null : parsed;
+              }}
+              label="% Off"
+            />
+          </div>
+
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back
