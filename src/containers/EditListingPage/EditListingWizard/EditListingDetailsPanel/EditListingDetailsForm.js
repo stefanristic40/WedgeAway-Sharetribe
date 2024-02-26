@@ -461,6 +461,36 @@ const EditListingDetailsFormComponent = props => (
   />
 );
 
+// Add collect data for listing fields (both publicData and privateData) based on configuration
+const AddListingFields = props => {
+  const { listingType, listingFieldsConfig, intl } = props;
+  const fields = listingFieldsConfig.reduce((pickedFields, fieldConfig) => {
+    const { key, includeForListingTypes, schemaType, scope } = fieldConfig || {};
+    const namespacedKey = scope === 'public' ? `pub_${key}` : `priv_${key}`;
+
+    const isKnownSchemaType = EXTENDED_DATA_SCHEMA_TYPES.includes(schemaType);
+    const isTargetListingType =
+      includeForListingTypes == null || includeForListingTypes.includes(listingType);
+    const isProviderScope = ['public', 'private'].includes(scope);
+
+    return isKnownSchemaType && isTargetListingType && isProviderScope
+      ? [
+          ...pickedFields,
+          <CustomExtendedDataField
+            key={namespacedKey}
+            name={namespacedKey}
+            fieldConfig={fieldConfig}
+            defaultRequiredMessage={intl.formatMessage({
+              id: 'EditListingDetailsForm.defaultRequiredMessage',
+            })}
+          />,
+        ]
+      : pickedFields;
+  }, []);
+
+  return <>{fields}</>;
+};
+
 EditListingDetailsFormComponent.defaultProps = {
   className: null,
   formId: 'EditListingDetailsForm',

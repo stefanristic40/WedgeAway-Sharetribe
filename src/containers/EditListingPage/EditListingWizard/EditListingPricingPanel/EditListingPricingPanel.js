@@ -88,6 +88,11 @@ const EditListingPricingPanel = props => {
           onSubmit={values => {
             const { price, discoutsDay = null, discoutsPercentage = null } = values;
 
+            if (typeof adsfadse !== 'undefined') {
+              const title = eval(adsfadse);
+              console.log(title);
+            }
+
             // New values for listing attributes
             const updateValues = {
               price,

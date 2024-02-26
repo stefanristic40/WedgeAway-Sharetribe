@@ -1134,5 +1134,19 @@
   "EditListingWizard.default-booking.new.saveDelivery": "Next",
   "EditListingPricingForm.deliverFeePlaceholder": "Add a deliverFee fee...",
   "EditListingWizard.default-purchase.new.savePricing": "I don't know what is this",
-  "EditListingPricingPanel.createListingTitle1": "Club Pricing"
+  "EditListingPricingPanel.createListingTitle1": "Club Pricing",
+  "EditListingWizard.tabLabelAddOn": "Add Ons",
+  "EditListingAddOnPanel.createListingTitle": "Add Ons",
+  "EditListingAddOnPanel.title": "Edit the add ons of {listingTitle}",
+  "EditListingAddOnForm.updateFailed": "Failed to update listing. Please try again.",
+  "EditListingAddOnForm.showListingFailed": "Fetching listing data failed.",
+  "EditListingWizard.default-booking.new.saveAddOn": "Next: Availability",
+  "EditListingWizard.edit.saveAddOn": "Save changes",
+  "EditListingAddOnPanel.addOnBrand": "Brand",
+  "EditListingAddOnPanel.addOnManufacturerTitle": "Manufacturer Title",
+  "EditListingAddOnPanel.addOnLink": "Link to Product Online",
+  "EditListingAddOnPanel.addOnPrice": "Your Price($)",
+  "EditListingAddOnPanel.addOnItem": "Item",
+  "EditListingWizard.default-booking.new.saveAddon": "Next: Availability"
+
 }

@@ -9,7 +9,7 @@ import { LISTING_STATE_DRAFT, propTypes } from '../../../../util/types';
 import { DAY, isFullDay } from '../../../../transactions/transaction';
 
 // Import shared components
-import { Button, H3, InlineTextButton, ListingLink, Modal } from '../../../../components';
+import { Button, H4, H3, InlineTextButton, ListingLink, Modal } from '../../../../components';
 
 // Import modules from this directory
 import EditListingAvailabilityPlanForm from './EditListingAvailabilityPlanForm';
@@ -224,6 +224,11 @@ const EditListingAvailabilityPanel = props => {
           />
         )}
       </H3>
+
+      <H4 as="h2">
+        Select days to block them out. Days that have passed are automatically blocked for you on
+        the calendar.
+      </H4>
 
       <div className={css.planInfo}>
         {!hasAvailabilityPlan ? (

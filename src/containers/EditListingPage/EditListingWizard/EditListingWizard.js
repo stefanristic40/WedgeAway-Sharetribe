@@ -56,6 +56,7 @@ import EditListingWizardTab, {
   AVAILABILITY,
   PHOTOS,
   SERVICE_HISTORY,
+  ADDON,
 } from './EditListingWizardTab';
 import css from './EditListingWizard.module.css';
 
@@ -69,7 +70,7 @@ const TABS_DETAILS_ONLY = [DETAILS];
 // const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
 const TABS_PRODUCT = [DETAILS, PHOTOS, AVAILABILITY, PRICING, DELIVERY];
 // const TABS_BOOKING = [DETAILS, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
-const TABS_BOOKING = [DETAILS, PHOTOS, AVAILABILITY, PRICING, EXTRAFEATURES];
+const TABS_BOOKING = [DETAILS, ADDON, PHOTOS, AVAILABILITY, PRICING, EXTRAFEATURES];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
 
@@ -148,6 +149,9 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
   } else if (tab === EXTRAFEATURES) {
     labelKey = 'EditListingWizard.tabLabelExtraFeatures';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveExtraFeatures`;
+  } else if (tab === ADDON) {
+    labelKey = 'EditListingWizard.tabLabelAddOn';
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveAddon`;
   }
 
   return {
@@ -267,6 +271,8 @@ const tabCompleted = (tab, listing, config) => {
       return !!serviceHistory;
     case DELIVERY:
       return !!deliveryOptionPicked;
+    case ADDON:
+      return true;
     // case EXTRAFEATURES:
     //     // return true;
     //     // /** For a required attribute: **/
