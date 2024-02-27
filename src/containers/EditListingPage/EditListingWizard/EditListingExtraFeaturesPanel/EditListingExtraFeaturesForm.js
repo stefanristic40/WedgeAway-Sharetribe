@@ -14,7 +14,6 @@ import { Button, Form, FieldTextInput } from '../../../../components';
 // Import modules from this directory
 import css from './EditListingExtraFeaturesForm.module.css';
 
-
 export const EditListingExtraFeaturesFormComponent = props => (
   <FinalForm
     {...props}
@@ -61,14 +60,13 @@ export const EditListingExtraFeaturesFormComponent = props => (
             autoFocus={autoFocus}
             type="textarea"
             label="Extra features"
-            placeholder={intl.formatMessage({ id: 'EditListingExtraFeaturesForm.extraFeaturesInputPlaceholder' })}
+            placeholder={intl.formatMessage({
+              id: 'EditListingExtraFeaturesForm.extraFeaturesInputPlaceholder',
+            })}
           />
-<Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-        >
-          Back
-        </Button>
+          <Button className={css.goToNextTabButton} onClick={onPreviousTab}>
+            Back
+          </Button>
           <Button
             className={css.submitButton}
             type="submit"

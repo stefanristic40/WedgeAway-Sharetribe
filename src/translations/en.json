@@ -306,7 +306,7 @@
   "EditListingWizard.tabLabelFeatures": "Features",
   "EditListingWizard.tabLabelLocation": "Location",
   "EditListingWizard.tabLabelPhotos": "Photos",
-  "EditListingWizard.tabLabelPolicy": "Disclaimer",
+  "1": "Disclaimer",
   "EditListingWizard.tabLabelPricing": "Pricing",
   "EditListingWizard.tabLabelPricingAndStock": "Pricing & stock",
   "EmailVerificationForm.finishAccountSetup": "We will need to send you email notifications. To allow this, please verify your email address {email}.",
@@ -1147,6 +1147,10 @@
   "EditListingAddOnPanel.addOnLink": "Link to Product Online",
   "EditListingAddOnPanel.addOnPrice": "Your Price($)",
   "EditListingAddOnPanel.addOnItem": "Item",
-  "EditListingWizard.default-booking.new.saveAddon": "Next: Availability"
-
+  "EditListingPolicyPanel.title": "Edit the Rules $ Cancelation of {listingTitle}",
+  "EditListingPolicyPanel.createListingTitle": "Rules & Cancelation Policy",
+  "EditListingWizard.tabLabelPolicy1": "Rules & Cancelation Policy",
+  "EditListingWizard.default-booking.new.savePolicy": "Next:",
+  "EditListingWizard.edit.savePolicy": "Save changes",
+  "EditListingPolicyForm.customeRuleInputPlaceholder": "Please ensure that clubs are returned in the condition they were when picked up. That means cleaning any dirt, scuffs, scratches etc. A brush is provided to cleaning."
 }

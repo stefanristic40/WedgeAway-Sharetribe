@@ -9,11 +9,11 @@ import { types as sdkTypes } from '../../../../util/sdkLoader';
 
 // Import shared components
 import { H3, H4, ListingLink } from '../../../../components';
+import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 // Import modules from this directory
 import EditListingPricingForm from './EditListingPricingForm';
 import css from './EditListingPricingPanel.module.css';
-import ProgressBar from '../../../../components/ProgressBar/ProgressBar';
 
 const { Money } = sdkTypes;
 
@@ -59,6 +59,7 @@ const EditListingPricingPanel = props => {
       ? initialValues.price.currency === marketplaceCurrency
       : !!marketplaceCurrency;
   const unitType = listing?.attributes?.publicData?.unitType;
+  console.log('disabled', disabled);
 
   return (
     <div className={classes}>
@@ -87,11 +88,6 @@ const EditListingPricingPanel = props => {
           onPreviousTab={onPreviousTab}
           onSubmit={values => {
             const { price, discoutsDay = null, discoutsPercentage = null } = values;
-
-            if (typeof adsfadse !== 'undefined') {
-              const title = eval(adsfadse);
-              console.log(title);
-            }
 
             // New values for listing attributes
             const updateValues = {

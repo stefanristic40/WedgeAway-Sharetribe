@@ -22,6 +22,7 @@ import EditListingPricingPanel from './EditListingPricingPanel/EditListingPricin
 import EditListingPricingAndStockPanel from './EditListingPricingAndStockPanel/EditListingPricingAndStockPanel';
 import EditListingServiceHistoryPanel from './EditListingServiceHistoryPanel/EditListingServiceHistoryPanel';
 import EditListingAddOnPanel from './EditListingAddOnPanel/EditListingAddOnPanel';
+import EditListingPolicyPanel from './EditListingPolicyPanel/EditListingPolicyPanel';
 
 import css from './EditListingWizardTab.module.css';
 
@@ -35,6 +36,7 @@ export const LOCATION = 'location';
 export const AVAILABILITY = 'availability';
 export const PHOTOS = 'photos';
 export const ADDON = 'add-on';
+export const POLICY = 'policy';
 
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
@@ -48,6 +50,7 @@ export const SUPPORTED_TABS = [
   LOCATION,
   AVAILABILITY,
   PHOTOS,
+  POLICY,
 ];
 
 const pathParamsToNextTab = (params, tab, marketplaceTabs) => {
@@ -361,6 +364,23 @@ const EditListingWizardTab = props => {
           history={history}
           routeConfiguration={routeConfiguration}
           {...panelProps(AVAILABILITY)}
+        />
+      );
+    }
+    case POLICY: {
+      return (
+        <EditListingPolicyPanel
+          onPreviousTab={() => {
+            redirectPreviousDraftUpdate(
+              listing.id,
+              params,
+              tab,
+              marketplaceTabs,
+              history,
+              routeConfiguration
+            );
+          }}
+          {...panelProps(POLICY)}
         />
       );
     }
