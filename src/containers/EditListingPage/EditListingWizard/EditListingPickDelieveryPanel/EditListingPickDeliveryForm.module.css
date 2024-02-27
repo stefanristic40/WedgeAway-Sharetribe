@@ -108,50 +108,92 @@
   }
 }
 
-.policyTitle {
+.pickItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pickTitle {
   font-size: large;
   font-weight: 700;
+  margin-top: 40px;
   margin-bottom: 10px;
 }
-.policyDetail {
-  font-weight: 400;
+
+.pickMedium {
+  font-size: large;
+  font-weight: 500;
+  padding-right: 10px;
+  @media (max-width: 768px) {
+    padding-right: 0px;
+  }
+}
+
+.pickDetail {
   font-size: medium;
+  font-weight: 400;
   margin-bottom: 30px;
 }
 
-.checkBox {
-  display: grid;
-  grid-template-columns: 2% auto;
+.checkPick {
+  width: 22px;
+  height: 22px;
+  @media (max-width: 768px) {
+    height: 17px;
+    width: 17px;
+  }
+}
+.checkPick:checked {
+}
+
+.dist {
+  width: 10%;
+  @media (max-width: 768px) {
+    width: 20%;
+  }
+}
+
+.price {
+  width: 14%;
+  @media (max-width: 768px) {
+    width: 30%;
+  }
+}
+
+.costPerMile {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  @media (max-width: 768px) {
+    justify-content: left;
+    gap: 8px;
+  }
+}
+
+.pickupTime {
+  display: flex;
+  justify-content: flex-start;
   gap: 10px;
   align-items: center;
-  margin-bottom: 20px;
   @media (max-width: 768px) {
-    grid-template-columns: 7% auto;
+    gap: 3px;
+    display: block;
   }
-  .checkOne {
-    grid-column: 1;
-    grid-row: 1;
-    .checkPolicy {
-      width: 22px;
-      height: 22px;
-      @media (max-width: 768px) {
-        height: 17px;
-        width: 17px;
-      }
-    }
-    .checkPolicy:checked {
-    }
-  }
-  .policyTitle {
-    grid-column: 2;
-    grid-row: 1;
-    font-size: large;
-    margin-bottom: 0px;
-  }
-  .policyDetail {
-    grid-column: 2;
-    grid-row: 2;
-    font-size: medium;
-    margin-bottom: 0px;
-  }
+}
+
+.pickDay {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 6px;
+}
+
+.pickHours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

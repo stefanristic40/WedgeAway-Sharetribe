@@ -1,0 +1,9 @@
+.subtitlePick {
+  font-size: 22px;
+  font-weight: 400;
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+    font-weight: 400;
+  }
+}

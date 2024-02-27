@@ -1481,6 +1481,10 @@ textarea {
   padding: 0 20px;
   width: 95%;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
 }
 
 h1 {

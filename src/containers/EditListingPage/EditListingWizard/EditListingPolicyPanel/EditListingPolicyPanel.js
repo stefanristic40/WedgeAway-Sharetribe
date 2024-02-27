@@ -44,7 +44,6 @@ const EditListingPolicyPanel = props => {
     errors,
     onPreviousTab,
   } = props;
-  console.log('disabled', disabled);
 
   const classes = classNames(rootClassName || css.root, className);
   const initialValues = getInitialValues(props);

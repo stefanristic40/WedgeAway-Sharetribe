@@ -58,6 +58,7 @@ import EditListingWizardTab, {
   SERVICE_HISTORY,
   ADDON,
   POLICY,
+  PICK_DELIVERY,
 } from './EditListingWizardTab';
 import css from './EditListingWizard.module.css';
 
@@ -71,7 +72,16 @@ const TABS_DETAILS_ONLY = [DETAILS];
 // const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
 const TABS_PRODUCT = [DETAILS, PHOTOS, AVAILABILITY, PRICING, DELIVERY];
 // const TABS_BOOKING = [DETAILS, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
-const TABS_BOOKING = [DETAILS, ADDON, POLICY, PHOTOS, AVAILABILITY, PRICING, EXTRAFEATURES];
+const TABS_BOOKING = [
+  DETAILS,
+  ADDON,
+  POLICY,
+  PICK_DELIVERY,
+  PHOTOS,
+  AVAILABILITY,
+  PRICING,
+  EXTRAFEATURES,
+];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
 
@@ -156,6 +166,9 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
   } else if (tab === POLICY) {
     labelKey = 'EditListingWizard.tabLabelPolicy1';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePolicy`;
+  } else if (tab === PICK_DELIVERY) {
+    labelKey = 'EditListingWizard.tabLabelPickDelivery';
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePickDelivery`;
   }
   return {
     label: intl.formatMessage({ id: labelKey }),
@@ -279,6 +292,8 @@ const tabCompleted = (tab, listing, config) => {
       return true;
     case POLICY:
       return !!rule1 || !!rule2 || !!rule3 || !!rule4 || !!customRule;
+    case PICK_DELIVERY:
+      return true;
     // return false;
     // case EXTRAFEATURES:
     //     // return true;
