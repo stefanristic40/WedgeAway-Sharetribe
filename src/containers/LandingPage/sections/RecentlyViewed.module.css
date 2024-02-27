@@ -19,6 +19,10 @@
   width: 100%;
 }
 
+.title {
+  font-size: 1.2rem;
+}
+
 .thumbnail {
   padding: 20px;
   width: 100%;
