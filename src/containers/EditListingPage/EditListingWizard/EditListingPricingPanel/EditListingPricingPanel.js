@@ -63,7 +63,7 @@ const EditListingPricingPanel = props => {
 
   return (
     <div className={classes}>
-      <ProgressBar currentStep={5} />
+      <ProgressBar currentStep={4} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage

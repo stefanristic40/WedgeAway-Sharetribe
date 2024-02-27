@@ -24,6 +24,7 @@ import EditListingServiceHistoryPanel from './EditListingServiceHistoryPanel/Edi
 import EditListingAddOnPanel from './EditListingAddOnPanel/EditListingAddOnPanel';
 import EditListingPolicyPanel from './EditListingPolicyPanel/EditListingPolicyPanel';
 import EditListingPickDeliveryPanel from './EditListingPickDelieveryPanel/EditListingPickDeliveryPanel';
+import EditListingPublish from './EditListingPublish/EditListingPublish';
 
 import css from './EditListingWizardTab.module.css';
 
@@ -39,6 +40,7 @@ export const PHOTOS = 'photos';
 export const ADDON = 'add-on';
 export const POLICY = 'policy';
 export const PICK_DELIVERY = 'pick-delivery';
+export const PUBLISH = 'publish';
 
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
@@ -54,6 +56,7 @@ export const SUPPORTED_TABS = [
   PHOTOS,
   POLICY,
   PICK_DELIVERY,
+  PUBLISH,
 ];
 
 const pathParamsToNextTab = (params, tab, marketplaceTabs) => {
@@ -422,6 +425,23 @@ const EditListingWizardTab = props => {
           images={images}
           onImageUpload={onImageUpload}
           onRemoveImage={onRemoveImage}
+        />
+      );
+    }
+    case PUBLISH: {
+      return (
+        <EditListingPublish
+          onPreviousTab={() => {
+            redirectPreviousDraftUpdate(
+              listing.id,
+              params,
+              tab,
+              marketplaceTabs,
+              history,
+              routeConfiguration
+            );
+          }}
+          {...panelProps(PUBLISH)}
         />
       );
     }

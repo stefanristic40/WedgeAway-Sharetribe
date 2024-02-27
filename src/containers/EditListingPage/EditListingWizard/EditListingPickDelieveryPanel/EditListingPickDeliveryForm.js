@@ -25,6 +25,8 @@ import {
 } from '../../../../components';
 // import Field from '../../../PageBuilder/Field';
 
+import { EditListingPickTime } from './EditListingPickTime';
+
 // Import modules from this directory
 import css from './EditListingPickDeliveryForm.module.css';
 
@@ -60,10 +62,6 @@ export const EditListingPickDiliveryFormComponent = props => (
       const { updateListingError, showListingsError } = fetchErrors || {};
 
       const validateMaybe = { validate: required('Please Fill In...') };
-
-      const filterOptions = ['AM', 'PM'];
-
-      const filterOptions1 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
       return (
         <Form onSubmit={handleSubmit} className={classes}>
@@ -172,61 +170,15 @@ export const EditListingPickDiliveryFormComponent = props => (
           </div>
 
           <div className={css.pickTitle}>Pickup Days & Times</div>
-          <div className={css.pickupTime}>
-            <div className={css.pickDay}>
-              <Field
-                name="is_mon"
-                component="input"
-                type="checkbox"
-                className={css.checkPick}
-                //   value="true"
-              />
-              <div className={css.pickMedium}>Monday</div>
-            </div>
-            <div className={css.pickHours}>
-              <div className={css.pickMedium}>Between</div>
 
-              <FieldSelect className={classNames(css.item1)} name="monStartD" id="monStartD">
-                {filterOptions.map(optionConfig => {
-                  return (
-                    <option key={optionConfig} value={optionConfig}>
-                      {optionConfig}
-                    </option>
-                  );
-                })}
-              </FieldSelect>
-              <FieldSelect className={classNames(css.item1)} name="monStartT" id="monStartT">
-                <option disabled value=""></option>
-                {filterOptions1.map(optionConfig => {
-                  return (
-                    <option key={optionConfig} value={optionConfig}>
-                      {optionConfig}
-                    </option>
-                  );
-                })}
-              </FieldSelect>
-              <div className={css.pickMedium}>and</div>
-              <FieldSelect className={classNames(css.item1)} name="monEndD" id="monEndD">
-                {filterOptions.map(optionConfig => {
-                  return (
-                    <option key={optionConfig} value={optionConfig}>
-                      {optionConfig}
-                    </option>
-                  );
-                })}
-              </FieldSelect>
-              <FieldSelect className={classNames(css.item1)} name="monEndT" id="monEndT">
-                <option disabled value=""></option>
-                {filterOptions1.map(optionConfig => {
-                  return (
-                    <option key={optionConfig} value={optionConfig}>
-                      {optionConfig}
-                    </option>
-                  );
-                })}
-              </FieldSelect>
-            </div>
-          </div>
+          <EditListingPickTime day="mon" fDay="Monday" />
+          <EditListingPickTime day="tue" fDay="Tuesday" />
+          <EditListingPickTime day="wed" fDay="Wednesday" />
+          <EditListingPickTime day="thu" fDay="Thursday" />
+          <EditListingPickTime day="fri" fDay="Friday" />
+          <EditListingPickTime day="sat" fDay="Saturday" />
+          <EditListingPickTime day="sun" fDay="Sunday" />
+
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back

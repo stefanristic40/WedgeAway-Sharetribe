@@ -62,7 +62,7 @@ const EditListingAddOnPanel = props => {
 
   return (
     <div className={classes}>
-      <ProgressBar currentStep={6} />
+      <ProgressBar currentStep={5} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage

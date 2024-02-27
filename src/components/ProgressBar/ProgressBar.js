@@ -5,7 +5,7 @@ const ProgressBar = ({ currentStep }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((currentStep / 7) * 100); // Assuming 5 steps in total
+      setProgress((currentStep / 8) * 100); // Assuming 5 steps in total
     }, 100); // Update every 2 seconds
 
     return () => clearInterval(interval); // Clear the interval on component unmount

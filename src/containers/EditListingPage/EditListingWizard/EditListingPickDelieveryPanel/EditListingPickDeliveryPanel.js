@@ -128,7 +128,7 @@ const EditListingPickDeliveryPanel = props => {
 
   return (
     <div className={classes}>
-      <ProgressBar currentStep={5} />
+      <ProgressBar currentStep={7} />
       <H3 as="h1">
         {isPublished ? (
           <FormattedMessage

@@ -59,6 +59,7 @@ import EditListingWizardTab, {
   ADDON,
   POLICY,
   PICK_DELIVERY,
+  PUBLISH,
 } from './EditListingWizardTab';
 import css from './EditListingWizard.module.css';
 
@@ -73,14 +74,15 @@ const TABS_DETAILS_ONLY = [DETAILS];
 const TABS_PRODUCT = [DETAILS, PHOTOS, AVAILABILITY, PRICING, DELIVERY];
 // const TABS_BOOKING = [DETAILS, EXTRAFEATURES, SERVICE_HISTORY, PRICING, AVAILABILITY, PHOTOS];
 const TABS_BOOKING = [
+  LOCATION,
   DETAILS,
-  ADDON,
-  POLICY,
-  PICK_DELIVERY,
   PHOTOS,
-  AVAILABILITY,
   PRICING,
-  EXTRAFEATURES,
+  ADDON,
+  AVAILABILITY,
+  PICK_DELIVERY,
+  POLICY,
+  PUBLISH,
 ];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
@@ -132,10 +134,10 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
   let submitButtonKey = null;
   if (tab === DETAILS) {
     labelKey = 'EditListingWizard.tabLabelDetails';
-    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveDetails`;
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveDetails1`;
   } else if (tab === PRICING) {
     labelKey = 'EditListingWizard.tabLabelPricing';
-    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePricing`;
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePricing1`;
   } else if (tab === PRICING_AND_STOCK) {
     labelKey = 'EditListingWizard.tabLabelPricingAndStock';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePricingAndStock`;
@@ -147,16 +149,14 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveDelivery`;
   } else if (tab === LOCATION) {
     labelKey = 'EditListingWizard.tabLabelLocation';
-    submitButtonKey =
-      isPriceDisabled && isNewListingFlow
-        ? `EditListingWizard.${processNameString}${newOrEdit}.saveLocationNoPricingTab`
-        : `EditListingWizard.${processNameString}${newOrEdit}.saveLocation`;
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveLocation1`;
   } else if (tab === AVAILABILITY) {
     labelKey = 'EditListingWizard.tabLabelAvailability';
-    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveAvailability`;
+    submitButtonKey = 'EditListingWizard.default-booking.new.saveAvailabilityZ';
+    // submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveAvailabilityZ`;
   } else if (tab === PHOTOS) {
     labelKey = 'EditListingWizard.tabLabelPhotos';
-    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePhotos`;
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePhotos1`;
   } else if (tab === EXTRAFEATURES) {
     labelKey = 'EditListingWizard.tabLabelExtraFeatures';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveExtraFeatures`;
@@ -169,7 +169,11 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
   } else if (tab === PICK_DELIVERY) {
     labelKey = 'EditListingWizard.tabLabelPickDelivery';
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePickDelivery`;
+  } else if (tab === PUBLISH) {
+    labelKey = 'EditListingWizard.tabLabelPublish';
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePickDelivery`;
   }
+
   return {
     label: intl.formatMessage({ id: labelKey }),
     submitButton: intl.formatMessage({ id: submitButtonKey }),
@@ -293,6 +297,8 @@ const tabCompleted = (tab, listing, config) => {
     case POLICY:
       return !!rule1 || !!rule2 || !!rule3 || !!rule4 || !!customRule;
     case PICK_DELIVERY:
+      return true;
+    case PUBLISH:
       return true;
     // return false;
     // case EXTRAFEATURES:

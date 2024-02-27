@@ -288,11 +288,7 @@ const EditListingAvailabilityPanel = props => {
         </p>
       ) : null}
       <div className={css.buttonItems}>
-        <Button
-          className={css.goToNextTabButton}
-          onClick={onPreviousTab}
-          disabled={!hasAvailabilityPlan}
-        >
+        <Button className={css.goToNextTabButton} onClick={onPreviousTab}>
           Back
         </Button>
         {!isPublished ? (

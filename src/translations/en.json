@@ -275,11 +275,14 @@
   "EditListingPricingPanel.createListingTitle": "Pricing",
   "EditListingPricingPanel.listingPriceCurrencyInvalid": "The listing currency is different from the marketplace currency ({marketplaceCurrency}). You cannot edit the price.",
   "EditListingPricingPanel.title": "Edit the pricing of {listingTitle}",
-  "EditListingWizard.default-booking.new.saveAvailability": "Next",
+  "EditListingWizard.default-booking.new.saveAvailability": "Next: Pickup & Delivery",
   "EditListingWizard.default-booking.new.saveDetails": "Next",
+  "EditListingWizard.default-booking.new.saveDetails1": "Next: Add Photos",
   "EditListingWizard.default-booking.new.saveLocation": "Next",
-  "EditListingWizard.default-booking.new.savePhotos": "Publish listing",
+  "EditListingWizard.default-booking.new.savePhotos": "Next: Pricing",
+  "EditListingWizard.default-booking.new.savePhotos1": "Next: Pricing",
   "EditListingWizard.default-booking.new.savePricing": "Next",
+  "EditListingWizard.default-booking.new.savePricing1": "Next: Add Ons",
   "EditListingWizard.default-inquiry.new.saveDetails": "Next",
   "EditListingWizard.default-inquiry.new.saveLocation": "Next",
   "EditListingWizard.default-inquiry.new.saveLocationNoPricingTab": "Next",
@@ -1157,5 +1160,12 @@
   "EditListingPickDeliveryPanel.createListingTitle": "Pickup & Delivery Instructions",
   "EditListingWizard.tabLabelPickDelivery": "Pickup & Delivery Instructions",
   "EditListingWizard.default-booking.new.savePickDelivery": "Next: Rule & Policy",
-  "EditListingWizard.edit.savePickDelivery": "Save changes"
+  "EditListingWizard.edit.savePickDelivery": "Save changes",
+  "EditListingWizard.tabLabelPublish": "Publish",
+  "EditListingWizard.default-booking.new.savePublish": "Publish Your Clubs",
+  "EditListingWizard.edit.savePublish": "Save changes",
+  "EditListingPublish.createListingTitle": "Publish Your Listings",
+  "EditListingWizard.default-booking.new.saveLocation1": "Next: Club Details",
+  "EditListingWizard.default-booking.new.saveAvailabilityZ": "Next: Pickup & Delivery"
+
 }

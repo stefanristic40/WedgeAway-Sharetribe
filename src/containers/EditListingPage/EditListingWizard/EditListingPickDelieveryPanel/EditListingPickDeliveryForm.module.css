@@ -52,6 +52,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 60px;
   margin-bottom: 40px;
 
   @media (max-width: 768px) {
@@ -132,6 +133,19 @@
   }
 }
 
+.pickSmall {
+  font-size: 15px;
+  font-weight: 500;
+  padding-right: 10px;
+  padding-left: 10px;
+  @media (max-width: 768px) {
+    padding-left: 3px;
+
+    font-size: 13px;
+    padding-right: 0px;
+  }
+}
+
 .pickDetail {
   font-size: medium;
   font-weight: 400;
@@ -177,11 +191,13 @@
 .pickupTime {
   display: flex;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
+  margin-bottom: 5px;
   @media (max-width: 768px) {
     gap: 3px;
     display: block;
+    margin-bottom: 14px;
   }
 }
 
@@ -190,6 +206,8 @@
   justify-content: start;
   align-items: center;
   gap: 6px;
+  width: 140px;
+  padding-bottom: 8px;
 }
 
 .pickHours {
