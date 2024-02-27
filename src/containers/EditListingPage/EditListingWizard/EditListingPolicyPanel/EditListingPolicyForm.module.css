@@ -140,8 +140,6 @@
         width: 17px;
       }
     }
-    .checkPolicy:checked {
-    }
   }
   .policyTitle {
     grid-column: 2;
