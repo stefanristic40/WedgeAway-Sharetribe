@@ -59,6 +59,7 @@ const Tabs = props => {
 
   return (
     <div className={classes}>
+      {/* I will need it in the future for */}
       {/* <TabNav
         rootClassName={navRootClassName}
         tabs={tabNavTabs}

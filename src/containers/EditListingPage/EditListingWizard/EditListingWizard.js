@@ -171,7 +171,7 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePickDelivery`;
   } else if (tab === PUBLISH) {
     labelKey = 'EditListingWizard.tabLabelPublish';
-    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePickDelivery`;
+    submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.savePublish`;
   }
 
   return {

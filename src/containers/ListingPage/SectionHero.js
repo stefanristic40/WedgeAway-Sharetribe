@@ -39,7 +39,8 @@ const SectionHero = props => {
   return (
     <div className={css.sectionHero} data-testid="hero">
       <div className={css.imageWrapperForSectionHero} onClick={handleViewPhotosClick}>
-        {listing.id && isOwnListing ? (
+        {/* I will need it in the future for the add payment and edit */}
+        {/* {listing.id && isOwnListing ? (
           <div onClick={e => e.stopPropagation()} className={css.actionBarContainerForHeroLayout}>
             {noPayoutDetailsSetWithOwnListing ? (
               <ActionBarMaybe
@@ -57,7 +58,7 @@ const SectionHero = props => {
               editParams={editParams}
             />
           </div>
-        ) : null}
+        ) : null} */}
 
         <ResponsiveImage
           rootClassName={css.rootForImage}
