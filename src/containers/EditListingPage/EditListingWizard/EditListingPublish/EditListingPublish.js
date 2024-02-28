@@ -51,32 +51,32 @@ const EditListingPublish = props => {
       </div>
 
       <div className={css.isCompleted}>
-        <img src="/checkbox.svg" alt="checkMark" className={css.checkbox} />
+        <img src="/static/images/checkbox.svg" alt="checkMark" className={css.checkbox} />
         <div className={css.completedItemTitle}>Location</div>
       </div>
 
       <div className={css.isCompleted}>
-        <img src="/checkbox.svg" alt="checkMark" className={css.checkbox} />
+        <img src="/static/images/checkbox.svg" alt="checkMark" className={css.checkbox} />
         <div className={css.completedItemTitle}>Club Details</div>
       </div>
 
       <div className={css.isCompleted}>
-        <img src="/checkbox.svg" alt="checkMark" className={css.checkbox} />
+        <img src="/static/images/checkbox.svg" alt="checkMark" className={css.checkbox} />
         <div className={css.completedItemTitle}>Club Photos</div>
       </div>
 
       <div className={css.isCompleted}>
-        <img src="/checkbox.svg" alt="checkMark" className={css.checkbox} />
+        <img src="/static/images/checkbox.svg" alt="checkMark" className={css.checkbox} />
         <div className={css.completedItemTitle}>Add Ons</div>
       </div>
 
       <div className={css.isCompleted}>
-        <img src="/checkbox.svg" alt="checkMark" className={css.checkbox} />
+        <img src="/static/images/checkbox.svg" alt="checkMark" className={css.checkbox} />
         <div className={css.completedItemTitle}>Rules & Cancelation Policy</div>
       </div>
 
       <div className={css.isCompleted}>
-        <img src="/checkbox.svg" alt="checkMark" className={css.checkbox} />
+        <img src="/static/images/checkbox.svg" alt="checkMark" className={css.checkbox} />
         <div className={css.completedItemTitle}>Pickup & Delivery Instructions</div>
       </div>
 
