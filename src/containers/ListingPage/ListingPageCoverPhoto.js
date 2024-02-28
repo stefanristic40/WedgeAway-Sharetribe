@@ -593,7 +593,7 @@ const mapDispatchToProps = dispatch => ({
   onInitializeCardPaymentData: () => dispatch(initializeCardPaymentData()),
   onFetchTimeSlots: (listingId, start, end, timeZone) =>
     dispatch(fetchTimeSlots(listingId, start, end, timeZone)),
-  onUpdateFavorites: (payload) => dispatch(updateProfile(payload)),
+  onUpdateFavorites: payload => dispatch(updateProfile(payload)),
 });
 
 // Note: it is important that the withRouter HOC is **outside** the
@@ -602,11 +602,6 @@ const mapDispatchToProps = dispatch => ({
 // lifecycle hook.
 //
 // See: https://github.com/ReactTraining/react-router/issues/4671
-const ListingPage = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
-)(EnhancedListingPage);
+const ListingPage = compose(connect(mapStateToProps, mapDispatchToProps))(EnhancedListingPage);
 
 export default ListingPage;

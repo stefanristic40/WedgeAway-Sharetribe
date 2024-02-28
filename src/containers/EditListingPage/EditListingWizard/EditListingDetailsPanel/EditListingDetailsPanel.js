@@ -85,7 +85,8 @@ const hasSetListingType = publicData => {
  * @returns Array of picked extended data fields from submitted data.
  */
 const pickListingFieldsData = (data, targetScope, targetListingType, listingFieldConfigs) => {
-  return listingFieldConfigs.reduce((fields, field) => {
+  let golfClubs = [];
+  const result = listingFieldConfigs.reduce((fields, field) => {
     const { key, includeForListingTypes, scope = 'public', schemaType } = field || {};
     const namespacePrefix = scope === 'public' ? `pub_` : `priv_`;
     const namespacedKey = `${namespacePrefix}${key}`;
@@ -97,6 +98,9 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
 
     if (isKnownSchemaType && isTargetScope && isTargetListingType) {
       const fieldValue = data[namespacedKey] || null;
+      if (fieldValue == true) {
+        golfClubs.push(key);
+      }
       return { ...fields, [key]: fieldValue };
     } else if (isKnownSchemaType && isTargetScope && !isTargetListingType) {
       // Note: this clears extra custom fields
@@ -105,6 +109,7 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
     }
     return fields;
   }, {});
+  return { ...result, Choose_Your_Set: golfClubs };
 };
 
 /**
@@ -276,6 +281,7 @@ const EditListingDetailsPanel = props => {
               unitType,
               ...rest
             } = values;
+            console.log('rest', rest);
             // title = !!title ? title : 'OKOK';
             // New values for listing attributes
             const updateValues = {
@@ -290,6 +296,8 @@ const EditListingDetailsPanel = props => {
               privateData: pickListingFieldsData(rest, 'private', listingType, listingFieldsConfig),
               ...setNoAvailabilityForUnbookableListings(transactionProcessAlias),
             };
+
+            console.log('updateValues', updateValues);
 
             onSubmit(updateValues);
           }}
