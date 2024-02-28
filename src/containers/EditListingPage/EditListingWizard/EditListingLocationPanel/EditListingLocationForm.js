@@ -19,6 +19,7 @@ import {
   FieldLocationAutocompleteInput,
   Button,
   FieldTextInput,
+  FieldLocationAutocompleteInputOrigin,
 } from '../../../../components';
 
 // Import modules from this directory
@@ -80,7 +81,7 @@ export const EditListingLocationFormComponent = props => (
             </p>
           ) : null}
 
-          <FieldLocationAutocompleteInput
+          <FieldLocationAutocompleteInputOrigin
             rootClassName={css.locationAddress}
             inputClassName={css.locationAutocompleteInput}
             iconClassName={css.locationAutocompleteInputIcon}
@@ -90,7 +91,7 @@ export const EditListingLocationFormComponent = props => (
             name="location"
             label={intl.formatMessage({ id: 'EditListingLocationForm.address' })}
             placeholder={intl.formatMessage({
-              id: 'EditListingLocationForm.addressPlaceholder',
+              id: 'EditListingLocationForm.addressPlaceholder1',
             })}
             useDefaultPredictions={false}
             format={identity}
@@ -101,6 +102,22 @@ export const EditListingLocationFormComponent = props => (
             )}
           />
 
+          {/* <FieldTextInput
+            className={css.building}
+            type="text"
+            name="building"
+            id={`${formId}building`}
+            label={intl.formatMessage({ id: 'EditListingLocationForm.building' }, { optionalText })}
+            placeholder={intl.formatMessage({
+              id: 'EditListingLocationForm.buildingPlaceholder',
+            })}
+          /> */}
+          {/* <Button
+            className={css.goToNextTabButton}
+            onClick={onPreviousTab}
+          >
+            Back
+          </Button> */}
           <Button
             className={css.submitButton}
             type="submit"

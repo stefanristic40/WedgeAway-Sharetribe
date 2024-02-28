@@ -96,6 +96,9 @@ export { default as FieldBoolean } from './FieldBoolean/FieldBoolean';
 export { default as FieldCheckboxGroup } from './FieldCheckboxGroup/FieldCheckboxGroup';
 export { default as FieldPhoneNumberInput } from './FieldPhoneNumberInput/FieldPhoneNumberInput';
 export { default as LocationAutocompleteInput, FieldLocationAutocompleteInput } from './LocationAutocompleteInput/LocationAutocompleteInput';
+export { default as LocationAutocompleteInputOrigin, FieldLocationAutocompleteInputOrigin } from './LocationAutocompleteInput/LocationAutocompleteInputOrigin';
+
+//FieldLocationAutocompleteInputOrigin
 // Fields and inputs using old naming pattern
 export { default as StripeBankAccountTokenInputField } from './StripeBankAccountTokenInputField/StripeBankAccountTokenInputField';
 // Fields wrapping react-dates

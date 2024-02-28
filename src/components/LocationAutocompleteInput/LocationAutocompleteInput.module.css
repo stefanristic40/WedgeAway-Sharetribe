@@ -8,7 +8,7 @@
   display: flex;
   width: 24px;
   align-self: stretch;
-  border-bottom: 2px solid var(--marketplaceColor);
+  /* border-bottom: 2px solid var(--marketplaceColor); */
   background-color: var(--colorWhite);
 }
 
@@ -162,4 +162,13 @@ bottom of the container.
   font-size: 14px;
   margin: 0px;
   padding: 0px;
+}
+
+.hintLocation {
+  margin-top: 10px;
+}
+
+.searchLineWithIcon {
+  display: flex;
+  /* align-items: center; */
 }

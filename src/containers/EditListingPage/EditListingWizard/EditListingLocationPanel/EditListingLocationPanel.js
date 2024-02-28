@@ -58,8 +58,9 @@ const EditListingLocationPanel = props => {
 
   return (
     <div className={classes}>
-      <H3 as="h1">
-        <ProgressBar currentStep={1} />
+      <ProgressBar currentStep={1} />
+
+      <H3 as="h1" className={css.titleBottom}>
         {isPublished ? (
           <FormattedMessage
             id="EditListingLocationPanel.title"
@@ -67,14 +68,12 @@ const EditListingLocationPanel = props => {
           />
         ) : (
           <FormattedMessage
-            id="EditListingLocationPanel.createListingTitle"
+            id="EditListingLocationPanel.createListingTitle1"
             values={{ lineBreak: <br /> }}
           />
-          // <H3>Welcome, let's get started.</H3>
-
-          /* <H3>Property Address Where Clubs Are Picked Up & Dropped Off</H3> */
         )}
       </H3>
+      <H4 as="h2">Property Address Where Clubs Are Picked Up & Dropped Off</H4>
       <EditListingLocationForm
         className={css.form}
         initialValues={state.initialValues}
