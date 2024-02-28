@@ -300,7 +300,8 @@ export const ListingPageComponent = props => {
       <LayoutSingleColumn className={css.pageRoot} topbar={topbar} footer={<FooterContainer />}>
         <div className={css.contentWrapperForProductLayout}>
           <div className={css.mainColumnForProductLayout}>
-            {currentListing.id && noPayoutDetailsSetWithOwnListing ? (
+            {/* This is will be needed in the future */}
+            {/* {currentListing.id && noPayoutDetailsSetWithOwnListing ? (
               <ActionBarMaybe
                 className={css.actionBarForProductLayout}
                 isOwnListing={isOwnListing}
@@ -320,7 +321,7 @@ export const ListingPageComponent = props => {
                   tab: listingTab,
                 }}
               />
-            ) : null}
+            ) : null} */}
             <SectionGallery
               listing={currentListing}
               variantPrefix={config.layout.listingImage.variantPrefix}
@@ -363,7 +364,6 @@ export const ListingPageComponent = props => {
                   ]
                 : pickedElements;
             }, [])}
-
             <SectionMapMaybe
               geolocation={geolocation}
               publicData={publicData}
