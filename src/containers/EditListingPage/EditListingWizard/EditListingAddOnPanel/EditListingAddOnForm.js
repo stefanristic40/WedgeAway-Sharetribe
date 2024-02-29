@@ -58,12 +58,13 @@ export const EditListingAddOnFormComponent = props => (
       };
 
       const addOn = () => {
+        if (number == 0) <EditListingAddOnItem key="1" id="1" />;
         for (let i = 1; i <= number; i++) {
           return <EditListingAddOnItem key={i} id={i} />;
         }
       };
-      const addOnItemsMaybe = [];
-      for (let i = 1; i <= number; i++) {
+      const addOnItemsMaybe = [<EditListingAddOnItem key={1} id={1} />];
+      for (let i = 2; i <= number; i++) {
         addOnItemsMaybe.push(<EditListingAddOnItem key={i} id={i} />);
       }
 
@@ -80,7 +81,7 @@ export const EditListingAddOnFormComponent = props => (
             </p>
           ) : null}
           {/* <EditListingAddOnItem id={number} /> */}
-          {number === 0 && <EditListingAddOnItem key={1} id={1} />}
+          {/* {number === 0 && <EditListingAddOnItem key={1} id={1} />} */}
           {addOnItemsMaybe}
           <button type="button" className={css.addButton} onClick={handleWeekClick}>
             +

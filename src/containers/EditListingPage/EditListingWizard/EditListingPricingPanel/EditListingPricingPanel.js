@@ -60,7 +60,6 @@ const EditListingPricingPanel = props => {
       ? initialValues.price.currency === marketplaceCurrency
       : !!marketplaceCurrency;
   const unitType = listing?.attributes?.publicData?.unitType;
-  console.log('disabled', disabled);
 
   return (
     <div className={classes}>

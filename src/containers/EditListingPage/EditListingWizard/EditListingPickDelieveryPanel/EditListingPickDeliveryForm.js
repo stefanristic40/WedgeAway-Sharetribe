@@ -226,7 +226,7 @@ export const EditListingPickDiliveryFormComponent = props => (
               type="number"
               placeholder="Price ($)"
               parse={value => {
-                const parsed = Number.parseInt(value, 10);
+                const parsed = Number.parseFloat(value);
                 return Number.isNaN(parsed) ? null : parsed;
               }}
               label=""
