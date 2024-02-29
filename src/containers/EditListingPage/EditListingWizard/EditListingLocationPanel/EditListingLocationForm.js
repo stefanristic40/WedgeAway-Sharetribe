@@ -102,16 +102,21 @@ export const EditListingLocationFormComponent = props => (
             )}
           />
 
-          {/* <FieldTextInput
+          <FieldTextInput
             className={css.building}
             type="text"
             name="building"
             id={`${formId}building`}
-            label={intl.formatMessage({ id: 'EditListingLocationForm.building' }, { optionalText })}
+            // label={intl.formatMessage({ id: 'EditListingLocationForm.building' }, { optionalText })}
             placeholder={intl.formatMessage({
-              id: 'EditListingLocationForm.buildingPlaceholder',
+              id: 'EditListingLocationForm.buildingPlaceholder1',
             })}
-          /> */}
+          />
+
+          <div className={css.hintLocation}>
+            Your address will not be visible to renters and/or other club owners.
+          </div>
+
           {/* <Button
             className={css.goToNextTabButton}
             onClick={onPreviousTab}

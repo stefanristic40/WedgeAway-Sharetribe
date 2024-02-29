@@ -281,11 +281,10 @@ const EditListingDetailsPanel = props => {
               unitType,
               ...rest
             } = values;
-            console.log('rest', rest);
             // title = !!title ? title : 'OKOK';
             // New values for listing attributes
             const updateValues = {
-              title: !!title ? title.trim() : 'OKOK',
+              title: !!title ? title.trim() : 'Partial Sets',
               description,
               publicData: {
                 listingType,
@@ -296,8 +295,6 @@ const EditListingDetailsPanel = props => {
               privateData: pickListingFieldsData(rest, 'private', listingType, listingFieldsConfig),
               ...setNoAvailabilityForUnbookableListings(transactionProcessAlias),
             };
-
-            console.log('updateValues', updateValues);
 
             onSubmit(updateValues);
           }}

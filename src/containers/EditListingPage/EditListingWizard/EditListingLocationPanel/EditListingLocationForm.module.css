@@ -45,13 +45,23 @@
 .validLocation {
 }
 
-.locationAddress,
-.building {
+.locationAddress {
   flex-shrink: 0;
   margin-bottom: 24px;
 
   @media (--viewportMedium) {
     margin-bottom: 32px;
+  }
+}
+
+.building {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+  width: 100%;
+
+  @media (--viewportMedium) {
+    margin-bottom: 32px;
+    width: 30%;
   }
 }
 

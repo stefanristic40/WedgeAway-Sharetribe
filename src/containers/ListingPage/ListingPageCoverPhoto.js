@@ -44,6 +44,7 @@ import {
   NamedRedirect,
   OrderPanel,
   LayoutSingleColumn,
+  H3,
 } from '../../components';
 
 import TopbarContainer from '../TopbarContainer/TopbarContainer';
@@ -81,6 +82,7 @@ import SectionMapMaybe from './SectionMapMaybe';
 import SectionServiceHistoryMaybe from './SectionServiceHistoryMaybe';
 
 import css from './ListingPage.module.css';
+import Faqs from '../ClubExplanationPage/Sections/Faqs.js';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -297,6 +299,8 @@ export const ListingPageComponent = props => {
     location,
   });
 
+  console.log('listingConfig', listingConfig);
+
   return (
     <Page
       title={schemaTitle}
@@ -338,19 +342,57 @@ export const ListingPageComponent = props => {
         />
         <div className={css.contentWrapperForHeroLayout}>
           <div className={css.mainColumnForHeroLayout}>
-            <div className={css.mobileHeading}>
+            {/* <div className={css.mobileHeading}>
               <H4 as="h1" className={css.orderPanelTitle}>
                 <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
               </H4>
-            </div>
-            <SectionTextMaybe text={description} showAsIngress />
-            <SectionDetailsMaybe
+            </div> */}
+
+            {/* Top title */}
+            <H4 as="h1">Full Set • Right Handed</H4>
+
+            <div>Condition: Like New</div>
+
+            {/* Club Detail */}
+
+            {/* Add Ons */}
+
+            {/* Author Detail */}
+            <SectionAuthorMaybe
+              title={title}
+              listing={currentListing}
+              authorDisplayName={authorDisplayName}
+              onContactUser={onContactUser}
+              isInquiryModalOpen={isAuthenticated && inquiryModalOpen}
+              onCloseInquiryModal={() => setInquiryModalOpen(false)}
+              sendInquiryError={sendInquiryError}
+              sendInquiryInProgress={sendInquiryInProgress}
+              onSubmitInquiry={onSubmitInquiry}
+              currentUser={currentUser}
+              onManageDisableScrolling={onManageDisableScrolling}
+            />
+
+            {/* FAQ */}
+            <Faqs />
+
+            {/* Pick Up / Drop Off */}
+
+            {/* Map */}
+            <SectionMapMaybe
+              geolocation={geolocation}
+              publicData={publicData}
+              listingId={currentListing.id}
+              mapsConfig={config.maps}
+            />
+
+            {/* <SectionTextMaybe text={description} showAsIngress /> */}
+            {/* <SectionDetailsMaybe
               publicData={publicData}
               metadata={metadata}
               listingConfig={listingConfig}
               intl={intl}
-            />
-            {listingConfig.listingFields.reduce((pickedElements, config) => {
+            /> */}
+            {/* {listingConfig.listingFields.reduce((pickedElements, config) => {
               const { key, enumOptions, includeForListingTypes, scope = 'public' } = config;
               const listingType = publicData?.listingType;
               const isTargetListingType =
@@ -375,35 +417,16 @@ export const ListingPageComponent = props => {
                     <SectionTextMaybe key={key} heading={config?.showConfig?.label} text={value} />,
                   ]
                 : pickedElements;
-            }, [])}
+            }, [])} */}
 
-            <SectionTextMaybe
+            {/* <SectionTextMaybe
               text={publicData.extraFeatures}
               heading={intl.formatMessage({ id: 'ListingPage.extraFeaturesTitle' })}
-            />
+            /> */}
 
-            <SectionServiceHistoryMaybe publicData={publicData} intl={intl} />
+            {/* <SectionServiceHistoryMaybe publicData={publicData} intl={intl} /> */}
 
-            <SectionMapMaybe
-              geolocation={geolocation}
-              publicData={publicData}
-              listingId={currentListing.id}
-              mapsConfig={config.maps}
-            />
-            <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
-            <SectionAuthorMaybe
-              title={title}
-              listing={currentListing}
-              authorDisplayName={authorDisplayName}
-              onContactUser={onContactUser}
-              isInquiryModalOpen={isAuthenticated && inquiryModalOpen}
-              onCloseInquiryModal={() => setInquiryModalOpen(false)}
-              sendInquiryError={sendInquiryError}
-              sendInquiryInProgress={sendInquiryInProgress}
-              onSubmitInquiry={onSubmitInquiry}
-              currentUser={currentUser}
-              onManageDisableScrolling={onManageDisableScrolling}
-            />
+            {/* <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} /> */}
           </div>
           <div className={css.orderColumnForHeroLayout}>
             <OrderPanel

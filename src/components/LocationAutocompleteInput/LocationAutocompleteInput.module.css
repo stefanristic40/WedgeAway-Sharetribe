@@ -172,3 +172,24 @@ bottom of the container.
   display: flex;
   /* align-items: center; */
 }
+
+.searchLineWithIconOrigin {
+  display: flex;
+  position: relative;
+  /* align-items: center; */
+}
+
+.icon {
+  display: flex;
+  width: 24px;
+  align-self: stretch;
+  /* border-bottom: 2px solid var(--marketplaceColor); */
+  background-color: var(--colorWhite);
+  position: absolute;
+  right: 8px;
+  top: 14px;
+  @media (max-width: 768px) {
+    right: 3px;
+    top: 10px;
+  }
+}

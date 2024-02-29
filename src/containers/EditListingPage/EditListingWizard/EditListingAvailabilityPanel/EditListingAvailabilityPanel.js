@@ -297,7 +297,7 @@ const EditListingAvailabilityPanel = props => {
             onClick={onNextTab}
             disabled={!hasAvailabilityPlan}
           >
-            Club Pricing
+            Next: Pickup & Delivery
           </Button>
         ) : null}
       </div>

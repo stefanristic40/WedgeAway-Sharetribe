@@ -152,7 +152,7 @@ const tabLabelAndSubmit = (intl, tab, isNewListingFlow, isPriceDisabled, process
     submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveLocation1`;
   } else if (tab === AVAILABILITY) {
     labelKey = 'EditListingWizard.tabLabelAvailability';
-    submitButtonKey = 'EditListingWizard.default-booking.new.saveAvailabilityZ';
+    submitButtonKey = 'EditListingWizard.default-booking.new.saveAvailabilityz';
     // submitButtonKey = `EditListingWizard.${processNameString}${newOrEdit}.saveAvailabilityZ`;
   } else if (tab === PHOTOS) {
     labelKey = 'EditListingWizard.tabLabelPhotos';

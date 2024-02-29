@@ -80,13 +80,11 @@ export const EditListingAddOnFormComponent = props => (
             </p>
           ) : null}
           {/* <EditListingAddOnItem id={number} /> */}
-
+          {number === 0 && <EditListingAddOnItem key={1} id={1} />}
           {addOnItemsMaybe}
-
           <button type="button" className={css.addButton} onClick={handleWeekClick}>
             +
           </button>
-
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back

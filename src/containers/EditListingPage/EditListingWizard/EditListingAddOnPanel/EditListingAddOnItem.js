@@ -15,7 +15,7 @@ import css from './EditListingAddOnForm.module.css';
 
 export default function EditListingAddOnItem(props) {
   const id = props.id ? props.id : 0;
-  const filterOptions = ['Ball', 'Tee', 'Glove', 'Clothing'];
+  const filterOptions = ['Balls', 'Tees', 'Gloves', 'Clothing'];
 
   return (
     <div>
@@ -72,7 +72,7 @@ export default function EditListingAddOnItem(props) {
           type="number"
           placeholder="Your Price($)"
           parse={value => {
-            const parsed = Number.parseInt(value, 10);
+            const parsed = Number.parseFloat(value);
             return Number.isNaN(parsed) ? null : parsed;
           }}
           label=""

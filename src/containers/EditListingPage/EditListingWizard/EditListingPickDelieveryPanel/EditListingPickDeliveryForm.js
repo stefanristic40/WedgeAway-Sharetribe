@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, number, shape, string } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm, Field } from 'react-final-form';
@@ -33,6 +33,61 @@ import css from './EditListingPickDeliveryForm.module.css';
 export const EditListingPickDiliveryFormComponent = props => (
   <FinalForm
     {...props}
+    mutators={{
+      setSameStartT: (args, state, utils) => {
+        utils.changeValue(state, 'tueStartT', () => args);
+        utils.changeValue(state, 'wedStartT', () => args);
+        utils.changeValue(state, 'thuStartT', () => args);
+        utils.changeValue(state, 'friStartT', () => args);
+        utils.changeValue(state, 'satStartT', () => args);
+        utils.changeValue(state, 'sunStartT', () => args);
+
+        // utils.changeValue(state, 'tueStartT', () => args);
+        // utils.changeValue(state, 'wedStartT', () => args);
+        // utils.changeValue(state, 'thuStartT', () => args);
+        // utils.changeValue(state, 'friStartT', () => args);
+        // utils.changeValue(state, 'satStartT', () => args);
+        // utils.changeValue(state, 'sunStartT', () => args);
+
+        // utils.changeValue(state, 'tueStartT', () => args);
+        // utils.changeValue(state, 'wedStartT', () => args);
+        // utils.changeValue(state, 'thuStartT', () => args);
+        // utils.changeValue(state, 'friStartT', () => args);
+        // utils.changeValue(state, 'satStartT', () => args);
+        // utils.changeValue(state, 'sunStartT', () => args);
+
+        // utils.changeValue(state, 'tueStartT', () => args);
+        // utils.changeValue(state, 'wedStartT', () => args);
+        // utils.changeValue(state, 'thuStartT', () => args);
+        // utils.changeValue(state, 'friStartT', () => args);
+        // utils.changeValue(state, 'satStartT', () => args);
+        // utils.changeValue(state, 'sunStartT', () => args);
+      },
+      setSameEndT: (args, state, utils) => {
+        utils.changeValue(state, 'tueEndT', () => args);
+        utils.changeValue(state, 'wedEndT', () => args);
+        utils.changeValue(state, 'thuEndT', () => args);
+        utils.changeValue(state, 'friEndT', () => args);
+        utils.changeValue(state, 'satEndT', () => args);
+        utils.changeValue(state, 'sunEndT', () => args);
+      },
+      setSameStartD: (args, state, utils) => {
+        utils.changeValue(state, 'tueStartD', () => args);
+        utils.changeValue(state, 'wedStartD', () => args);
+        utils.changeValue(state, 'thuStartD', () => args);
+        utils.changeValue(state, 'friStartD', () => args);
+        utils.changeValue(state, 'satStartD', () => args);
+        utils.changeValue(state, 'sunStartD', () => args);
+      },
+      setSameEndD: (args, state, utils) => {
+        utils.changeValue(state, 'tueEndD', () => args);
+        utils.changeValue(state, 'wedEndD', () => args);
+        utils.changeValue(state, 'thuEndD', () => args);
+        utils.changeValue(state, 'friEndD', () => args);
+        utils.changeValue(state, 'satEndD', () => args);
+        utils.changeValue(state, 'sunEndD', () => args);
+      },
+    }}
     render={formRenderProps => {
       const {
         className,
@@ -47,14 +102,23 @@ export const EditListingPickDiliveryFormComponent = props => (
         disabled,
         ready,
         updated,
+        form,
         updateInProgress,
         fetchErrors,
+        values,
       } = formRenderProps;
 
       const classes = classNames(css.root, className);
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
+
+      const [flag, setFlag] = useState(false);
+      const [inputVal, setInputVal] = useState('');
+      const handleOnchange = e => {
+        setInputVal(e.target.value);
+      };
+
       //   const submitDisabled = invalid || pristine;
 
       //   const [-submitDisabled, setSubmitDisabled] = React.useState(false);
@@ -170,6 +234,18 @@ export const EditListingPickDiliveryFormComponent = props => (
           </div>
 
           <div className={css.pickTitle}>Pickup Days & Times</div>
+          {/* //Set Same Availability for All Day */}
+          <div
+            className={css.clickForSame}
+            onClick={() => {
+              form.mutators.setSameStartT(values['monStartT']);
+              form.mutators.setSameEndT(values['monEndT']);
+              form.mutators.setSameStartD(values['monStartD']);
+              form.mutators.setSameEndD(values['monEndD']);
+            }}
+          >
+            Set Same Availability for All Day{' '}
+          </div>
 
           <EditListingPickTime day="mon" fDay="Monday" />
           <EditListingPickTime day="tue" fDay="Tuesday" />

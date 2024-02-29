@@ -226,7 +226,8 @@
   "EditListingLocationForm.addressPlaceholder1": "eg. 123 Example Street",
   "EditListingLocationForm.addressRequired": "You need to provide a location.",
   "EditListingLocationForm.building": "Apt, suite, building # {optionalText}",
-  "EditListingLocationForm.buildingPlaceholder": "A 42",
+  "EditListingLocationForm.buildingPlaceholder": "Unit or Apt # (If Applicable)",
+  "EditListingLocationForm.buildingPlaceholder1": "Unit or Apt # (If Applicable)",
   "EditListingLocationForm.optionalText": "• optional",
   "EditListingLocationForm.showListingFailed": "Fetching listing data failed.",
   "EditListingLocationForm.updateFailed": "Failed to update listing. Please try again.",
@@ -1161,13 +1162,13 @@
   "EditListingPickDeliveryPanel.title": "Edit the Pickup & Delivery Instructions of {listingTitle}",
   "EditListingPickDeliveryPanel.createListingTitle": "Pickup & Delivery Instructions",
   "EditListingWizard.tabLabelPickDelivery": "Pickup & Delivery",
-  "EditListingWizard.default-booking.new.savePickDelivery": "Next: Rule & Policy",
+  "EditListingWizard.default-booking.new.savePickDeliveryz": "Next: Rules & Policy",
+  "EditListingWizard.default-booking.new.savePickDelivery": "Next: Rules & Policy",
   "EditListingWizard.edit.savePickDelivery": "Save changes",
   "EditListingWizard.tabLabelPublish": "Publish",
   "EditListingWizard.default-booking.new.savePublish": "Publish Your Clubs",
   "EditListingWizard.edit.savePublish": "Save changes",
   "EditListingPublish.createListingTitle": "Publish Your Listings",
   "EditListingWizard.default-booking.new.saveLocation1": "Next: Club Details",
-  "EditListingWizard.default-booking.new.saveAvailabilityZ": "Next: Pickup & Delivery"
-
+  "EditListingWizard.default-booking.new.saveAvailabilityz": "Next: Pickup & Delivery"
 }

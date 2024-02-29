@@ -20,6 +20,7 @@ import { Button, Form, AspectRatioWrapper } from '../../../../components';
 // Import modules from this directory
 import ListingImage from './ListingImage';
 import css from './EditListingPhotosForm.module.css';
+import { listingImage } from '../../../../config/configLayout';
 
 const ACCEPT_IMAGES = 'image/*';
 
@@ -63,16 +64,22 @@ export const FieldAddImage = props => {
         const { accept, input, label, disabled: fieldDisabled } = fieldprops;
         const { name, type } = input;
         const onChange = e => {
-          const file = e.target.files[0];
-          formApi.change(`addImage`, file);
-          formApi.blur(`addImage`);
-          onImageUploadHandler(file);
+          const files = e.target.files;
+
+          Array.from(files).forEach(file => {
+            formApi.change(`addImage`, file);
+            formApi.blur(`addImage`);
+            onImageUploadHandler(file);
+          });
         };
         const inputProps = { accept, id: name, name, onChange, type };
+
         return (
           <div className={css.addImageWrapper}>
             <AspectRatioWrapper width={aspectWidth} height={aspectHeight}>
-              {fieldDisabled ? null : <input {...inputProps} className={css.addImageInput} />}
+              {fieldDisabled ? null : (
+                <input multiple {...inputProps} className={css.addImageInput} />
+              )}
               <label htmlFor={name} className={css.addImage}>
                 {label}
               </label>
@@ -119,6 +126,9 @@ export const EditListingPhotosFormComponent = props => {
     const { listingImageConfig, onImageUpload } = props;
     if (file) {
       setState({ imageUploadRequested: true });
+
+      console.log('listingImageconfig', listingImageConfig);
+      console.log('file', file);
 
       onImageUpload({ id: `${file.name}_${Date.now()}`, file }, listingImageConfig)
         .then(() => {

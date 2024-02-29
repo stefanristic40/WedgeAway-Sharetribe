@@ -25,7 +25,8 @@ const getInitialValues = params => {
   const { discoutsDay, discoutsPercentage } = discountDetail || {};
 
   const parsed1 = Number.parseInt(discoutsDay, 10);
-  const parsed2 = Number.parseInt(discoutsPercentage, 10);
+  // const parsed2 = Number.parseInt(discoutsPercentage, 10);
+  const parsed2 = Number.parseFloat(discoutsPercentage, 10);
 
   return {
     price,

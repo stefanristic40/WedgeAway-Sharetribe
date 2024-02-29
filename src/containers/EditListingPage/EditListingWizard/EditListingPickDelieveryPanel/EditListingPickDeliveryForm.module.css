@@ -213,3 +213,18 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.clickForSame {
+  height: 20px;
+  font-size: 1rem;
+  border-bottom: 1px solid;
+  width: 245px;
+  margin-bottom: 4px;
+  font-style: italic;
+  transition: font-size 0.3s;
+}
+
+.clickForSame:hover {
+  font-size: 0.9rem;
+  border-bottom: 0px solid;
+}

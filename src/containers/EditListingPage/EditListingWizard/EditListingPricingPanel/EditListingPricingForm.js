@@ -126,7 +126,7 @@ export const EditListingPricingFormComponent = props => (
               type="number"
               placeholder="% Off"
               parse={value => {
-                const parsed = Number.parseInt(value, 10);
+                const parsed = Number.parseFloat(value);
                 return Number.isNaN(parsed) ? null : parsed;
               }}
               label="% Off"

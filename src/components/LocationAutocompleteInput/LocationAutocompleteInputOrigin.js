@@ -34,7 +34,7 @@ class LocationAutocompleteInputComponent extends Component {
     return (
       <div className={rootClassName}>
         {/* {labelInfo} */}
-        <div className={css.searchLineWithIcon}>
+        <div className={css.searchLineWithIconOrigin}>
           <div style={{ width: '100%' }}>
             <LocationAutocompleteInputImplOrigin {...locationAutocompleteProps} />
           </div>
@@ -43,9 +43,9 @@ class LocationAutocompleteInputComponent extends Component {
           </div>
         </div>
 
-        <div className={css.hintLocation}>
+        {/* <div className={css.hintLocation}>
           Your address will not be visible to renters and/or other club owners.
-        </div>
+        </div> */}
         {hideErrorMessage ? null : <ValidationError fieldMeta={meta} />}
       </div>
     );
