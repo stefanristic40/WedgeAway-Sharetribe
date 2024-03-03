@@ -220,6 +220,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={0}
             type={0}
+            values={values}
           />
           {/* Sand Wedge */}
           <EachClubDetail
@@ -228,6 +229,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={14}
             type={0}
+            values={values}
           />
           {/* Gap/Approach Wedge */}
           <EachClubDetail
@@ -236,6 +238,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={28}
             type={0}
+            values={values}
           />
           {/* Lob Wedge */}
           <EachClubDetail
@@ -244,6 +247,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={42}
             type={0}
+            values={values}
           />
           {/* Pitching Wedge */}
           <EachClubDetail
@@ -252,6 +256,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={56}
             type={0}
+            values={values}
           />
           {/* 1 Iron */}
           <EachClubDetail
@@ -260,6 +265,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={70}
             type={1}
+            values={values}
           />
           {/* 2 Iron */}
           <EachClubDetail
@@ -268,6 +274,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={82}
             type={1}
+            values={values}
           />
           {/* 3 Iron */}
           <EachClubDetail
@@ -276,6 +283,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={94}
             type={1}
+            values={values}
           />
           {/* 4 Iron */}
           <EachClubDetail
@@ -284,6 +292,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={106}
             type={1}
+            values={values}
           />
           {/* 5 Iron */}
           <EachClubDetail
@@ -292,6 +301,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={118}
             type={1}
+            values={values}
           />
           {/* 6 Iron */}
           <EachClubDetail
@@ -300,6 +310,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={130}
             type={1}
+            values={values}
           />
           {/* 7 Iron */}
           <EachClubDetail
@@ -308,6 +319,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={142}
             type={1}
+            values={values}
           />
           {/* 8 Iron */}
           <EachClubDetail
@@ -316,6 +328,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={154}
             type={1}
+            values={values}
           />
           {/* 9 Iron */}
           <EachClubDetail
@@ -324,6 +337,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={166}
             type={1}
+            values={values}
           />
           {/* 3 Hybrid */}
           <EachClubDetail
@@ -332,6 +346,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={178}
             type={2}
+            values={values}
           />
           {/* 4 Hybrid */}
           <EachClubDetail
@@ -340,6 +355,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={189}
             type={2}
+            values={values}
           />
           {/* 5 Hybrid */}
           <EachClubDetail
@@ -348,6 +364,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={200}
             type={2}
+            values={values}
           />
           {/* 6 Hybrid */}
           <EachClubDetail
@@ -356,6 +373,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={211}
             type={2}
+            values={values}
           />
           {/* 7 Hybrid */}
           <EachClubDetail
@@ -364,6 +382,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={222}
             type={2}
+            values={values}
           />
           {/* 3 Wood */}
           <EachClubDetail
@@ -372,6 +391,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={233}
             type={1}
+            values={values}
           />
           {/* 3HL Wood */}
           <EachClubDetail
@@ -380,6 +400,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={245}
             type={1}
+            values={values}
           />
           {/* 5 Wood */}
           <EachClubDetail
@@ -388,6 +409,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={257}
             type={1}
+            values={values}
           />
           {/* 7 Wood */}
           <EachClubDetail
@@ -396,6 +418,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={269}
             type={1}
+            values={values}
           />
           {/* Heaven Wood */}
           <EachClubDetail
@@ -404,6 +427,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={281}
             type={1}
+            values={values}
           />
           {/* 9 Wood */}
           <EachClubDetail
@@ -412,6 +436,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={293}
             type={1}
+            values={values}
           />
           {/* 11 Wood */}
           <EachClubDetail
@@ -420,6 +445,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={305}
             type={1}
+            values={values}
           />
           {/* Driver */}
           <EachClubDetail
@@ -428,6 +454,7 @@ const EditListingDetailsFormComponent = props => (
             intl={intl}
             id={317}
             type={1}
+            values={values}
           />
           {/* Bag */}
           <EachBagDetail

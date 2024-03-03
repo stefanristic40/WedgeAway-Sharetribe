@@ -28,6 +28,11 @@
 
 .link {
   white-space: nowrap;
+  color: black;
+}
+.link:hover {
+  white-space: nowrap;
+  color: white;
 }
 
 .mobileBio,
@@ -119,10 +124,16 @@
   flex-direction: column;
 
   @media (--viewportMedium) {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
   }
+}
+
+.displayName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-top: 5px;
 }
 
 .editProfileDesktop {
@@ -155,13 +166,14 @@
   border: none;
 
   /* Colors */
-  color: var(--marketplaceColor);
+  /* color: var(--marketplaceColor); */
+  color: black;
 
   /* Text size should be inherited */
   text-decoration: none;
 
-  font-weight: var(--fontWeightMedium);
-  font-size: 15px;
+  font-weight: 600;
+  /* font-size: 16px; */
   line-height: 24px;
   letter-spacing: 0;
   margin: 0;
@@ -172,7 +184,46 @@
   }
 
   @media (--viewportMedium) {
-    font-weight: var(--fontWeightMedium);
+    /* font-weight: var(--fontWeightMedium); */
+    font-weight: 600;
     margin: 0;
   }
+}
+
+.contact:hover {
+  color: white;
+}
+
+.aboutTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: black;
+  margin: 40px 0 20px 0;
+  padding: 0;
+}
+
+.buttonQ {
+  border: 1px solid black;
+  background-color: white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 5px;
+  cursor: pointer;
+  /* border-width: 0px; */
+  width: 130px;
+  height: 50px;
+}
+
+.buttonQ:hover {
+  border: 0px solid black;
+  background-color: #4e6228;
+  /* color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-width: 0px;
+  width: 130px;
+  height: 50px; */
 }

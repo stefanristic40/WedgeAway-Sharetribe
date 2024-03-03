@@ -44,7 +44,15 @@ import {
   resolveLatestProcessName,
 } from '../../transactions/transaction';
 
-import { ModalInMobile, PrimaryButton, AvatarSmall, H1, H2, Button, SecondaryButton } from '../../components';
+import {
+  ModalInMobile,
+  PrimaryButton,
+  AvatarSmall,
+  H1,
+  H2,
+  Button,
+  SecondaryButton,
+} from '../../components';
 
 import css from './OrderPanel.module.css';
 
@@ -262,14 +270,11 @@ const OrderPanel = props => {
   const isFavorite = currentUser?.attributes.profile.privateData.favorites?.includes(
     listing.id.uuid
   );
-  
+
   const toggleFavorites = () => onToggleFavorites(isFavorite);
-  
+
   const favoriteButton = isFavorite ? (
-    <SecondaryButton
-      className={css.favoriteButton}
-      onClick={toggleFavorites}
-    >
+    <SecondaryButton className={css.favoriteButton} onClick={toggleFavorites}>
       <FormattedMessage id="OrderPanel.unfavoriteButton" />
     </SecondaryButton>
   ) : (
@@ -280,6 +285,7 @@ const OrderPanel = props => {
 
   const helmetFee = listing?.attributes?.publicData.helmetFee;
   const deliverFee = listing?.attributes?.publicData.deliverFee;
+  const addOn = listing?.attributes?.publicData.addOns;
 
   return (
     <div className={classes}>
@@ -318,7 +324,7 @@ const OrderPanel = props => {
             <FormattedMessage id="OrderPanel.author" values={{ name: authorDisplayName }} />
           </span>
         </div>
-        
+
         {/* {favoriteButton} */}
 
         {showPriceMissing ? (
@@ -370,6 +376,7 @@ const OrderPanel = props => {
             payoutDetailsWarning={payoutDetailsWarning}
             helmetFee={helmetFee}
             deliverFee={deliverFee}
+            addOn={addOn}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm
@@ -506,7 +513,4 @@ OrderPanel.propTypes = {
   currentUser: propTypes.currentUser.isRequired,
 };
 
-export default compose(
-  withRouter,
-  injectIntl
-)(OrderPanel);
+export default compose(withRouter, injectIntl)(OrderPanel);

@@ -41,28 +41,8 @@ export const EditListingPickDiliveryFormComponent = props => (
         utils.changeValue(state, 'friStartT', () => args);
         utils.changeValue(state, 'satStartT', () => args);
         utils.changeValue(state, 'sunStartT', () => args);
-
-        // utils.changeValue(state, 'tueStartT', () => args);
-        // utils.changeValue(state, 'wedStartT', () => args);
-        // utils.changeValue(state, 'thuStartT', () => args);
-        // utils.changeValue(state, 'friStartT', () => args);
-        // utils.changeValue(state, 'satStartT', () => args);
-        // utils.changeValue(state, 'sunStartT', () => args);
-
-        // utils.changeValue(state, 'tueStartT', () => args);
-        // utils.changeValue(state, 'wedStartT', () => args);
-        // utils.changeValue(state, 'thuStartT', () => args);
-        // utils.changeValue(state, 'friStartT', () => args);
-        // utils.changeValue(state, 'satStartT', () => args);
-        // utils.changeValue(state, 'sunStartT', () => args);
-
-        // utils.changeValue(state, 'tueStartT', () => args);
-        // utils.changeValue(state, 'wedStartT', () => args);
-        // utils.changeValue(state, 'thuStartT', () => args);
-        // utils.changeValue(state, 'friStartT', () => args);
-        // utils.changeValue(state, 'satStartT', () => args);
-        // utils.changeValue(state, 'sunStartT', () => args);
       },
+
       setSameEndT: (args, state, utils) => {
         utils.changeValue(state, 'tueEndT', () => args);
         utils.changeValue(state, 'wedEndT', () => args);
@@ -86,6 +66,16 @@ export const EditListingPickDiliveryFormComponent = props => (
         utils.changeValue(state, 'friEndD', () => args);
         utils.changeValue(state, 'satEndD', () => args);
         utils.changeValue(state, 'sunEndD', () => args);
+      },
+      setSameCheck: (args, state, utils) => {
+        console.log('args', args);
+        const tmp = args;
+        utils.changeValue(state, 'is_tue', () => args[0]);
+        utils.changeValue(state, 'is_wed', () => args[0]);
+        utils.changeValue(state, 'is_thu', () => args[0]);
+        utils.changeValue(state, 'is_fri', () => args[0]);
+        utils.changeValue(state, 'is_sat', () => args[0]);
+        utils.changeValue(state, 'is_sun', () => args[0]);
       },
     }}
     render={formRenderProps => {
@@ -242,6 +232,9 @@ export const EditListingPickDiliveryFormComponent = props => (
               form.mutators.setSameEndT(values['monEndT']);
               form.mutators.setSameStartD(values['monStartD']);
               form.mutators.setSameEndD(values['monEndD']);
+              form.mutators.setSameCheck(values['is_mon']);
+              console.log('is_mon', values['is_mon']);
+              console.log('t', values['is_tue']);
             }}
           >
             Set Same Availability for All Day{' '}

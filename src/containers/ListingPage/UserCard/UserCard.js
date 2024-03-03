@@ -83,22 +83,26 @@ const UserCard = props => {
     isCurrentUser || !showContact ? null : <span className={css.linkSeparator}>•</span>;
 
   const contact = showContact ? (
-    <InlineTextButton
-      rootClassName={css.contact}
-      onClick={handleContactUserClick}
-      enforcePagePreloadFor="SignupPage"
-    >
-      <FormattedMessage id="UserCard.contactUser" />
-    </InlineTextButton>
+    <button className={css.buttonQ}>
+      <InlineTextButton
+        rootClassName={css.contact}
+        onClick={handleContactUserClick}
+        enforcePagePreloadFor="SignupPage"
+      >
+        <FormattedMessage id="UserCard.contactUser" />
+      </InlineTextButton>
+    </button>
   ) : null;
 
   const editProfileMobile = (
+    // <button className={css.buttonQ}>
     <span className={css.editProfileMobile}>
       <span className={css.linkSeparator}>•</span>
       <NamedLink name="ProfileSettingsPage">
         <FormattedMessage id="ListingPage.editProfileLink" />
       </NamedLink>
     </span>
+    // </button>
   );
 
   const editProfileDesktop = isCurrentUser ? (
@@ -109,11 +113,13 @@ const UserCard = props => {
 
   const links = ensuredUser.id ? (
     <p className={linkClasses}>
-      <NamedLink className={css.link} name="ProfilePage" params={{ id: ensuredUser.id.uuid }}>
-        <FormattedMessage id="UserCard.viewProfileLink" />
-      </NamedLink>
-      {separator}
-      {isCurrentUser ? editProfileMobile : contact}
+      <button className={css.buttonQ}>
+        <NamedLink className={css.link} name="ProfilePage" params={{ id: ensuredUser.id.uuid }}>
+          <FormattedMessage id="UserCard.viewProfileLink" />
+        </NamedLink>
+      </button>
+      {/* {separator} */}
+      {isCurrentUser ? null : contact}
     </p>
   ) : null;
 
@@ -123,14 +129,18 @@ const UserCard = props => {
         <AvatarLarge className={css.avatar} user={user} />
         <div className={css.info}>
           <div className={css.headingRow}>
-            <FormattedMessage id="UserCard.heading" values={{ name: displayName }} />
-            {editProfileDesktop}
+            <div>Hosted by</div>
+            {/* <FormattedMessage id="UserCard.heading" values={{ name: displayName }} /> */}
+            <div className={css.displayName}>{displayName}</div>
+            {/* {editProfileDesktop} */}
           </div>
-          {hasBio ? <ExpandableBio className={css.desktopBio} bio={bio} /> : null}
-          {links}
+          {/* {hasBio ? <ExpandableBio className={css.desktopBio} bio={bio} /> : null} */}
         </div>
       </div>
-      {hasBio ? <ExpandableBio className={css.mobileBio} bio={bio} /> : null}
+      <div className={css.aboutTitle}>Questions about their clubs?</div>
+      {links}
+
+      {/* {hasBio ? <ExpandableBio className={css.mobileBio} bio={bio} /> : null} */}
     </div>
   );
 };

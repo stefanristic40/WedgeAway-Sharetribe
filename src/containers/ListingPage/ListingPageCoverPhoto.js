@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { array, arrayOf, bool, func, shape, string, oneOf, object } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -82,11 +82,22 @@ import SectionMapMaybe from './SectionMapMaybe';
 import SectionServiceHistoryMaybe from './SectionServiceHistoryMaybe';
 
 import css from './ListingPage.module.css';
-import Faqs from '../ClubExplanationPage/Sections/Faqs.js';
+import Faq from './Fag/Faq.js';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
 const { UUID } = sdkTypes;
+
+const handleAddOn = props => {
+  let cnt = 0;
+  while (true) {
+    if (!props?.hasOwnProperty(`addOn${++cnt}`)) {
+      break;
+    }
+  }
+
+  return --cnt;
+};
 
 export const ListingPageComponent = props => {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(
@@ -156,6 +167,18 @@ export const ListingPageComponent = props => {
     showListingError &&
     showListingError.status === 403;
   const shouldShowPublicListingPage = pendingIsApproved || pendingOtherUsersListing;
+
+  const addOn = currentListing?.attributes?.publicData?.addOns;
+  console.log('addonasdf', addOn);
+
+  const [numberOfAddOn, setNumberOfAddOn] = useState(0);
+
+  useEffect(() => {
+    console.log('addon', addOn);
+    const tmp = handleAddOn(addOn);
+    console.log('tmp', tmp);
+    setNumberOfAddOn(tmp);
+  }, []);
 
   if (shouldShowPublicListingPage) {
     return <NamedRedirect name="ListingPage" params={params} search={location.search} />;
@@ -299,8 +322,6 @@ export const ListingPageComponent = props => {
     location,
   });
 
-  console.log('listingConfig', listingConfig);
-
   return (
     <Page
       title={schemaTitle}
@@ -356,6 +377,29 @@ export const ListingPageComponent = props => {
             {/* Club Detail */}
 
             {/* Add Ons */}
+            {[...Array(numberOfAddOn)].map((_, index) => (
+              <div>
+                {addOn[`addOn${++index}`].addOnManufact +
+                  ' ' +
+                  addOn[`addOn${index}`].addOnTitle +
+                  '• $' +
+                  addOn[`addOn${index}`].addOnPrice}
+              </div>
+              // <FieldCheckbox
+              //   className={css.addOnContainer}
+              //   id={`${formId}.addOn${++index}`}
+              //   name={`addOn${index}`}
+              //   label={
+              //     addOn[`addOn${index}`].addOnManufact +
+              //     ' ' +
+              //     addOn[`addOn${index}`].addOnTitle +
+              //     '• $' +
+              //     addOn[`addOn${index}`].addOnPrice
+              //   }
+              //   value={`addOn${index}`}
+              // />
+            ))}
+            <div className={css.splitLine}></div>
 
             {/* Author Detail */}
             <SectionAuthorMaybe
@@ -371,9 +415,10 @@ export const ListingPageComponent = props => {
               currentUser={currentUser}
               onManageDisableScrolling={onManageDisableScrolling}
             />
+            <div className={css.splitLine}></div>
 
             {/* FAQ */}
-            <Faqs />
+            <Faq />
 
             {/* Pick Up / Drop Off */}
 

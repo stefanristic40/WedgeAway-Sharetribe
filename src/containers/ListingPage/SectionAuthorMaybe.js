@@ -33,15 +33,16 @@ const SectionAuthorMaybe = props => {
 
   return (
     <div id="author" className={css.sectionAuthor}>
-      <Heading as="h2" rootClassName={css.sectionHeadingWithExtraMargin}>
+      {/* <Heading as="h2" rootClassName={css.sectionHeadingWithExtraMargin}>
         <FormattedMessage id="ListingPage.aboutProviderTitle" />
-      </Heading>
+      </Heading> */}
       <UserCard
         user={listing.author}
         currentUser={currentUser}
         onContactUser={onContactUser}
         showContact={!isInquiryProcess}
       />
+
       <Modal
         id="ListingPage.inquiry"
         contentClassName={css.inquiryModalContent}

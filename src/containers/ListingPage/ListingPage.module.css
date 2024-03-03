@@ -279,6 +279,8 @@
 .mainColumnForHeroLayout {
   flex-basis: 100%;
   margin-bottom: 23px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   @media (--viewportMedium) {
     margin-top: 50px;
@@ -731,4 +733,9 @@
     flex-basis: 312px;
     flex-shrink: 0;
   }
+}
+
+.splitLine {
+  border-bottom: black 4px solid;
+  padding-top: 20px;
 }

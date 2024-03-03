@@ -24,11 +24,19 @@ import { formatMoney } from '../../../util/currency';
 import { types as sdkTypes } from '../../../util/sdkLoader';
 import { BOOKING_PROCESS_NAME } from '../../../transactions/transaction';
 
-import { Form, IconArrowHead, PrimaryButton, FieldDateRangeInput, H6, FieldCheckbox } from '../../../components';
+import {
+  Form,
+  IconArrowHead,
+  PrimaryButton,
+  FieldDateRangeInput,
+  H6,
+  FieldCheckbox,
+} from '../../../components';
 
 import EstimatedCustomerBreakdownMaybe from '../EstimatedCustomerBreakdownMaybe';
 
 import css from './BookingDatesForm.module.css';
+import { Checkbox } from '../../FieldCheckbox/FieldCheckbox.example';
 
 const { Money } = sdkTypes;
 
@@ -423,6 +431,25 @@ const Prev = props => {
   return isDateSameOrAfter(prevMonthDate, currentMonthDate) ? <PrevIcon /> : null;
 };
 
+// <FieldCheckbox
+//             className={css.deliverFeeContainer}
+//             id={`${formId}.deliverFee`}
+//             name="deliverFee"
+//             label={deliverFeeLabel}
+//             value="deliverFee"
+//           />
+
+const handleAddOn = props => {
+  let cnt = 0;
+  while (true) {
+    if (!props?.hasOwnProperty(`addOn${++cnt}`)) {
+      break;
+    }
+  }
+
+  return --cnt;
+};
+
 export const BookingDatesFormComponent = props => {
   const [focusedInput, setFocusedInput] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(getStartOf(TODAY, 'month', props.timeZone));
@@ -479,6 +506,7 @@ export const BookingDatesFormComponent = props => {
           onFetchTimeSlots,
           helmetFee,
           deliverFee,
+          addOn,
         } = fieldRenderProps;
         const { startDate, endDate } = values && values.bookingDates ? values.bookingDates : {};
 
@@ -545,7 +573,7 @@ export const BookingDatesFormComponent = props => {
         );
 
         const formattedHelmetFee = helmetFee
-          ? formatMoney( intl, new Money(helmetFee.amount, helmetFee.currency)) 
+          ? formatMoney(intl, new Money(helmetFee.amount, helmetFee.currency))
           : null;
 
         const helmetFeeLabel = intl.formatMessage(
@@ -558,7 +586,7 @@ export const BookingDatesFormComponent = props => {
         );
 
         const formattedDeliverFee = deliverFee
-          ? formatMoney( intl, new Money(deliverFee.amount, deliverFee.currency)) 
+          ? formatMoney(intl, new Money(deliverFee.amount, deliverFee.currency))
           : null;
 
         const deliverFeeLabel = intl.formatMessage(
@@ -570,7 +598,7 @@ export const BookingDatesFormComponent = props => {
           }
         );
 
-        const helmetFeeMaybe = helmetFee? (
+        const helmetFeeMaybe = helmetFee ? (
           <FieldCheckbox
             className={css.helmetFeeContainer}
             id={`${formId}.helmetFee`}
@@ -589,6 +617,15 @@ export const BookingDatesFormComponent = props => {
             value="deliverFee"
           />
         ) : null;
+
+        const [numberOfAddOn, setNumberOfAddOn] = useState(0);
+
+        useEffect(() => {
+          const tmp = handleAddOn(addOn);
+          setNumberOfAddOn(tmp);
+        }, []);
+
+        const addOnMaybe = addOn ? <div>adsf</div> : null;
 
         return (
           <Form onSubmit={handleSubmit} className={classes} enforcePagePreloadFor="CheckoutPage">
@@ -670,6 +707,21 @@ export const BookingDatesFormComponent = props => {
 
             {helmetFeeMaybe}
             {deliverFeeMaybe}
+            {[...Array(numberOfAddOn)].map((_, index) => (
+              <FieldCheckbox
+                className={css.addOnContainer}
+                id={`${formId}.addOn${++index}`}
+                name={`addOn${index}`}
+                label={
+                  addOn[`addOn${index}`].addOnManufact +
+                  ' ' +
+                  addOn[`addOn${index}`].addOnTitle +
+                  '• $' +
+                  addOn[`addOn${index}`].addOnPrice
+                }
+                value={`addOn${index}`}
+              />
+            ))}
 
             {showEstimatedBreakdown ? (
               <div className={css.priceBreakdownContainer}>

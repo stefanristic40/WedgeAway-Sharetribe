@@ -52,21 +52,14 @@ export const EditListingAddOnFormComponent = props => (
       const { updateListingError, showListingsError } = fetchErrors || {};
 
       const [number, setNumber] = useState(numberOfAddOn);
-
       const handleWeekClick = () => {
         setNumber(number + 1);
       };
 
-      const addOn = () => {
-        if (number == 0) <EditListingAddOnItem key="1" id="1" />;
-        for (let i = 1; i <= number; i++) {
-          return <EditListingAddOnItem key={i} id={i} />;
-        }
-      };
-      const addOnItemsMaybe = [<EditListingAddOnItem key={1} id={1} />];
-      for (let i = 2; i <= number; i++) {
-        addOnItemsMaybe.push(<EditListingAddOnItem key={i} id={i} />);
-      }
+      // const addOnItemsMaybe = [<EditListingAddOnItem key={1} id={1} />];
+      // for (let i = 2; i <= number; i++) {
+      //   addOnItemsMaybe.push(<EditListingAddOnItem key={i} id={i} />);
+      // }
 
       return (
         <Form className={classes} onSubmit={handleSubmit}>
@@ -82,7 +75,12 @@ export const EditListingAddOnFormComponent = props => (
           ) : null}
           {/* <EditListingAddOnItem id={number} /> */}
           {/* {number === 0 && <EditListingAddOnItem key={1} id={1} />} */}
-          {addOnItemsMaybe}
+          {/* {addOnItemsMaybe} */}
+
+          {[...Array(Number.parseInt(number))].map((_, index) => (
+            <EditListingAddOnItem key={index + 1} id={index + 1} />
+          ))}
+
           <button type="button" className={css.addButton} onClick={handleWeekClick}>
             +
           </button>

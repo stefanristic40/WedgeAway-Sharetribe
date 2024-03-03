@@ -56,7 +56,7 @@ const EditListingAddOnPanel = props => {
   const classes = classNames(rootClassName || css.root, className);
   const temp = getInitialValues(props);
   const initialValues = temp.initialVal;
-  const numberOfAddOn = temp.number;
+  const numberOfAddOn = temp.number > 1 ? temp.number : 1;
   const isPublished = listing?.id && listing?.attributes?.state !== LISTING_STATE_DRAFT;
   const unitType = listing?.attributes?.publicData?.unitType;
 

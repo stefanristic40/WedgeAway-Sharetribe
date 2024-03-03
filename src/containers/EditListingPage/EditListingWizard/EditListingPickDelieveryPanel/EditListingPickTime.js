@@ -20,13 +20,13 @@ export const EditListingPickTime = props => {
 
   return (
     <div className={css.pickupTime}>
+      {/* <FieldCheckbox name={`is_${day}`} id={`is_${day}`} /> */}
       <div className={css.pickDay}>
         <Field name={`is_${day}`} component="input" type="checkbox" className={css.checkPick} />
         <div className={css.pickMedium}>{fDay}</div>
       </div>
       <div className={css.pickHours}>
         <div className={css.pickSmall}>Between</div>
-
         <FieldSelect className={classNames(css.item1)} name={`${day}StartT`} id={`${day}StartT`}>
           <option disabled value=""></option>
           {filterOptions1.map(optionConfig => {
