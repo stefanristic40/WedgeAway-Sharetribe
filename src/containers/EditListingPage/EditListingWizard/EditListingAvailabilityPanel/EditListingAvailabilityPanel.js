@@ -232,9 +232,9 @@ const EditListingAvailabilityPanel = props => {
 
       <div className={css.planInfo}>
         {!hasAvailabilityPlan ? (
-          <p>
+          <H4 as="h2">
             <FormattedMessage id="EditListingAvailabilityPanel.availabilityPlanInfo" />
-          </p>
+          </H4>
         ) : null}
 
         <InlineTextButton
