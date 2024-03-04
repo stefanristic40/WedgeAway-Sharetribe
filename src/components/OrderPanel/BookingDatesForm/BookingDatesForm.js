@@ -709,6 +709,7 @@ export const BookingDatesFormComponent = props => {
             {deliverFeeMaybe}
             {[...Array(numberOfAddOn)].map((_, index) => (
               <FieldCheckbox
+                key={index}
                 className={css.addOnContainer}
                 id={`${formId}.addOn${++index}`}
                 name={`addOn${index}`}

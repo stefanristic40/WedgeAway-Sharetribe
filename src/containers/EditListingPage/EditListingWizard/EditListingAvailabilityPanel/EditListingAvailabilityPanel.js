@@ -225,10 +225,10 @@ const EditListingAvailabilityPanel = props => {
         )}
       </H3>
 
-      <H4 as="h2">
+      {/* <H4 as="h2">
         Select days to block them out. Days that have passed are automatically blocked for you on
         the calendar.
-      </H4>
+      </H4> */}
 
       <div className={css.planInfo}>
         {!hasAvailabilityPlan ? (

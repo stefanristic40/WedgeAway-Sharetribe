@@ -18,11 +18,13 @@ export const EachClubDetail = props => {
           intl={intl}
         />
         {/* Year */}
-        <EditListingEachInfo
-          listingType={listingType}
-          fieldConfig={listingFieldsConfig[2 + id]}
-          intl={intl}
-        />
+        {values[`pub_${listingFieldsConfig[1 + id].key}`] && (
+          <EditListingEachInfo
+            listingType={listingType}
+            fieldConfig={listingFieldsConfig[2 + id]}
+            intl={intl}
+          />
+        )}
       </div>
       {values[`pub_${listingFieldsConfig[1 + id].key}`] && (
         <div>

@@ -83,6 +83,7 @@ import SectionServiceHistoryMaybe from './SectionServiceHistoryMaybe';
 
 import css from './ListingPage.module.css';
 import Faq from './Fag/Faq.js';
+import { ClubDetail } from './ClubDetail/ClubDetail.js';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -169,16 +170,67 @@ export const ListingPageComponent = props => {
   const shouldShowPublicListingPage = pendingIsApproved || pendingOtherUsersListing;
 
   const addOn = currentListing?.attributes?.publicData?.addOns;
-  console.log('addonasdf', addOn);
+  const policy = currentListing?.attributes?.publicData?.policy;
+  const pickupDrop = currentListing?.attributes?.publicData?.pickupDeliver;
+
+  // const cancelPolicy = [
+  //   'Renters can cancel until 24 hours before check-in for a full refund.',
+  //   'The moderate policy allows cancellation until 3 days before the first rental day for a 50% refund.',
+  //   'Renters can cancel at least 14 days before check-in for a full refund and between and up to 13 days before for a 50% refund. For cancellations less than seven days before check-in, the renter pays 100% for all days. If the cancellation occurs at least 14 days before check-in, the renter also has the option of canceling within 48 hours of booking for a full refund.',
+  //   'Renters must cancel within 48 hours of booking and at least 7 days before check-in to receive a full refund. If guests cancel between 2 and 6 days before check-in, they must pay 50% for all days, and if they cancel day of or within 24 hours of booking, they must pay 100% for all days.',
+  //   "Provider didn't set cancellation policy",
+  // ];
+  // console.log('policy', policy);
+  const cancelPolicy = !!policy?.rule1
+    ? 'Renters can cancel until 24 hours before check-in for a full refund'
+    : !!policy?.rule2
+    ? 'The moderate policy allows cancellation until 3 days before the first rental day for a 50% refund.'
+    : !!policy?.rule3
+    ? 'Renters can cancel at least 14 days before check-in for a full refund and between and up to 13 days before for a 50% refund. For cancellations less than seven days before check-in, the renter pays 100% for all days. If the cancellation occurs at least 14 days before check-in, the renter also has the option of canceling within 48 hours of booking for a full refund'
+    : !!policy?.rule4
+    ? 'Renters must cancel within 48 hours of booking and at least 7 days before check-in to receive a full refund. If guests cancel between 2 and 6 days before check-in, they must pay 50% for all days, and if they cancel day of or within 24 hours of booking, they must pay 100% for all days.'
+    : "Provider didn't set cancellation policy";
+
+  const pickUp = !!pickupDrop?.is_mon
+    ? { T: pickupDrop.monStartT, D: pickupDrop.monStartD }
+    : !!pickupDrop?.is_tue
+    ? { T: pickupDrop.tueStartT, D: pickupDrop.tueStartD }
+    : !!pickupDrop?.is_wed
+    ? { T: pickupDrop.wedStartT, D: pickupDrop.wedStartD }
+    : !!pickupDrop?.is_thu
+    ? { T: pickupDrop.thuStartT, D: pickupDrop.thuStartD }
+    : !!pickupDrop?.is_fri
+    ? { T: pickupDrop.friStartT, D: pickupDrop.friStartD }
+    : !!pickupDrop?.is_sat
+    ? { T: pickupDrop.satStartT, D: pickupDrop.satStartD }
+    : !!pickupDrop?.is_sun
+    ? { T: pickupDrop.sunStartT, D: pickupDrop.sunStartD }
+    : { T: '8', D: 'AM' };
+
+  const dropOff = !!pickupDrop?.is_mon
+    ? { T: pickupDrop.monEndT, D: pickupDrop.monEndD }
+    : !!pickupDrop?.is_tue
+    ? { T: pickupDrop.tueEndT, D: pickupDrop.tueEndD }
+    : !!pickupDrop?.is_wed
+    ? { T: pickupDrop.wedEndT, D: pickupDrop.wedEndD }
+    : !!pickupDrop?.is_thu
+    ? { T: pickupDrop.thuEndT, D: pickupDrop.thuEndD }
+    : !!pickupDrop?.is_fri
+    ? { T: pickupDrop.friEndT, D: pickupDrop.friEndD }
+    : !!pickupDrop?.is_sat
+    ? { T: pickupDrop.satEndT, D: pickupDrop.satEndD }
+    : !!pickupDrop?.is_sun
+    ? { T: pickupDrop.sunEndT, D: pickupDrop.sunEndD }
+    : { T: '8', D: 'PM' };
 
   const [numberOfAddOn, setNumberOfAddOn] = useState(0);
 
   useEffect(() => {
-    console.log('addon', addOn);
-    const tmp = handleAddOn(addOn);
-    console.log('tmp', tmp);
-    setNumberOfAddOn(tmp);
-  }, []);
+    if (addOn) {
+      const tmp = handleAddOn(addOn);
+      setNumberOfAddOn(tmp);
+    }
+  }, [addOn]);
 
   if (shouldShowPublicListingPage) {
     return <NamedRedirect name="ListingPage" params={params} search={location.search} />;
@@ -375,15 +427,25 @@ export const ListingPageComponent = props => {
             <div>Condition: Like New</div>
 
             {/* Club Detail */}
+            <div className={css.subtitle}>Whats Included</div>
+            <div className={css.clubDetailSubHead}>
+              <div className={css.item1}>Club</div>
+              <div className={css.item2}>Brand</div>
+              <div className={css.item3}>Model</div>
+            </div>
+            <ClubDetail listing={currentListing} listingConfig={listingConfig} />
+            <div className={css.splitLine}></div>
 
             {/* Add Ons */}
+            <div className={css.subtitle}>Optional Add Ons</div>
             {[...Array(numberOfAddOn)].map((_, index) => (
-              <div>
-                {addOn[`addOn${++index}`].addOnManufact +
+              <div className={css.mainContent} key={index}>
+                {'- ' +
+                  addOn[`addOn${++index}`]?.addOnManufact +
                   ' ' +
-                  addOn[`addOn${index}`].addOnTitle +
+                  addOn[`addOn${index}`]?.addOnTitle +
                   '• $' +
-                  addOn[`addOn${index}`].addOnPrice}
+                  addOn[`addOn${index}`]?.addOnPrice}
               </div>
               // <FieldCheckbox
               //   className={css.addOnContainer}
@@ -419,8 +481,22 @@ export const ListingPageComponent = props => {
 
             {/* FAQ */}
             <Faq />
+            <div className={css.splitLine}></div>
 
             {/* Pick Up / Drop Off */}
+            <div className={css.subtitle}>Golf Club Pickup/Drop Off</div>
+
+            <div>
+              Pickup: After {(pickUp.T ? pickUp.T : 8) + ':00 ' + (pickUp.D ? pickUp.D : 'AM')}
+            </div>
+            <div className={css.policyCustom}>
+              Drop Off: Before{' '}
+              {(dropOff.T ? dropOff.T : 8) + ':00 ' + (dropOff.D ? dropOff.D : 'PM')}
+            </div>
+
+            <div className={css.policyCustom}>{'Club Owner Rule : ' + policy?.customRule}</div>
+            <div className={css.policyCustom}> {'Cancellation Policy : ' + cancelPolicy}</div>
+            <div className={css.splitLine}></div>
 
             {/* Map */}
             <SectionMapMaybe
