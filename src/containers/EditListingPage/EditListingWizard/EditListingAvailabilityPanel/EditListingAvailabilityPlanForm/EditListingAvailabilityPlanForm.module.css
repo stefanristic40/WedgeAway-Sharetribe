@@ -74,3 +74,15 @@
     padding-bottom: unset;
   }
 }
+
+.parenthesisText {
+  padding-left: 30px;
+  padding-right: 30px;
+  font-style: italic;
+  margin-bottom: 20px;
+
+  @media (--viewportSmall) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}

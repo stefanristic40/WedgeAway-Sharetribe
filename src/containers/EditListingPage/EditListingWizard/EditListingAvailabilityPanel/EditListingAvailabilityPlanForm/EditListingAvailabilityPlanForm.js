@@ -91,11 +91,13 @@ const EditListingAvailabilityPlanFormComponent = props => {
         return (
           <Form id={formId} className={classes} onSubmit={handleSubmit}>
             <H3 as="h2" className={css.heading}>
-              <FormattedMessage
+              {/* <FormattedMessage
                 id="EditListingAvailabilityPlanForm.title"
                 values={{ listingTitle }}
-              />
+              /> */}
+              Select The Days Your Clubs Are Available for Rent
             </H3>
+            <div className={css.parenthesisText}> (You Can Set Dates You Are Unavailable Next)</div>
             <Heading as="h3" rootClassName={css.subheading}>
               <FormattedMessage id="EditListingAvailabilityPlanForm.timezonePickerTitle" />
             </Heading>
