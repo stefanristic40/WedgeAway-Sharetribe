@@ -808,3 +808,7 @@
 .item3 {
   grid-column: 7 / 10;
 }
+
+.paddingCondition {
+  padding: 0 20px;
+}

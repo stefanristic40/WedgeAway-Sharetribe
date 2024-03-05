@@ -3,6 +3,7 @@ import { array, arrayOf, bool, func, shape, string, oneOf, object } from 'prop-t
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+import { GrFormLocation, GrLocationPin, GrLocation, GrMapLocation } from 'react-icons/gr';
 
 import { useConfiguration } from '../../context/configurationContext';
 import { useRouteConfiguration } from '../../context/routeConfigurationContext';
@@ -422,9 +423,15 @@ export const ListingPageComponent = props => {
             </div> */}
 
             {/* Top title */}
-            <H4 as="h1">Full Set • Right Handed</H4>
+            <div>
+              <GrFormLocation size={40} />
+              {currentListing?.attributes?.publicData?.location?.address}
+            </div>
+            <H4 as="h1" className={css.subtitle}>
+              Full Set • Right Handed
+            </H4>
 
-            <div>Condition: Like New</div>
+            <div className={css.paddingCondition}>Condition: Like New</div>
 
             {/* Club Detail */}
             <div className={css.subtitle}>Whats Included</div>

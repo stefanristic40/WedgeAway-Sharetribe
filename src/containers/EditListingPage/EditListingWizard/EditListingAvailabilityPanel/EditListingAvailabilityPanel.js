@@ -276,7 +276,8 @@ const EditListingAvailabilityPanel = props => {
               disabled={disabled || !hasAvailabilityPlan}
               ready={ready}
             >
-              <FormattedMessage id="EditListingAvailabilityPanel.addException" />
+              {/* <FormattedMessage id="EditListingAvailabilityPanel.addException" /> */}
+              <div>Add Dates Your Clubs Are Unavailable</div>
             </InlineTextButton>
           </section>
         </>

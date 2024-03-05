@@ -82,7 +82,7 @@ const EditListingAvailabilityExceptionForm = props => {
             }}
           >
             <H3 as="h2" className={css.heading}>
-              <FormattedMessage id="EditListingAvailabilityExceptionForm.title" />
+              Add Dates Your Clubs Are Unavailable
             </H3>
 
             <div className={css.radioButtons}>

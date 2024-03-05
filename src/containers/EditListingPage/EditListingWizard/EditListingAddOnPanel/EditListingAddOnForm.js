@@ -82,7 +82,7 @@ export const EditListingAddOnFormComponent = props => (
           ))}
 
           <button type="button" className={css.addButton} onClick={handleWeekClick}>
-            +
+            <p style={{ padding: 0, margin: 0, fontSize: '20px' }}>+</p>
           </button>
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>

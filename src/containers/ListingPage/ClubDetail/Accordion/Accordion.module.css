@@ -9,6 +9,7 @@
 .content {
   transition: max-height 0.3s ease;
   padding: 0 20px;
+  line-height: 1.7;
 }
 
 .subIcon {
@@ -32,7 +33,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center; */
-  font-weight: 500;
+  font-weight: 700;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   gap: 10px;
@@ -57,4 +58,8 @@
 
 .item4 {
   grid-column: 10 / 11;
+}
+
+.spaceZ {
+  height: 20px;
 }

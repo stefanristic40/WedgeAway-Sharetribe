@@ -157,7 +157,9 @@
   color: #4e6228;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 30px;
   margin-right: 10px; /* Adjust margin as needed */
   border-radius: 20px; /* Rounded corners */

@@ -55,8 +55,59 @@ const Accordion = props => {
       </div>
       {isOpen && (
         <div className={css.content}>
-          <div>• &nbsp;Head Type: &nbsp;{publicData && publicData[`${clubName}HeadType`]}</div>
-          {/* <p>{publicData && publicData[`${clubName}Shaft`]}</p> */}
+          <div className={css.spaceZ}></div>
+          {publicData && publicData[`${clubName}HeadType`] && (
+            <div>•&nbsp;Head Type: &nbsp;{publicData[`${clubName}HeadType`]}</div>
+          )}
+          {publicData && publicData[`${clubName}Loft`] && (
+            <div>•&nbsp;Head Loft: &nbsp;{publicData[`${clubName}Loft`]}°</div>
+          )}
+          {publicData && publicData[`${clubName}HeadWeight`] && (
+            <div>•&nbsp;Head Weight: &nbsp;{publicData[`${clubName}HeadWeight`]}g</div>
+          )}
+          {publicData && publicData[`${clubName}Length`] && (
+            <div>•&nbsp;Length: &nbsp;{publicData[`${clubName}Length`]}in</div>
+          )}
+          {publicData && publicData[`${clubName}Hosel`] && (
+            <div>•&nbsp;Hosel: &nbsp;{publicData[`${clubName}Hosel`]}</div>
+          )}
+          {publicData && publicData[`${clubName}Offset`] && (
+            <div>•&nbsp;Offset: &nbsp;{publicData[`${clubName}Offset`]}</div>
+          )}
+          {publicData && publicData[`${clubName}ToeHang`] && (
+            <div>•&nbsp;Toe Hang: &nbsp;{publicData[`${clubName}ToeHang`]}°</div>
+          )}
+          {publicData && publicData[`${clubName}LieAngle`] && (
+            <div>•&nbsp;Lie Angle: &nbsp;{publicData[`${clubName}LieAngle`]}°</div>
+          )}
+          {publicData && publicData[`${clubName}Loft`] && (
+            <div>•&nbsp;Loft: &nbsp;{publicData[`${clubName}Loft`]}°</div>
+          )}
+          {publicData && publicData[`${clubName}Bounce`] && (
+            <div>•&nbsp;Bounce: &nbsp;{publicData[`${clubName}Bounce`]}°</div>
+          )}
+          {publicData && publicData[`${clubName}Flex`] && (
+            <div>•&nbsp;Flex: &nbsp;{publicData[`${clubName}Flex`]}</div>
+          )}
+          {publicData && publicData[`${clubName}Grind`] && (
+            <div>•&nbsp;Grind: &nbsp;{publicData[`${clubName}Grind`]}</div>
+          )}
+          {publicData && publicData[`${clubName}Grind`] && (
+            <div>•&nbsp;Head Type: &nbsp;{publicData[`${clubName}Grind`]}</div>
+          )}
+          {publicData && publicData[`${clubName}SwingWeight`] && (
+            <div>•&nbsp;SwingWeight: &nbsp;{publicData[`${clubName}SwingWeight`]}g</div>
+          )}
+          {publicData && publicData[`${clubName}HeadSize`] && (
+            <div>•&nbsp;Head Size: &nbsp;{publicData[`${clubName}HeadSize`]}cc</div>
+          )}
+          {publicData && publicData[`${clubName}Shaft`] && (
+            <div>•&nbsp;Shaft Description: &nbsp;{publicData[`${clubName}Shaft`]}</div>
+          )}
+          {publicData && publicData[`${clubName}Grip`] && (
+            <div>•&nbsp;Grip Description: &nbsp;{publicData[`${clubName}Grip`]}</div>
+          )}
+          <div className={css.spaceZ}></div>
         </div>
       )}
     </div>
