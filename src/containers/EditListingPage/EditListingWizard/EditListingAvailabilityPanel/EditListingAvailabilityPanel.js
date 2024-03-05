@@ -129,7 +129,7 @@ const EditListingAvailabilityPanel = props => {
     history,
   } = props;
   // Hooks
-  const [isEditPlanModalOpen, setIsEditPlanModalOpen] = useState(false);
+  const [isEditPlanModalOpen, setIsEditPlanModalOpen] = useState(true);
   const [isEditExceptionsModalOpen, setIsEditExceptionsModalOpen] = useState(false);
   const [valuesFromLastSubmit, setValuesFromLastSubmit] = useState(null);
 

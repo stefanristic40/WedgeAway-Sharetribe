@@ -11,3 +11,13 @@
 .form {
   flex-grow: 1;
 }
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.textUnderSubtitle {
+  font-style: italic;
+  margin: 10px 0 30px 0;
+}

@@ -265,7 +265,10 @@ const EditListingDetailsPanel = props => {
         )}
       </H3>
 
-      <H4 as="h2">Select Which Clubs Are Included In Your Bag</H4>
+      <div className={css.subtitle}>Select Which Clubs Are Included In Your Bag</div>
+      <div className={css.textUnderSubtitle}>
+        (The More Club Details You Can Provide, The Better Your Listing Will Perform)
+      </div>
 
       {canShowEditListingDetailsForm ? (
         <EditListingDetailsForm
