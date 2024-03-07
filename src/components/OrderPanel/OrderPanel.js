@@ -153,8 +153,9 @@ const PriceMaybe = props => {
       </div>
     </div>
   ) : (
+    // <div className={css.subtitle}>adfasfsad</div>
     <div className={css.priceContainer}>
-      <p className={css.price}>{formatMoney(intl, price)}</p>
+      <p className={css.price && css.priceTitle}>{formatMoney(intl, price)}</p>
       <div className={css.perUnit}>
         <FormattedMessage id="OrderPanel.perUnit" values={{ unitType }} />
       </div>
@@ -298,14 +299,15 @@ const OrderPanel = props => {
         onManageDisableScrolling={onManageDisableScrolling}
         usePortal
       >
-        <div className={css.modalHeading}>
+        {/* Heading for modal in case of mobile view */}
+        {/* <div className={css.modalHeading}>
           <H1 className={css.heading}>{title}</H1>
-        </div>
-
-        <div className={css.orderHeading}>
+        </div> */}
+        {/* OrderPanel title in case of desktop view */}
+        {/* <div className={css.orderHeading}>
           {titleDesktop ? titleDesktop : <H2 className={titleClasses}>{title}</H2>}
           {subTitleText ? <div className={css.orderHelp}>{subTitleText}</div> : null}
-        </div>
+        </div> */}
 
         <PriceMaybe
           price={price}
@@ -314,18 +316,11 @@ const OrderPanel = props => {
           intl={intl}
           marketplaceCurrency={marketplaceCurrency}
         />
+        {/* Package Includes */}
+        <div className={css.packageTitle}>Package Includes</div>
 
-        <div className={css.author}>
-          <AvatarSmall user={author} className={css.providerAvatar} />
-          <span className={css.providerNameLinked}>
-            <FormattedMessage id="OrderPanel.author" values={{ name: authorLink }} />
-          </span>
-          <span className={css.providerNamePlain}>
-            <FormattedMessage id="OrderPanel.author" values={{ name: authorDisplayName }} />
-          </span>
-        </div>
-
-        {/* {favoriteButton} */}
+        {/* Choose The Date(s) for Your Trip */}
+        <div className={css.packageTitle}>Choose The Date(s) for Your Trip</div>
 
         {showPriceMissing ? (
           <PriceMissing />
@@ -406,6 +401,18 @@ const OrderPanel = props => {
             <FormattedMessage id="OrderPanel.unknownTransactionProcess" />
           </p>
         ) : null}
+
+        {/* <div className={css.author}>
+          <AvatarSmall user={author} className={css.providerAvatar} />
+          <span className={css.providerNameLinked}>
+            <FormattedMessage id="OrderPanel.author" values={{ name: authorLink }} />
+          </span>
+          <span className={css.providerNamePlain}>
+            <FormattedMessage id="OrderPanel.author" values={{ name: authorDisplayName }} />
+          </span>
+        </div> */}
+
+        {/* {favoriteButton} */}
       </ModalInMobile>
       <div className={css.openOrderForm}>
         <PriceMaybe

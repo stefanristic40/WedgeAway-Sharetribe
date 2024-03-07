@@ -6,34 +6,33 @@ import Accordion from './Accordion/Accordion';
 function Faqs(props) {
   const faqs = [
     {
-      question: 'How much money can I make hosting my clubs?',
+      question: 'How do I know the clubs are authentic?',
       answer:
-        'The sky is the limit! The money you make depends on the brand, age and quality of the clubs you have. Our top earners earn over $20,000 per year.',
+        'All golf club hosts are required to agree to WedgeAway’s Terms & Conditions, which state that all listings are accurate. This includes the brand, model, year and condition of the clubs presented in the listings. If the clubs you pickup or receive are not as described in the listing, please reach out to our team for assistance.',
     },
     {
-      question: 'How do I know my clubs are in good hands when renting them out?',
+      question: 'What happens if a club gets damaged?',
       answer:
-        'As club owners you have total control on WedgeAway. We require renters to complete ID verification prior to booking. You can approve or decline any booking requests that you receive and you can communicate with renters before you accept any booking request. If you are not comfortable with a renter using your clubs, you can decline the request as you please.',
+        'WedgeAway holds your credit card information just in case a club you are using is damaged. Both you and the seller will be required to submit photos and a written statement about the damage and incident. If you (the renter) is at fault, we will assess the damage and the market value of the club. You will be charged market value for the damage caused to the club.',
     },
     {
-      question: 'What happens if my a club is damaged or isn’t returned?',
+      question: 'Can I extend my rental during my trip?',
       answer:
-        'Your clubs are always protected with the WedgeAway Guarantee. We give you an estimated value of your clubs. Your renter will have a card on file, and that card is charged automatically if there is any damage, or your clubs are not returned.',
+        'You can request an extension during your rental period. The club host will have the ability to approve or decline your request depending on their availability, and are not required to extend your rental beyond the original booking time. We will of course always do our best to accommodate you and any special requests!',
     },
     {
-      question: 'How do I get paid?',
+      question: 'What happens if I lose a club?',
       answer:
-        "Upon registration, get ready to submit your banking information via our secure website. Stripe, our thirdparty processor, will safeguard your account details. LandTrust does not keep any financial data. After a trip finishes, LandTrust will start transferring the funds to the landowner's account, with direct deposit typically taking 1-2 business days.",
+        'If you lose a club as a renter, you will be charged the fair market value of that club. That value will be based on year, brand, condition and other factors.',
     },
     {
-      question: 'Do I need to be there when a guest picks up the clubs?',
-      answer:
-        "You don't need to be there when the renter picks up the clubs . Just provide pickup details, any special access information such as an access code and rules in your listing. WedgeAway will send any info to renters after you approve their booking. Set it up once, and let WedgeAway handle the rest.",
+      question: 'Who do I contact if the clubs were not as picture/promoted?',
+      answer: 'You can contact our support team at support@wedgeaway.com.',
     },
     {
-      question: 'What happens if I get a bad review?',
+      question: 'Can I speak to another guest who has rented these clubs?',
       answer:
-        'Reviews are extremely important as a golf club owner and host. People typically prefer renting with a host that has built up good reviews and a great track record. If you get a bad review and feel that the review is not justified, please reach out to our support team. We will work with both you and the renter to see if there is a solution to remedy the situation.',
+        'You are not able to directly communicate with previous guests, but you can read reviews to ensure you are renting the best clubs possible!',
     },
   ];
 

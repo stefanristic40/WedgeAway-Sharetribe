@@ -87,4 +87,112 @@
 
 .addOnContainer {
   margin-top: 5px;
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
+}
+
+.addOnTitle {
+  font-weight: 600;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.15rem;
+  /* z-index: 10; */
+  position: relative;
+  margin-bottom: 10px;
+  text-align: start;
+  margin-top: 30px;
+  /* padding-left: 20px; */
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    padding-left: 20px;
+    /* text-align: center; */
+  }
+}
+
+.packageTitle {
+  font-weight: 400;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.15rem;
+  /* z-index: 10; */
+  position: relative;
+  margin-bottom: 10px;
+  text-align: start;
+  margin-top: 10px;
+  /* padding-left: 20px; */
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+.pickDelieryOption {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  @media (max-width: 768px) {
+    padding-left: 20px;
+  }
+}
+
+.pickDelieryLabel {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+}
+
+.locationAddress {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+
+  @media (--viewportMedium) {
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px 0 20px;
+  }
+}
+
+.locationAutocompleteInput {
+  /* border-radius: 15px;
+  @media (max-width: 768px) {
+    border-radius: 10px;
+  } */
+}
+
+.locationAutocompleteInputIcon {
+  display: none;
+}
+
+.predictionsRoot {
+  position: absolute;
+  width: 100%;
+  top: 36px;
+  left: 0;
+  background-color: var(--marketplaceColor);
+  border-bottom-left-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  box-shadow: var(--boxShadowPopup);
+  z-index: calc(var(--zIndexPopup) + 1);
+
+  @media (--viewportMedium) {
+    top: 40px;
+  }
+}
+
+.validLocation {
 }

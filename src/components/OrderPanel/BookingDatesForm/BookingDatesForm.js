@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { array, bool, func, number, object, string } from 'prop-types';
 import { compose } from 'redux';
-import { Form as FinalForm, FormSpy } from 'react-final-form';
+import { Form as FinalForm, FormSpy, Field } from 'react-final-form';
 import classNames from 'classnames';
 
 import { FormattedMessage, intlShape, injectIntl } from '../../../util/reactIntl';
-import { required, bookingDatesRequired, composeValidators } from '../../../util/validators';
+import {
+  required,
+  bookingDatesRequired,
+  autocompleteSearchRequired,
+  autocompletePlaceSelected,
+  composeValidators,
+} from '../../../util/validators';
 import {
   START_DATE,
   END_DATE,
@@ -31,6 +37,9 @@ import {
   FieldDateRangeInput,
   H6,
   FieldCheckbox,
+  // FieldLocationAutocompleteInputOrigin,
+  FieldLocationAutocompleteInputDeliver,
+  FieldTextInput,
 } from '../../../components';
 
 import EstimatedCustomerBreakdownMaybe from '../EstimatedCustomerBreakdownMaybe';
@@ -450,6 +459,8 @@ const handleAddOn = props => {
   return --cnt;
 };
 
+const identity = v => v;
+
 export const BookingDatesFormComponent = props => {
   const [focusedInput, setFocusedInput] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(getStartOf(TODAY, 'month', props.timeZone));
@@ -496,6 +507,7 @@ export const BookingDatesFormComponent = props => {
           endDatePlaceholder,
           startDatePlaceholder,
           formId,
+          autoFocus,
           handleSubmit,
           intl,
           lineItemUnitType,
@@ -515,6 +527,13 @@ export const BookingDatesFormComponent = props => {
         });
         const endDateErrorMessage = intl.formatMessage({
           id: 'FieldDateRangeInput.invalidEndDate',
+        });
+
+        const addressRequiredMessage = intl.formatMessage({
+          id: 'EditListingLocationForm.addressRequired',
+        });
+        const addressNotRecognizedMessage = intl.formatMessage({
+          id: 'EditListingLocationForm.addressNotRecognized',
         });
 
         // This is the place to collect breakdown estimation data.
@@ -704,9 +723,57 @@ export const BookingDatesFormComponent = props => {
                 setCurrentMonth(getStartOf(event?.startDate ?? startOfToday, 'month', timeZone))
               }
             />
-
             {helmetFeeMaybe}
             {deliverFeeMaybe}
+            {/* Select Pickup or Delivery */}
+            <div className={css.packageTitle}>Select Pickup or Delivery</div>
+            <div className={css.pickDelieryOption}>
+              <label className={css.pickDelieryLabel}>
+                <Field name="PickDeliver" component="input" type="radio" value="pickup" /> Pickup
+              </label>
+              <label className={css.pickDelieryLabel}>
+                <Field name="PickDeliver" component="input" type="radio" value="delivery" />
+                Delivery
+              </label>
+            </div>
+
+            {values['PickDeliver'] == 'pickup' && (
+              <div>
+                {/* Pickup Time */}
+                <div className={css.packageTitle}>Pickup Time</div>
+              </div>
+            )}
+            {values['PickDeliver'] == 'delivery' && (
+              <div>
+                {/* Address for Delivery */}
+                <div className={css.packageTitle}>Address for Delivery</div>
+                <FieldLocationAutocompleteInputDeliver
+                  rootClassName={css.locationAddress}
+                  inputClassName={css.locationAutocompleteInput}
+                  iconClassName={css.locationAutocompleteInputIcon}
+                  predictionsClassName={css.predictionsRoot}
+                  validClassName={css.validLocation}
+                  autoFocus={autoFocus}
+                  name="location"
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.address' })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.addressPlaceholder1',
+                  })}
+                  useDefaultPredictions={false}
+                  format={identity}
+                  valueFromForm={values.location}
+                  validate={composeValidators(
+                    autocompleteSearchRequired(addressRequiredMessage),
+                    autocompletePlaceSelected(addressNotRecognizedMessage)
+                  )}
+                />
+                {/* Delivery Time */}
+                <div className={css.packageTitle}>Delivery Time</div>
+                <FieldTextInput id="deliveryTime" name="deliveryTime" type="input" />
+              </div>
+            )}
+
+            <div className={css.addOnTitle}>Add Ons</div>
             {[...Array(numberOfAddOn)].map((_, index) => (
               <FieldCheckbox
                 key={index}
@@ -723,7 +790,6 @@ export const BookingDatesFormComponent = props => {
                 value={`addOn${index}`}
               />
             ))}
-
             {showEstimatedBreakdown ? (
               <div className={css.priceBreakdownContainer}>
                 <H6 as="h3" className={css.bookingBreakdownTitle}>
@@ -745,7 +811,6 @@ export const BookingDatesFormComponent = props => {
                 <FormattedMessage id="BookingDatesForm.fetchLineItemsError" />
               </span>
             ) : null}
-
             <div className={css.submitButton}>
               <PrimaryButton type="submit" inProgress={fetchLineItemsInProgress}>
                 <FormattedMessage id="BookingDatesForm.requestToBook" />

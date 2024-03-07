@@ -18,7 +18,7 @@ import { useConfiguration } from '../../context/configurationContext';
 import { FormattedMessage } from '../../util/reactIntl';
 import { propTypes } from '../../util/types';
 
-import { IconSpinner } from '../../components';
+import { IconSpinner } from '..';
 
 import IconHourGlass from './IconHourGlass';
 import IconCurrentLocation from './IconCurrentLocation';
@@ -518,13 +518,13 @@ class LocationAutocompleteInputImplementation extends Component {
 
     return (
       <div className={rootClass}>
-        {/* <div className={iconClass}>
+        <div className={iconClass}>
           {this.state.fetchingPlaceDetails ? (
             <IconSpinner className={css.iconSpinner} />
           ) : (
             <IconHourGlass />
           )}
-        </div> */}
+        </div>
 
         <input
           className={inputClass}

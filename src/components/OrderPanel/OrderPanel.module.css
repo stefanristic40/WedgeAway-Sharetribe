@@ -291,3 +291,47 @@
 .favoriteButton {
   margin: 12px 0 36px 0;
 }
+
+/*  Listing Left Panel Main Title Like FAQ, ADDON */
+.priceTitle {
+  font-weight: 600;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* z-index: 10; */
+  position: relative;
+  margin-bottom: 20px;
+  text-align: start;
+  margin-top: 20px;
+  /* padding-left: 20px; */
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    padding-left: 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+}
+
+.packageTitle {
+  font-weight: 400;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.15rem;
+  /* z-index: 10; */
+  position: relative;
+  margin-bottom: 20px;
+  text-align: start;
+  margin-top: 20px;
+  /* padding-left: 20px; */
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+}

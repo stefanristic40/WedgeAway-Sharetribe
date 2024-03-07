@@ -97,6 +97,7 @@ export { default as FieldCheckboxGroup } from './FieldCheckboxGroup/FieldCheckbo
 export { default as FieldPhoneNumberInput } from './FieldPhoneNumberInput/FieldPhoneNumberInput';
 export { default as LocationAutocompleteInput, FieldLocationAutocompleteInput } from './LocationAutocompleteInput/LocationAutocompleteInput';
 export { default as LocationAutocompleteInputOrigin, FieldLocationAutocompleteInputOrigin } from './LocationAutocompleteInput/LocationAutocompleteInputOrigin';
+export { default as LocationAutocompleteInputDeliver, FieldLocationAutocompleteInputDeliver } from './LocationAutocompleteInput/LocationAutocompleteInputDeliver';
 
 //FieldLocationAutocompleteInputOrigin
 // Fields and inputs using old naming pattern
