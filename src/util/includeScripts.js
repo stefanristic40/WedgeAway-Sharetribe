@@ -37,7 +37,7 @@ export const IncludeScripts = props => {
     mapLibraries.push(
       <script key="mapboxSDK" src={`${rootURL}/static/scripts/mapbox/mapbox-sdk.min.js`}></script>
     );
-    // Add CSS for Mapbox map
+    // Add CSS for Mapbox map  v3.2.0
     mapLibraries.push(
       <link
         key="mapbox_GL_CSS"
