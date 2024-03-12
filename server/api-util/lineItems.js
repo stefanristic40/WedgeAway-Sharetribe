@@ -112,6 +112,36 @@ const resolveDeliverFeePrice = listing => {
   return null;
 };
 
+const resolveDeliverPickFeePrice = listing => {
+  const publicData = listing.attributes.publicData;
+  const deliverFee = publicData && publicData.pickupDeliver.price;
+  // const { amount, currency } = deliverFee;
+
+  if (deliverFee) {
+    return new Money(deliverFee * 100, 'USD');
+  }
+
+  return null;
+};
+
+const resolveAddOnsPrice = (listing, indexAddOn) => {
+  const publicData = listing.attributes.publicData;
+
+  let cnt = 0;
+  let totalPrice = 0;
+
+  while (cnt < indexAddOn.length) {
+    totalPrice += publicData && publicData.addOns[`addOn${indexAddOn[cnt]}`].addOnPrice;
+    cnt++;
+  }
+
+  if (totalPrice) {
+    return new Money(totalPrice * 100, 'USD');
+  }
+
+  return null;
+};
+
 /**
  * Returns collection of lineItems (max 50)
  *
@@ -209,9 +239,36 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
           quantity: 1,
           includeFor: ['customer', 'provider'],
         },
-     ]
+      ]
     : [];
-    
+
+  const addOnPrice =
+    orderData.arrayAddOnIndex.length > 0
+      ? resolveAddOnsPrice(listing, orderData.arrayAddOnIndex)
+      : null;
+  const addOnFee = addOnPrice
+    ? [
+        {
+          code: 'line-item/addons-total-price',
+          unitPrice: addOnPrice,
+          quantity: 1,
+          includeFor: ['customer', 'provider'],
+        },
+      ]
+    : [];
+
+  const deliveryPickFeePrice = orderData.isDelivery ? resolveDeliverPickFeePrice(listing) : null;
+  const deliveryPickFee = deliveryPickFeePrice
+    ? [
+        {
+          code: 'line-item/delivery-fee',
+          unitPrice: deliveryPickFeePrice,
+          quantity: 1,
+          includeFor: ['customer', 'provider'],
+        },
+      ]
+    : [];
+
   const deliverFeePrice = orderData.hasDeliverFee ? resolveDeliverFeePrice(listing) : null;
   const deliverFee = deliverFeePrice
     ? [
@@ -221,7 +278,7 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
           quantity: 1,
           includeFor: ['customer', 'provider'],
         },
-     ]
+      ]
     : [];
 
   // Provider commission reduces the amount of money that is paid out to provider.
@@ -240,7 +297,13 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
     ? [
         {
           code: 'line-item/provider-commission',
-          unitPrice: calculateTotalFromLineItems([order, ...helmetFee, ...deliverFee]),
+          unitPrice: calculateTotalFromLineItems([
+            order,
+            ...helmetFee,
+            ...deliverFee,
+            ...deliveryPickFee,
+            ...addOnFee,
+          ]),
           percentage: getNegation(providerCommission.percentage),
           includeFor: ['provider'],
         },
@@ -268,6 +331,8 @@ exports.transactionLineItems = (listing, orderData, providerCommission, customer
     ...extraLineItems,
     ...helmetFee,
     ...deliverFee,
+    ...deliveryPickFee,
+    ...addOnFee,
     ...providerCommissionMaybe,
     ...customerCommissionMaybe,
   ];

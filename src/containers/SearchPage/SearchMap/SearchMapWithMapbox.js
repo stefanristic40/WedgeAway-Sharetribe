@@ -15,6 +15,10 @@ import SearchMapPriceLabel from '../SearchMapPriceLabel/SearchMapPriceLabel';
 import SearchMapInfoCard from '../SearchMapInfoCard/SearchMapInfoCard';
 import SearchMapGroupLabel from '../SearchMapGroupLabel/SearchMapGroupLabel';
 import { groupedByCoordinates, reducedToArray } from './SearchMap.helpers';
+
+import mapboxgl from '!mapbox-gl';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+
 import css from './SearchMapWithMapbox.module.css';
 
 export const LABEL_HANDLE = 'SearchMapLabel';
@@ -101,7 +105,10 @@ const sdkBoundsToMapboxBounds = bounds => {
   // is less than -180
   const swLng = sw.lng > ne.lng ? -360 + sw.lng : sw.lng;
 
-  return [[swLng, sw.lat], [ne.lng, ne.lat]];
+  return [
+    [swLng, sw.lat],
+    [ne.lng, ne.lat],
+  ];
 };
 
 /**
@@ -338,15 +345,13 @@ class SearchMapWithMapbox extends Component {
     const { offsetHeight, offsetWidth } = this.state.mapContainer;
     const hasDimensions = offsetHeight > 0 && offsetWidth > 0;
     if (hasDimensions) {
-      this.map = new window.mapboxgl.Map({
+      this.map = new mapboxgl.Map({
         container: this.state.mapContainer,
         style: 'mapbox://styles/mapbox/streets-v10',
-        scrollZoom: false,
+        scrollZoom: true,
       });
-      window.mapboxMap = this.map;
 
-      var nav = new window.mapboxgl.NavigationControl({ showCompass: false });
-      this.map.addControl(nav, 'top-left');
+      this.map.addControl(new mapboxgl.NavigationControl());
 
       this.map.on('moveend', this.onMoveend);
 

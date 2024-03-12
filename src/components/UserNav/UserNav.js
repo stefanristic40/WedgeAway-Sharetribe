@@ -19,13 +19,14 @@ const UserNav = props => {
         name: 'ManageListingsPage',
       },
     },
-    {
-      text: <FormattedMessage id="UserNav.favoriteListings" />,
-      selected: currentPage === 'FavoriteListingsPage',
-      linkProps: {
-        name: 'FavoriteListingsPage',
-      },
-    },
+    // Favortie Pages
+    // {
+    //   text: <FormattedMessage id="UserNav.favoriteListings" />,
+    //   selected: currentPage === 'FavoriteListingsPage',
+    //   linkProps: {
+    //     name: 'FavoriteListingsPage',
+    //   },
+    // },
     {
       text: <FormattedMessage id="UserNav.profileSettings" />,
       selected: currentPage === 'ProfileSettingsPage',

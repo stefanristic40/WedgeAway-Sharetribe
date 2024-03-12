@@ -156,7 +156,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -173,6 +173,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -186,7 +187,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -206,7 +207,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -514,7 +515,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -531,6 +532,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -544,7 +546,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -564,7 +566,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -860,7 +862,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -877,6 +879,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -890,7 +893,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -910,7 +913,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -1206,7 +1209,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -1223,6 +1226,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -1236,7 +1240,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -1256,7 +1260,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -1552,7 +1556,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -1569,6 +1573,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -1582,7 +1587,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -1602,7 +1607,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -1898,7 +1903,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -1915,6 +1920,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -1928,7 +1934,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -1948,7 +1954,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -2195,7 +2201,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -2212,6 +2218,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -2225,7 +2232,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -2245,7 +2252,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -2492,7 +2499,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -2509,6 +2516,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -2522,7 +2530,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -2542,7 +2550,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -2789,7 +2797,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -2806,6 +2814,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -2819,7 +2828,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -2839,7 +2848,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -3086,7 +3095,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -3103,6 +3112,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -3116,7 +3126,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -3136,7 +3146,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -3383,7 +3393,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -3400,6 +3410,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -3413,7 +3424,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -3433,7 +3444,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -3680,7 +3691,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -3697,6 +3708,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -3710,7 +3722,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -3730,7 +3742,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -3977,7 +3989,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -3994,6 +4006,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -4007,7 +4020,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -4027,7 +4040,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -4274,7 +4287,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -4291,6 +4304,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -4304,7 +4318,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -4324,7 +4338,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -4571,7 +4585,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -4588,6 +4602,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -4601,7 +4616,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -4621,7 +4636,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -4848,7 +4863,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -4865,6 +4880,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -4878,7 +4894,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -4898,7 +4914,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -5125,7 +5141,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -5142,6 +5158,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -5155,7 +5172,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -5175,7 +5192,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -5402,7 +5419,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -5419,6 +5436,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -5432,7 +5450,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -5452,7 +5470,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -5679,7 +5697,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -5696,6 +5714,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -5709,7 +5728,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -5729,7 +5748,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -5956,7 +5975,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -5973,6 +5992,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -5986,7 +6006,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -6006,7 +6026,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -6253,7 +6273,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -6270,6 +6290,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -6283,7 +6304,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -6303,7 +6324,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -6550,7 +6571,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -6567,6 +6588,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -6580,7 +6602,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -6600,7 +6622,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -6847,7 +6869,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -6864,6 +6886,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -6877,7 +6900,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -6897,7 +6920,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -7144,7 +7167,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -7161,6 +7184,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -7174,7 +7198,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -7194,7 +7218,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -7441,7 +7465,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -7458,6 +7482,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -7471,7 +7496,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -7491,7 +7516,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -7738,7 +7763,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -7755,6 +7780,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -7768,7 +7794,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -7788,7 +7814,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -8035,7 +8061,7 @@ export const listingFields = [
       { option: 'Srixon', label: 'Srixon' },
       { option: 'Wilson', label: 'Wilson' },
       { option: 'Odyssey', label: 'Odyssey' },
-      { option: 'Cleveland', label: '2009' },
+      { option: 'Cleveland', label: 'Cleveland' },
       { option: 'Nike', label: 'Nike' },
       { option: 'Good Good Golf', label: 'Good Good Golf' },
       { option: 'Tommy Armour', label: 'Tommy Armour' },
@@ -8052,6 +8078,7 @@ export const listingFields = [
       { option: 'SeeMore', label: 'SeeMore' },
       { option: 'SIK', label: 'SIK' },
       { option: 'U.S. Kids Golf', label: 'U.S. Kids Golf' },
+      { option: 'Callaway', label: 'Callaway' },
     ],
     filterConfig: {
       indexForSearch: false,
@@ -8065,7 +8092,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
   },
@@ -8085,7 +8112,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Model',
-      isRequired: false,
+      isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
   },
@@ -8251,7 +8278,7 @@ export const listingFields = [
   },
   // This is the part for the Driver
   {
-    key: 'golfbagBrandName',
+    key: 'golfbagName',
     scope: 'public',
     schemaType: 'text',
     filterConfig: {

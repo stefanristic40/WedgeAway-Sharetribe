@@ -270,12 +270,13 @@ const tabCompleted = (tab, listing, config) => {
       );
     case DETAILS:
       return !!(
-        listingType &&
-        transactionProcessAlias &&
-        unitType &&
-        // description &&
-        // title &&
-        hasValidListingFieldsInExtendedData(publicData, privateData, config)
+        // listingType &&
+        // transactionProcessAlias &&
+        // unitType &&
+        // // description &&
+        // // title &&
+        // hasValidListingFieldsInExtendedData(publicData, privateData, config)
+        true
       );
     case PHOTOS:
       return images && images.length > 0;

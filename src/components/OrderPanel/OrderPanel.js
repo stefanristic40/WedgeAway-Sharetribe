@@ -16,6 +16,7 @@ import {
 import loadable from '@loadable/component';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
+import moment from 'moment';
 
 import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 import {
@@ -205,6 +206,8 @@ const OrderPanel = props => {
   const isPaymentProcess = processName !== INQUIRY_PROCESS_NAME;
 
   const showPriceMissing = isPaymentProcess && !price;
+  const titleClub = listing?.attributes?.title;
+  // const authorDisplayName = listing?.author?.attributes?.profile?.displayName;
   const PriceMissing = () => {
     return (
       <p className={css.error}>
@@ -317,7 +320,10 @@ const OrderPanel = props => {
           marketplaceCurrency={marketplaceCurrency}
         />
         {/* Package Includes */}
-        <div className={css.packageTitle}>Package Includes</div>
+        <div className={css.includeTitle}>Package Includes</div>
+        <div className={css.includeDetail}>
+          {titleClub} Right Handed by {authorDisplayName}
+        </div>
 
         {/* Choose The Date(s) for Your Trip */}
         <div className={css.packageTitle}>Choose The Date(s) for Your Trip</div>
@@ -354,7 +360,10 @@ const OrderPanel = props => {
             className={css.bookingForm}
             formId="OrderPanelBookingDatesForm"
             lineItemUnitType={lineItemUnitType}
-            onSubmit={onSubmit}
+            // onSubmit={onSubmit}
+            onSubmit={() => {
+              console.log('request');
+            }}
             price={price}
             marketplaceCurrency={marketplaceCurrency}
             dayCountAvailableForBooking={dayCountAvailableForBooking}
@@ -372,6 +381,7 @@ const OrderPanel = props => {
             helmetFee={helmetFee}
             deliverFee={deliverFee}
             addOn={addOn}
+            initialValues={{ deliveryTime: '08:00', pickUpTime: '08:00', PickDeliver: 'pickup' }}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm

@@ -397,6 +397,19 @@ const handleFormSpyChange = (
 
   const hasHelmetFee = formValues.values?.helmetFee?.length > 0;
   const hasDeliverFee = formValues.values?.deliverFee?.length > 0;
+  const isDelivery = formValues.values?.PickDeliver == 'delivery';
+
+  let arrayAddOnIndex = [];
+  let cnt = 0;
+  while (true) {
+    if (!formValues.values?.hasOwnProperty(`addOn${++cnt}`)) {
+      break;
+    }
+
+    if (formValues.values[`addOn${cnt}`].length) {
+      arrayAddOnIndex.push(cnt);
+    }
+  }
 
   if (startDate && endDate && !fetchLineItemsInProgress) {
     onFetchTransactionLineItems({
@@ -405,6 +418,8 @@ const handleFormSpyChange = (
         bookingEnd: endDate,
         hasHelmetFee,
         hasDeliverFee,
+        isDelivery,
+        arrayAddOnIndex,
       },
       listingId,
       isOwnListing,
@@ -440,15 +455,8 @@ const Prev = props => {
   return isDateSameOrAfter(prevMonthDate, currentMonthDate) ? <PrevIcon /> : null;
 };
 
-// <FieldCheckbox
-//             className={css.deliverFeeContainer}
-//             id={`${formId}.deliverFee`}
-//             name="deliverFee"
-//             label={deliverFeeLabel}
-//             value="deliverFee"
-//           />
-
 const handleAddOn = props => {
+  // if (props?.hasOwnProperty === undefined) return 0;
   let cnt = 0;
   while (true) {
     if (!props?.hasOwnProperty(`addOn${++cnt}`)) {
@@ -456,10 +464,14 @@ const handleAddOn = props => {
     }
   }
 
-  return --cnt;
+  return --cnt > 0 ? cnt : 0;
 };
 
 const identity = v => v;
+
+const mustBeValidDateTime = value => {
+  return value?.format().includes('Invalid date') ? 'Must be a valid DateTime' : undefined;
+};
 
 export const BookingDatesFormComponent = props => {
   const [focusedInput, setFocusedInput] = useState(null);
@@ -502,6 +514,10 @@ export const BookingDatesFormComponent = props => {
       {...rest}
       unitPrice={unitPrice}
       onSubmit={onFormSubmit}
+      // initialValues={{
+      //   datetime: moment('2022-11-10T15:07:24.000Z'),
+      // }}
+      // validate={() => {}}
       render={fieldRenderProps => {
         const {
           endDatePlaceholder,
@@ -644,11 +660,10 @@ export const BookingDatesFormComponent = props => {
           setNumberOfAddOn(tmp);
         }, []);
 
-        const addOnMaybe = addOn ? <div>adsf</div> : null;
-
         return (
           <Form onSubmit={handleSubmit} className={classes} enforcePagePreloadFor="CheckoutPage">
             <FormSpy subscription={{ values: true }} onChange={onFormSpyChange} />
+
             <FieldDateRangeInput
               className={css.bookingDates}
               name="bookingDates"
@@ -726,7 +741,7 @@ export const BookingDatesFormComponent = props => {
             {helmetFeeMaybe}
             {deliverFeeMaybe}
             {/* Select Pickup or Delivery */}
-            <div className={css.packageTitle}>Select Pickup or Delivery</div>
+            <div className={css.pickUpDeliveryTitle}>Select Pickup or Delivery</div>
             <div className={css.pickDelieryOption}>
               <label className={css.pickDelieryLabel}>
                 <Field name="PickDeliver" component="input" type="radio" value="pickup" /> Pickup
@@ -741,6 +756,12 @@ export const BookingDatesFormComponent = props => {
               <div>
                 {/* Pickup Time */}
                 <div className={css.packageTitle}>Pickup Time</div>
+                <FieldTextInput
+                  id="pickUpTime"
+                  name="pickUpTime"
+                  type="time"
+                  className={css.locationAddress}
+                />
               </div>
             )}
             {values['PickDeliver'] == 'delivery' && (
@@ -768,8 +789,13 @@ export const BookingDatesFormComponent = props => {
                   )}
                 />
                 {/* Delivery Time */}
-                <div className={css.packageTitle}>Delivery Time</div>
-                <FieldTextInput id="deliveryTime" name="deliveryTime" type="input" />
+                <div className={css.DeliveryTimeTitle}>Delivery Time</div>
+                <FieldTextInput
+                  id="deliveryTime"
+                  name="deliveryTime"
+                  type="time"
+                  className={css.locationAddress}
+                />
               </div>
             )}
 
@@ -790,6 +816,27 @@ export const BookingDatesFormComponent = props => {
                 value={`addOn${index}`}
               />
             ))}
+            <div className={css.submitButton}>
+              {/* <PrimaryButton type="submit" inProgress={fetchLineItemsInProgress}>
+                <FormattedMessage id="BookingDatesForm.requestToBook" />
+              </PrimaryButton> */}
+              <PrimaryButton inProgress={fetchLineItemsInProgress}>
+                <FormattedMessage id="BookingDatesForm.requestToBook" />
+              </PrimaryButton>
+            </div>
+            <div className={css.finePrint}>
+              {payoutDetailsWarning ? (
+                payoutDetailsWarning
+              ) : (
+                <FormattedMessage
+                  id={
+                    isOwnListing
+                      ? 'BookingDatesForm.ownListing'
+                      : 'BookingDatesForm.youWontBeChargedInfo'
+                  }
+                />
+              )}
+            </div>
             {showEstimatedBreakdown ? (
               <div className={css.priceBreakdownContainer}>
                 <H6 as="h3" className={css.bookingBreakdownTitle}>
@@ -811,24 +858,6 @@ export const BookingDatesFormComponent = props => {
                 <FormattedMessage id="BookingDatesForm.fetchLineItemsError" />
               </span>
             ) : null}
-            <div className={css.submitButton}>
-              <PrimaryButton type="submit" inProgress={fetchLineItemsInProgress}>
-                <FormattedMessage id="BookingDatesForm.requestToBook" />
-              </PrimaryButton>
-            </div>
-            <p className={css.finePrint}>
-              {payoutDetailsWarning ? (
-                payoutDetailsWarning
-              ) : (
-                <FormattedMessage
-                  id={
-                    isOwnListing
-                      ? 'BookingDatesForm.ownListing'
-                      : 'BookingDatesForm.youWontBeChargedInfo'
-                  }
-                />
-              )}
-            </p>
           </Form>
         );
       }}

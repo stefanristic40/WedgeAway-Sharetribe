@@ -49,6 +49,7 @@ import { fetchCurrentUser } from './ducks/user.duck';
 import routeConfiguration from './routing/routeConfiguration';
 // App it self
 import { ClientApp, renderApp } from './app';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const render = (store, shouldHydrate) => {
   // If the server already loaded the auth information, render the app

@@ -9,8 +9,19 @@ import uniqueId from 'lodash/uniqueId';
 
 import { circlePolyline } from '../../util/maps';
 
+const customMarkerPath = encodeURI(
+  `${process.env.REACT_APP_MARKETPLACE_ROOT_URL}/static/images/golfclub.png`
+);
+
 const mapMarker = () => {
-  return new window.mapboxgl.Marker();
+  // return new window.mapboxgl.Marker();
+
+  const element = document.createElement('div');
+  element.style.backgroundImage = `url(${customMarkerPath})`;
+  element.style.width = `${42}px`;
+  element.style.height = `${68}px`;
+
+  return new window.mapboxgl.Marker({ element });
 };
 
 const circleLayer = (center, mapsConfig, layerId) => {
@@ -53,13 +64,13 @@ class DynamicMapboxMap extends Component {
   componentDidMount() {
     const { center, zoom, mapsConfig } = this.props;
     const position = [center.lng, center.lat];
-
     this.map = new window.mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v10',
       center: position,
       zoom,
       scrollZoom: false,
+      projection: 'globe',
     });
     this.map.addControl(new window.mapboxgl.NavigationControl({ showCompass: false }), 'top-left');
     this.map.addControl(new MultiTouch());
@@ -134,7 +145,7 @@ class DynamicMapboxMap extends Component {
     const { containerClassName, mapClassName } = this.props;
     return (
       <div className={containerClassName}>
-        <div className={mapClassName} ref={el => (this.mapContainer = el)} />
+        <div className={mapClassName} ref={el => (this.mapContainer = el)}></div>
       </div>
     );
   }

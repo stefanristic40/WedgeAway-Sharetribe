@@ -85,6 +85,10 @@ const hasSetListingType = publicData => {
  * @returns Array of picked extended data fields from submitted data.
  */
 const pickListingFieldsData = (data, targetScope, targetListingType, listingFieldConfigs) => {
+  let brandNumber = 0;
+  let firstBrand = '';
+  let brand = [];
+  let flag = true;
   let golfClubs = [];
   const result = listingFieldConfigs.reduce((fields, field) => {
     const { key, includeForListingTypes, scope = 'public', schemaType } = field || {};
@@ -98,6 +102,19 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
 
     if (isKnownSchemaType && isTargetScope && isTargetListingType) {
       const fieldValue = data[namespacedKey] || null;
+      console.log('inornot', namespacedKey.indexOf('Brand'));
+      if (
+        namespacedKey.indexOf('Brand') !== -1 &&
+        (!!data[namespacedKey] ? brand.indexOf(data[namespacedKey]) === -1 : false)
+      ) {
+        console.log('namespacedKey:', data[namespacedKey]);
+        brand.push(data[namespacedKey]);
+        if (flag) {
+          firstBrand = data[namespacedKey];
+          flag = false;
+        }
+        brandNumber++;
+      }
       if (fieldValue == true) {
         golfClubs.push(key);
       }
@@ -109,7 +126,12 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
     }
     return fields;
   }, {});
-  return { ...result, Choose_Your_Set: golfClubs };
+  return {
+    ...result,
+    Choose_Your_Set: golfClubs,
+    firstBrand: firstBrand,
+    brandNumber: brandNumber,
+  };
 };
 
 /**
@@ -284,10 +306,32 @@ const EditListingDetailsPanel = props => {
               unitType,
               ...rest
             } = values;
-            // title = !!title ? title : 'OKOK';
-            // New values for listing attributes
+
+            const isFull =
+              !!rest.pub_driverIn &&
+              (!!rest.pub_3woodIn ||
+                !!rest.pub_3hlwoodIn ||
+                !!rest.pub_5woodIn ||
+                !!rest.pub_7woodIn ||
+                !!rest.pub_heavenwoodIn ||
+                !!rest.pub_9woodIn ||
+                !!rest.pub_11woodIn) &&
+              (!!rest.pub_3hybridIn ||
+                !!rest.pub_4hybridIn ||
+                !!rest.pub_5hybridIn ||
+                !!rest.pub_6hybridIn ||
+                !!rest.pub_7hybridIn) &&
+              !!rest.pub_sandwedgeIn &&
+              !!rest.pub_pitchingwedgeIn &&
+              !!rest.pub_putterIn &&
+              (!!rest.pub_6ironIn ||
+                !!rest.pub_7ironIn ||
+                !!rest.pub_8ironIn ||
+                !!rest.pub_6hybridIn ||
+                !!rest.pub_9ironIn);
+
             const updateValues = {
-              title: !!title ? title.trim() : 'Partial Sets',
+              title: isFull ? 'Full Set' : 'Partial Set',
               description,
               publicData: {
                 listingType,

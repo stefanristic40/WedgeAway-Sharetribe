@@ -3,7 +3,17 @@ import { array, arrayOf, bool, func, shape, string, oneOf, object } from 'prop-t
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-import { GrFormLocation, GrLocationPin, GrLocation, GrMapLocation } from 'react-icons/gr';
+import { GrFormLocation, GrLocationPin, GrLocation, GrMapLocation, GrLink } from 'react-icons/gr';
+import Popup from 'reactjs-popup';
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+} from 'react-share';
+// import 'reactjs-popup/dist/index.css';
 
 import { useConfiguration } from '../../context/configurationContext';
 import { useRouteConfiguration } from '../../context/routeConfigurationContext';
@@ -85,8 +95,11 @@ import SectionServiceHistoryMaybe from './SectionServiceHistoryMaybe';
 import css from './ListingPage.module.css';
 import Faq from './Fag/Faq.js';
 import { ClubDetail } from './ClubDetail/ClubDetail.js';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
+
+const mapboxAccessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 const { UUID } = sdkTypes;
 
@@ -106,6 +119,8 @@ export const ListingPageComponent = props => {
     props.inquiryModalOpenForListingId === props.params.id
   );
   const [imageCarouselOpen, setImageCarouselOpen] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState('Copy Link');
+  const [addressCityState, setAddressCityState] = useState('');
 
   const {
     isAuthenticated,
@@ -146,6 +161,27 @@ export const ListingPageComponent = props => {
       ? ensureOwnListing(getOwnListing(listingId))
       : ensureListing(getListing(listingId));
 
+  useEffect(() => {
+    const address = currentListing?.attributes?.publicData?.location?.address;
+
+    fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+        address
+      )}.json?access_token=${mapboxAccessToken}`
+    )
+      .then(response => response.json())
+      .then(data => {
+        if (data.features.length > 0) {
+          const city = data.features[0].context.find(context => context.id.includes('place')).text;
+          const state = data.features[0].context.find(context => context.id.includes('region'))
+            .text;
+
+          setAddressCityState(`${city}, ${state}`);
+        }
+      })
+      .catch(error => console.error(error));
+  }, []);
+
   const listingSlug = rawParams.slug || createSlug(currentListing.attributes.title || '');
   const params = { slug: listingSlug, ...rawParams };
 
@@ -173,7 +209,12 @@ export const ListingPageComponent = props => {
   const addOn = currentListing?.attributes?.publicData?.addOns;
   const policy = currentListing?.attributes?.publicData?.policy;
   const pickupDrop = currentListing?.attributes?.publicData?.pickupDeliver;
-
+  const titleClub = currentListing?.attributes?.title;
+  const numberOfBrand = currentListing?.attributes?.publicData?.brandNumber;
+  const brandSet =
+    numberOfBrand > 1
+      ? `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brand`
+      : `${currentListing?.attributes?.publicData?.firstBrand}`;
   // const cancelPolicy = [
   //   'Renters can cancel until 24 hours before check-in for a full refund.',
   //   'The moderate policy allows cancellation until 3 days before the first rental day for a 50% refund.',
@@ -375,6 +416,47 @@ export const ListingPageComponent = props => {
     location,
   });
 
+  const isFavorite = currentUser?.attributes.profile.privateData.favorites?.includes(
+    currentListing.id.uuid
+  );
+
+  const toggleFavorites = () => onToggleFavorites(isFavorite);
+
+  const favoriteMaybe = isFavorite ? (
+    // <div className={css.unFavorite} onClick={toggleFavorites}>
+    //   <div>❤ Unfavorite</div>
+    // </div>
+    <div className={css.unFavorite} onClick={toggleFavorites}>
+      <img
+        src="/static/images/favorite_redfill.svg"
+        alt="favorite_redfill"
+        className={css.sharingicon}
+      />
+      <div>Favorite</div>
+    </div>
+  ) : (
+    // <div className={css.favorite} onClick={toggleFavorites}>
+    //   <div>❤ Favorite</div>
+    // </div>
+    <div className={css.favorite} onClick={toggleFavorites}>
+      <img
+        src="/static/images/favorite_nofill.svg"
+        alt="favorite_nofill"
+        className={css.sharingicon}
+      />
+      <div>Favorite</div>
+    </div>
+  );
+  const copyToClipboard = () => {
+    const currentUrl = window.location.href;
+    navigator.clipboard.writeText(currentUrl).then(() => {
+      setButtonLabel('Copied');
+      setTimeout(() => {
+        setButtonLabel('Copy Link');
+      }, 1500);
+    });
+  };
+
   return (
     <Page
       title={schemaTitle}
@@ -398,22 +480,61 @@ export const ListingPageComponent = props => {
       }}
     >
       <LayoutSingleColumn className={css.pageRoot} topbar={topbar} footer={<FooterContainer />}>
-        <SectionHero
-          title={title}
-          listing={currentListing}
-          isOwnListing={isOwnListing}
-          editParams={{
-            id: listingId.uuid,
-            slug: listingSlug,
-            type: listingPathParamType,
-            tab: listingTab,
-          }}
-          imageCarouselOpen={imageCarouselOpen}
-          onImageCarouselClose={() => setImageCarouselOpen(false)}
-          handleViewPhotosClick={handleViewPhotosClick}
-          onManageDisableScrolling={onManageDisableScrolling}
-          noPayoutDetailsSetWithOwnListing={noPayoutDetailsSetWithOwnListing}
-        />
+        <div className={css.contentWrapperForHero}>
+          <SectionHero
+            title={title}
+            listing={currentListing}
+            isOwnListing={isOwnListing}
+            editParams={{
+              id: listingId.uuid,
+              slug: listingSlug,
+              type: listingPathParamType,
+              tab: listingTab,
+            }}
+            imageCarouselOpen={imageCarouselOpen}
+            onImageCarouselClose={() => setImageCarouselOpen(false)}
+            // handleViewPhotosClick={handleViewPhotosClick}
+            onManageDisableScrolling={onManageDisableScrolling}
+            noPayoutDetailsSetWithOwnListing={noPayoutDetailsSetWithOwnListing}
+          />
+          <div className={css.shareFavorite}>
+            <div className={css.shareItem}>
+              <img src="/static/images/share.svg" alt="sharingIcon" className={css.sharingicon} />
+              {/* <div className={css.share}>Share</div> */}
+              <Popup trigger={<div className={css.share}>Share</div>} position="bottom center">
+                <div className={css.backgroundShare}>
+                  <div className={css.shareTitle}>Share this Club.</div>
+                  <FacebookShareButton url={window.location.href} className={css.shareItemLay}>
+                    <FacebookIcon size={32} round />
+                    <div>Facebook</div>
+                  </FacebookShareButton>
+                  <TelegramShareButton url={window.location.href} className={css.shareItemLay}>
+                    <TelegramIcon size={32} round />
+                    <div>Telegram</div>
+                  </TelegramShareButton>
+                  <EmailShareButton url={window.location.href} className={css.shareItemLay}>
+                    <EmailIcon size={32} round />
+                    <div>Share via Email</div>
+                  </EmailShareButton>
+
+                  <div
+                    onClick={copyToClipboard}
+                    // className={css.copy_link_button && copied ? copied : null}
+                    className={css.copy_link_button}
+                  >
+                    <GrLink size={27} />
+
+                    {buttonLabel}
+                  </div>
+                </div>
+              </Popup>
+            </div>
+            {favoriteMaybe}
+          </div>
+        </div>
+
+        {/* Share and Favorite */}
+
         <div className={css.contentWrapperForHeroLayout}>
           <div className={css.mainColumnForHeroLayout}>
             {/* <div className={css.mobileHeading}>
@@ -423,15 +544,17 @@ export const ListingPageComponent = props => {
             </div> */}
 
             {/* Top title */}
-            <div>
+            <div className={css.location}>
               <GrFormLocation size={40} />
-              {currentListing?.attributes?.publicData?.location?.address}
+              {addressCityState}
             </div>
             <H4 as="h1" className={css.subtitle}>
-              Full Set • Right Handed
+              {titleClub} • {brandSet}
             </H4>
 
-            <div className={css.paddingCondition}>Condition: Like New</div>
+            <div className={css.paddingCondition}>
+              Condition: Like New&nbsp;&nbsp;&nbsp;&nbsp;Handedness: Righty
+            </div>
 
             {/* Club Detail */}
             <div className={css.subtitle}>Whats Included</div>

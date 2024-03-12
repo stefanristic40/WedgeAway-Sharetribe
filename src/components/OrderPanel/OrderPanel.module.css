@@ -302,7 +302,7 @@
   font-size: 1.5rem;
   /* z-index: 10; */
   position: relative;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   text-align: start;
   margin-top: 20px;
   /* padding-left: 20px; */
@@ -333,5 +333,32 @@
     font-size: 1.4rem;
     padding-left: 20px;
     margin-top: 20px;
+  }
+}
+
+.includeTitle {
+  font-weight: 400;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.15rem;
+  /* z-index: 10; */
+  position: relative;
+  margin-bottom: 10px;
+  text-align: start;
+  margin-top: 10px;
+  /* padding-left: 20px; */
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+.includeDetail {
+  @media (max-width: 768px) {
+    padding-left: 20px;
   }
 }

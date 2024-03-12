@@ -30,10 +30,6 @@ const Accordion = props => {
   const foundObject = listingConfig?.listingFields?.find(obj => obj.key === name);
   const publicData = listing?.attributes?.publicData;
 
-  console.log('foundOjbect', foundObject);
-
-  console.log('listing', listing);
-
   return (
     <div className={css.item}>
       <div onClick={toggleAccordion} className={css.clubDetailSubHead}>

@@ -71,6 +71,8 @@ const getOrderParams = (pageData, shippingDetails, optionalPaymentParams, config
   const quantityMaybe = quantity ? { quantity } : {};
   const deliveryMethod = pageData.orderData?.deliveryMethod;
   const deliveryMethodMaybe = deliveryMethod ? { deliveryMethod } : {};
+  const hasDeliveryPickFee = pageData.orderData?.deliveryPickFee?.length > 0;
+  const hasAddOnFee = pageData.orderData?.addOnFee?.length > 0;
 
   const { listingType, unitType } = pageData?.listing?.attributes?.publicData || {};
   const protectedDataMaybe = {
@@ -86,6 +88,8 @@ const getOrderParams = (pageData, shippingDetails, optionalPaymentParams, config
   const orderParams = {
     listingId: pageData?.listing?.id,
     ...deliveryMethodMaybe,
+    hasDeliveryPickFee,
+    hasAddOnFee,
     ...quantityMaybe,
     ...bookingDatesMaybe(pageData.orderData?.bookingDates),
     ...protectedDataMaybe,

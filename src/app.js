@@ -35,6 +35,9 @@ import Routes from './routing/Routes';
 // Sharetribe Web Template uses English translations as default translations.
 import defaultMessages from './translations/en.json';
 
+import mapboxgl from '!mapbox-gl';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+
 // If you want to change the language of default (fallback) translations,
 // change the imports to match the wanted locale:
 //

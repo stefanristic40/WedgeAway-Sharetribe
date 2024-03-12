@@ -52,9 +52,15 @@ class SearchMapPriceLabel extends Component {
 
     return (
       <button className={classes} onClick={() => onListingClicked(currentListing)}>
-        <div className={css.caretShadow} />
+        {/* <div className={css.caretShadow} />
         <div className={priceLabelClasses}>{formattedPrice}</div>
-        <div className={caretClasses} />
+        <div className={caretClasses} /> */}
+        <img
+          src="/static/images/golfclub.png"
+          width={'100px'}
+          height={'100px'}
+          alt="imgGolfClubs"
+        />
       </button>
     );
   }

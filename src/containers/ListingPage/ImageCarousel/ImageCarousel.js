@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactImageGallery from 'react-image-gallery';
@@ -24,21 +24,25 @@ const IMAGE_GALLERY_OPTIONS = {
 };
 
 const ImageCarousel = props => {
-  const [currentIndex, setIndex] = useState(0);
-  const { intl, rootClassName, className, images, imageVariants } = props;
+  const { intl, rootClassName, className, images, imageVariants, index } = props;
+  const [currentIndex, setIndex] = useState(index);
 
-  const items = images.map((img, i) => {
+  useEffect(() => {
+    setIndex(index);
+  }, [index]);
+
+  let tmp = [...images.slice(index), ...images.slice(0, index)];
+
+  const items = tmp.map((img, i) => {
     return {
       // We will only use the image resource, but react-image-gallery
       // requires the `original` key from each item.
       original: '',
-      alt: intl.formatMessage(
-        { id: 'ImageCarousel.imageAltText' },
-        { index: i + 1, count: images.length }
-      ),
+      alt: intl.formatMessage({ id: 'ImageCarousel.imageAltText' }),
       image: img,
     };
   });
+
   const renderItem = item => {
     return (
       <div className={css.imageWrapper}>
@@ -83,7 +87,7 @@ const ImageCarousel = props => {
   // We render index outside of ReactImageGallery.
   // This keeps track of current index aka slide changes happening inside gallery.
   const handleSlide = currentIndex => {
-    setIndex(currentIndex);
+    setIndex((currentIndex + index) % images.length);
   };
   const naturalIndex = index => index + 1;
 
