@@ -194,6 +194,7 @@ export const ListingPageComponent = props => {
     currentListing.id && currentListing.attributes.state !== LISTING_STATE_PENDING_APPROVAL;
 
   const pendingIsApproved = isPendingApprovalVariant && isApproved;
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   // If a /pending-approval URL is shared, the UI requires
   // authentication and attempts to fetch the listing from own
@@ -448,7 +449,7 @@ export const ListingPageComponent = props => {
     </div>
   );
   const copyToClipboard = () => {
-    const currentUrl = window.location.href;
+    const currentUrl = shareUrl;
     navigator.clipboard.writeText(currentUrl).then(() => {
       setButtonLabel('Copied');
       setTimeout(() => {
@@ -504,15 +505,15 @@ export const ListingPageComponent = props => {
               <Popup trigger={<div className={css.share}>Share</div>} position="bottom center">
                 <div className={css.backgroundShare}>
                   <div className={css.shareTitle}>Share this Club.</div>
-                  <FacebookShareButton url={window.location.href} className={css.shareItemLay}>
+                  <FacebookShareButton url={shareUrl} className={css.shareItemLay}>
                     <FacebookIcon size={32} round />
                     <div>Facebook</div>
                   </FacebookShareButton>
-                  <TelegramShareButton url={window.location.href} className={css.shareItemLay}>
+                  <TelegramShareButton url={shareUrl} className={css.shareItemLay}>
                     <TelegramIcon size={32} round />
                     <div>Telegram</div>
                   </TelegramShareButton>
-                  <EmailShareButton url={window.location.href} className={css.shareItemLay}>
+                  <EmailShareButton url={shareUrl} className={css.shareItemLay}>
                     <EmailIcon size={32} round />
                     <div>Share via Email</div>
                   </EmailShareButton>
