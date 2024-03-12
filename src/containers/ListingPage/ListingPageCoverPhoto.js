@@ -568,29 +568,20 @@ export const ListingPageComponent = props => {
 
             {/* Add Ons */}
             <div className={css.subtitle}>Optional Add Ons</div>
-            {[...Array(numberOfAddOn)].map((_, index) => (
-              <div className={css.mainContent} key={index}>
-                {'- ' +
-                  addOn[`addOn${++index}`]?.addOnManufact +
-                  ' ' +
-                  addOn[`addOn${index}`]?.addOnTitle +
-                  '• $' +
-                  addOn[`addOn${index}`]?.addOnPrice}
-              </div>
-              // <FieldCheckbox
-              //   className={css.addOnContainer}
-              //   id={`${formId}.addOn${++index}`}
-              //   name={`addOn${index}`}
-              //   label={
-              //     addOn[`addOn${index}`].addOnManufact +
-              //     ' ' +
-              //     addOn[`addOn${index}`].addOnTitle +
-              //     '• $' +
-              //     addOn[`addOn${index}`].addOnPrice
-              //   }
-              //   value={`addOn${index}`}
-              // />
-            ))}
+            <div className={css.addOnPadding}>
+              <ul className={css.listingAddOn}>
+                {[...Array(numberOfAddOn)].map((_, index) => (
+                  <li className={css.mainContent} key={index}>
+                    {addOn[`addOn${++index}`]?.addOnManufact +
+                      ' ' +
+                      addOn[`addOn${index}`]?.addOnTitle +
+                      '• $' +
+                      addOn[`addOn${index}`]?.addOnPrice}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className={css.splitLine}></div>
 
             {/* Author Detail */}
@@ -615,26 +606,29 @@ export const ListingPageComponent = props => {
 
             {/* Pick Up / Drop Off */}
             <div className={css.subtitle}>Golf Club Pickup/Drop Off</div>
+            <div className={css.pickDeliveryPadding}>
+              <div>
+                Pickup: After {(pickUp.T ? pickUp.T : 8) + ':00 ' + (pickUp.D ? pickUp.D : 'AM')}
+              </div>
+              <div className={css.policyCustom}>
+                Drop Off: Before{' '}
+                {(dropOff.T ? dropOff.T : 8) + ':00 ' + (dropOff.D ? dropOff.D : 'PM')}
+              </div>
 
-            <div>
-              Pickup: After {(pickUp.T ? pickUp.T : 8) + ':00 ' + (pickUp.D ? pickUp.D : 'AM')}
+              <div className={css.policyCustom}>{'Club Owner Rule : ' + policy?.customRule}</div>
+              <div className={css.policyCustom}> {'Cancellation Policy : ' + cancelPolicy}</div>
+              <div className={css.splitLine}></div>
             </div>
-            <div className={css.policyCustom}>
-              Drop Off: Before{' '}
-              {(dropOff.T ? dropOff.T : 8) + ':00 ' + (dropOff.D ? dropOff.D : 'PM')}
-            </div>
-
-            <div className={css.policyCustom}>{'Club Owner Rule : ' + policy?.customRule}</div>
-            <div className={css.policyCustom}> {'Cancellation Policy : ' + cancelPolicy}</div>
-            <div className={css.splitLine}></div>
 
             {/* Map */}
-            <SectionMapMaybe
-              geolocation={geolocation}
-              publicData={publicData}
-              listingId={currentListing.id}
-              mapsConfig={config.maps}
-            />
+            <div className={css.pickDeliveryPadding}>
+              <SectionMapMaybe
+                geolocation={geolocation}
+                publicData={publicData}
+                listingId={currentListing.id}
+                mapsConfig={config.maps}
+              />
+            </div>
 
             {/* <SectionTextMaybe text={description} showAsIngress /> */}
             {/* <SectionDetailsMaybe

@@ -13,9 +13,9 @@
   padding-left: 20px;
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
-    padding-left: 0px;
-
-    text-align: center;
+    font-size: 1.6rem;
+    padding-left: 20px;
+    line-height: 1rem;
+    /* text-align: center; */
   }
 }
