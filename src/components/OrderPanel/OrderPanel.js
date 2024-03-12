@@ -90,7 +90,9 @@ const priceData = (price, currency, intl) => {
 };
 
 const openOrderModal = (isOwnListing, isClosed, history, location) => {
-  if (isOwnListing || isClosed) {
+  // In the future
+  // if (isOwnListing || isClosed) {
+  if (false || isClosed) {
     window.scrollTo(0, 0);
   } else {
     const { pathname, search, state } = location;
