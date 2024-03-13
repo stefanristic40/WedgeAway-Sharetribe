@@ -351,7 +351,11 @@ class SearchMapWithMapbox extends Component {
         scrollZoom: true,
       });
 
+      const scaleControl = new mapboxgl.ScaleControl();
+
       this.map.addControl(new mapboxgl.NavigationControl());
+      this.map.addControl(scaleControl);
+      // this.map.addControl(new mapboxgl.FullscreenControl());
 
       this.map.on('moveend', this.onMoveend);
 

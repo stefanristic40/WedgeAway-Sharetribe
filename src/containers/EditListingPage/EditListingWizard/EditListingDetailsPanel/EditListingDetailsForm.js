@@ -147,6 +147,8 @@ const EditListingDetailsFormComponent = props => (
         values,
       } = formRenderProps;
 
+      console.log('listingFieldsConfig', listingFieldsConfig);
+
       const { listingType } = values;
 
       const titleRequiredMessage = intl.formatMessage({

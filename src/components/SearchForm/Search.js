@@ -62,6 +62,7 @@ export const SearchComponent = props => {
       ...currentSearchParams,
       ...topbarSearchParams(),
     };
+    console.log('location lat long searchParams:', searchParams);
     history.push(createResourceLocatorString('SearchPage', routeConfiguration, {}, searchParams));
   }
 

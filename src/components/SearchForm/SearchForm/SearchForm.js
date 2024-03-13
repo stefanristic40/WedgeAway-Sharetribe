@@ -114,6 +114,8 @@ class SearchFormComponent extends Component {
       // `handleSubmit` prop for submitting. We want to autosubmit
       // when a place is selected, and don't require any extra
       // validations for the form.
+      console.log('location lat long', location);
+
       onSubmit({ location });
       // blur search input to hide software keyboard
       this.searchInput?.blur();
