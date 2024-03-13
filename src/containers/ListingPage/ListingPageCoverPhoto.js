@@ -161,9 +161,11 @@ export const ListingPageComponent = props => {
       ? ensureOwnListing(getOwnListing(listingId))
       : ensureListing(getListing(listingId));
 
-  useEffect(() => {
-    const address = currentListing?.attributes?.publicData?.location?.address;
+  const address = currentListing?.attributes?.publicData?.location?.address;
 
+  useEffect(() => {
+    // const address = currentListing?.attributes?.publicData?.location?.address;
+    console.log('address', address);
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
         address
@@ -180,23 +182,26 @@ export const ListingPageComponent = props => {
           const cityContext = feature.context.find(context => context.id.includes('place'));
           const stateContext = feature.context.find(context => context.id.includes('region'));
 
-          if (cityContext) {
-            city = city ? city : cityContext.text;
-          }
+          // if (cityContext) {
+          //   city = city ? city : cityContext.text;
+          // }
 
-          if (stateContext) {
-            state = state ? state : stateContext.text;
-          }
+          // if (stateContext) {
+          //   state = state ? state : stateContext.text;
+          // }
 
-          if (city && state) {
+          if (cityContext && stateContext) {
+            city = cityContext.text;
+            state = stateContext.text;
             setAddressCityState(`${city}, ${state}`);
-            console.log(`${city}, ${state}`);
+            console.log('location fix1', data);
+            console.log('location fix2', `${city}, ${state}`);
             break;
           }
         }
       })
       .catch(error => console.error(error));
-  }, []);
+  }, [address]);
 
   const listingSlug = rawParams.slug || createSlug(currentListing.attributes.title || '');
   const params = { slug: listingSlug, ...rawParams };
