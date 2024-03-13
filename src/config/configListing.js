@@ -186,7 +186,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -206,7 +206,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -545,7 +545,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -565,7 +565,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -892,7 +892,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -912,7 +912,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -1239,7 +1239,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -1259,7 +1259,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -1586,7 +1586,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -1606,7 +1606,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -1933,7 +1933,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -1953,7 +1953,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -2231,7 +2231,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -2251,7 +2251,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -2529,7 +2529,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -2549,7 +2549,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -2827,7 +2827,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -2847,7 +2847,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -3125,7 +3125,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -3145,7 +3145,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -3423,7 +3423,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -3443,7 +3443,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -3721,7 +3721,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -3741,7 +3741,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -4019,7 +4019,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -4039,7 +4039,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -4317,7 +4317,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -4337,7 +4337,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -4615,7 +4615,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -4635,7 +4635,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -4893,7 +4893,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -4913,7 +4913,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -5171,7 +5171,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -5191,7 +5191,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -5449,7 +5449,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -5469,7 +5469,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -5727,7 +5727,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -5747,7 +5747,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -6005,7 +6005,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -6025,7 +6025,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -6303,7 +6303,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -6323,7 +6323,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -6601,7 +6601,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -6621,7 +6621,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -6899,7 +6899,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -6919,7 +6919,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -7197,7 +7197,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -7217,7 +7217,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -7495,7 +7495,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -7515,7 +7515,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -7793,7 +7793,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -7813,7 +7813,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },
@@ -8091,7 +8091,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Brand',
+      placeholderMessage: 'Brand (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a brand.',
     },
@@ -8111,7 +8111,7 @@ export const listingFields = [
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Model',
+      placeholderMessage: 'Model (Required)',
       isRequired: true,
       requiredMessage: 'You need to select a model.',
     },

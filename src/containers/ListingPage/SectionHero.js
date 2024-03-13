@@ -89,6 +89,9 @@ const SectionHero = props => {
             rootClassName={css.rootForImage}
             alt={title}
             image={listing.images[index]}
+            variants={Object.keys(listing.images[index]?.attributes?.variants).filter(k =>
+              k.startsWith('scaled')
+            )}
           />
           if(index==(cnt - 1)) {viewPhotosButton}
         </div>

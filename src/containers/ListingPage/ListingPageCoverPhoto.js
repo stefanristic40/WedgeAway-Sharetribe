@@ -171,12 +171,28 @@ export const ListingPageComponent = props => {
     )
       .then(response => response.json())
       .then(data => {
-        if (data.features.length > 0) {
-          const city = data.features[0].context.find(context => context.id.includes('place')).text;
-          const state = data.features[0].context.find(context => context.id.includes('region'))
-            .text;
+        let city = '';
+        let state = '';
 
-          setAddressCityState(`${city}, ${state}`);
+        for (let i = 0; i < data.features.length; i++) {
+          const feature = data.features[i];
+
+          const cityContext = feature.context.find(context => context.id.includes('place'));
+          const stateContext = feature.context.find(context => context.id.includes('region'));
+
+          if (cityContext) {
+            city = city ? city : cityContext.text;
+          }
+
+          if (stateContext) {
+            state = state ? state : stateContext.text;
+          }
+
+          if (city && state) {
+            setAddressCityState(`${city}, ${state}`);
+            console.log(`${city}, ${state}`);
+            break;
+          }
         }
       })
       .catch(error => console.error(error));
@@ -547,7 +563,9 @@ export const ListingPageComponent = props => {
             {/* Top title */}
             <div className={css.location}>
               <GrFormLocation size={40} />
-              {addressCityState}
+              <NamedLink className={css.locationText} name="SearchPage">
+                {addressCityState}
+              </NamedLink>
             </div>
             <H4 as="h1" className={css.subtitle}>
               {titleClub} • {brandSet}
@@ -568,7 +586,7 @@ export const ListingPageComponent = props => {
             <div className={css.splitLine}></div>
 
             {/* Add Ons */}
-            <div className={css.subtitle}>Optional Add Ons</div>
+            <div className={css.subtitleAddOn}>Optional Add Ons</div>
             <div className={css.addOnPadding}>
               <ul className={css.listingAddOn}>
                 {[...Array(numberOfAddOn)].map((_, index) => (

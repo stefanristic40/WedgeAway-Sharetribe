@@ -213,6 +213,7 @@ const EditListingDetailsFormComponent = props => (
               )}
             />
           ) : null}
+
           {/* Putter */}
           <EachClubDetail
             listingType={listingType}

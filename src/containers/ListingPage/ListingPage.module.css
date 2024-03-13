@@ -789,6 +789,28 @@
   }
 }
 
+.subtitleAddOn {
+  font-weight: 600;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* z-index: 10; */
+  position: relative;
+  /* margin-bottom: 20px; */
+  text-align: start;
+  margin-top: 20px;
+  padding-left: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    padding-left: 20px;
+    line-height: 1rem;
+    /* text-align: center; */
+  }
+}
+
 /*  Content inside subtitle */
 .mainContent {
   font-size: 1.1rem;
@@ -842,8 +864,18 @@
 
 .location {
   margin-left: 10px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
+.locationText {
+  color: black;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
 .shareFavorite {
   display: flex;
   gap: 20px;
@@ -1040,6 +1072,7 @@
 
 .addOnPadding {
   padding-left: 40px;
+  margin-top: 20px;
 }
 
 .pickDeliveryPadding {

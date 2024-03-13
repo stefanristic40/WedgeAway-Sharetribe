@@ -548,8 +548,8 @@ export const ManageListingCardComponent = props => {
             </InlineTextButton>
           </div>
         </div>
-
-        <div className={css.manageLinks}>
+        {/* I will need it in the future */}
+        {/* <div className={css.manageLinks}>
           <NamedLink
             className={css.manageLink}
             name="EditListingPage"
@@ -568,7 +568,7 @@ export const ManageListingCardComponent = props => {
             hasStockManagementInUse={hasStockManagementInUse}
             intl={intl}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -605,7 +605,4 @@ ManageListingCardComponent.propTypes = {
   }).isRequired,
 };
 
-export default compose(
-  withRouter,
-  injectIntl
-)(ManageListingCardComponent);
+export default compose(withRouter, injectIntl)(ManageListingCardComponent);

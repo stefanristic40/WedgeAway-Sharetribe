@@ -43,13 +43,17 @@ import NoImageIcon from './NoImageIcon';
 import css from './ResponsiveImage.module.css';
 
 const ResponsiveImage = props => {
-  const { className, rootClassName, alt, noImageMessage, image, dimensions, ...rest } = props;
+  const {
+    className,
+    rootClassName,
+    alt,
+    noImageMessage,
+    image,
+    variants,
+    dimensions,
+    ...rest
+  } = props;
   const classes = classNames(rootClassName || css.root, className);
-
-  const variants = image
-    ? Object.keys(image?.attributes?.variants).filter(k => k.startsWith('scaled'))
-    : [];
-
   if (image == null || variants.length === 0) {
     const noImageClasses = classNames(rootClassName || css.root, css.noImageContainer, className);
 
@@ -101,6 +105,7 @@ ResponsiveImage.propTypes = {
   rootClassName: string,
   alt: string.isRequired,
   image: oneOfType([propTypes.image, propTypes.imageAsset]),
+  variants: arrayOf(string).isRequired,
   sizes: string,
   noImageMessage: string,
 };

@@ -411,7 +411,8 @@ const handleFormSpyChange = (
     }
   }
 
-  if (startDate && endDate && !fetchLineItemsInProgress) {
+  // if (startDate && endDate && !fetchLineItemsInProgress) {
+  if (startDate && endDate) {
     onFetchTransactionLineItems({
       orderData: {
         bookingStart: startDate,

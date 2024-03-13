@@ -65,7 +65,6 @@ export const FieldAddImage = props => {
         const { name, type } = input;
         const onChange = e => {
           const files = e.target.files;
-
           Array.from(files).forEach(file => {
             formApi.change(`addImage`, file);
             formApi.blur(`addImage`);
@@ -98,7 +97,9 @@ const FieldListingImage = props => {
     <Field name={name}>
       {fieldProps => {
         const { input } = fieldProps;
+
         const image = input.value;
+
         return image ? (
           <ListingImage
             image={image}
