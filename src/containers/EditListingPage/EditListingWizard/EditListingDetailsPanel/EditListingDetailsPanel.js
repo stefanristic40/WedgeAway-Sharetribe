@@ -90,6 +90,8 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
   let brand = [];
   let flag = true;
   let golfClubs = [];
+  let brandFull = [];
+
   const result = listingFieldConfigs.reduce((fields, field) => {
     const { key, includeForListingTypes, scope = 'public', schemaType } = field || {};
     const namespacePrefix = scope === 'public' ? `pub_` : `priv_`;
@@ -102,12 +104,13 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
 
     if (isKnownSchemaType && isTargetScope && isTargetListingType) {
       const fieldValue = data[namespacedKey] || null;
-      console.log('inornot', namespacedKey.indexOf('Brand'));
+      if (namespacedKey.indexOf('Brand') !== -1 && !!data[namespacedKey]) {
+        brandFull.push(data[namespacedKey]);
+      }
       if (
         namespacedKey.indexOf('Brand') !== -1 &&
         (!!data[namespacedKey] ? brand.indexOf(data[namespacedKey]) === -1 : false)
       ) {
-        console.log('namespacedKey:', data[namespacedKey]);
         brand.push(data[namespacedKey]);
         if (flag) {
           firstBrand = data[namespacedKey];
@@ -126,10 +129,29 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
     }
     return fields;
   }, {});
+
+  const brandCounts = {};
+
+  brandFull.forEach(brand => {
+    brandCounts[brand] = (brandCounts[brand] || 0) + 1;
+  });
+
+  let mostCommonBrand = null;
+  let highestCount = 0;
+
+  for (const brand in brandCounts) {
+    if (brandCounts[brand] > highestCount) {
+      highestCount = brandCounts[brand];
+      mostCommonBrand = brand;
+    }
+  }
+
+  // console.log('mostCommonbrand', mostCommonBrand);
+
   return {
     ...result,
     Choose_Your_Set: golfClubs,
-    firstBrand: firstBrand,
+    firstBrand: mostCommonBrand,
     brandNumber: brandNumber,
   };
 };
