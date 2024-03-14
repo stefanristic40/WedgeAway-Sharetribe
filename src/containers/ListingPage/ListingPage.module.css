@@ -256,6 +256,10 @@
     max-width: var(--contentMaxWidth);
     padding: 0;
   }
+
+  @media (max-height: 500px) {
+    width: 50%;
+  }
 }
 
 .mainColumnForProductLayout {
@@ -875,6 +879,11 @@
   color: black;
   font-size: 1.1rem;
   margin-top: 2px;
+}
+.locationText:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  font-style: italic;
 }
 .shareFavorite {
   display: flex;

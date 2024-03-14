@@ -48,6 +48,8 @@ import { getMarketplaceEntities } from '../../ducks/marketplaceData.duck';
 import { manageDisableScrolling, isScrollingDisabled } from '../../ducks/ui.duck';
 import { initializeCardPaymentData } from '../../ducks/stripe.duck.js';
 
+import { createResourceLocatorString } from '../../util/routes';
+
 import {
   H4,
   Page,
@@ -97,6 +99,10 @@ import Faq from './Fag/Faq.js';
 import { ClubDetail } from './ClubDetail/ClubDetail.js';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
+import * as geocoderMapbox from '../../components/LocationAutocompleteInput/GeocoderMapbox.js';
+import * as geocoderGoogleMaps from '../../components/LocationAutocompleteInput/GeocoderGoogleMaps.js';
+import { result } from 'lodash';
+
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
 const mapboxAccessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
@@ -112,6 +118,12 @@ const handleAddOn = props => {
   }
 
   return --cnt;
+};
+
+// Get correct geocoding variant: geocoderGoogleMaps or geocoderMapbox
+const getGeocoderVariant = mapProvider => {
+  const isGoogleMapsInUse = mapProvider === 'googleMaps';
+  return isGoogleMapsInUse ? geocoderGoogleMaps : geocoderMapbox;
 };
 
 export const ListingPageComponent = props => {
@@ -162,6 +174,8 @@ export const ListingPageComponent = props => {
       : ensureListing(getListing(listingId));
 
   const address = currentListing?.attributes?.publicData?.location?.address;
+  const [geocoder, setGeocoder] = useState(null);
+  const addOn = currentListing?.attributes?.publicData?.addOns;
 
   useEffect(() => {
     // const address = currentListing?.attributes?.publicData?.location?.address;
@@ -194,14 +208,27 @@ export const ListingPageComponent = props => {
             city = cityContext.text;
             state = stateContext.text;
             setAddressCityState(`${city}, ${state}`);
-            console.log('location fix1', data);
-            console.log('location fix2', `${city}, ${state}`);
             break;
           }
         }
       })
       .catch(error => console.error(error));
   }, [address]);
+
+  const [numberOfAddOn, setNumberOfAddOn] = useState(0);
+
+  useEffect(() => {
+    if (addOn) {
+      const tmp = handleAddOn(addOn);
+      setNumberOfAddOn(tmp);
+    }
+  }, [addOn]);
+
+  useEffect(() => {
+    const geocoderVariant = getGeocoderVariant(config.maps.mapProvider);
+    const Geocoder = geocoderVariant.default;
+    setGeocoder(new Geocoder());
+  }, []);
 
   const listingSlug = rawParams.slug || createSlug(currentListing.attributes.title || '');
   const params = { slug: listingSlug, ...rawParams };
@@ -228,15 +255,21 @@ export const ListingPageComponent = props => {
     showListingError.status === 403;
   const shouldShowPublicListingPage = pendingIsApproved || pendingOtherUsersListing;
 
-  const addOn = currentListing?.attributes?.publicData?.addOns;
   const policy = currentListing?.attributes?.publicData?.policy;
   const pickupDrop = currentListing?.attributes?.publicData?.pickupDeliver;
   const titleClub = currentListing?.attributes?.title;
   const numberOfBrand = currentListing?.attributes?.publicData?.brandNumber;
+  // const brandSet =
+  //   numberOfBrand > 1
+  //     ? `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brand`
+  //     : `${currentListing?.attributes?.publicData?.firstBrand}`;
+
   const brandSet =
-    numberOfBrand > 1
+    numberOfBrand < 2
+      ? `${currentListing?.attributes?.publicData?.firstBrand}`
+      : numberOfBrand < 3
       ? `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brand`
-      : `${currentListing?.attributes?.publicData?.firstBrand}`;
+      : `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brands`;
   // const cancelPolicy = [
   //   'Renters can cancel until 24 hours before check-in for a full refund.',
   //   'The moderate policy allows cancellation until 3 days before the first rental day for a 50% refund.',
@@ -286,15 +319,6 @@ export const ListingPageComponent = props => {
     : !!pickupDrop?.is_sun
     ? { T: pickupDrop.sunEndT, D: pickupDrop.sunEndD }
     : { T: '8', D: 'PM' };
-
-  const [numberOfAddOn, setNumberOfAddOn] = useState(0);
-
-  useEffect(() => {
-    if (addOn) {
-      const tmp = handleAddOn(addOn);
-      setNumberOfAddOn(tmp);
-    }
-  }, [addOn]);
 
   if (shouldShowPublicListingPage) {
     return <NamedRedirect name="ListingPage" params={params} search={location.search} />;
@@ -429,6 +453,96 @@ export const ListingPageComponent = props => {
     // trying to open the carousel as well.
     e.stopPropagation();
     setImageCarouselOpen(true);
+  };
+
+  // const getGeocoder = () => {
+  //   if (!geocoder) {
+  //     const geocoderVariant = getGeocoderVariant(config.maps.mapProvider);
+  //     const Geocoder = geocoderVariant.default;
+  //     setGeocoder(new Geocoder());
+  //   }
+  //   // return geocoder;
+  // };
+
+  const handleLocationTitle = () => {
+    // Get the possible preditions
+    console.log('geocoder', geocoder);
+    console.log('geocoder func', geocoder.getPlacePredicitons);
+    let possiblePrediction;
+    const currentLocationBoundsDistance = config.maps?.search?.currentLocationBoundsDistance;
+    geocoder
+      .getPlacePredictions(
+        addressCityState,
+        config.maps.search.countryLimit,
+        config.localization.locale
+      )
+      .then(result => {
+        possiblePrediction = result?.predictions[0];
+        console.log('result', possiblePrediction);
+        geocoder.getPlaceDetails(possiblePrediction, currentLocationBoundsDistance).then(place => {
+          console.log('place', place);
+          const searchParams = {
+            address: place.address,
+            bounds: place.bounds,
+          };
+          console.log('location lat long searchParams:', searchParams);
+          history.push(
+            createResourceLocatorString('SearchPage', routeConfiguration, {}, searchParams)
+          );
+        });
+      })
+      .catch(e => {
+        console.error(e);
+      });
+
+    // geocoder
+    //   .getPlaceDetails(possiblePrediction, currentLocationBoundsDistance)
+    //   .then(place => {
+    //     console.log('place', place);
+    //   })
+    //   .catch(e => {
+    //     console.error(e);
+    //   });
+    // let possiblePredictions;
+    // geocoder
+    //   .getPlacePredictions(values, config.maps.search.countryLimit, config.localization.locale)
+    //   .then(results => {
+    //     console.log('location lat long results: ', results);
+    //     possiblePredictions = results;
+    //   })
+    //   .catch(e => {
+    //     // eslint-disable-next-line no-console
+    //     console.error(e);
+    //   });
+
+    // let placeDetail;
+    // // Get the place detail from prediction[0]
+    // const currentLocationBoundsDistance = config.maps?.search?.currentLocationBoundsDistance;
+    // getGeocoder()
+    //   .getPlaceDetails(possiblePredictions[0], currentLocationBoundsDistance)
+    //   .then(place => {
+    //     this.setState({ fetchingPlaceDetails: false });
+    //     console.log('location lat long place params', prediction);
+    //     console.log('location lat long place', place);
+    //     placeDetail = place;
+    //   })
+    //   .catch(e => {
+    //     console.error(e);
+    //   });
+
+    // // const topbarSearchParams = () => {
+    // //   // topbar search defaults to 'location' search
+    // //   const { address, boudns, origin } = placeDetail;
+    // //   const originMaybe = isOriginInUse(config) ? { origin } : {};
+
+    // //   return {
+    // //     ...originMaybe,
+    // //     address,
+    // //     boudns,
+    // //   };
+    // // };
+
+    // const { address, boudns } = placeDetail;
   };
 
   const onToggleFavorites = handleToggleFavorites({
@@ -566,11 +680,9 @@ export const ListingPageComponent = props => {
             </div> */}
 
             {/* Top title */}
-            <div className={css.location}>
+            <div className={css.location} onClick={handleLocationTitle}>
               <GrFormLocation size={40} />
-              <NamedLink className={css.locationText} name="SearchPage">
-                {addressCityState}
-              </NamedLink>
+              <div className={css.locationText}>{addressCityState}</div>
             </div>
             <H4 as="h1" className={css.subtitle}>
               {titleClub} • {brandSet}

@@ -10,6 +10,8 @@ import { intlShape, injectIntl, FormattedMessage } from '../../../../util/reactI
 import { EXTENDED_DATA_SCHEMA_TYPES, propTypes } from '../../../../util/types';
 import { maxLength, required, composeValidators } from '../../../../util/validators';
 
+import EditListingEachInfo from './EditListingEachInfo';
+
 // Import shared components
 import { Form, Button, FieldSelect, FieldTextInput, Heading } from '../../../../components';
 // Import modules from this directory
@@ -122,7 +124,15 @@ const FieldSelectListingType = props => {
 const EditListingDetailsFormComponent = props => (
   <FinalForm
     {...props}
-    mutators={{ ...arrayMutators }}
+    mutators={{
+      setOppLeft: (args, state, utils) => {
+        utils.changeValue(state, 'pub_isLeft', () => !args);
+      },
+      setOppRight: (args, state, utils) => {
+        utils.changeValue(state, 'pub_isRight', () => !args);
+      },
+    }}
+    // mutators={{ ...arrayMutators }}
     render={formRenderProps => {
       const {
         autoFocus,
@@ -145,6 +155,7 @@ const EditListingDetailsFormComponent = props => (
         fetchErrors,
         listingFieldsConfig,
         values,
+        form,
       } = formRenderProps;
 
       console.log('listingFieldsConfig', listingFieldsConfig);
@@ -215,6 +226,41 @@ const EditListingDetailsFormComponent = props => (
               )}
             />
           ) : null}
+
+          {/* Hand and Condition */}
+          <div className={css.handCondition}>
+            <h4 className={css.itemTitle}>Condition &nbsp;&nbsp;</h4>
+            <EditListingEachInfo
+              listingType={listingType}
+              fieldConfig={listingFieldsConfig[334]}
+              intl={intl}
+            />
+          </div>
+          <div className={css.handCondition}>
+            <h4 className={css.itemTitle}>Handedness &nbsp;&nbsp;</h4>
+            <div
+              onClick={() => {
+                form.mutators.setOppLeft(values['pub_isRight']);
+              }}
+            >
+              <EditListingEachInfo
+                listingType={listingType}
+                fieldConfig={listingFieldsConfig[332]}
+                intl={intl}
+              />
+            </div>
+            <div
+              onClick={() => {
+                form.mutators.setOppRight(values['pub_isLeft']);
+              }}
+            >
+              <EditListingEachInfo
+                listingType={listingType}
+                fieldConfig={listingFieldsConfig[333]}
+                intl={intl}
+              />
+            </div>
+          </div>
 
           {/* Putter */}
           <EachClubDetail
@@ -471,6 +517,7 @@ const EditListingDetailsFormComponent = props => (
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
           /> */}
+
           <div className={css.buttonItems}>
             <Button className={css.submitButton} onClick={onPreviousTab}>
               Back

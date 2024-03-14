@@ -39,10 +39,10 @@ class LocationAutocompleteInputComponent extends Component {
           <div style={{ width: '100%' }}>
             <LocationAutocompleteInputImplDeliver {...locationAutocompleteProps} />
           </div>
-          <div className={css.icon}>
-            {/* <IconHourGlass /> */}
-            <FaAngleDown size={25} />
-          </div>
+          {/* <div className={css.icon}> */}
+          {/* <IconHourGlass /> */}
+          {/* <FaAngleDown size={25} /> */}
+          {/* </div> */}
         </div>
 
         {/* <div className={css.hintLocation}>

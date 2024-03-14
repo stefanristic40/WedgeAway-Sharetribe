@@ -8298,6 +8298,75 @@ export const listingFields = [
     },
   },
 
+  // For the handness and condition field
+
+  {
+    key: 'isRight',
+    scope: 'public',
+    schemaType: 'boolean',
+    filterConfig: {
+      indexForSearch: true,
+      label: 'Handedness',
+      group: 'primary',
+    },
+    showConfig: {
+      label: 'Driver',
+      isDetail: false,
+    },
+    saveConfig: {
+      label: '',
+      placeholderMessage: 'Right',
+      isRequired: false,
+      requiredMessage: 'You need to select a Handedness.',
+    },
+  },
+  {
+    key: 'isLeft',
+    scope: 'public',
+    schemaType: 'boolean',
+    filterConfig: {
+      indexForSearch: true,
+      label: 'Handedness',
+      group: 'primary',
+    },
+    showConfig: {
+      label: 'Left',
+      isDetail: false,
+    },
+    saveConfig: {
+      label: '',
+      placeholderMessage: 'Left',
+      isRequired: false,
+      requiredMessage: 'You need to select a Handedness.',
+    },
+  },
+  {
+    key: 'clubCondition',
+    scope: 'public',
+    schemaType: 'enum',
+    enumOptions: [
+      { option: 'likeNew', label: 'Like New' },
+      { option: 'Good', label: 'Good' },
+      { option: 'Fair', label: 'Fair' },
+      { option: 'SignificantWeaTear', label: 'Significant Wear & Tear' },
+    ],
+    filterConfig: {
+      indexForSearch: true,
+      label: 'Condition',
+      group: 'primary',
+    },
+    showConfig: {
+      label: 'Category',
+      isDetail: false,
+    },
+    saveConfig: {
+      label: '',
+      placeholderMessage: '(Required)',
+      isRequired: true,
+      requiredMessage: 'You need to select a category.',
+    },
+  },
+
   // {
   //   key: 'tire',
   //   scope: 'public',

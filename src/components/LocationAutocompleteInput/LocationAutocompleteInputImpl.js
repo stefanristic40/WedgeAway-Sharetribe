@@ -354,6 +354,8 @@ class LocationAutocompleteInputImplementation extends Component {
           return;
         }
         this.setState({ fetchingPlaceDetails: false });
+        console.log('location lat long place params', prediction);
+        console.log('location lat long place', place);
         this.props.input.onChange({
           search: place.address,
           predictions: [],
@@ -406,6 +408,9 @@ class LocationAutocompleteInputImplementation extends Component {
         // This is essentially the same as switchLatest in RxJS or
         // takeLatest in Redux Saga, without canceling the earlier
         // requests.
+        console.log('location lat long results: ', results);
+        console.log('location lat long results1: ', currentSearch);
+
         if (results.search === currentSearch) {
           onChange({
             search: results.search,

@@ -406,6 +406,7 @@ class LocationAutocompleteInputImplementation extends Component {
         // This is essentially the same as switchLatest in RxJS or
         // takeLatest in Redux Saga, without canceling the earlier
         // requests.
+        console.log('location lat long results: ', results);
         if (results.search === currentSearch) {
           onChange({
             search: results.search,

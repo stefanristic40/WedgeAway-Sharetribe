@@ -94,3 +94,24 @@
   @media (max-width: 768px) {
   }
 }
+
+.handCondition {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.itemTitle {
+  margin: 0;
+  padding: 0;
+
+  font-size: 1.3rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}

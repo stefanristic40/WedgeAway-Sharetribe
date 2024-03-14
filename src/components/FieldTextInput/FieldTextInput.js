@@ -141,7 +141,15 @@ class FieldTextInput extends Component {
   }
 
   render() {
-    return <Field component={FieldTextInputComponent} {...this.props} />;
+    return (
+      <Field
+        component={FieldTextInputComponent}
+        {...this.props}
+        onClick={e => {
+          if (e.target.type === 'time') e.target.showPicker();
+        }}
+      />
+    );
   }
 }
 
