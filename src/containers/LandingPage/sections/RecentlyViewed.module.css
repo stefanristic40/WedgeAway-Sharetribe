@@ -19,6 +19,19 @@
   width: 100%;
 }
 
+.item:hover {
+  .thumbnail {
+    padding: 20px;
+    width: 100%;
+    /* background: #e4e9e6; */
+    background: #e4e9e6;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 20px;
+  }
+}
+
 .title {
   font-size: 1.2rem;
 }
@@ -26,12 +39,14 @@
 .thumbnail {
   padding: 20px;
   width: 100%;
-  background: #e4e9e6;
+  /* background: #e4e9e6; */
+  background: white;
   display: flex;
   justify-content: center;
   position: relative;
   border-radius: 20px;
 }
+
 .thumbnail_img {
   max-height: 250px;
 
