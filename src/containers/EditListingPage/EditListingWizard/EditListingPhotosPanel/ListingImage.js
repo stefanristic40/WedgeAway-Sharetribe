@@ -58,7 +58,6 @@ const ListingImage = props => {
     e.stopPropagation();
     onRemoveImage(image.id);
   };
-  console.log('image.file', image.file, image.id, image);
   if (image.file && !image.attributes) {
     // remove because images without attributes are only show
     // if (image.file) {

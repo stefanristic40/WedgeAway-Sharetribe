@@ -8,12 +8,12 @@ export const EachBagDetail = props => {
   return (
     <div>
       <div className={css.putterDetailItem}>
-        <h4 className={css.itemTitle}>{listingFieldsConfig[2 + id]['filterConfig']['label']}</h4>
+        <h4 className={css.itemTitle}>{listingFieldsConfig[3 + id]['filterConfig']['label']}</h4>
       </div>
       <div className={css.itemRow}>
         <EditListingEachInfo
           listingType={listingType}
-          fieldConfig={listingFieldsConfig[2 + id]}
+          fieldConfig={listingFieldsConfig[3 + id]}
           intl={intl}
         />
       </div>

@@ -153,6 +153,7 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
     Choose_Your_Set: golfClubs,
     firstBrand: mostCommonBrand,
     brandNumber: brandNumber,
+    brand: brand,
   };
 };
 
@@ -330,6 +331,8 @@ const EditListingDetailsPanel = props => {
               ...rest
             } = values;
 
+            const handedness = rest.pub_isRight;
+
             const isFull =
               !!rest.pub_driverIn &&
               (!!rest.pub_3woodIn ||
@@ -353,6 +356,8 @@ const EditListingDetailsPanel = props => {
                 !!rest.pub_6hybridIn ||
                 !!rest.pub_9ironIn);
 
+            const hand = handedness ? 'righty' : 'lefty';
+
             const updateValues = {
               title: isFull ? 'Full Set' : 'Partial Set',
               description,
@@ -361,6 +366,7 @@ const EditListingDetailsPanel = props => {
                 transactionProcessAlias,
                 unitType,
                 ...pickListingFieldsData(rest, 'public', listingType, listingFieldsConfig),
+                hand,
               },
               privateData: pickListingFieldsData(rest, 'private', listingType, listingFieldsConfig),
               ...setNoAvailabilityForUnbookableListings(transactionProcessAlias),

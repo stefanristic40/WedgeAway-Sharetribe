@@ -175,3 +175,35 @@
 .addButton:hover {
   background-color: #1c270866; /* Darker green on hover 313e19 */
 }
+
+.removeButton {
+  position: relative;
+  border-color: white;
+  border-width: 0;
+  transition: transform 0.3s;
+  @media (max-width: 768px) {
+    grid-column: 3 / 4;
+    grid-row: 1;
+    width: 45px;
+    height: 35px;
+  }
+}
+
+.removeButton:hover {
+  transform: translate(2px, 2px);
+  color: red;
+  cursor: pointer;
+}
+
+.removeButton:hover::after {
+  transform: translate(2px, 2px);
+  color: black;
+  content: 'Remove';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  padding: 5px;
+  background-color: #e5e3e3;
+  border-radius: 5px;
+  font-size: 12px;
+}

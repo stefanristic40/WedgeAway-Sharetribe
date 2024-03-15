@@ -1,6 +1,6 @@
 import React from 'react';
-
 import classNames from 'classnames';
+import { GrTrash } from 'react-icons/gr';
 
 // Import shared components
 import {
@@ -77,6 +77,15 @@ export default function EditListingAddOnItem(props) {
           }}
           label=""
         />
+        <button
+          className={css.removeButton}
+          onClick={e => {
+            e.preventDefault();
+            props.remove();
+          }}
+        >
+          <GrTrash size={15} />
+        </button>
       </div>
       <div className={css.line} />
     </div>

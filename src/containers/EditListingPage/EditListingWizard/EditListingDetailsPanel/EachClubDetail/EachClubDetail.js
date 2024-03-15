@@ -5,7 +5,7 @@ import css from './EachClubDetail.module.css';
 
 export const EachClubDetail = props => {
   const { listingType, listingFieldsConfig, intl, id, type, values } = props;
-  const idNew = id + 1;
+  const idNew = id + 2;
   const id1 = type == 1 ? idNew - 1 : idNew;
   const id2 = type == 1 ? idNew - 2 : type == 2 ? idNew - 3 : idNew;
   // const id1 = type == 1 ? id : id + 1;

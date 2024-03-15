@@ -35,7 +35,6 @@ const ImageFromFile = props => {
       key={id}
       promise={promisedImage}
       renderFulfilled={dataURL => {
-        console.log('dateUrl', { dataURL });
         return (
           <div className={classes}>
             <AspectRatioWrapper width={aspectWidth} height={aspectHeight}>

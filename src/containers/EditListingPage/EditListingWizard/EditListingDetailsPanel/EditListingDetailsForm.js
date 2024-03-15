@@ -158,8 +158,6 @@ const EditListingDetailsFormComponent = props => (
         form,
       } = formRenderProps;
 
-      console.log('listingFieldsConfig', listingFieldsConfig);
-
       const { listingType } = values;
 
       const titleRequiredMessage = intl.formatMessage({
@@ -232,7 +230,7 @@ const EditListingDetailsFormComponent = props => (
             <h4 className={css.itemTitle}>Condition &nbsp;&nbsp;</h4>
             <EditListingEachInfo
               listingType={listingType}
-              fieldConfig={listingFieldsConfig[334]}
+              fieldConfig={listingFieldsConfig[335]}
               intl={intl}
             />
           </div>
@@ -245,7 +243,7 @@ const EditListingDetailsFormComponent = props => (
             >
               <EditListingEachInfo
                 listingType={listingType}
-                fieldConfig={listingFieldsConfig[332]}
+                fieldConfig={listingFieldsConfig[333]}
                 intl={intl}
               />
             </div>
@@ -256,7 +254,7 @@ const EditListingDetailsFormComponent = props => (
             >
               <EditListingEachInfo
                 listingType={listingType}
-                fieldConfig={listingFieldsConfig[333]}
+                fieldConfig={listingFieldsConfig[334]}
                 intl={intl}
               />
             </div>

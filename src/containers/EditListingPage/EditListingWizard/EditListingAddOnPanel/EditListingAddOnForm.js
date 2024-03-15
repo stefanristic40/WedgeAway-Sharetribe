@@ -44,17 +44,13 @@ export const EditListingAddOnFormComponent = props => (
         updated,
         updateInProgress,
         fetchErrors,
+        values,
       } = formRenderProps;
       const classes = classNames(css.root, className);
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
       const { updateListingError, showListingsError } = fetchErrors || {};
-
-      const [number, setNumber] = useState(numberOfAddOn);
-      const handleWeekClick = () => {
-        setNumber(number + 1);
-      };
 
       // const addOnItemsMaybe = [<EditListingAddOnItem key={1} id={1} />];
       // for (let i = 2; i <= number; i++) {
@@ -77,11 +73,24 @@ export const EditListingAddOnFormComponent = props => (
           {/* {number === 0 && <EditListingAddOnItem key={1} id={1} />} */}
           {/* {addOnItemsMaybe} */}
 
-          {[...Array(Number.parseInt(number))].map((_, index) => (
-            <EditListingAddOnItem key={index + 1} id={index + 1} />
+          {[...Array(Number.parseInt(numberOfAddOn))].map((_, index) => (
+            <EditListingAddOnItem
+              remove={() => {
+                props.remove(values, index + 1);
+              }}
+              key={index + 1}
+              id={index + 1}
+            />
           ))}
 
-          <button type="button" className={css.addButton} onClick={handleWeekClick}>
+          <button
+            type="button"
+            className={css.addButton}
+            onClick={() => {
+              console.log(values);
+              props.addNew(values);
+            }}
+          >
             <p style={{ padding: 0, margin: 0, fontSize: '20px' }}>+</p>
           </button>
           <div className={css.buttonItems}>

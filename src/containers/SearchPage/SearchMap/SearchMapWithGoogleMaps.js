@@ -450,6 +450,40 @@ class SearchMapWithGoogleMaps extends Component {
     this.idleListener.remove();
   }
 
+  // function InitMap() {
+  //   /* Set all of the options for the map */
+  //   var options = {
+  //     zoom: 4,
+  //     center: new google.maps.LatLng(38.6201, -90.2003),
+  //     mapTypeId: google.maps.MapTypeId.ROADMAP,
+  //     mapTypeControl: true,
+  //     mapTypeControlOptions: {
+  //       style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+  //       position: google.maps.ControlPosition.BOTTOM_CENTER
+  //     },
+  //     panControl: true,
+  //     panControlOptions: {
+  //       position: google.maps.ControlPosition.TOP_RIGHT
+  //     },
+  //     zoomControl: true,
+  //     zoomControlOptions: {
+  //       style: google.maps.ZoomControlStyle.LARGE,
+  //       position: google.maps.ControlPosition.LEFT_CENTER
+  //     },
+  //     scaleControl: true,
+  //     scaleControlOptions: {
+  //       position: google.maps.ControlPosition.BOTTOM_LEFT
+  //     },
+  //     streetViewControl: true,
+  //     streetViewControlOptions: {
+  //       position: google.maps.ControlPosition.LEFT_TOP
+  //     }
+  //   };
+
+  //   /* Create a new Map for the application */
+  //   map = new google.maps.Map(document.getElementById('map'), options);
+  // }
+
   initializeMap() {
     const { offsetHeight, offsetWidth } = this.state.mapContainer;
     const hasDimensions = offsetHeight > 0 && offsetWidth > 0;
@@ -457,23 +491,50 @@ class SearchMapWithGoogleMaps extends Component {
     if (hasDimensions) {
       const { bounds, center, zoom } = this.props;
       const maps = window.google.maps;
-      const controlPosition = maps.ControlPosition.LEFT_TOP;
+      // const controlPosition = maps.ControlPosition.LEFT_TOP;
       const zoomOutToShowEarth = { zoom: 1, center: { lat: 0, lng: 0 } };
       const zoomAndCenter = !bounds && !center ? zoomOutToShowEarth : { zoom, center };
 
       const mapConfig = {
+        mapTypeId: maps.MapTypeId.ROADMAP,
         // Disable all controls except zoom
         // https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions
-        mapTypeControl: false,
-        scrollwheel: false,
-        fullscreenControl: false,
+        // mapTypeControl: false,
+        scrollwheel: true,
+        fullscreenControl: true,
         clickableIcons: false,
-        streetViewControl: false,
+        // streetViewControl: false,
+        // scaleControl: true,
 
-        zoomControlOptions: {
-          position: controlPosition,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: maps.ControlPosition.BOTTOM_CENTER,
         },
 
+        // zoomControlOptions: {
+        //   position: controlPosition,
+        // },
+
+        zoomControl: true,
+        zoomControlOptions: {
+          style: maps.ZoomControlStyle.DEFAULT,
+          position: maps.ControlPosition.LEFT_CENTER,
+        },
+
+        panControl: true,
+        panControlOptions: {
+          position: maps.ControlPosition.TOP_RIGHT,
+        },
+
+        // scaleControl: true,
+        // scaleControlOptions: {
+        //   position: maps.ControlPosition.BOTTOM_LEFT,
+        // },
+
+        streetViewControl: true,
+        overviewMapControl: true,
+        rotateControl: true,
         // Add default viewport (the whole world)
         ...zoomAndCenter,
       };
