@@ -492,49 +492,43 @@ class SearchMapWithGoogleMaps extends Component {
       const { bounds, center, zoom } = this.props;
       const maps = window.google.maps;
       // const controlPosition = maps.ControlPosition.LEFT_TOP;
-      const zoomOutToShowEarth = { zoom: 1, center: { lat: 0, lng: 0 } };
+      const zoomOutToShowEarth = { zoom: 4, center: { lat: 35, lng: -100 } };
       const zoomAndCenter = !bounds && !center ? zoomOutToShowEarth : { zoom, center };
 
       const mapConfig = {
         mapTypeId: maps.MapTypeId.ROADMAP,
         // Disable all controls except zoom
         // https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions
-        // mapTypeControl: false,
+
         scrollwheel: true,
-        fullscreenControl: true,
-        clickableIcons: false,
-        // streetViewControl: false,
-        // scaleControl: true,
+        // fullscreenControl: true,
+        // clickableIcons: false,
 
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-          style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
-          position: maps.ControlPosition.BOTTOM_CENTER,
-        },
-
-        // zoomControlOptions: {
-        //   position: controlPosition,
+        // mapTypeControl: true,
+        // mapTypeControlOptions: {
+        //   style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
+        //   position: maps.ControlPosition.BOTTOM_CENTER,
         // },
 
-        zoomControl: true,
-        zoomControlOptions: {
-          style: maps.ZoomControlStyle.DEFAULT,
-          position: maps.ControlPosition.LEFT_CENTER,
-        },
+        // zoomControl: true,
+        // zoomControlOptions: {
+        //   style: maps.ZoomControlStyle.DEFAULT,
+        //   position: maps.ControlPosition.LEFT_CENTER,
+        // },
 
-        panControl: true,
-        panControlOptions: {
-          position: maps.ControlPosition.TOP_RIGHT,
-        },
+        // panControl: true,
+        // panControlOptions: {
+        //   position: maps.ControlPosition.TOP_RIGHT,
+        // },
 
         // scaleControl: true,
         // scaleControlOptions: {
         //   position: maps.ControlPosition.BOTTOM_LEFT,
         // },
 
-        streetViewControl: true,
-        overviewMapControl: true,
-        rotateControl: true,
+        // streetViewControl: true,
+        // overviewMapControl: true,
+        // rotateControl: true,
         // Add default viewport (the whole world)
         ...zoomAndCenter,
       };
@@ -544,6 +538,7 @@ class SearchMapWithGoogleMaps extends Component {
       this.setState({
         isMapReady: true,
       });
+      // window.alert('scale', this.map.getZoom());
     }
   }
 

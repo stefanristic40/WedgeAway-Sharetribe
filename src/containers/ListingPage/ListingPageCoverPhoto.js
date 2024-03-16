@@ -176,9 +176,17 @@ export const ListingPageComponent = props => {
   const address = currentListing?.attributes?.publicData?.location?.address;
   const [geocoder, setGeocoder] = useState(null);
   const addOn = currentListing?.attributes?.publicData?.addOns;
+  const clubConditionTmp = currentListing?.attributes?.publicData?.clubCondition;
+  const clubCondition =
+    clubConditionTmp == 'likeNew'
+      ? 'Like New'
+      : clubConditionTmp == 'SignificantWeaTear'
+      ? 'Significant Wear & Tear'
+      : clubConditionTmp || 'Like New';
+  const handy = currentListing?.attributes?.publicData?.hand || 'Righty';
 
   useEffect(() => {
-    // const address = currentListing?.attributes?.publicData?.location?.address;
+    // const address = currentListing?.attributes?.publicData?.location?.address;   || 'Like New';
     console.log('address', address);
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
@@ -195,14 +203,6 @@ export const ListingPageComponent = props => {
 
           const cityContext = feature.context.find(context => context.id.includes('place'));
           const stateContext = feature.context.find(context => context.id.includes('region'));
-
-          // if (cityContext) {
-          //   city = city ? city : cityContext.text;
-          // }
-
-          // if (stateContext) {
-          //   state = state ? state : stateContext.text;
-          // }
 
           if (cityContext && stateContext) {
             city = cityContext.text;
@@ -689,7 +689,7 @@ export const ListingPageComponent = props => {
             </H4>
 
             <div className={css.paddingCondition}>
-              Condition: Like New&nbsp;&nbsp;&nbsp;&nbsp;Handedness: Righty
+              Condition: {clubCondition}&nbsp;&nbsp;&nbsp;&nbsp;Handedness: {handy}
             </div>
 
             {/* Club Detail */}
