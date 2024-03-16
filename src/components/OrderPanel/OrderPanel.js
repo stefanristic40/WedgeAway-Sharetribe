@@ -292,6 +292,7 @@ const OrderPanel = props => {
   const helmetFee = listing?.attributes?.publicData.helmetFee;
   const deliverFee = listing?.attributes?.publicData.deliverFee;
   const addOn = listing?.attributes?.publicData.addOns;
+  const isDelivery = listing?.attributes?.publicData?.pickupDeliver?.isDelivery;
 
   return (
     <div className={classes}>
@@ -384,6 +385,7 @@ const OrderPanel = props => {
             deliverFee={deliverFee}
             addOn={addOn}
             initialValues={{ deliveryTime: '08:00', pickUpTime: '08:00', PickDeliver: 'pickup' }}
+            isDelivery={isDelivery}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm

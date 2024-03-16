@@ -536,7 +536,11 @@ export const BookingDatesFormComponent = props => {
           helmetFee,
           deliverFee,
           addOn,
+          isDelivery,
         } = fieldRenderProps;
+
+        const idDelivery = isDelivery == 'false' ? false : true;
+
         const { startDate, endDate } = values && values.bookingDates ? values.bookingDates : {};
 
         const startDateErrorMessage = intl.formatMessage({
@@ -661,6 +665,8 @@ export const BookingDatesFormComponent = props => {
           setNumberOfAddOn(tmp);
         }, []);
 
+        console.log('numberOfAddOn', numberOfAddOn);
+
         return (
           <Form onSubmit={handleSubmit} className={classes} enforcePagePreloadFor="CheckoutPage">
             <FormSpy subscription={{ values: true }} onChange={onFormSpyChange} />
@@ -742,18 +748,24 @@ export const BookingDatesFormComponent = props => {
             {helmetFeeMaybe}
             {deliverFeeMaybe}
             {/* Select Pickup or Delivery */}
-            <div className={css.pickUpDeliveryTitle}>Select Pickup or Delivery</div>
-            <div className={css.pickDelieryOption}>
-              <label className={css.pickDelieryLabel}>
-                <Field name="PickDeliver" component="input" type="radio" value="pickup" /> Pickup
-              </label>
-              <label className={css.pickDelieryLabel}>
-                <Field name="PickDeliver" component="input" type="radio" value="delivery" />
-                Delivery
-              </label>
-            </div>
 
-            {values['PickDeliver'] == 'pickup' && (
+            {!!idDelivery && (
+              <div>
+                <div className={css.pickUpDeliveryTitle}>Select Pickup or Delivery</div>
+                <div className={css.pickDelieryOption}>
+                  <label className={css.pickDelieryLabel}>
+                    <Field name="PickDeliver" component="input" type="radio" value="pickup" />
+                    Pickup
+                  </label>
+                  <label className={css.pickDelieryLabel}>
+                    <Field name="PickDeliver" component="input" type="radio" value="delivery" />
+                    Delivery
+                  </label>
+                </div>
+              </div>
+            )}
+
+            {!idDelivery && (
               <div>
                 {/* Pickup Time */}
                 <div className={css.packageTitle}>Pickup Time</div>
@@ -765,7 +777,20 @@ export const BookingDatesFormComponent = props => {
                 />
               </div>
             )}
-            {values['PickDeliver'] == 'delivery' && (
+
+            {values['PickDeliver'] == 'pickup' && !!idDelivery && (
+              <div>
+                {/* Pickup Time */}
+                <div className={css.packageTitle}>Pickup Time</div>
+                <FieldTextInput
+                  id="pickUpTime"
+                  name="pickUpTime"
+                  type="time"
+                  className={css.locationAddress}
+                />
+              </div>
+            )}
+            {values['PickDeliver'] == 'delivery' && !!idDelivery && (
               <div>
                 {/* Address for Delivery */}
                 <div className={css.packageTitle}>Address for Delivery</div>
@@ -800,23 +825,24 @@ export const BookingDatesFormComponent = props => {
               </div>
             )}
 
-            <div className={css.addOnTitle}>Add Ons</div>
-            {[...Array(numberOfAddOn)].map((_, index) => (
-              <FieldCheckbox
-                key={index}
-                className={css.addOnContainer}
-                id={`${formId}.addOn${++index}`}
-                name={`addOn${index}`}
-                label={
-                  addOn[`addOn${index}`].addOnManufact +
-                  ' ' +
-                  addOn[`addOn${index}`].addOnTitle +
-                  '• $' +
-                  addOn[`addOn${index}`].addOnPrice
-                }
-                value={`addOn${index}`}
-              />
-            ))}
+            {!!addOn[`addOn${0}`]?.addOnTitle && <div className={css.addOnTitle}>Add Ons</div>}
+            {!!addOn[`addOn${0}`]?.addOnTitle &&
+              [...Array(numberOfAddOn)].map((_, index) => {
+                <FieldCheckbox
+                  key={index}
+                  className={css.addOnContainer}
+                  id={`${formId}.addOn${++index}`}
+                  name={`addOn${index}`}
+                  label={
+                    addOn[`addOn${index}`].addOnManufact +
+                    ' ' +
+                    addOn[`addOn${index}`].addOnTitle +
+                    '• $' +
+                    addOn[`addOn${index}`].addOnPrice
+                  }
+                  value={`addOn${index}`}
+                />;
+              })}
             <div className={css.submitButton}>
               {/* <PrimaryButton type="submit" inProgress={fetchLineItemsInProgress}>
                 <FormattedMessage id="BookingDatesForm.requestToBook" />
