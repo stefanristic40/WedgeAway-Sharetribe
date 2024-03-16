@@ -8293,7 +8293,7 @@ export const listingFields = [
     saveConfig: {
       label: '',
       placeholderMessage: 'Brand, Name/Model',
-      isRequired: true,
+      isRequired: false,
       requiredMessage: 'You need to write bag detail.',
     },
   },
