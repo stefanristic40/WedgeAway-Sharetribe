@@ -665,8 +665,6 @@ export const BookingDatesFormComponent = props => {
           setNumberOfAddOn(tmp);
         }, []);
 
-        console.log('numberOfAddOn', numberOfAddOn);
-
         return (
           <Form onSubmit={handleSubmit} className={classes} enforcePagePreloadFor="CheckoutPage">
             <FormSpy subscription={{ values: true }} onChange={onFormSpyChange} />
@@ -824,24 +822,26 @@ export const BookingDatesFormComponent = props => {
                 />
               </div>
             )}
-
-            {!!addOn[`addOn${0}`]?.addOnTitle && <div className={css.addOnTitle}>Add Ons</div>}
-            {!!addOn[`addOn${0}`]?.addOnTitle &&
+            {console.log(numberOfAddOn)}
+            {!!addOn[`addOn${1}`]?.addOnTitle && <div className={css.addOnTitle}>Add Ons</div>}
+            {!!addOn[`addOn${1}`]?.addOnTitle &&
               [...Array(numberOfAddOn)].map((_, index) => {
-                <FieldCheckbox
-                  key={index}
-                  className={css.addOnContainer}
-                  id={`${formId}.addOn${++index}`}
-                  name={`addOn${index}`}
-                  label={
-                    addOn[`addOn${index}`].addOnManufact +
-                    ' ' +
-                    addOn[`addOn${index}`].addOnTitle +
-                    '• $' +
-                    addOn[`addOn${index}`].addOnPrice
-                  }
-                  value={`addOn${index}`}
-                />;
+                return (
+                  <FieldCheckbox
+                    key={index}
+                    className={css.addOnContainer}
+                    id={`${formId}.addOn${++index}`}
+                    name={`addOn${index}`}
+                    label={
+                      addOn[`addOn${index}`].addOnManufact +
+                      ' ' +
+                      addOn[`addOn${index}`].addOnTitle +
+                      '• $' +
+                      addOn[`addOn${index}`].addOnPrice
+                    }
+                    value={`addOn${index}`}
+                  />
+                );
               })}
             <div className={css.submitButton}>
               {/* <PrimaryButton type="submit" inProgress={fetchLineItemsInProgress}>

@@ -356,7 +356,7 @@ const EditListingDetailsPanel = props => {
                 !!rest.pub_6hybridIn ||
                 !!rest.pub_9ironIn);
 
-            const hand = handedness ? 'righty' : 'lefty';
+            const hand = handedness ? 'Righty' : 'Lefty';
 
             const updateValues = {
               title: isFull ? 'Full Set' : 'Partial Set',

@@ -3,20 +3,27 @@
 .root {
   /* Layout */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   /* Remove link's hover effect */
   &:hover {
     text-decoration: none;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .aspectRatioWrapper {
+  width: 90vw;
+  height: 70vw;
   transition: var(--transitionStyleButton);
   background: var(--colorGrey100); /* Loading BG color */
   border-radius: var(--borderRadiusMedium);
 
   @media (--viewportMedium) {
+    width: 20vw;
+    height: 14vw;
     &:hover {
       transform: scale(1.02);
       box-shadow: var(--boxShadowListingCard);

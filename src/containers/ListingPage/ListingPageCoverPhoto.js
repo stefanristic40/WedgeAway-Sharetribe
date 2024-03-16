@@ -183,7 +183,8 @@ export const ListingPageComponent = props => {
       : clubConditionTmp == 'SignificantWeaTear'
       ? 'Significant Wear & Tear'
       : clubConditionTmp || 'Like New';
-  const handy = currentListing?.attributes?.publicData?.hand || 'Righty';
+  const thandy = currentListing?.attributes?.publicData?.hand || 'Righty';
+  const handy = thandy.charAt(0).toUpperCase() + thandy.slice(1);
 
   useEffect(() => {
     // const address = currentListing?.attributes?.publicData?.location?.address;   || 'Like New';
@@ -706,7 +707,7 @@ export const ListingPageComponent = props => {
             <div className={css.subtitleAddOn}>Optional Add Ons</div>
             <div className={css.addOnPadding}>
               <ul className={css.listingAddOn}>
-                {!!addOn[`addOn${0}`]?.addOnTitle &&
+                {!!addOn[`addOn${1}`]?.addOnTitle &&
                   [...Array(numberOfAddOn)].map((_, index) => (
                     <li className={css.mainContent} key={index}>
                       {addOn[`addOn${++index}`]?.addOnManufact +
@@ -716,7 +717,7 @@ export const ListingPageComponent = props => {
                         addOn[`addOn${index}`]?.addOnPrice}
                     </li>
                   ))}
-                {!addOn[`addOn${0}`]?.addOnTitle && 'No Add Ons Available '}
+                {!addOn[`addOn${1}`]?.addOnTitle && 'No Add Ons Available '}
               </ul>
             </div>
 
