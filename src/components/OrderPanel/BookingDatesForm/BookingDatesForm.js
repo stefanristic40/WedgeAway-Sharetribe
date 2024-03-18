@@ -483,6 +483,7 @@ const validatePickTime = (min, max) => value => {
   const minNum = min.replace(':', '');
   const maxNum = max.replace(':', '');
 
+  console.log('asdfasdf', min, max, value);
   if (valueNum < minNum || valueNum > maxNum) {
     return `Must be between ${min} and ${max}`;
   } else {
@@ -518,6 +519,7 @@ export const BookingDatesFormComponent = props => {
     pickUpTime,
     ...rest
   } = props;
+
   const classes = classNames(rootClassName || css.root, className);
 
   const onFormSubmit = handleFormSubmit(setFocusedInput, onSubmit);
@@ -790,6 +792,7 @@ export const BookingDatesFormComponent = props => {
                   name="pickUpTime"
                   type="time"
                   className={css.locationAddress}
+                  validate={validatePickTime(pickUpTime, dropOffTime)}
                 />
               </div>
             )}
@@ -803,10 +806,8 @@ export const BookingDatesFormComponent = props => {
                   name="pickUpTime"
                   type="time"
                   className={css.locationAddress}
-                  min="08:00"
-                  max="18:00"
-                  required
                   validate={validatePickTime(pickUpTime, dropOffTime)}
+                  // validate={validatePickTime('08:00', '20:00')}
                 />
               </div>
             )}
