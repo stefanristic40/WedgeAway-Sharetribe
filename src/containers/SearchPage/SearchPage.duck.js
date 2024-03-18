@@ -257,18 +257,7 @@ export const loadData = (params, search, config) => {
       page,
       perPage: RESULT_PAGE_SIZE,
       include: ['author', 'images'],
-      'fields.listing': [
-        'title',
-        'geolocation',
-        'price',
-        'publicData.listingType',
-        'publicData.transactionProcessAlias',
-        'publicData.unitType',
-        // These help rendering of 'purchase' listings,
-        // when transitioning from search page to listing page
-        'publicData.pickupEnabled',
-        'publicData.shippingEnabled',
-      ],
+      'fields.listing': ['title', 'geolocation', 'price', 'publicData'],
       'fields.user': ['profile.displayName', 'profile.abbreviatedName'],
       'fields.image': [
         'variants.scaled-small',

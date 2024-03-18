@@ -52,6 +52,9 @@ const Accordion = props => {
       {isOpen && (
         <div className={css.content}>
           <div className={css.spaceZ}></div>
+          {publicData && publicData[`${clubName}Year`] && (
+            <div>•&nbsp;Year: &nbsp;{publicData[`${clubName}Year`]}</div>
+          )}
           {publicData && publicData[`${clubName}HeadType`] && (
             <div>•&nbsp;Head Type: &nbsp;{publicData[`${clubName}HeadType`]}</div>
           )}

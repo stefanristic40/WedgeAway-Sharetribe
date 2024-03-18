@@ -194,6 +194,8 @@ export const ListingPageComponent = props => {
       ? ensureOwnListing(getOwnListing(listingId))
       : ensureListing(getListing(listingId));
 
+  console.log('address', currentListing);
+
   const address = currentListing?.attributes?.publicData?.location?.address;
   const [geocoder, setGeocoder] = useState(null);
   const addOn = currentListing?.attributes?.publicData?.addOns;
@@ -975,6 +977,7 @@ const EnhancedListingPage = props => {
 };
 
 const mapStateToProps = state => {
+  console.log('state for ', state);
   const { isAuthenticated } = state.auth;
   const {
     showListingError,

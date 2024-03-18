@@ -506,6 +506,7 @@ export class SearchPageComponent extends Component {
                     <FormattedMessage id="SearchPage.invalidDatesFilter" />
                   </H5>
                 ) : null}
+                {console.log('listings', listings)}
                 <SearchResultsPanel
                   className={css.searchListingsPanel}
                   listings={listings}
