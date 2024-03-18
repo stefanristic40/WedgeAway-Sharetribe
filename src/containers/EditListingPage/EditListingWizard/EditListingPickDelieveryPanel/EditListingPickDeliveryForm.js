@@ -35,41 +35,40 @@ export const EditListingPickDiliveryFormComponent = props => (
     {...props}
     mutators={{
       setSameStartT: (args, state, utils) => {
-        utils.changeValue(state, 'tueStartT', () => args);
-        utils.changeValue(state, 'wedStartT', () => args);
-        utils.changeValue(state, 'thuStartT', () => args);
-        utils.changeValue(state, 'friStartT', () => args);
-        utils.changeValue(state, 'satStartT', () => args);
-        utils.changeValue(state, 'sunStartT', () => args);
+        utils.changeValue(state, 'tueStartT', () => args[0]);
+        utils.changeValue(state, 'wedStartT', () => args[0]);
+        utils.changeValue(state, 'thuStartT', () => args[0]);
+        utils.changeValue(state, 'friStartT', () => args[0]);
+        utils.changeValue(state, 'satStartT', () => args[0]);
+        utils.changeValue(state, 'sunStartT', () => args[0]);
       },
 
       setSameEndT: (args, state, utils) => {
-        utils.changeValue(state, 'tueEndT', () => args);
-        utils.changeValue(state, 'wedEndT', () => args);
-        utils.changeValue(state, 'thuEndT', () => args);
-        utils.changeValue(state, 'friEndT', () => args);
-        utils.changeValue(state, 'satEndT', () => args);
-        utils.changeValue(state, 'sunEndT', () => args);
+        utils.changeValue(state, 'tueEndT', () => args[0]);
+        utils.changeValue(state, 'wedEndT', () => args[0]);
+        utils.changeValue(state, 'thuEndT', () => args[0]);
+        utils.changeValue(state, 'friEndT', () => args[0]);
+        utils.changeValue(state, 'satEndT', () => args[0]);
+        utils.changeValue(state, 'sunEndT', () => args[0]);
       },
       setSameStartD: (args, state, utils) => {
-        utils.changeValue(state, 'tueStartD', () => args);
-        utils.changeValue(state, 'wedStartD', () => args);
-        utils.changeValue(state, 'thuStartD', () => args);
-        utils.changeValue(state, 'friStartD', () => args);
-        utils.changeValue(state, 'satStartD', () => args);
-        utils.changeValue(state, 'sunStartD', () => args);
+        utils.changeValue(state, 'tueStartD', () => args[0]);
+        utils.changeValue(state, 'wedStartD', () => args[0]);
+        utils.changeValue(state, 'thuStartD', () => args[0]);
+        utils.changeValue(state, 'friStartD', () => args[0]);
+        utils.changeValue(state, 'satStartD', () => args[0]);
+        utils.changeValue(state, 'sunStartD', () => args[0]);
       },
       setSameEndD: (args, state, utils) => {
-        utils.changeValue(state, 'tueEndD', () => args);
-        utils.changeValue(state, 'wedEndD', () => args);
-        utils.changeValue(state, 'thuEndD', () => args);
-        utils.changeValue(state, 'friEndD', () => args);
-        utils.changeValue(state, 'satEndD', () => args);
-        utils.changeValue(state, 'sunEndD', () => args);
+        utils.changeValue(state, 'tueEndD', () => args[0]);
+        utils.changeValue(state, 'wedEndD', () => args[0]);
+        utils.changeValue(state, 'thuEndD', () => args[0]);
+        utils.changeValue(state, 'friEndD', () => args[0]);
+        utils.changeValue(state, 'satEndD', () => args[0]);
+        utils.changeValue(state, 'sunEndD', () => args[0]);
       },
       setSameCheck: (args, state, utils) => {
         console.log('args', args);
-        const tmp = args;
         utils.changeValue(state, 'is_tue', () => args[0]);
         utils.changeValue(state, 'is_wed', () => args[0]);
         utils.changeValue(state, 'is_thu', () => args[0]);
@@ -233,7 +232,7 @@ export const EditListingPickDiliveryFormComponent = props => (
               form.mutators.setSameStartD(values['monStartD']);
               form.mutators.setSameEndD(values['monEndD']);
               form.mutators.setSameCheck(values['is_mon']);
-              console.log('is_mon', values['is_mon']);
+              console.log('monStartT', values['tueEndT']);
               console.log('t', values['is_tue']);
             }}
           >
