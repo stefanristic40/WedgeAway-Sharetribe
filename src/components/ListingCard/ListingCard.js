@@ -85,12 +85,15 @@ export const ListingCardComponent = props => {
 
   const titleClub = listing?.attributes?.title;
   const numberOfBrand = listing?.attributes?.publicData?.brandNumber;
+  const firstBrand = listing?.attributes?.publicData?.firstBrand?.replace(/-|_/g, match =>
+    match === '_' ? ' ' : '.'
+  );
   const brandSet =
     numberOfBrand < 2
-      ? `${listing?.attributes?.publicData?.firstBrand}`
+      ? `${firstBrand}`
       : numberOfBrand < 3
-      ? `${listing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brand`
-      : `${listing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brands`;
+      ? `${firstBrand} + ${numberOfBrand - 1} Brand`
+      : `${firstBrand} + ${numberOfBrand - 1} Brands`;
   const thandy = listing?.attributes?.publicData?.hand || 'Righty';
   const handy = thandy.charAt(0).toUpperCase() + thandy.slice(1);
   const publicdata = listing?.attributes?.publicData;

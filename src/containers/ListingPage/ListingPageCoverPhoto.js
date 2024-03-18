@@ -290,12 +290,15 @@ export const ListingPageComponent = props => {
   //     ? `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brand`
   //     : `${currentListing?.attributes?.publicData?.firstBrand}`;
 
+  const firstBrand = currentListing?.attributes?.publicData?.firstBrand?.replace(/-|_/g, match =>
+    match === '_' ? ' ' : '.'
+  );
   const brandSet =
     numberOfBrand < 2
-      ? `${currentListing?.attributes?.publicData?.firstBrand}`
+      ? `${firstBrand}`
       : numberOfBrand < 3
-      ? `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brand`
-      : `${currentListing?.attributes?.publicData?.firstBrand} + ${numberOfBrand - 1} Brands`;
+      ? `${firstBrand} + ${numberOfBrand - 1} Brand`
+      : `${firstBrand} + ${numberOfBrand - 1} Brands`;
   // const cancelPolicy = [
   //   'Renters can cancel until 24 hours before check-in for a full refund.',
   //   'The moderate policy allows cancellation until 3 days before the first rental day for a 50% refund.',
