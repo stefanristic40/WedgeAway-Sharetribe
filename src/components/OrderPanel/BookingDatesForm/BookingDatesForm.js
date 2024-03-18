@@ -663,7 +663,7 @@ export const BookingDatesFormComponent = props => {
         useEffect(() => {
           const tmp = handleAddOn(addOn);
           setNumberOfAddOn(tmp);
-        }, []);
+        }, [addOn]);
 
         return (
           <Form onSubmit={handleSubmit} className={classes} enforcePagePreloadFor="CheckoutPage">
@@ -822,27 +822,32 @@ export const BookingDatesFormComponent = props => {
                 />
               </div>
             )}
-            {console.log(numberOfAddOn)}
-            {!!addOn[`addOn${1}`]?.addOnTitle && <div className={css.addOnTitle}>Add Ons</div>}
-            {!!addOn[`addOn${1}`]?.addOnTitle &&
-              [...Array(numberOfAddOn)].map((_, index) => {
-                return (
-                  <FieldCheckbox
-                    key={index}
-                    className={css.addOnContainer}
-                    id={`${formId}.addOn${++index}`}
-                    name={`addOn${index}`}
-                    label={
-                      addOn[`addOn${index}`].addOnManufact +
-                      ' ' +
-                      addOn[`addOn${index}`].addOnTitle +
-                      '• $' +
-                      addOn[`addOn${index}`].addOnPrice
-                    }
-                    value={`addOn${index}`}
-                  />
-                );
-              })}
+            {/* {!!addOn[`addOn${1}`]?.addOnTitle && <div className={css.addOnTitle}>Add Ons</div>} */}
+            {typeof addOn != 'undefined' && !!addOn[`addOn${1}`]?.addOnTitle && (
+              <>
+                {console.log('numberOfAddOn', numberOfAddOn)}
+                {console.log('numberOfAddOn_title', addOn[`addOn${1}`]?.addOnTitle)}
+                {<div className={css.addOnTitle}>Add Ons</div>}
+                {[...Array(numberOfAddOn)].map((_, index) => {
+                  return (
+                    <FieldCheckbox
+                      key={index}
+                      className={css.addOnContainer}
+                      id={`${formId}.addOn${++index}`}
+                      name={`addOn${index}`}
+                      label={
+                        addOn[`addOn${index}`].addOnManufact +
+                        ' ' +
+                        addOn[`addOn${index}`].addOnTitle +
+                        '• $' +
+                        addOn[`addOn${index}`].addOnPrice
+                      }
+                      value={`addOn${index}`}
+                    />
+                  );
+                })}
+              </>
+            )}
             <div className={css.submitButton}>
               {/* <PrimaryButton type="submit" inProgress={fetchLineItemsInProgress}>
                 <FormattedMessage id="BookingDatesForm.requestToBook" />

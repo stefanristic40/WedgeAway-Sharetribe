@@ -176,6 +176,8 @@ export const ListingPageComponent = props => {
   const address = currentListing?.attributes?.publicData?.location?.address;
   const [geocoder, setGeocoder] = useState(null);
   const addOn = currentListing?.attributes?.publicData?.addOns;
+  // const [addOn, setAddOn] = useState({});
+
   const clubConditionTmp = currentListing?.attributes?.publicData?.clubCondition;
   const clubCondition =
     clubConditionTmp == 'likeNew'
@@ -707,7 +709,9 @@ export const ListingPageComponent = props => {
             <div className={css.subtitleAddOn}>Optional Add Ons</div>
             <div className={css.addOnPadding}>
               <ul className={css.listingAddOn}>
-                {!!addOn[`addOn${1}`]?.addOnTitle &&
+                {typeof addOn != 'undefined' &&
+                  // typeof addOn[`addOn${1}`] != 'undefined' &&
+                  !!addOn[`addOn${1}`]?.addOnTitle &&
                   [...Array(numberOfAddOn)].map((_, index) => (
                     <li className={css.mainContent} key={index}>
                       {addOn[`addOn${++index}`]?.addOnManufact +
@@ -717,7 +721,12 @@ export const ListingPageComponent = props => {
                         addOn[`addOn${index}`]?.addOnPrice}
                     </li>
                   ))}
-                {!addOn[`addOn${1}`]?.addOnTitle && 'No Add Ons Available '}
+                {/* {!addOn[`addOn${1}`]?.addOnTitle && 'No Add Ons Available '} */}
+                {typeof addOn != 'undefined' &&
+                  // typeof addOn[`addOn${1}`] == 'undefined' &&
+                  // typeof addOn[`addOn${1}`] != 'undefined' &&
+                  !addOn[`addOn${1}`]?.addOnTitle &&
+                  'No Add Ons Available '}
               </ul>
             </div>
 
