@@ -38,6 +38,7 @@ export const EditListingPickTime = props => {
           })}
         </FieldSelect>
         <FieldSelect className={classNames(css.item1)} name={`${day}StartD`} id={`${day}StartD`}>
+          <option disabled value=""></option>
           {filterOptions.map(optionConfig => {
             return (
               <option key={optionConfig} value={optionConfig}>
@@ -59,6 +60,7 @@ export const EditListingPickTime = props => {
           })}
         </FieldSelect>
         <FieldSelect className={classNames(css.item1)} name={`${day}EndD`} id={`${day}EndD`}>
+          <option disabled value=""></option>
           {filterOptions.map(optionConfig => {
             return (
               <option key={optionConfig} value={optionConfig}>

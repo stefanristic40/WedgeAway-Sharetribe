@@ -139,17 +139,11 @@ export const ListingCardComponent = props => {
     includeItem = includeItem.slice(0, -2);
   }
 
-  console.log('includeItem', includeItem);
-
-  console.log('includeItem', publicdata);
-
   const address = listing?.attributes?.publicData?.location?.address;
-  console.log('address', listing);
   const [addressCityState, setAddressCityState] = useState('');
 
   useEffect(() => {
     // const address = currentListing?.attributes?.publicData?.location?.address;   || 'Like New';
-    console.log('address', address);
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
         address
