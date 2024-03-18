@@ -197,6 +197,8 @@ const OrderPanel = props => {
     payoutDetailsWarning,
     onToggleFavorites,
     currentUser,
+    pickUpTime,
+    dropOffTime,
   } = props;
 
   const publicData = listing?.attributes?.publicData || {};
@@ -386,6 +388,8 @@ const OrderPanel = props => {
             addOn={addOn}
             initialValues={{ deliveryTime: '08:00', pickUpTime: '08:00', PickDeliver: 'pickup' }}
             isDelivery={isDelivery}
+            dropOffTime={dropOffTime}
+            pickUpTime={pickUpTime}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm

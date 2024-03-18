@@ -126,6 +126,27 @@ const getGeocoderVariant = mapProvider => {
   return isGoogleMapsInUse ? geocoderGoogleMaps : geocoderMapbox;
 };
 
+const convertTimeTo24HourFormat = time => {
+  // Split the time string into hours and minutes
+  const parts = time.split(':');
+  let hours = parseInt(parts[0]);
+  let minutes = parseInt(parts[1].split(' ')[0]);
+
+  let updatedHours = hours; // Declare a new variable to store updated hours
+
+  // Check if it's PM and not equal to 12, then add 12 hours
+  if (time.includes('PM') && hours !== 12) {
+    updatedHours += 12;
+  }
+
+  // Remove AM/PM from the string
+  const time24Hour = `${updatedHours.toString().padStart(2, '0')}:${minutes
+    .toString()
+    .padStart(2, '0')}`;
+
+  return time24Hour;
+};
+
 export const ListingPageComponent = props => {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(
     props.inquiryModalOpenForListingId === props.params.id
@@ -307,6 +328,8 @@ export const ListingPageComponent = props => {
     ? { T: pickupDrop.sunStartT, D: pickupDrop.sunStartD }
     : { T: '8', D: 'AM' };
 
+  const pickUpTime = (pickUp.T ? pickUp.T : 8) + ':00 ' + (pickUp.D ? pickUp.D : 'AM');
+
   const dropOff = !!pickupDrop?.is_mon
     ? { T: pickupDrop.monEndT, D: pickupDrop.monEndD }
     : !!pickupDrop?.is_tue
@@ -322,6 +345,8 @@ export const ListingPageComponent = props => {
     : !!pickupDrop?.is_sun
     ? { T: pickupDrop.sunEndT, D: pickupDrop.sunEndD }
     : { T: '8', D: 'PM' };
+
+  const dropOffTime = (dropOff.T ? dropOff.T : 8) + ':00 ' + (dropOff.D ? dropOff.D : 'PM');
 
   if (shouldShowPublicListingPage) {
     return <NamedRedirect name="ListingPage" params={params} search={location.search} />;
@@ -755,13 +780,8 @@ export const ListingPageComponent = props => {
             {/* Pick Up / Drop Off */}
             <div className={css.subtitle}>Golf Club Pickup/Drop Off</div>
             <div className={css.pickDeliveryPadding}>
-              <div>
-                Pickup: After {(pickUp.T ? pickUp.T : 8) + ':00 ' + (pickUp.D ? pickUp.D : 'AM')}
-              </div>
-              <div className={css.policyCustom}>
-                Drop Off: Before{' '}
-                {(dropOff.T ? dropOff.T : 8) + ':00 ' + (dropOff.D ? dropOff.D : 'PM')}
-              </div>
+              <div>Pickup: After {pickUpTime}</div>
+              <div className={css.policyCustom}>Drop Off: Before {dropOffTime}</div>
 
               <div className={css.policyCustom}>{'Club Owner Rule : ' + policy?.customRule}</div>
               <div className={css.policyCustom}> {'Cancellation Policy : ' + cancelPolicy}</div>
@@ -859,6 +879,8 @@ export const ListingPageComponent = props => {
               marketplaceName={config.marketplaceName}
               onToggleFavorites={onToggleFavorites}
               currentUser={currentUser}
+              pickUpTime={convertTimeTo24HourFormat(pickUpTime)}
+              dropOffTime={convertTimeTo24HourFormat(dropOffTime)}
             />
           </div>
         </div>

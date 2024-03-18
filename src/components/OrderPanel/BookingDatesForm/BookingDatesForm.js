@@ -474,6 +474,22 @@ const mustBeValidDateTime = value => {
   return value?.format().includes('Invalid date') ? 'Must be a valid DateTime' : undefined;
 };
 
+const VALID = undefined;
+const validatePickTime = (min, max) => value => {
+  if (!value) {
+    return VALID;
+  }
+  const valueNum = value.replace(':', '');
+  const minNum = min.replace(':', '');
+  const maxNum = max.replace(':', '');
+
+  if (valueNum < minNum || valueNum > maxNum) {
+    return `Must be between ${min} and ${max}`;
+  } else {
+    return VALID;
+  }
+};
+
 export const BookingDatesFormComponent = props => {
   const [focusedInput, setFocusedInput] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(getStartOf(TODAY, 'month', props.timeZone));
@@ -498,6 +514,8 @@ export const BookingDatesFormComponent = props => {
     dayCountAvailableForBooking,
     marketplaceName,
     payoutDetailsWarning,
+    dropOffTime,
+    pickUpTime,
     ...rest
   } = props;
   const classes = classNames(rootClassName || css.root, className);
@@ -785,6 +803,10 @@ export const BookingDatesFormComponent = props => {
                   name="pickUpTime"
                   type="time"
                   className={css.locationAddress}
+                  min="08:00"
+                  max="18:00"
+                  required
+                  validate={validatePickTime(pickUpTime, dropOffTime)}
                 />
               </div>
             )}
