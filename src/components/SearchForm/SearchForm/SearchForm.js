@@ -183,7 +183,7 @@ class SearchFormComponent extends Component {
                   onLocationChange={this.onChange}
                 />
               )}
-              <div
+              {/* <div
                 className={css.dateSelector}
                 onClick={() => this.setState({ showDatePicker: !this.state.showDatePicker })}
               >
@@ -200,16 +200,16 @@ class SearchFormComponent extends Component {
                           .replace(/\//g, '.')
                       : 'Dates'}
                   </p>
-                </div>
-                {/* {this.state.showDatePicker && (
+                </div> */}
+              {/* {this.state.showDatePicker && (
                   <DatePicker
                     // selected={this.state.selectedDate}
                     onChange={date => this.setState({ selectedDate: date })}
                     inline
                   />
                 )} */}
-              </div>
-              <button className={css.goBtn}>GO</button>
+              {/* </div> */}
+              {/* <button className={css.goBtn}>GO</button> */}
             </Form>
           );
         }}
