@@ -216,7 +216,7 @@ export const ListingCardComponent = props => {
           {/* 🏑💰💸🧾⛳🏌️‍♀️🏌️‍♀️🛒✨ */}✨ {titleClub} • {handy}
         </div>
         <div className={css.includeItem}>
-          <div>Include:&nbsp; </div>
+          <div>&nbsp;Include:&nbsp; </div>
           <div>{includeItem}</div>
         </div>
         <div className={css.listingBrand}>🏌️‍♀️ Brands: {brandSet}</div>
