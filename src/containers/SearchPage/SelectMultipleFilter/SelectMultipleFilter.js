@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { array, arrayOf, func, node, number, object, oneOf, string } from 'prop-types';
 import classNames from 'classnames';
 
@@ -17,15 +17,51 @@ import css from './SelectMultipleFilter.module.css';
 // TODO: Live edit didn't work with FieldCheckboxGroup
 //       There's a mutation problem: formstate.dirty is not reliable with it.
 const GroupOfFieldCheckboxes = props => {
-  const { id, className, name, options } = props;
+  const { id, className, name, options, selectAll, initialValues, changeSelectedOptions } = props;
+  console.log('!!', initialValues);
   return (
     <fieldset className={className}>
       <ul className={css.list}>
+        {name == 'choose_your_set' && (
+          <li
+            key={'SearchFiltersPrimary.choose_your_set-checkbox-group.allIn'}
+            className={css.itemFull}
+          >
+            <FieldCheckbox
+              id={'SearchFiltersPrimary.choose_your_set-checkbox-group.allIn'}
+              name={name}
+              label={'Full Set'}
+              value={'fullSet'}
+              checked={initialValues['choose_your_set'].length === options.length}
+              onChange={e => {
+                if (e.target.checked) {
+                  selectAll([
+                    ...options.map((opt, index) => {
+                      return opt.key;
+                    }),
+                  ]);
+                } else {
+                  selectAll([]);
+                }
+              }}
+            />
+          </li>
+        )}
+
         {options.map((option, index) => {
           const fieldId = `${id}.${option.key}`;
           return (
             <li key={fieldId} className={css.item}>
-              <FieldCheckbox id={fieldId} name={name} label={option.label} value={option.key} />
+              <FieldCheckbox
+                checked={initialValues['choose_your_set'].indexOf(option.key) !== -1}
+                id={fieldId}
+                name={name}
+                label={option.label}
+                value={option.key}
+                onChange={e => {
+                  changeSelectedOptions(option.key, e.target.checked);
+                }}
+              />
             </li>
           );
         })}
@@ -54,6 +90,11 @@ class SelectMultipleFilter extends Component {
     this.filterContent = null;
 
     this.positionStyleForContent = this.positionStyleForContent.bind(this);
+    this.state = {
+      selectedOptions: props.hasInitialValues
+        ? parseSelectFilterOptions(props.initialValues[props.queryParamName])
+        : [],
+    };
   }
 
   positionStyleForContent() {
@@ -103,21 +144,18 @@ class SelectMultipleFilter extends Component {
     const queryParamName = getQueryParamName(queryParamNames);
     const hasInitialValues = !!initialValues && !!initialValues[queryParamName];
     // Parse options from param strings like "has_all:a,b,c" or "a,b,c"
-    const selectedOptions = hasInitialValues
-      ? parseSelectFilterOptions(initialValues[queryParamName])
-      : [];
 
     const labelForPopup = hasInitialValues
       ? intl.formatMessage(
           { id: 'SelectMultipleFilter.labelSelected' },
-          { labelText: label, count: selectedOptions.length }
+          { labelText: label, count: this.state.selectedOptions.length }
         )
       : label;
 
     const labelSelectionForPlain = hasInitialValues
       ? intl.formatMessage(
           { id: 'SelectMultipleFilterPlainForm.labelSelected' },
-          { count: selectedOptions.length }
+          { count: this.state.selectedOptions.length }
         )
       : '';
 
@@ -125,13 +163,13 @@ class SelectMultipleFilter extends Component {
 
     // pass the initial values with the name key so that
     // they can be passed to the correct field
-    const namedInitialValues = { [name]: selectedOptions };
+    const namedInitialValues = { [name]: this.state.selectedOptions };
 
     const handleSubmit = values => {
-      const usedValue = values ? values[name] : values;
+      const usedValue = namedInitialValues[name];
       onSubmit(format(usedValue, queryParamName, schemaType, searchMode));
     };
-
+    console.log('namedInitialValues:', namedInitialValues);
     return showAsPopup ? (
       <FilterPopup
         className={classes}
@@ -153,6 +191,25 @@ class SelectMultipleFilter extends Component {
           name={name}
           id={`${id}-checkbox-group`}
           options={options}
+          initialValues={namedInitialValues}
+          selectAll={ops => {
+            this.setState({ selectedOptions: ops });
+          }}
+          changeSelectedOptions={(key, value) => {
+            if (value) {
+              let opts = [...this.state.selectedOptions, key];
+              this.setState({
+                selectedOptions: opts,
+              });
+            } else {
+              let opts = [...this.state.selectedOptions];
+              let index = opts.indexOf(key);
+              opts.splice(index, 1);
+              this.setState({
+                selectedOptions: opts,
+              });
+            }
+          }}
         />
       </FilterPopup>
     ) : (

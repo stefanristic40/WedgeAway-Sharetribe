@@ -7,6 +7,8 @@
 .desktopInputRoot {
   height: var(--topbarHeightDesktop);
   width: 90%;
+  font-size: 30px;
+  padding: 10px;
 }
 
 .mobileIcon {

@@ -43,6 +43,7 @@ const FieldCheckboxComponent = props => {
     id,
     label,
     useSuccessColor,
+    checked,
     ...rest
   } = props;
 
@@ -86,11 +87,12 @@ const FieldCheckboxComponent = props => {
               {...input}
               onChange={event => handleOnChange(input, event)}
               disabled={disabled}
+              checked={checked}
             />
           );
         }}
       </Field>
-      <label htmlFor={id} className={css.label} >
+      <label htmlFor={id} className={css.label}>
         <span className={css.checkboxWrapper}>
           <IconCheckbox
             className={svgClassName}

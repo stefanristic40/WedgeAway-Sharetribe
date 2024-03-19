@@ -48,18 +48,22 @@ class SearchMapPriceLabel extends Component {
       [css.mapLabelActive]: isActive,
       [css.noPriceSetLabel]: !formattedPrice,
     });
+    const imageClasses = classNames(css.imgClub, {
+      [css.mapImageActive]: isActive,
+    });
     const caretClasses = classNames(css.caret, { [css.caretActive]: isActive });
 
     return (
       <button className={classes} onClick={() => onListingClicked(currentListing)}>
         {/* <div className={css.caretShadow} />
-        <div className={priceLabelClasses}>{formattedPrice}</div>
-        <div className={caretClasses} /> */}
+        <div className={priceLabelClasses}>{formattedPrice}</div> */}
+        <div className={caretClasses} />
         <img
           src="/static/images/golfclub.png"
           width={'100px'}
           height={'100px'}
           alt="imgGolfClubs"
+          className={imageClasses}
         />
       </button>
     );

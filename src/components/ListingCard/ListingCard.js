@@ -106,42 +106,48 @@ export const ListingCardComponent = props => {
   //   'LW' + !!publicdata?.pitchingwedgeIn &&
   //   'PW';
 
-  let includeItem =
-    (!!publicdata?.putterIn ? 'Putter, ' : '') +
-    (!!publicdata?.sandwedgeIn ? 'SW, ' : '') +
-    (!!publicdata?.gapapproachwedgeIn ? 'GW, ' : '') +
-    (!!publicdata?.lobwedgeIn ? 'LW, ' : '') +
-    (!!publicdata?.pitchingwedgeIn ? 'PW, ' : '') +
-    (!!publicdata['1ironIn'] ? '1 Iron, ' : '') +
-    (!!publicdata['2ironIn'] ? '2 Iron, ' : '') +
-    (!!publicdata['3ironIn'] ? '3 Iron, ' : '') +
-    (!!publicdata['4ironIn'] ? '4 Iron, ' : '') +
-    (!!publicdata['5ironIn'] ? '5 Iron, ' : '') +
-    (!!publicdata['6ironIn'] ? '6 Iron, ' : '') +
-    (!!publicdata['7ironIn'] ? '7 Iron, ' : '') +
-    (!!publicdata['8ironIn'] ? '8 Iron, ' : '') +
-    (!!publicdata['9ironIn'] ? '9 Iron, ' : '') +
-    (!!publicdata['3hybridIn'] ? '3 Hybrid, ' : '') +
-    (!!publicdata['4hybridIn'] ? '4 Hybrid, ' : '') +
-    (!!publicdata['5hybridIn'] ? '5 Hybrid, ' : '') +
-    (!!publicdata['6hybridIn'] ? '6 Hybrid, ' : '') +
-    (!!publicdata['7hybridIn'] ? '7 Hybrid, ' : '') +
-    (!!publicdata['3woodIn'] ? '3 Wood, ' : '') +
-    (!!publicdata['3hlwoodIn'] ? '3HL Wood, ' : '') +
-    (!!publicdata['5woodIn'] ? '5 Wood, ' : '') +
-    (!!publicdata['7woodIn'] ? '7 Wood, ' : '') +
-    (!!publicdata['heavenwoodIn'] ? 'HW, ' : '') +
-    (!!publicdata['9woodIn'] ? '9 Wood, ' : '') +
-    (!!publicdata['11woodIn'] ? '11 Wood, ' : '') +
-    (!!publicdata['driverIn'] ? 'Driver, ' : '');
-
-  if (includeItem.charAt(includeItem.length - 2) === ',') {
-    includeItem = includeItem.slice(0, -2);
-  }
+  const dataProp = {
+    putterIn: 'Putter',
+    sandwedgeIn: 'SW',
+    gapapproachwedgeIn: 'GW',
+    lobwedgeIn: 'LW',
+    pitchingwedgeIn: 'PW',
+    '1ironIn': '1 Iron',
+    '2ironIn': '2 Iron',
+    '3ironIn': '3 Iron',
+    '4ironIn': '4 Iron',
+    '5ironIn': '5 Iron',
+    '6ironIn': '6 Iron',
+    '7ironIn': '7 Iron',
+    '8ironIn': '8 Iron',
+    '9ironIn': '9 Iron',
+    '3hybridIn': '3 Hybrid',
+    '4hybridIn': '4 Hybrid',
+    '5hybridIn': '5 Hybrid',
+    '6hybridIn': '6 Hybrid',
+    '7hybridIn': '7 Hybrid',
+    '3woodIn': '3 Wood',
+    '3hlwoodIn': '3HL Wood',
+    '5woodIn': '5 Wood',
+    '7woodIn': '7 Wood',
+    heavenwoodIn: 'HW',
+    '9woodIn': '9 Wood',
+    '11woodIn': '11 Wood',
+    driverIn: 'Driver',
+  };
 
   const address = listing?.attributes?.publicData?.location?.address;
   const [addressCityState, setAddressCityState] = useState('');
-
+  const [itemIncludes, setItemIncludes] = useState([]);
+  useEffect(() => {
+    const temp = [];
+    if (publicdata) {
+      Object.keys(publicdata).map((key, index) => {
+        if (publicdata[key] && dataProp[key] !== undefined) temp.push(dataProp[key]);
+      });
+      setItemIncludes(temp);
+    }
+  }, [publicdata]);
   useEffect(() => {
     // const address = currentListing?.attributes?.publicData?.location?.address;   || 'Like New';
     fetch(
@@ -196,7 +202,12 @@ export const ListingCardComponent = props => {
     : null;
 
   return (
-    <NamedLink className={classes} name="ListingPage" params={{ id, slug }}>
+    <NamedLink
+      className={classes}
+      name="ListingPage"
+      params={{ id, slug }}
+      {...setActivePropsMaybe}
+    >
       <AspectRatioWrapper
         className={css.aspectRatioWrapper}
         width={aspectWidth}
@@ -211,13 +222,30 @@ export const ListingCardComponent = props => {
           sizes={renderSizes}
         />
       </AspectRatioWrapper>
-      <div className={css.info}>
+      <div className={css.info} {...setActivePropsMaybe}>
         <div className={css.listingTitle}>
-          {/* 🏑💰💸🧾⛳🏌️‍♀️🏌️‍♀️🛒✨ */}✨ {titleClub} • {handy}
+          {/* 🏑💰💸🧾⛳🏌️‍♀️🏌️‍♀️🛒✨ */}
+          {titleClub} • {handy}
         </div>
         <div className={css.includeItem}>
-          <div>&nbsp;Include:&nbsp; </div>
-          <div>{includeItem}</div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div style={{ fontWeight: '700' }}>Includes:&nbsp;</div>
+            {itemIncludes.map((item, index) => {
+              return (
+                <span key={index}>
+                  {item}
+                  {index !== itemIncludes.length - 1 && ','}
+                  &nbsp;
+                </span>
+              );
+            })}
+          </div>
         </div>
         <div className={css.listingBrand}>🏌️‍♀️ Brands: {brandSet}</div>
         <div className={css.listingLocation}>⛳ {addressCityState}</div>

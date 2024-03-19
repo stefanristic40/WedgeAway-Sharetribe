@@ -152,24 +152,26 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-bottom: 1px;
+  padding-bottom: 2px;
   color: black;
+  padding-left: 2px;
 }
 
 .listingTitle {
   color: black;
   font-size: 1.2rem;
   font-weight: 700;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
+  padding-left: 2px;
 }
 
 .listingBrand {
-  padding-bottom: 1px;
+  padding-bottom: 2px;
   color: black;
 }
 
 .listingLocation {
-  padding-bottom: 1px;
+  padding-bottom: 5px;
   color: black;
   font-weight: 700;
 }

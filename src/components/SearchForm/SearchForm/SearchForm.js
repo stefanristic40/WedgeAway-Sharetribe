@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { intlShape, injectIntl } from '../../../util/reactIntl';
 import { isMainSearchTypeKeywords } from '../../../util/search';
 
-import { Form, LocationAutocompleteInput } from '../../../components';
+import { Form, LocationAutocompleteInputOrigin } from '../../../components';
 
 import IconSearchDesktop from './IconSearchDesktop';
 import css from './SearchForm.module.css';
@@ -69,7 +69,7 @@ const LocationSearchField = props => {
         };
 
         return (
-          <LocationAutocompleteInput
+          <LocationAutocompleteInputOrigin
             className={isMobile ? css.mobileInputRoot : desktopInputRootClass}
             iconClassName={isMobile ? css.mobileIcon : css.desktopIcon}
             inputClassName={isMobile ? css.mobileInput : css.desktopInput}
