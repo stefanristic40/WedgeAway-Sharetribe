@@ -57,7 +57,7 @@ const PriceMaybe = props => {
   return (
     <div className={css.price}>
       <div className={css.priceValue} title={priceTitle}>
-        {formattedPrice}
+        💰 {formattedPrice}
       </div>
       {isBookable ? (
         <div className={css.perUnit}>
@@ -212,15 +212,15 @@ export const ListingCardComponent = props => {
         />
       </AspectRatioWrapper>
       <div className={css.info}>
-        <div>
-          {titleClub} • {handy}
+        <div className={css.listingTitle}>
+          {/* 🏑💰💸🧾⛳🏌️‍♀️🏌️‍♀️🛒✨ */}✨ {titleClub} • {handy}
         </div>
         <div className={css.includeItem}>
-          <div>Includes:&nbsp; </div>
+          <div>Include:&nbsp; </div>
           <div>{includeItem}</div>
         </div>
-        <div>Brands: {brandSet}</div>
-        <div>{addressCityState}</div>
+        <div className={css.listingBrand}>🏌️‍♀️ Brands: {brandSet}</div>
+        <div className={css.listingLocation}>⛳ {addressCityState}</div>
         <PriceMaybe price={price} publicData={publicData} config={config} intl={intl} />
         <div className={css.mainInfo}>
           {/* <div className={css.title}>

@@ -2,19 +2,24 @@
 
 .root {
   /* Layout */
+  border-radius: 30px;
   display: flex;
   flex-direction: row;
   gap: 30px;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 20px 0px;
+  /* background-color: rgb(250, 250, 250); */
 
   /* Remove link's hover effect */
   &:hover {
+    transform: scale(1.02);
     text-decoration: none;
   }
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
+    box-shadow: none;
   }
 }
 
@@ -33,7 +38,7 @@
     width: 20vw;
     height: 15vw;
     &:hover {
-      transform: scale(1.02);
+      /* transform: scale(1.02); */
       box-shadow: var(--boxShadowListingCard);
     }
   }
@@ -147,4 +152,24 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  padding-bottom: 1px;
+  color: black;
+}
+
+.listingTitle {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-bottom: 2px;
+}
+
+.listingBrand {
+  padding-bottom: 1px;
+  color: black;
+}
+
+.listingLocation {
+  padding-bottom: 1px;
+  color: black;
+  font-weight: 700;
 }
