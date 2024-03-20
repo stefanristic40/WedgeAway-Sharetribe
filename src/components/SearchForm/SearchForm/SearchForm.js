@@ -75,7 +75,7 @@ const LocationSearchField = props => {
             inputClassName={isMobile ? css.mobileInput : css.desktopInput}
             predictionsClassName={isMobile ? css.mobilePredictions : css.desktopPredictions}
             predictionsAttributionClassName={isMobile ? css.mobilePredictionsAttribution : null}
-            placeholder={'Search By City, State, Course, or Address'}
+            placeholder={'Search By City, State, or Course'}
             closeOnBlur={!isMobile}
             inputRef={inputRef}
             input={{ ...restInput, onChange: searchOnChange }}
