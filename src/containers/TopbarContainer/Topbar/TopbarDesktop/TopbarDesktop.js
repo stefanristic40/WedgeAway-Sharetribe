@@ -155,7 +155,7 @@ const TopbarDesktop = props => {
           layout="desktop"
           alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
         />
-        <div id="header_search">
+        <div className={css.searchTopBar} id="header_search">
           <Search />
         </div>
       </div>

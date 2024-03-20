@@ -505,6 +505,8 @@ class LocationAutocompleteInputImplementation extends Component {
     };
 
     const rootClass = classNames(rootClassName || css.root, className);
+
+    console.log('rootclassName', rootClassName);
     const iconClass = classNames(iconClassName || css.icon);
     const inputClass = classNames(inputClassName || css.input, { [validClassName]: isValid });
     const predictionsClass = classNames(predictionsClassName);
@@ -519,13 +521,13 @@ class LocationAutocompleteInputImplementation extends Component {
 
     return (
       <div className={rootClass}>
-        {/* <div className={iconClass}>
+        <div className={iconClass}>
           {this.state.fetchingPlaceDetails ? (
             <IconSpinner className={css.iconSpinner} />
           ) : (
             <IconHourGlass />
           )}
-        </div> */}
+        </div>
 
         <input
           className={inputClass}
@@ -563,6 +565,17 @@ class LocationAutocompleteInputImplementation extends Component {
             <GeocoderAttribution className={predictionsAttributionClassName} />
           </LocationPredictionsList>
         ) : null}
+
+        {/* <div
+          className={iconClass}
+          style={{ borderTopRightRadius: '50px', borderBottomRightRadius: '50px' }}
+        >
+          {this.state.fetchingPlaceDetails ? (
+            <IconSpinner className={css.iconSpinner} />
+          ) : (
+            <IconHourGlass />
+          )}
+        </div> */}
       </div>
     );
   }
