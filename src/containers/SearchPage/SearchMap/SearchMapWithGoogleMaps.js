@@ -501,34 +501,37 @@ class SearchMapWithGoogleMaps extends Component {
         // https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions
 
         scrollwheel: true,
-        // fullscreenControl: true,
-        // clickableIcons: false,
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+          position: maps.ControlPosition.BOTTOM_RIGHT,
+        },
+        clickableIcons: false,
 
-        // mapTypeControl: true,
-        // mapTypeControlOptions: {
-        //   style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        //   position: maps.ControlPosition.BOTTOM_CENTER,
-        // },
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: maps.ControlPosition.BOTTOM_CENTER,
+        },
 
-        // zoomControl: true,
-        // zoomControlOptions: {
-        //   style: maps.ZoomControlStyle.DEFAULT,
-        //   position: maps.ControlPosition.LEFT_CENTER,
-        // },
+        zoomControl: true,
+        zoomControlOptions: {
+          style: maps.ZoomControlStyle.DEFAULT,
+          position: maps.ControlPosition.TOP_LEFT,
+        },
 
-        // panControl: true,
-        // panControlOptions: {
-        //   position: maps.ControlPosition.TOP_RIGHT,
-        // },
+        panControl: true,
+        panControlOptions: {
+          position: maps.ControlPosition.TOP_LEFT,
+        },
 
-        // scaleControl: true,
-        // scaleControlOptions: {
-        //   position: maps.ControlPosition.BOTTOM_LEFT,
-        // },
+        scaleControl: true,
+        scaleControlOptions: {
+          position: maps.ControlPosition.BOTTOM_LEFT,
+        },
 
-        // streetViewControl: true,
-        // overviewMapControl: true,
-        // rotateControl: true,
+        streetViewControl: true,
+        overviewMapControl: true,
+        rotateControl: true,
         // Add default viewport (the whole world)
         ...zoomAndCenter,
       };
