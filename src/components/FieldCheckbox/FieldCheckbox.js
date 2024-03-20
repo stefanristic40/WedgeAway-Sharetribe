@@ -43,7 +43,6 @@ const FieldCheckboxComponent = props => {
     id,
     label,
     useSuccessColor,
-    checked,
     ...rest
   } = props;
 
@@ -87,7 +86,6 @@ const FieldCheckboxComponent = props => {
               {...input}
               onChange={event => handleOnChange(input, event)}
               disabled={disabled}
-              checked={checked}
             />
           );
         }}

@@ -135,6 +135,41 @@ export const ListingCardComponent = props => {
     '11woodIn': '11 Wood',
     driverIn: 'Driver',
   };
+  const orders = [
+    'putterIn',
+    'sandwedgeIn',
+    'gapapproachwedgeIn',
+    'lobwedgeIn',
+    'pitchingwedgeIn',
+    '1ironIn',
+    '2ironIn',
+    '3ironIn',
+    '4ironIn',
+    '5ironIn',
+    '6ironIn',
+    '7ironIn',
+    '8ironIn',
+    '9ironIn',
+    '3hybridIn',
+    '4hybridIn',
+    '5hybridIn',
+    '6hybridIn',
+    '7hybridIn',
+    '3woodIn',
+    '3hlwoodIn',
+    '5woodIn',
+    '7woodIn',
+    'heavenwoodIn',
+    '9woodIn',
+    '11woodIn',
+    'driverIn',
+  ];
+  const getOrderedProps = keys => {
+    const orderedProps = keys.sort((a, b) => {
+      return orders.indexOf(a) - orders.indexOf(b);
+    });
+    return orderedProps;
+  };
 
   const address = listing?.attributes?.publicData?.location?.address;
   const [addressCityState, setAddressCityState] = useState('');
@@ -142,7 +177,7 @@ export const ListingCardComponent = props => {
   useEffect(() => {
     const temp = [];
     if (publicdata) {
-      Object.keys(publicdata).map((key, index) => {
+      getOrderedProps(Object.keys(publicdata)).map((key, index) => {
         if (publicdata[key] && dataProp[key] !== undefined) temp.push(dataProp[key]);
       });
       setItemIncludes(temp);

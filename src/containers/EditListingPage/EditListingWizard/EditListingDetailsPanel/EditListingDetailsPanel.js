@@ -91,6 +91,7 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
   let flag = true;
   let golfClubs = [];
   let brandFull = [];
+  let condition;
 
   const result = listingFieldConfigs.reduce((fields, field) => {
     const { key, includeForListingTypes, scope = 'public', schemaType } = field || {};
@@ -117,6 +118,10 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
           flag = false;
         }
         brandNumber++;
+      }
+      console.log('key', key);
+      if (key === 'clubCondition') {
+        condition = fieldValue;
       }
       if (fieldValue == true) {
         golfClubs.push(key);
@@ -146,14 +151,13 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
     }
   }
 
-  // console.log('mostCommonbrand', mostCommonBrand);
-
   return {
     ...result,
     Choose_Your_Set: golfClubs,
     firstBrand: mostCommonBrand,
     brandNumber: brandNumber,
     brand: brand,
+    condition: condition,
   };
 };
 
@@ -357,7 +361,7 @@ const EditListingDetailsPanel = props => {
                 !!rest.pub_9ironIn);
 
             const hand = handedness ? 'Righty' : 'Lefty';
-
+            const full_partial = isFull ? 'full-set' : 'partial-set';
             const updateValues = {
               title: isFull ? 'Full Set' : 'Partial Set',
               description,
@@ -367,6 +371,7 @@ const EditListingDetailsPanel = props => {
                 unitType,
                 ...pickListingFieldsData(rest, 'public', listingType, listingFieldsConfig),
                 hand,
+                full_partial,
               },
               privateData: pickListingFieldsData(rest, 'private', listingType, listingFieldsConfig),
               ...setNoAvailabilityForUnbookableListings(transactionProcessAlias),

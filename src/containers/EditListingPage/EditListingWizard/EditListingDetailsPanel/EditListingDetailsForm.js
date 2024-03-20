@@ -230,7 +230,7 @@ const EditListingDetailsFormComponent = props => (
             <h4 className={css.itemTitle}>Condition &nbsp;&nbsp;</h4>
             <EditListingEachInfo
               listingType={listingType}
-              fieldConfig={listingFieldsConfig[335]}
+              fieldConfig={listingFieldsConfig[337]}
               intl={intl}
             />
           </div>
@@ -243,7 +243,7 @@ const EditListingDetailsFormComponent = props => (
             >
               <EditListingEachInfo
                 listingType={listingType}
-                fieldConfig={listingFieldsConfig[333]}
+                fieldConfig={listingFieldsConfig[335]}
                 intl={intl}
               />
             </div>
@@ -254,7 +254,7 @@ const EditListingDetailsFormComponent = props => (
             >
               <EditListingEachInfo
                 listingType={listingType}
-                fieldConfig={listingFieldsConfig[334]}
+                fieldConfig={listingFieldsConfig[336]}
                 intl={intl}
               />
             </div>

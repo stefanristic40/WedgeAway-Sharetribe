@@ -17,51 +17,15 @@ import css from './SelectMultipleFilter.module.css';
 // TODO: Live edit didn't work with FieldCheckboxGroup
 //       There's a mutation problem: formstate.dirty is not reliable with it.
 const GroupOfFieldCheckboxes = props => {
-  const { id, className, name, options, selectAll, initialValues, changeSelectedOptions } = props;
-  console.log('!!', initialValues);
+  const { id, className, name, options } = props;
   return (
     <fieldset className={className}>
       <ul className={css.list}>
-        {name == 'choose_your_set' && (
-          <li
-            key={'SearchFiltersPrimary.choose_your_set-checkbox-group.allIn'}
-            className={css.itemFull}
-          >
-            <FieldCheckbox
-              id={'SearchFiltersPrimary.choose_your_set-checkbox-group.allIn'}
-              name={name}
-              label={'Full Set'}
-              value={'fullSet'}
-              checked={initialValues['choose_your_set'].length === options.length}
-              onChange={e => {
-                if (e.target.checked) {
-                  selectAll([
-                    ...options.map((opt, index) => {
-                      return opt.key;
-                    }),
-                  ]);
-                } else {
-                  selectAll([]);
-                }
-              }}
-            />
-          </li>
-        )}
-
         {options.map((option, index) => {
           const fieldId = `${id}.${option.key}`;
           return (
             <li key={fieldId} className={css.item}>
-              <FieldCheckbox
-                checked={initialValues['choose_your_set'].indexOf(option.key) !== -1}
-                id={fieldId}
-                name={name}
-                label={option.label}
-                value={option.key}
-                onChange={e => {
-                  changeSelectedOptions(option.key, e.target.checked);
-                }}
-              />
+              <FieldCheckbox id={fieldId} name={name} label={option.label} value={option.key} />
             </li>
           );
         })}
@@ -85,16 +49,10 @@ const format = (selectedOptions, queryParamName, schemaType, searchMode) => {
 class SelectMultipleFilter extends Component {
   constructor(props) {
     super(props);
-
     this.filter = null;
     this.filterContent = null;
 
     this.positionStyleForContent = this.positionStyleForContent.bind(this);
-    this.state = {
-      selectedOptions: props.hasInitialValues
-        ? parseSelectFilterOptions(props.initialValues[props.queryParamName])
-        : [],
-    };
   }
 
   positionStyleForContent() {
@@ -108,18 +66,15 @@ class SelectMultipleFilter extends Component {
       const contentWidthBiggerThanLabel = contentWidth - labelWidth;
       const renderToRight = distanceToRight > contentWidthBiggerThanLabel;
       const contentPlacementOffset = this.props.contentPlacementOffset;
-
       const offset = renderToRight
         ? { left: contentPlacementOffset }
         : { right: contentPlacementOffset };
       // set a min-width if the content is narrower than the label
       const minWidth = contentWidth < labelWidth ? { minWidth: labelWidth } : null;
-
       return { ...offset, ...minWidth };
     }
     return {};
   }
-
   render() {
     const {
       rootClassName,
@@ -138,24 +93,24 @@ class SelectMultipleFilter extends Component {
       showAsPopup,
       ...rest
     } = this.props;
-
     const classes = classNames(rootClassName || css.root, className);
-
     const queryParamName = getQueryParamName(queryParamNames);
     const hasInitialValues = !!initialValues && !!initialValues[queryParamName];
     // Parse options from param strings like "has_all:a,b,c" or "a,b,c"
-
+    const selectedOptions = hasInitialValues
+      ? parseSelectFilterOptions(initialValues[queryParamName])
+      : [];
     const labelForPopup = hasInitialValues
       ? intl.formatMessage(
           { id: 'SelectMultipleFilter.labelSelected' },
-          { labelText: label, count: this.state.selectedOptions.length }
+          { labelText: label, count: selectedOptions.length }
         )
       : label;
 
     const labelSelectionForPlain = hasInitialValues
       ? intl.formatMessage(
           { id: 'SelectMultipleFilterPlainForm.labelSelected' },
-          { count: this.state.selectedOptions.length }
+          { count: selectedOptions.length }
         )
       : '';
 
@@ -163,13 +118,12 @@ class SelectMultipleFilter extends Component {
 
     // pass the initial values with the name key so that
     // they can be passed to the correct field
-    const namedInitialValues = { [name]: this.state.selectedOptions };
-
+    const namedInitialValues = { [name]: selectedOptions };
     const handleSubmit = values => {
-      const usedValue = namedInitialValues[name];
+      const usedValue = values ? values[name] : values;
       onSubmit(format(usedValue, queryParamName, schemaType, searchMode));
     };
-    console.log('namedInitialValues:', namedInitialValues);
+
     return showAsPopup ? (
       <FilterPopup
         className={classes}
@@ -177,7 +131,7 @@ class SelectMultipleFilter extends Component {
         popupClassName={css.popupSize}
         name={name}
         label={labelForPopup}
-        isSelected={hasInitialValues}
+        isSelected={this.hasInitialValues}
         id={`${id}.popup`}
         showAsPopup
         contentPlacementOffset={contentPlacementOffset}
@@ -191,25 +145,6 @@ class SelectMultipleFilter extends Component {
           name={name}
           id={`${id}-checkbox-group`}
           options={options}
-          initialValues={namedInitialValues}
-          selectAll={ops => {
-            this.setState({ selectedOptions: ops });
-          }}
-          changeSelectedOptions={(key, value) => {
-            if (value) {
-              let opts = [...this.state.selectedOptions, key];
-              this.setState({
-                selectedOptions: opts,
-              });
-            } else {
-              let opts = [...this.state.selectedOptions];
-              let index = opts.indexOf(key);
-              opts.splice(index, 1);
-              this.setState({
-                selectedOptions: opts,
-              });
-            }
-          }}
         />
       </FilterPopup>
     ) : (
