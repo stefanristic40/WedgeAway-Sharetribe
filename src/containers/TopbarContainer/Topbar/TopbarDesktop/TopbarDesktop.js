@@ -148,7 +148,7 @@ const TopbarDesktop = props => {
   const notificationButton = <IoIosNotifications size={24} color="black" />;
   const helpButton = <p className={css.helpButton}>Help</p>;
   return (
-    <nav className={classes}>
+    <nav className={classes} style={{ position: 'fixed' }}>
       <div className={css.left}>
         <LinkedLogo
           className={css.logoLink}

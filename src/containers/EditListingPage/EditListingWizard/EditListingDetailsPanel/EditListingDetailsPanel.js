@@ -92,6 +92,7 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
   let golfClubs = [];
   let brandFull = [];
   let condition;
+  let flex = [];
 
   const result = listingFieldConfigs.reduce((fields, field) => {
     const { key, includeForListingTypes, scope = 'public', schemaType } = field || {};
@@ -105,6 +106,7 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
 
     if (isKnownSchemaType && isTargetScope && isTargetListingType) {
       const fieldValue = data[namespacedKey] || null;
+      // For Brand search field
       if (namespacedKey.indexOf('Brand') !== -1 && !!data[namespacedKey]) {
         brandFull.push(data[namespacedKey]);
       }
@@ -119,7 +121,11 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
         }
         brandNumber++;
       }
-      console.log('key', key);
+      // For flex search field
+      if (namespacedKey.indexOf('Flex') !== -1 && !!data[namespacedKey]) {
+        flex.push(data[namespacedKey]);
+      }
+      // For flex consdition field
       if (key === 'clubCondition') {
         condition = fieldValue;
       }
@@ -158,6 +164,7 @@ const pickListingFieldsData = (data, targetScope, targetListingType, listingFiel
     brandNumber: brandNumber,
     brand: brand,
     condition: condition,
+    flex: flex,
   };
 };
 
@@ -240,7 +247,6 @@ const setNoAvailabilityForUnbookableListings = processAlias => {
 const getInitialValues = (props, existingListingTypeInfo, listingTypes, listingFieldsConfig) => {
   const { description, title, publicData, privateData } = props?.listing?.attributes || {};
   const { listingType } = publicData;
-
   // Initial values for the form
   return {
     title,

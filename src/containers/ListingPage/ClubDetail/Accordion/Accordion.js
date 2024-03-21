@@ -86,7 +86,14 @@ const Accordion = props => {
             <div>•&nbsp;Bounce: &nbsp;{publicData[`${clubName}Bounce`]}°</div>
           )}
           {publicData && publicData[`${clubName}Flex`] && (
-            <div>•&nbsp;Flex: &nbsp;{publicData[`${clubName}Flex`]}</div>
+            <div>
+              •&nbsp;Flex: &nbsp;
+              {publicData[`${clubName}Flex`]
+                .replace(/-/g, ',')
+                .replace(/_/g, ' ')
+                .replace('y', '+')
+                .replace('z', '/')}
+            </div>
           )}
           {publicData && publicData[`${clubName}Grind`] && (
             <div>•&nbsp;Grind: &nbsp;{publicData[`${clubName}Grind`]}</div>
