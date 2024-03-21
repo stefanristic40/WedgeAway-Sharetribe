@@ -8,6 +8,7 @@
 /* Firefox doesn't support image aspect ratio inside flexbox */
 /* Aspect ratio for is given inline */
 .aspectPadding {
+  width: 100%;
 }
 
 .aspectBox {

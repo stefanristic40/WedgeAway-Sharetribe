@@ -109,7 +109,7 @@ export const ListingCardComponent = props => {
   const dataProp = {
     putterIn: 'Putter',
     sandwedgeIn: 'SW',
-    gapapproachwedgeIn: 'GW',
+    gapapproachwedgeIn: 'AW',
     lobwedgeIn: 'LW',
     pitchingwedgeIn: 'PW',
     '1ironIn': '1 Iron',
@@ -130,7 +130,7 @@ export const ListingCardComponent = props => {
     '3hlwoodIn': '3HL Wood',
     '5woodIn': '5 Wood',
     '7woodIn': '7 Wood',
-    heavenwoodIn: 'HW',
+    heavenwoodIn: 'HeavenWood',
     '9woodIn': '9 Wood',
     '11woodIn': '11 Wood',
     driverIn: 'Driver',

@@ -271,6 +271,7 @@ class LocationAutocompleteInputImplementation extends Component {
     } else if (e.keyCode === KEY_CODE_ESC && this.input) {
       this.input.blur();
     }
+    console.log('keypress', e.keyCode);
   }
 
   // Handle input text change, fetch predictions if the value isn't empty

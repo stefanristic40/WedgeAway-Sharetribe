@@ -49,3 +49,7 @@
   }
   border-bottom: 3px solid var(--colorGrey100);
 }
+
+.popupSize {
+  padding: 10px 30px 10px 30px;
+}

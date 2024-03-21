@@ -68,12 +68,32 @@ const FilterFormComponent = props => {
             tabIndex="0"
             style={{ ...style }}
           >
-            <div className={classNames(paddingClasses || css.contentWrapper)}>{children}</div>
+            {(id === 'SearchFiltersPrimary.choose_your_set.popup.form' ||
+              id === 'SearchFiltersPrimary.brand.popup.form') && (
+              <>
+                {liveEdit ? (
+                  <FormSpy onChange={handleChange} subscription={{ values: true, dirty: true }} />
+                ) : (
+                  <div className={css.buttonsWrapperTop}>
+                    <button className={css.clearButton} type="button" onClick={onClear}>
+                      {clear}
+                    </button>
+                    <button className={css.cancelButton} type="button" onClick={handleCancel}>
+                      {cancel}
+                    </button>
+                    <button className={css.submitButton} type="submit">
+                      {submit}
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
 
+            <div className={classNames(paddingClasses || css.contentWrapper)}>{children}</div>
             {liveEdit ? (
               <FormSpy onChange={handleChange} subscription={{ values: true, dirty: true }} />
             ) : (
-              <div className={css.buttonsWrapper}>
+              <div className={css.buttonsWrapperBottom}>
                 <button className={css.clearButton} type="button" onClick={onClear}>
                   {clear}
                 </button>
