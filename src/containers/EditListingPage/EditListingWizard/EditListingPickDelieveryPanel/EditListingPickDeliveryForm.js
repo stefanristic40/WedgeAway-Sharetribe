@@ -133,7 +133,7 @@ export const EditListingPickDiliveryFormComponent = props => (
             Do You Want to Approve a Customer’s Booking Before Accepting?
           </div>
           <div className={css.pickItems}>
-            <div>
+            <label className={css.radioOption}>
               <Field
                 name="isApprove"
                 component="input"
@@ -141,9 +141,9 @@ export const EditListingPickDiliveryFormComponent = props => (
                 className={css.checkPick}
                 value="true"
               />
-            </div>
-            <div className={css.pickMedium}>Yes</div>
-            <div>
+              Yes
+            </label>
+            <label className={css.radioOption}>
               <Field
                 name="isApprove"
                 component="input"
@@ -151,13 +151,13 @@ export const EditListingPickDiliveryFormComponent = props => (
                 className={css.checkPick}
                 value="false"
               />
-            </div>
-            <div className={css.pickMedium}>No</div>
+              No
+            </label>
           </div>
 
           <div className={css.pickTitle}>Do You Offer Delivery?</div>
           <div className={css.pickItems}>
-            <div>
+            <label className={css.radioOption}>
               <Field
                 name="isDelivery"
                 component="input"
@@ -165,9 +165,9 @@ export const EditListingPickDiliveryFormComponent = props => (
                 className={css.checkPick}
                 value="true"
               />
-            </div>
-            <div className={css.pickMedium}>Yes</div>
-            <div>
+              Yes
+            </label>
+            <label className={css.radioOption}>
               <Field
                 name="isDelivery"
                 component="input"
@@ -175,8 +175,8 @@ export const EditListingPickDiliveryFormComponent = props => (
                 className={css.checkPick}
                 value="false"
               />
-            </div>
-            <div className={css.pickMedium}>No</div>
+              No
+            </label>
           </div>
 
           <div className={css.pickTitle}>If yes, set your price for delivery and max mileage.</div>
