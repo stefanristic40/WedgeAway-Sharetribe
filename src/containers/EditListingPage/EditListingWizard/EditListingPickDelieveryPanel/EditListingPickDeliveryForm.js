@@ -26,6 +26,7 @@ import {
 // import Field from '../../../PageBuilder/Field';
 
 import { EditListingPickTime } from './EditListingPickTime';
+import { EditListingPickTime1 } from './EditListingPickTime1';
 
 // Import modules from this directory
 import css from './EditListingPickDeliveryForm.module.css';
@@ -42,7 +43,6 @@ export const EditListingPickDiliveryFormComponent = props => (
         utils.changeValue(state, 'satStartT', () => args[0]);
         utils.changeValue(state, 'sunStartT', () => args[0]);
       },
-
       setSameEndT: (args, state, utils) => {
         utils.changeValue(state, 'tueEndT', () => args[0]);
         utils.changeValue(state, 'wedEndT', () => args[0]);
@@ -75,6 +75,47 @@ export const EditListingPickDiliveryFormComponent = props => (
         utils.changeValue(state, 'is_fri', () => args[0]);
         utils.changeValue(state, 'is_sat', () => args[0]);
         utils.changeValue(state, 'is_sun', () => args[0]);
+      },
+      // new for 1
+      setSameStartT1: (args, state, utils) => {
+        utils.changeValue(state, 'tueStartT1', () => args[0]);
+        utils.changeValue(state, 'wedStartT1', () => args[0]);
+        utils.changeValue(state, 'thuStartT1', () => args[0]);
+        utils.changeValue(state, 'friStartT1', () => args[0]);
+        utils.changeValue(state, 'satStartT1', () => args[0]);
+        utils.changeValue(state, 'sunStartT1', () => args[0]);
+      },
+      setSameEndT1: (args, state, utils) => {
+        utils.changeValue(state, 'tueEndT1', () => args[0]);
+        utils.changeValue(state, 'wedEndT1', () => args[0]);
+        utils.changeValue(state, 'thuEndT1', () => args[0]);
+        utils.changeValue(state, 'friEndT1', () => args[0]);
+        utils.changeValue(state, 'satEndT1', () => args[0]);
+        utils.changeValue(state, 'sunEndT1', () => args[0]);
+      },
+      setSameStartD1: (args, state, utils) => {
+        utils.changeValue(state, 'tueStartD1', () => args[0]);
+        utils.changeValue(state, 'wedStartD1', () => args[0]);
+        utils.changeValue(state, 'thuStartD1', () => args[0]);
+        utils.changeValue(state, 'friStartD1', () => args[0]);
+        utils.changeValue(state, 'satStartD1', () => args[0]);
+        utils.changeValue(state, 'sunStartD1', () => args[0]);
+      },
+      setSameEndD1: (args, state, utils) => {
+        utils.changeValue(state, 'tueEndD1', () => args[0]);
+        utils.changeValue(state, 'wedEndD1', () => args[0]);
+        utils.changeValue(state, 'thuEndD1', () => args[0]);
+        utils.changeValue(state, 'friEndD1', () => args[0]);
+        utils.changeValue(state, 'satEndD1', () => args[0]);
+        utils.changeValue(state, 'sunEndD1', () => args[0]);
+      },
+      setSameCheck1: (args, state, utils) => {
+        utils.changeValue(state, 'is_tue1', () => args[0]);
+        utils.changeValue(state, 'is_wed1', () => args[0]);
+        utils.changeValue(state, 'is_thu1', () => args[0]);
+        utils.changeValue(state, 'is_fri1', () => args[0]);
+        utils.changeValue(state, 'is_sat1', () => args[0]);
+        utils.changeValue(state, 'is_sun1', () => args[0]);
       },
     }}
     render={formRenderProps => {
@@ -179,48 +220,76 @@ export const EditListingPickDiliveryFormComponent = props => (
             </label>
           </div>
 
-          <div className={css.pickTitle}>If yes, set your price for delivery and max mileage.</div>
+          {values['isDelivery'] === 'true' && (
+            <>
+              <div className={css.pickTitle}>Set your price for delivery and max mileage.</div>
 
-          <div className={css.costPerMile}>
-            <div className={css.pickMedium}>Between</div>
-            <FieldTextInput
-              className={classNames(css.dist)}
-              id="minDist"
-              name="minDist"
-              type="number"
-              placeholder="Miles"
-              parse={value => {
-                const parsed = Number.parseInt(value, 10);
-                return Number.isNaN(parsed) ? null : parsed;
-              }}
-              label=""
-            />
-            <div className={css.pickMedium}>and</div>
-            <FieldTextInput
-              className={classNames(css.dist)}
-              id="maxDist"
-              name="maxDist"
-              type="number"
-              placeholder="Miles"
-              parse={value => {
-                const parsed = Number.parseInt(value, 10);
-                return Number.isNaN(parsed) ? null : parsed;
-              }}
-              label=""
-            />
-            <FieldTextInput
-              className={classNames(css.price)}
-              id="price"
-              name="price"
-              type="number"
-              placeholder="Price ($)"
-              parse={value => {
-                const parsed = Number.parseFloat(value);
-                return Number.isNaN(parsed) ? null : parsed;
-              }}
-              label=""
-            />
-          </div>
+              <div className={css.costPerMile}>
+                <div className={css.pickMedium}>Between</div>
+                <FieldTextInput
+                  className={classNames(css.dist)}
+                  id="minDist"
+                  name="minDist"
+                  type="number"
+                  placeholder="Miles"
+                  parse={value => {
+                    const parsed = Number.parseInt(value, 10);
+                    return Number.isNaN(parsed) ? null : parsed;
+                  }}
+                  label=""
+                />
+                <div className={css.pickMedium}>and</div>
+                <FieldTextInput
+                  className={classNames(css.dist)}
+                  id="maxDist"
+                  name="maxDist"
+                  type="number"
+                  placeholder="Miles"
+                  parse={value => {
+                    const parsed = Number.parseInt(value, 10);
+                    return Number.isNaN(parsed) ? null : parsed;
+                  }}
+                  label=""
+                />
+                <FieldTextInput
+                  className={classNames(css.price)}
+                  id="price"
+                  name="price"
+                  type="number"
+                  placeholder="Price ($)"
+                  parse={value => {
+                    const parsed = Number.parseFloat(value);
+                    return Number.isNaN(parsed) ? null : parsed;
+                  }}
+                  label=""
+                />
+              </div>
+
+              {/* Here */}
+              <div className={css.pickTitle}>Delivery Days & Times</div>
+              {/* //Set Same Availability for All Day */}
+              <div
+                className={css.clickForSame}
+                onClick={() => {
+                  form.mutators.setSameStartT1(values['monStartT1']);
+                  form.mutators.setSameEndT1(values['monEndT1']);
+                  form.mutators.setSameStartD1(values['monStartD1']);
+                  form.mutators.setSameEndD1(values['monEndD1']);
+                  form.mutators.setSameCheck1(values['is_mon1']);
+                }}
+              >
+                Set Same Availability for All Day{' '}
+              </div>
+
+              <EditListingPickTime1 day="mon" fDay="Monday" />
+              <EditListingPickTime1 day="tue" fDay="Tuesday" />
+              <EditListingPickTime1 day="wed" fDay="Wednesday" />
+              <EditListingPickTime1 day="thu" fDay="Thursday" />
+              <EditListingPickTime1 day="fri" fDay="Friday" />
+              <EditListingPickTime1 day="sat" fDay="Saturday" />
+              <EditListingPickTime1 day="sun" fDay="Sunday" />
+            </>
+          )}
 
           <div className={css.pickTitle}>Pickup Days & Times</div>
           {/* //Set Same Availability for All Day */}

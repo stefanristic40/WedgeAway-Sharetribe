@@ -199,6 +199,8 @@ const OrderPanel = props => {
     currentUser,
     pickUpTime,
     dropOffTime,
+    pickUpTime1,
+    dropOffTime1,
   } = props;
 
   const publicData = listing?.attributes?.publicData || {};
@@ -390,6 +392,8 @@ const OrderPanel = props => {
             isDelivery={isDelivery}
             dropOffTime={dropOffTime}
             pickUpTime={pickUpTime}
+            dropOffTime1={dropOffTime1}
+            pickUpTime1={pickUpTime1}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm

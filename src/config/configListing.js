@@ -329,24 +329,19 @@ export const listingFields = [
   {
     key: 'putterOffset',
     scope: 'public',
-    schemaType: 'enum',
-    enumOptions: [
-      { option: 'Aiding Alignment', label: 'Aiding Alignment' },
-      { option: 'Reducing Skidding', label: 'Reducing Skidding' },
-      { option: 'Promoting a Straighter Stroke', label: 'Promoting a Straighter Stroke' },
-    ],
+    schemaType: 'text',
     filterConfig: {
       indexForSearch: false,
-      label: 'Offset',
-      group: 'primary',
+      label: 'Offset (mm)',
+      group: 'secondary',
     },
     showConfig: {
-      label: 'Offset',
+      label: 'Offset (mm)',
       isDetail: false,
     },
     saveConfig: {
       label: '',
-      placeholderMessage: 'Offset',
+      placeholderMessage: 'Offset (mm)',
       isRequired: false,
       requiredMessage: 'You need to select Offset.',
     },

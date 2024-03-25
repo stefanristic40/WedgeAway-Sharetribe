@@ -517,6 +517,8 @@ export const BookingDatesFormComponent = props => {
     payoutDetailsWarning,
     dropOffTime,
     pickUpTime,
+    dropOffTime1,
+    pickUpTime1,
     ...rest
   } = props;
 
@@ -842,6 +844,7 @@ export const BookingDatesFormComponent = props => {
                   name="deliveryTime"
                   type="time"
                   className={css.locationAddress}
+                  validate={validatePickTime(pickUpTime1, dropOffTime1)}
                 />
               </div>
             )}
