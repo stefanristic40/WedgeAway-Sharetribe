@@ -96,8 +96,16 @@ class GeocoderGoogleMaps {
   getPlaceDetails(prediction, currentLocationBoundsDistance) {
     if (this.getPredictionId(prediction) === CURRENT_LOCATION_ID) {
       return userLocation().then(latlng => {
-        alert('die');
-        console.log('place_latlng', latlng);
+        //         {_sdkType: 'LatLng', lat: 37.09024, lng: -95.712891}
+        // lat
+        // :
+        // 37.09024
+        // lng
+        // :
+        // -95.712891
+        // _sdkType
+        // :
+        // "LatLng"
         return {
           address: '',
           origin: latlng,
@@ -105,7 +113,6 @@ class GeocoderGoogleMaps {
         };
       });
     }
-    alert('kill');
 
     if (prediction.predictionPlace) {
       return Promise.resolve(prediction.predictionPlace);
@@ -114,9 +121,6 @@ class GeocoderGoogleMaps {
     return googleMapsUtil
       .getPlaceDetails(prediction.place_id, this.getSessionToken())
       .then(place => {
-        alert('death');
-        console.log('place_12', prediction.place_id, this.getSessionToken());
-
         this.sessionToken = null;
         return place;
       });

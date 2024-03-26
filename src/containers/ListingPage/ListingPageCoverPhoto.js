@@ -534,8 +534,6 @@ export const ListingPageComponent = props => {
 
   const handleLocationTitle = () => {
     // Get the possible preditions
-    console.log('geocoder', geocoder);
-    console.log('geocoder func', geocoder.getPlacePredicitons);
     let possiblePrediction;
     const currentLocationBoundsDistance = config.maps?.search?.currentLocationBoundsDistance;
     geocoder
@@ -546,14 +544,11 @@ export const ListingPageComponent = props => {
       )
       .then(result => {
         possiblePrediction = result?.predictions[0];
-        console.log('result', possiblePrediction);
         geocoder.getPlaceDetails(possiblePrediction, currentLocationBoundsDistance).then(place => {
-          console.log('place', place);
           const searchParams = {
             address: place.address,
             bounds: place.bounds,
           };
-          console.log('location lat long searchParams:', searchParams);
           history.push(
             createResourceLocatorString('SearchPage', routeConfiguration, {}, searchParams)
           );
