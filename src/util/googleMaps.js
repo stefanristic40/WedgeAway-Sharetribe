@@ -46,8 +46,12 @@ export const getPlaceDetails = (placeId, sessionToken) =>
           new Error(`Could not get details for place id "${placeId}", error status was "${status}"`)
         );
       } else {
+        // const origin = placeOrigin(place);
+        // const bounds = locationBounds(origin, 4000);
         resolve({
           address: place.formatted_address,
+          // origin: origin,
+          // bounds: bounds,
           origin: placeOrigin(place),
           // bounds: placeBounds(place),
           bounds: locationBounds(placeOrigin(place), 2000),

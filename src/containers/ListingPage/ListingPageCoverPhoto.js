@@ -537,11 +537,7 @@ export const ListingPageComponent = props => {
     let possiblePrediction;
     const currentLocationBoundsDistance = config.maps?.search?.currentLocationBoundsDistance;
     geocoder
-      .getPlacePredictions(
-        addressCityState,
-        config.maps.search.countryLimit,
-        config.localization.locale
-      )
+      .getPlacePredictions(address, config.maps.search.countryLimit, config.localization.locale)
       .then(result => {
         possiblePrediction = result?.predictions[0];
         geocoder.getPlaceDetails(possiblePrediction, currentLocationBoundsDistance).then(place => {
