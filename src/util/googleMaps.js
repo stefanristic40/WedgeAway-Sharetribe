@@ -46,6 +46,9 @@ export const getPlaceDetails = (placeId, sessionToken) =>
           new Error(`Could not get details for place id "${placeId}", error status was "${status}"`)
         );
       } else {
+        alert('here');
+        console.log('place_here', place);
+
         resolve({
           address: place.formatted_address,
           origin: placeOrigin(place),
@@ -148,6 +151,8 @@ export const locationBounds = (latlng, distance) => {
     center: new window.google.maps.LatLng(latlng.lat, latlng.lng),
     radius: distance,
   }).getBounds();
+
+  console.log('place_1', bounds);
 
   const ne = bounds.getNorthEast();
   const sw = bounds.getSouthWest();

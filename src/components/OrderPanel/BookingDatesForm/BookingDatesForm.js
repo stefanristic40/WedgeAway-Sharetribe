@@ -483,7 +483,6 @@ const validatePickTime = (min, max) => value => {
   const minNum = min.replace(':', '');
   const maxNum = max.replace(':', '');
 
-  console.log('asdfasdf', min, max, value);
   if (valueNum < minNum || valueNum > maxNum) {
     return `Must be between ${min} and ${max}`;
   } else {
@@ -851,8 +850,6 @@ export const BookingDatesFormComponent = props => {
             {/* {!!addOn[`addOn${1}`]?.addOnTitle && <div className={css.addOnTitle}>Add Ons</div>} */}
             {typeof addOn != 'undefined' && !!addOn[`addOn${1}`]?.addOnTitle && (
               <>
-                {console.log('numberOfAddOn', numberOfAddOn)}
-                {console.log('numberOfAddOn_title', addOn[`addOn${1}`]?.addOnTitle)}
                 {<div className={css.addOnTitle}>Add Ons</div>}
                 {[...Array(numberOfAddOn)].map((_, index) => {
                   return (

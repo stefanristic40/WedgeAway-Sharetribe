@@ -194,8 +194,6 @@ export const ListingPageComponent = props => {
       ? ensureOwnListing(getOwnListing(listingId))
       : ensureListing(getListing(listingId));
 
-  console.log('address', currentListing);
-
   const address = currentListing?.attributes?.publicData?.location?.address;
   const [geocoder, setGeocoder] = useState(null);
   const addOn = currentListing?.attributes?.publicData?.addOns;
@@ -213,7 +211,6 @@ export const ListingPageComponent = props => {
 
   useEffect(() => {
     // const address = currentListing?.attributes?.publicData?.location?.address;   || 'Like New';
-    console.log('address', address);
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
         address
@@ -1020,7 +1017,6 @@ const EnhancedListingPage = props => {
 };
 
 const mapStateToProps = state => {
-  console.log('state for ', state);
   const { isAuthenticated } = state.auth;
   const {
     showListingError,

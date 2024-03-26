@@ -507,7 +507,6 @@ class LocationAutocompleteInputImplementation extends Component {
 
     const rootClass = classNames(rootClassName || css.root, className);
 
-    console.log('rootclassName', rootClassName);
     const iconClass = classNames(iconClassName || css.icon);
     const inputClass = classNames(inputClassName || css.input, { [validClassName]: isValid });
     const predictionsClass = classNames(predictionsClassName);
