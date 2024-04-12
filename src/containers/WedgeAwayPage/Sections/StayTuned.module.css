@@ -1,0 +1,133 @@
+.stayTunedContainer {
+  padding: 50px 0 50px 0;
+  margin: 0 0 0px 0;
+  background-color: #f6f1ef;
+}
+
+.stayTunedContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.wedgeAwayTitle {
+  width: 400px;
+
+  @media (max-width: 1280px) {
+    width: 320px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 240px;
+  }
+
+  @media (max-width: 768px) {
+    width: 180px;
+  }
+}
+
+.title {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 5rem;
+  line-height: 6rem;
+
+  @media (max-width: 1280px) {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+
+.listClubsContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 80px;
+  gap: 50px;
+  color: var(--colorBlack);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 50px;
+  }
+}
+
+.leftSection {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (max-width: 1024px) {
+    width: 350px;
+  }
+
+  @media (max-width: 768px) {
+    width: auto;
+  }
+
+}
+
+.subTitle {
+  text-align: center;
+  font-weight: bold;
+  color: #090808;
+  font-family: 'Arial Black', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 4rem;
+  line-height: 4rem;
+  margin: 15px 0 0 0;
+  padding: 0 0 0 0;
+  z-index: 2;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+.listBtn {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rightSection {
+  width: 40%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.5s;
+}

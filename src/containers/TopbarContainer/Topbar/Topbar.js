@@ -211,14 +211,6 @@ class TopbarComponent extends Component {
 
     const classes = classNames(rootClassName || css.root, className);
 
-    const listMyClubsButton = (
-      <NamedLink className={css.listMyClubsButton} name="ClubExplanationPage">
-        <span className={css.listMyClubs}>
-          <FormattedMessage id="TopbarDesktop.listMyClubs" />
-        </span>
-      </NamedLink>
-    );
-
     return (
       <div className={classes}>
         <LimitedAccessBanner
@@ -229,8 +221,7 @@ class TopbarComponent extends Component {
           currentPage={currentPage}
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
-          <LinkedLogo layout={'mobile'} alt={intl.formatMessage({ id: 'Topbar.logoIcon' })} />
-          {listMyClubsButton}
+          <LinkedLogo layout={'mobile'} alt={intl.formatMessage({ id: 'Topbar.logoIcon' })} />      
           <Button
             rootClassName={css.menu}
             onClick={this.handleMobileMenuOpen}

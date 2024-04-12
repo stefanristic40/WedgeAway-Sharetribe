@@ -1,0 +1,60 @@
+.searchCourseContainer {
+  /* border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb; */
+  background-color: #e4e9e6;
+}
+
+.searchCourse {
+  /* background-color: #e4e9e6; */
+  padding: 60px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  color: black;
+
+  /* border: 1px solid #bbbbbb;
+  border-radius: 20px; */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+.search_box {
+  border-radius: 50px;
+  border-radius: 50px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.search {
+  border-radius: 50px;
+  padding: 10px 50px 10px 20px;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  border: 0;
+  outline: none;
+  background-color: #3e714b;
+}
+
+.search:focus {
+  border: 0;
+  outline: none;
+  background-color: #3e714b;
+}
+
+.search::placeholder {
+  color: white;
+  text-align: center;
+}
+
+.search_icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}

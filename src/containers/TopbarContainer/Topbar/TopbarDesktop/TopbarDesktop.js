@@ -81,34 +81,6 @@ const TopbarDesktop = props => {
             <FormattedMessage id="TopbarDesktop.yourListingsLink" />
           </NamedLink>
         </MenuItem>
-        {/* For the Favorite Tab in the Account Settings Page */}
-        {/* <MenuItem key="FavoriteListingsPage">
-          <NamedLink
-            className={classNames(css.yourListingsLink, currentPageClass('FavoriteListingsPage'))}
-            name="FavoriteListingsPage"
-          >
-            <span className={css.menuItemBorder} />
-            <FormattedMessage id="TopbarDesktop.favoriteListingsLink" />
-          </NamedLink>
-        </MenuItem>  */}
-        <MenuItem key="ProfileSettingsPage">
-          <NamedLink
-            className={classNames(css.profileSettingsLink, currentPageClass('ProfileSettingsPage'))}
-            name="ProfileSettingsPage"
-          >
-            <span className={css.menuItemBorder} />
-            <FormattedMessage id="TopbarDesktop.profileSettingsLink" />
-          </NamedLink>
-        </MenuItem>
-        <MenuItem key="AccountSettingsPage">
-          <NamedLink
-            className={classNames(css.yourListingsLink, currentPageClass('AccountSettingsPage'))}
-            name="AccountSettingsPage"
-          >
-            <span className={css.menuItemBorder} />
-            <FormattedMessage id="TopbarDesktop.accountSettingsLink" />
-          </NamedLink>
-        </MenuItem>
         <MenuItem key="logout">
           <InlineTextButton rootClassName={css.logoutButton} onClick={onLogout}>
             <span className={css.menuItemBorder} />
@@ -155,22 +127,8 @@ const TopbarDesktop = props => {
           layout="desktop"
           alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
         />
-        <div className={css.searchTopBar} id="header_search">
-          <Search />
-        </div>
       </div>
-      {/*
-      <NamedLink className={css.createListingLink} name="NewListingPage">
-        <span className={css.createListing}>
-          <FormattedMessage id="TopbarDesktop.createListing" />
-        </span>
-      </NamedLink> */}
-      <div className={css.menus}>
-        {listMyClubsButton}
-        {whyRentlocalButton}
-        {helpButton}
-        {inboxLink}
-        {notificationButton}
+      <div className={css.menus}>        
         {profileMenu}
         {signupLink}
         {loginLink}

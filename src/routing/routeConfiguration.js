@@ -21,6 +21,8 @@ const ClubExplanationPage = loadable(() => import(/* webpackChunkName: "ClubExpl
 const EmailVerificationPage = loadable(() => import(/* webpackChunkName: "EmailVerificationPage" */ '../containers/EmailVerificationPage/EmailVerificationPage'));
 const InboxPage = loadable(() => import(/* webpackChunkName: "InboxPage" */ '../containers/InboxPage/InboxPage'));
 const LandingPage = loadable(() => import(/* webpackChunkName: "LandingPage" */ '../containers/LandingPage/LandingPage'));
+const LandingPageOrigin = loadable(() => import(/* webpackChunkName: "LandingPage" */ '../containers/LandingPage_Origin/LandingPageOrigin'));
+const WedgeAwayPage = loadable(() => import(/* webpackChunkName: "WedgeAwayPage" */ '../containers/WedgeAwayPage/WedgeAwayPage'));
 const ListingPageCoverPhoto = loadable(() => import(/* webpackChunkName: "ListingPageCoverPhoto" */ /* webpackPrefetch: true */ '../containers/ListingPage/ListingPageCoverPhoto'));
 const ListingPageCarousel = loadable(() => import(/* webpackChunkName: "ListingPageCarousel" */ /* webpackPrefetch: true */ '../containers/ListingPage/ListingPageCarousel'));
 const ManageListingsPage = loadable(() => import(/* webpackChunkName: "ManageListingsPage" */ '../containers/ManageListingsPage/ManageListingsPage'));
@@ -78,6 +80,12 @@ const routeConfiguration = (layoutConfig) => {
       loadData: pageDataLoadingAPI.LandingPage.loadData,
     },
     {
+      path: '/dev',
+      name: 'LandingPageOrigin',
+      component: LandingPageOrigin,
+      loadData: pageDataLoadingAPI.LandingPageOrigin.loadData,
+    },    
+    {
       path: '/p/:pageId',
       name: 'CMSPage',
       component: CMSPage,
@@ -130,6 +138,12 @@ const routeConfiguration = (layoutConfig) => {
           params={{ slug: draftSlug, id: draftId, type: 'new', tab: 'details' }}
         />
       ),
+    },
+    {
+      path: '/wedgeaway',
+      name: 'WedgeAwayPage',
+      auth: true,
+      component: WedgeAwayPage,
     },
     {
       path: '/l/:slug/:id/:type/:tab',
