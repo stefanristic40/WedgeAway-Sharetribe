@@ -18,7 +18,7 @@ const LinkedLogo = props => {
   } = props;
   const classes = classNames(rootClassName || css.root, className);
   return (
-    <NamedLink className={classes} name="LandingPage" {...rest}>
+    <NamedLink className={classes} name="WedgeAwayPage" {...rest}>
       <Logo
         layout={layout}
         className={logoClassName}

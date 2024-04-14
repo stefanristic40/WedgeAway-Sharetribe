@@ -72,12 +72,18 @@ const routeConfiguration = (layoutConfig) => {
     ?  ListingPageCoverPhoto
     : ListingPageCarousel ;
 
-  return [
+  return [           
     {
       path: '/',
       name: 'LandingPage',
       component: LandingPage,
       loadData: pageDataLoadingAPI.LandingPage.loadData,
+    },    
+    {
+      path: '/wedgeaway',
+      name: 'WedgeAwayPage',
+      auth: true,
+      component: WedgeAwayPage,
     },
     {
       path: '/dev',
@@ -138,13 +144,7 @@ const routeConfiguration = (layoutConfig) => {
           params={{ slug: draftSlug, id: draftId, type: 'new', tab: 'details' }}
         />
       ),
-    },
-    {
-      path: '/wedgeaway',
-      name: 'WedgeAwayPage',
-      auth: true,
-      component: WedgeAwayPage,
-    },
+    },    
     {
       path: '/l/:slug/:id/:type/:tab',
       name: 'EditListingPage',

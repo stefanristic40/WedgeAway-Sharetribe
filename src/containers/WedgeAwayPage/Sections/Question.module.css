@@ -49,6 +49,10 @@
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: larger;
+
+  @media (max-width: 768px) {
+    width: 320px
+  }
 }
 
 input::placeholder {
@@ -64,4 +68,8 @@ input::placeholder {
   padding: 20px 40px;
   border-radius: 10px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 320px
+  }
 }

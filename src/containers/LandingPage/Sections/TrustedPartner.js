@@ -25,7 +25,7 @@ function TrustedPartner(props) {
               all over the world. Think Airbnb, but for golf clubs!
             </p>
 
-            <NamedLink className={css.listBtn} name="WedgeAwayPage">
+            <NamedLink className={css.listBtn} name="NewListingPage">
               <FormattedMessage id="LandingPage.SignUp&CreateYourListing" />
             </NamedLink>
           </div>

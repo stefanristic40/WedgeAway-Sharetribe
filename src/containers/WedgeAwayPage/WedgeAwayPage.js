@@ -19,11 +19,8 @@ export const WedgeAwayPageComponent = props => {
   return (
     <Page className={css.root} scrollingDisabled={false}>
       <LayoutSingleColumn
-        topbar={
-          <>
-            <TopbarContainer currentPage="LandingPage" />
-          </>
-        }
+        mainColumnClassName={css.layoutWrapperMain}
+        topbar={<TopbarContainer currentPage="WedgeAwayPage" />}
         footer={<FooterContainer />}
       >
         <div className={css.content}>

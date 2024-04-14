@@ -14,14 +14,12 @@ import StartEarning from './Sections/StartEarning';
 import Faqs from './Sections/Faqs';
 
 export const LandingPageComponent = props => {
+
   return (
     <Page className={css.root} scrollingDisabled={false}>
       <LayoutSingleColumn
-        topbar={
-          <>
-            <TopbarContainer currentPage="LandingPage" />
-          </>
-        }
+        mainColumnClassName={css.layoutWrapperMain}
+        topbar={<TopbarContainer currentPage="LandingPage" />}
         footer={<FooterContainer />}
       >
         <div className={css.content}>
