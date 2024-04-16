@@ -55,6 +55,8 @@ const draftId = '00000000-0000-0000-0000-000000000000';
 const draftSlug = 'draft';
 
 const RedirectToLandingPage = () => <NamedRedirect name="LandingPage" />;
+const RedirectToWedgeAwayPage = () => <NamedRedirect name="WedgeAwayPage" />;
+
 
 // NOTE: Most server-side endpoints are prefixed with /api. Requests to those
 // endpoints are indended to be handled in the server instead of the browser and
@@ -116,9 +118,15 @@ const routeConfiguration = (layoutConfig) => {
     {
       path: '/l/:slug/:id',
       name: 'ListingPage',
-      component: ListingPage,
+      component: RedirectToWedgeAwayPage,
       loadData: pageDataLoadingAPI.ListingPage.loadData,
     },
+    // {
+    //   path: '/l/:slug/:id',
+    //   name: 'ListingPage',
+    //   component: ListingPage,
+    //   loadData: pageDataLoadingAPI.ListingPage.loadData,
+    // },
     {
       path: '/l/:slug/:id/checkout',
       name: 'CheckoutPage',

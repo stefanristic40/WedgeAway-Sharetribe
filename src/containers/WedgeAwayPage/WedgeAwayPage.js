@@ -10,10 +10,6 @@ import FooterContainer from '../FooterContainer/FooterContainer';
 
 import css from './WedgeAwayPage.module.css';
 import StayTuned from './Sections/StayTuned';
-import Question from './Sections/Question';
-// import TrustedPartner from './Sections/TrustedPartner';
-// import StartEarning from './Sections/StartEarning';
-// import Faqs from './Sections/Faqs';
 
 export const WedgeAwayPageComponent = props => {
   return (
@@ -24,8 +20,7 @@ export const WedgeAwayPageComponent = props => {
         footer={<FooterContainer />}
       >
         <div className={css.content}>
-          <StayTuned />
-          <Question />
+          <StayTuned />          
         </div>
       </LayoutSingleColumn>
     </Page>
